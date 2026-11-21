@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	AssMetadataWin("a");
+	AssMetadataWin("a", 1, 1, 1, 1);
+	AssPage("a");
+	AssPage("a", "a", "a", "a", "a", "a", "a", "a", "a");
+	AssPopUp("a");
+	AssPopUp("a", "a", "a", "a", "a", "a", "a", "a", "a");
+	AssScaleStr("a", 1, 1);
+	AssScaleStr("a", 1, 1, 1);
+	AssTag("a", "a");
+	AssTag("a", "a", "a");
+	AssVarTags(1, 1);
+	AssVarTags(1, 1, "a", "a", "a", "a", "a", "a", "a", "a");
+	AssWin("a");
+	AssWin("a", 1, 1, 1, "a", "a", "a", "a", "a", "a", "a", "a");
+	CreateControlObject("a", "a", 1, 1, 1, 1);
+	CreateControlObject("a", "a", 1, 1, 1, 1, "a");
+	DateYear(1);
+	DateYear(1, 1);
+	DDERead("a", "a", "a");
+	DDERead("a", "a", "a", 1);
+END

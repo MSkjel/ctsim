@@ -1,0 +1,3 @@
+FUNCTION ProbeD()
+	TaskNew("F", "", 0);
+END

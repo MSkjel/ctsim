@@ -1,0 +1,7 @@
+FUNCTION Z(INT a)
+	INT i;
+	IF a THEN
+		FOR i = 5;
+	END
+	Sleep(i);
+END

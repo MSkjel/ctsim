@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	DevControl(1, 1, "a");
+	DevOpen("a");
+	DevOpen("a", 1);
+	DriverInfo("a", 1);
+	DriverInfo("a", 1, "a", "a");
+	DspAnCreateControlObject(1, "a", 1, 1);
+	DspAnCreateControlObject(1, "a", 1, 1, "a");
+	DspAnGetPos(1, vi, vi);
+	DspAnGetPos(1, vi, vi, 1);
+	DspArrayByAn();
+	DspArrayByAn(1);
+	DspButton(1, 1, 1);
+	DspButton(1, 1, 1, 1, 1, 1, 1, 1, 1);
+	DspButtonFn(1, 1, 1);
+	DspButtonFn(1, 1, 1, 1, 1, 1, 1, 1, 1);
+	DspChart(1, "a", 1);
+	DspChart(1, "a", 1, 1, 1, 1, 1, 1, 1, 1);
+	DspFont("a", 1, 1, 1);
+	DspFont("a", 1, 1, 1, 1, 1);
+	DspGetAnFromPoint(1, 1);
+END

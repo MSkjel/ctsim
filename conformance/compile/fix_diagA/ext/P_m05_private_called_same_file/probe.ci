@@ -1,0 +1,6 @@
+PRIVATE FUNCTION ProbePriv()
+END
+FUNCTION ProbeB()
+	ProbePriv();
+END
+

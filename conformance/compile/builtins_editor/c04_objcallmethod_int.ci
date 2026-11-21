@@ -1,0 +1,3 @@
+FUNCTION P()
+	_ObjectCallMethod(1, "m");
+END

@@ -1,0 +1,6 @@
+INT FUNCTION FbDefFirst(INT a = 1, INT b)
+	RETURN a + b;
+END
+FUNCTION P()
+	FbDefFirst(5);
+END

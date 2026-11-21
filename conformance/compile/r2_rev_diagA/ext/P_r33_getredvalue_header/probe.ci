@@ -1,0 +1,3 @@
+INT FUNCTION GetRedValue(INT c)
+	RETURN c;
+END

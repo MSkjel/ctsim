@@ -1,0 +1,4 @@
+FUNCTION P()
+	REAL r = 1;
+	SysTimeDelta(r);
+END

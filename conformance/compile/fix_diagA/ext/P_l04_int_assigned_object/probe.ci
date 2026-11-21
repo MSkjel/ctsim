@@ -1,0 +1,6 @@
+FUNCTION ProbeA()
+	OBJECT o;
+	INT i;
+	i = o;
+END
+

@@ -1,0 +1,6 @@
+INT FUNCTION ZCb()
+	RETURN 0;
+END
+FUNCTION Z()
+	DspButtonFn(1, 0, "x", 0, 10, 10, ZCb);
+END

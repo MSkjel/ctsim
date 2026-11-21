@@ -1,0 +1,20 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [
+  {
+   "code": "W1007",
+   "msg": "Tag not defined",
+   "file": "probe.ci",
+   "line": 6,
+   "context": "r:### Eu{stace} = 1; RETURN"
+  }
+ ],
+ "aliases": [
+  "r2_diagB/projects/fix_lexing__r02_pic_eu_prefix_of_name/probe.ci"
+ ]
+}

@@ -1,0 +1,3 @@
+GLOBAL INT PageGoto;
+FUNCTION ZzF()
+END

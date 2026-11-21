@@ -1,0 +1,5 @@
+FUNCTION Z(INT i)
+	IF i:### THEN
+		Sleep(0);
+	END
+END

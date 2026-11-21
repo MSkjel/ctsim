@@ -1,0 +1,3 @@
+FUNCTION Q()
+	P();
+END

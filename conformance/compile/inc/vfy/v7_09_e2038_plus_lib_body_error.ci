@@ -1,0 +1,16 @@
+//// PROJECT: Root1
+//// INCLUDE: Zlib
+//// LABEL: DL2 = 1
+//// FILE: r.ci
+FUNCTION RB()
+	UnkRoot();
+END
+
+
+//// PROJECT: Zlib
+//// LABEL: DL2 = 1
+//// FILE: z.ci
+FUNCTION ZB()
+	UnkZlib();
+END
+

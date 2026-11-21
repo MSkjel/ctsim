@@ -1,0 +1,4 @@
+FUNCTION ProbeP()
+	STRING s = StrLeft;
+END
+

@@ -1,0 +1,4 @@
+INT zzA, INT zzB;
+INT FUNCTION ProbeA()
+	RETURN zzA + zzB;
+END

@@ -1,0 +1,5 @@
+INT FUNCTION ZzF()
+	RETURN // value follows
+	/* block */ 5;
+END
+

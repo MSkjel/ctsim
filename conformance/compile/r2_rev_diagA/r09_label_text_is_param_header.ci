@@ -1,0 +1,3 @@
+//// LABEL: ZzId(a) = a
+FUNCTION ZzId(INT x)
+END

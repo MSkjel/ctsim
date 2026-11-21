@@ -1,0 +1,10 @@
+FUNCTION ProbeQ(INT a)
+	IF a = 1
+	THEN
+		Sleep(1);
+	END
+	WHILE a < 3
+	DO
+		a = a + 1;
+	END
+END

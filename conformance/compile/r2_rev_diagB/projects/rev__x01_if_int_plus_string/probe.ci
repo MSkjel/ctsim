@@ -1,0 +1,5 @@
+FUNCTION Z(INT i, STRING s)
+	IF i + s THEN
+		Sleep(0);
+	END
+END

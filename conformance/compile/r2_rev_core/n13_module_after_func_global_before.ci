@@ -1,0 +1,7 @@
+//// FILE: a.ci
+GLOBAL STRING zzX = "a";
+//// FILE: b.ci
+INT FUNCTION ZzF()
+	RETURN zzX - 1;
+END
+MODULE INT zzX = 1;

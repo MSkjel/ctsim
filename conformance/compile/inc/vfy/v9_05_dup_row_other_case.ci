@@ -1,0 +1,16 @@
+//// PROJECT: Root1
+//// INCLUDE: Zlib
+//// INCLUDE: =cip_zlib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN ZlibFn();
+END
+
+
+//// PROJECT: Zlib
+//// LABEL: ZLB = 1
+//// FILE: z.ci
+INT FUNCTION ZlibFn()
+	RETURN 1;
+END
+

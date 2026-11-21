@@ -1,0 +1,4 @@
+FUNCTION P()
+	INT i = 1;
+END
+/* never closed

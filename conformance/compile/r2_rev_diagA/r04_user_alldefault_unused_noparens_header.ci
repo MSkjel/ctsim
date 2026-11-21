@@ -1,0 +1,6 @@
+//// LABEL: ZzNd(a=1) = ZzTgtNd()
+FUNCTION ZzNd
+END
+FUNCTION ZzU()
+	ZzTgtNd();
+END

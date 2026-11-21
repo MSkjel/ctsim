@@ -1,0 +1,15 @@
+MODULE STRING s[3] =
+    "a",
+    "b",
+  "c";
+FUNCTION Z(INT a)
+        IF a = 1 AND
+              a < 5 THEN
+  a = a
+      + 1;
+// about the else
+    ELSE
+      a = 2;
+        // trailing note
+  END
+END

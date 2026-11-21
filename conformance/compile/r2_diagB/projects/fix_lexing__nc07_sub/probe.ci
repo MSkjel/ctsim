@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT aµb;
+	aµb = 1;
+	RETURN aµb;
+END

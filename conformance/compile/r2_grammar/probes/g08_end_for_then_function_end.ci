@@ -1,0 +1,9 @@
+INT FUNCTION ZzF(INT a)
+	INT i = 0;
+	FOR i = 1 TO 2 DO
+		a = a + 1;
+	END FOR
+END
+INT FUNCTION ZzG()
+	RETURN ZzLiveC;
+END

@@ -1,0 +1,7 @@
+//// PROJECT: Root1
+//// INCLUDE: =CIP_ROOT1
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+

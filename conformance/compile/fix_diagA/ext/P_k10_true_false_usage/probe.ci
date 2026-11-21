@@ -1,0 +1,6 @@
+INT FUNCTION ProbeK(INT a = TRUE)
+	INT b = FALSE;
+	IF a = TRUE THEN b = TRUE; END
+	RETURN b;
+END
+

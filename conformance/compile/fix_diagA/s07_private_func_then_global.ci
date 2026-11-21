@@ -1,0 +1,5 @@
+//// FILE: a.ci
+PRIVATE FUNCTION ZzFn()
+END
+//// FILE: b.ci
+GLOBAL INT ZzFn;

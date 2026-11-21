@@ -1,0 +1,6 @@
+GLOBAL INT zX;
+MODULE INT zX;
+FUNCTION ProbeD()
+	zX = 1;
+END
+

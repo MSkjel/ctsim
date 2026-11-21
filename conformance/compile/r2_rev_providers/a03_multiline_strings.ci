@@ -1,0 +1,9 @@
+STRING FUNCTION ZzC(INT n)
+	STRING s = "one   
+  two  
+
+ three" + StrLeft("a,
+  b" ,1) ;
+	RETURN s + StrLeft(  "x"  ,
+			n)
+END

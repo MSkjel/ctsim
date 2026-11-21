@@ -1,0 +1,20 @@
+//// PROJECT: Top
+//// INCLUDE: Mid
+//// FILE: t.ci
+INT FUNCTION TopFn()
+	RETURN BOTCONST;
+END
+
+//// PROJECT: Mid
+//// INCLUDE: Bot
+//// FILE: m.ci
+INT FUNCTION MidFn()
+	RETURN 1;
+END
+
+//// PROJECT: Bot
+//// LABEL: BOTCONST = 5
+//// FILE: b.ci
+INT FUNCTION BotFn()
+	RETURN 1;
+END

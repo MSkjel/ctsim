@@ -1,0 +1,15 @@
+FUNCTION Z(INT x)
+	INT y;
+	SELECT CASE x
+	CASE IS <> 1
+		y = 1;
+	CASE IS <= 2
+		y = 2;
+	CASE IS = 3
+		y = 3;
+	CASE IS < 4
+		y = 4;
+	CASE IS >= 5
+		y = 5;
+	END SELECT
+END

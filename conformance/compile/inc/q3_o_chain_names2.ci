@@ -1,0 +1,19 @@
+//// PROJECT: Aroot
+//// INCLUDE: Zmid
+//// FILE: z.ci
+INT FUNCTION F_top()
+	RETURN Unknown_top();
+END
+
+//// PROJECT: Zmid
+//// INCLUDE: Mbot
+//// FILE: a.ci
+INT FUNCTION F_mid()
+	RETURN Unknown_mid();
+END
+
+//// PROJECT: Mbot
+//// FILE: m.ci
+INT FUNCTION F_bot()
+	RETURN Unknown_bot();
+END

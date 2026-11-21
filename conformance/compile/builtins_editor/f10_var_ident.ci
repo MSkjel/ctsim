@@ -1,0 +1,3 @@
+FUNCTION P()
+	INT var = 1;
+END

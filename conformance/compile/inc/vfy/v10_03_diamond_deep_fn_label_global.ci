@@ -1,0 +1,42 @@
+//// PROJECT: Root1
+//// INCLUDE: Alib
+//// INCLUDE: Zlib
+//// FILE: root1.ci
+INT FUNCTION R1Fn()
+	RETURN LeafFn() + MbotFn() + LEAFL + MBL + gLeaf;
+END
+
+
+//// PROJECT: Alib
+//// INCLUDE: Mbot
+//// FILE: alib.ci
+INT FUNCTION AlibFn()
+	RETURN MbotFn() + LEAFL;
+END
+
+
+//// PROJECT: Zlib
+//// INCLUDE: Mbot
+//// FILE: zlib.ci
+INT FUNCTION ZlibFn()
+	RETURN MbotFn() + MBL;
+END
+
+
+//// PROJECT: Mbot
+//// INCLUDE: Leaf
+//// LABEL: MBL = 2
+//// FILE: mbot.ci
+INT FUNCTION MbotFn()
+	RETURN LeafFn();
+END
+
+
+//// PROJECT: Leaf
+//// LABEL: LEAFL = 1
+//// FILE: leaf.ci
+GLOBAL INT gLeaf = 1;
+INT FUNCTION LeafFn()
+	RETURN 1;
+END
+

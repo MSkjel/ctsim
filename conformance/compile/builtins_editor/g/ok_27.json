@@ -1,0 +1,24 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [
+  {
+   "code": "W1008",
+   "msg": "Function deprecated, legacy function will be removed in a future release",
+   "file": "probe.ci",
+   "line": 15,
+   "context": "vr, 1, \"a\"); {UserCreate}(\"a\", \"a\","
+  },
+  {
+   "code": "W1008",
+   "msg": "Function deprecated, legacy function will be removed in a future release",
+   "file": "probe.ci",
+   "line": 16,
+   "context": "\"a\", \"a\"); {UserCreate}(\"a\", \"a\","
+  }
+ ]
+}

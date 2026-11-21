@@ -1,0 +1,5 @@
+REAL FUNCTION P()
+	REAL v;
+	v = 1e + 2;
+	RETURN v;
+END

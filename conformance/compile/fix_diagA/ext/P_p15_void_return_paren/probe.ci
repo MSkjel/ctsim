@@ -1,0 +1,4 @@
+FUNCTION ProbeP()
+	RETURN (1);
+END
+

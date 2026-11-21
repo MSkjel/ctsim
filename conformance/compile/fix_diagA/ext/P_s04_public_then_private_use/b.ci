@@ -1,0 +1,6 @@
+PRIVATE FUNCTION ZzFn()
+END
+FUNCTION ZzUse()
+	ZzFn();
+END
+

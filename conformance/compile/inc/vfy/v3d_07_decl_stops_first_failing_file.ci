@@ -1,0 +1,25 @@
+//// PROJECT: Root1
+//// INCLUDE: Top
+//// INCLUDE: Zlib
+//// FILE: a.ci
+INT FUNCTION Dup2()
+	RETURN 1;
+END
+
+
+//// PROJECT: Top
+//// FILE: l.ci
+INT FUNCTION Dup1()
+	RETURN 1;
+END
+INT FUNCTION Dup2()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+INT FUNCTION Dup1()
+	RETURN 1;
+END
+

@@ -1,0 +1,3 @@
+INT FUNCTION end()
+	RETURN 0;
+END

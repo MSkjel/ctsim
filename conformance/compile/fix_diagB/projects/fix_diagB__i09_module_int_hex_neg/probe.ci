@@ -1,0 +1,5 @@
+MODULE INT a = -0x10;
+MODULE REAL r = -1e3;
+MODULE REAL q = +2;
+FUNCTION Z()
+END

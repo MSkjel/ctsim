@@ -1,0 +1,6 @@
+INT FUNCTION ZCb()
+	RETURN 0;
+END
+FUNCTION Z()
+	FormButton(1, 1, "x", /* c */ ZCb /* d */, 0);
+END

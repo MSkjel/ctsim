@@ -1,0 +1,62 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Alib",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "a.ci",
+     "line": 2,
+     "context": "RETURN LEAFK + {LTri}(3); END",
+     "project": "Alib"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "a.ci",
+     "line": 2,
+     "context": "+ LTri(3){;} END",
+     "project": "Alib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "a.ci",
+     "line": 2,
+     "context": "+ LTri(3){;} END",
+     "project": "Alib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "a.ci",
+     "line": 6,
+     "context": "LTri(3); END {}",
+     "project": "Alib"
+    }
+   ],
+   "warnings": [
+    {
+     "code": "W1007",
+     "msg": "Tag not defined",
+     "file": "a.ci",
+     "line": 2,
+     "context": "AlibFn() RETURN {LEAFK} + LTri(3);",
+     "project": "Alib"
+    }
+   ]
+  },
+  {
+   "compile": "Root1",
+   "ok": true,
+   "errors": [],
+   "warnings": []
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	AccControl("a", 1);
+	AccControl("a", 1, "a");
+	AccumBrowseOpen("a", "a");
+	AccumBrowseOpen("a", "a", "a");
+	AlarmAck(1, 1);
+	AlarmAck(1, 1, "a");
+	AlarmAckRec(1);
+	AlarmAckRec(1, "a");
+	AlarmActive(1);
+	AlarmActive(1, "a");
+	AlarmCatGetFormat(1);
+	AlarmCatGetFormat(1, 1);
+	AlarmClear(1, 1);
+	AlarmClear(1, 1, "a");
+	AlarmClearRec(1);
+	AlarmClearRec(1, "a");
+	AlarmComment("a");
+	AlarmComment("a", 1);
+	AlarmCommentRecID("a", "a", 1);
+	AlarmCommentRecID("a", "a", 1, "a");
+END

@@ -1,0 +1,8 @@
+//// FILE: a.ci
+GLOBAL INT g;
+FUNCTION A()
+END
+//// FILE: b.ci
+FUNCTION B()
+	g = 1;
+END

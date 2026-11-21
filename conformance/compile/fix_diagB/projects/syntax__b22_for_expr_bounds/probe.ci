@@ -1,0 +1,6 @@
+FUNCTION Z(INT a)
+	INT i;
+	FOR i = a + 1 TO StrToInt("5") * 2 DO
+		Sleep(0);
+	END
+END

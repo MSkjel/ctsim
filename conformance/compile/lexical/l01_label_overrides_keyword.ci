@@ -1,0 +1,6 @@
+//// LABEL: IS = 5
+INT FUNCTION P()
+	INT i;
+	i = IS;
+	RETURN i;
+END

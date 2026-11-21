@@ -1,0 +1,4 @@
+FUNCTION P()
+	QUALITY q;
+	QualityIsOverrride(q);
+END

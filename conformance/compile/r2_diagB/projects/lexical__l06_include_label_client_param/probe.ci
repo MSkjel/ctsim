@@ -1,0 +1,3 @@
+INT FUNCTION P(INT Client)
+	RETURN Client;
+END

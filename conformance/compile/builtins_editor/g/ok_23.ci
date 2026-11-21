@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	TaskNewEx("a", "a", 1, 1);
+	TaskNewEx("a", "a", 1, 1, "a");
+	TimeIntToTimestamp(1);
+	TimeIntToTimestamp(1, 1, 1);
+	TimestampAdd(vt, 1);
+	TimestampAdd(vt, 1, 1);
+	TimestampFormat(vt, "a");
+	TimestampFormat(vt, "a", 1);
+	TimestampGetPart(vt, 1);
+	TimestampGetPart(vt, 1, 1);
+	TimestampSub(vt, 1);
+	TimestampSub(vt, 1, 1);
+	TimestampToStr(vt, 1);
+	TimestampToStr(vt, 1, 1);
+	TimestampToTimeInt(vt);
+	TimestampToTimeInt(vt, 1);
+	TimeToStr(1, 1);
+	TimeToStr(1, 1, 1);
+	TrendDspCursorTag(1);
+	TrendDspCursorTag(1, 1);
+END

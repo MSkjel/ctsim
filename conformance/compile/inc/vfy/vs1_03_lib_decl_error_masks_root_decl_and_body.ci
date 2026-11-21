@@ -1,0 +1,31 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// INCLUDE: Zlib
+//// FILE: a.ci
+INT FUNCTION DupR()
+	RETURN 1;
+END
+FUNCTION RB()
+	UnkS3();
+END
+
+
+//// PROJECT: Bot
+//// FILE: l.ci
+INT FUNCTION DupZ()
+	RETURN 1;
+END
+INT FUNCTION DupR()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+INT FUNCTION DupZ()
+	RETURN 1;
+END
+FUNCTION ZB()
+	UnkS3z();
+END
+

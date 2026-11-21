@@ -1,0 +1,12 @@
+//// PROJECT: Aroot
+//// INCLUDE: Zlib
+//// FILE: z.ci
+INT FUNCTION F_root_z()
+	RETURN Unknown_root_z();
+END
+
+//// PROJECT: Zlib
+//// FILE: a.ci
+INT FUNCTION F_lib_a()
+	RETURN Unknown_lib_a();
+END

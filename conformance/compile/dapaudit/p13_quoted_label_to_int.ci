@@ -1,0 +1,6 @@
+INT FUNCTION Twice(INT n)
+	RETURN n * 2;
+END
+INT FUNCTION ProbeCoerce()
+	RETURN Twice(TRUE) + Twice("TRUE");
+END

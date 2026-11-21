@@ -1,0 +1,3 @@
+FUNCTION ProbeP()
+	RETURN StrLength("a");
+END

@@ -1,0 +1,3 @@
+FUNCTION Z()
+	INT h = MapOpen;
+END

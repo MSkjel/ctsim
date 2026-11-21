@@ -1,0 +1,11 @@
+//// PROJECT: Root1
+//// FILE: _u.ci
+FUNCTION Fu()
+	Unknown_u();
+END
+
+//// FILE: b.ci
+FUNCTION Fb()
+	Unknown_b();
+END
+

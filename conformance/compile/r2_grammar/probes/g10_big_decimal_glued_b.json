@@ -1,0 +1,87 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "v; v = 42{9}4967296b;"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "v = 429{4}967296b;"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "v = 4294{9}67296b; RETURN"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "v = 42949{6}7296b; RETURN"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "v = 429496{7}296b; RETURN"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "= 4294967{2}96b; RETURN"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "= 42949672{9}6b; RETURN"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "429496729{6}b; RETURN"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "4294967296{b}; RETURN"
+  },
+  {
+   "code": "W1007",
+   "msg": "Tag not defined",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "4294967296{b}; RETURN"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "4294967296b{;} RETURN v;"
+  }
+ ]
+}

@@ -1,0 +1,3 @@
+REAL FUNCTION P()
+	RETURN Pi(1);
+END

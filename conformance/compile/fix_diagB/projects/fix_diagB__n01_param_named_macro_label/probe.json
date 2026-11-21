@@ -1,0 +1,41 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "FUNCTION Z(INT {PrintLn}) END"
+  },
+  {
+   "code": "E2008",
+   "msg": "Tag expected",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "FUNCTION Z(INT {PrintLn}) END"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "FUNCTION Z(INT {PrintLn}) END"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "Z(INT PrintLn{)} END"
+  }
+ ],
+ "warnings": [],
+ "aliases": [
+  "r2_diagB/projects/fix_diagB__n01_param_named_macro_label/probe.ci"
+ ]
+}

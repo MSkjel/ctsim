@@ -1,0 +1,5 @@
+FUNCTION Z()
+	INT a;
+done:
+	a = 1;
+END

@@ -1,0 +1,6 @@
+//// PROJECT: Root1
+//// FILE: r.ci
+INT FUNCTION KeyLeft()
+	RETURN 1;
+END
+

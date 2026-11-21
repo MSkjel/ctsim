@@ -1,0 +1,18 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_StrToIntImplicit()",
+ "function": "Conf_StrToIntImplicit",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "12abc=12/0;abc=0/433; 12=12/0;-5x=-5/0",
+ "facts": {
+  "12abc": "12/0",
+  "abc": "0/433",
+  "12": "12/0",
+  "-5x": "-5/0"
+ },
+ "source": "// STRING to INT on assignment, with the error code after each.\nSTRING FUNCTION Conf_StrToIntImplicit()\n\tINT a;\n\tINT b;\n\tINT c;\n\tINT d;\n\tINT e1;\n\tINT e2;\n\tINT e3;\n\tINT e4;\n\tErrSet(1);\n\ta = \"12abc\";\n\te1 = IsError();\n\tb = \"abc\";\n\te2 = IsError();\n\tc = \" 12\";\n\te3 = IsError();\n\td = \"-5x\";\n\te4 = IsError();\n\tRETURN \"12abc=\" + Conf_I(a) + \"/\" + Conf_I(e1) + \";abc=\" + Conf_I(b) + \"/\" + Conf_I(e2) + \"; 12=\" + Conf_I(c) + \"/\" + Conf_I(e3) + \";-5x=\" + Conf_I(d) + \"/\" + Conf_I(e4);\nEND\n"
+}

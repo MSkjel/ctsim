@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	INT module;
+	RETURN 0;
+END

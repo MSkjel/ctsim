@@ -1,0 +1,16 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_IsErrorReset()",
+ "function": "Conf_IsErrorReset",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "first=273;second=0",
+ "facts": {
+  "first": "273",
+  "second": "0"
+ },
+ "source": "// Does IsError() clear after it is read?\nSTRING FUNCTION Conf_IsErrorReset()\n\tINT z;\n\tINT a;\n\tINT b;\n\tErrSet(1);\n\tz = 1 / 0;\n\ta = IsError();\n\tb = IsError();\n\tRETURN \"first=\" + Conf_I(a) + \";second=\" + Conf_I(b);\nEND\n"
+}

@@ -1,0 +1,3 @@
+MODULE REAL r = --1;
+FUNCTION Z()
+END

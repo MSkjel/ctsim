@@ -1,0 +1,17 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: a.ci
+INT FUNCTION F_root_a()
+	RETURN Unknown_root_a();
+END
+
+//// FILE: z.ci
+INT FUNCTION Dup()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// FILE: m.ci
+INT FUNCTION Dup()
+	RETURN 2;
+END

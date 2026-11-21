@@ -1,0 +1,4 @@
+FUNCTION ProbeK()
+	INT PrintLn;
+	PrintLn = 1;
+END

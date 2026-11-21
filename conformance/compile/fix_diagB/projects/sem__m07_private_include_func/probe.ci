@@ -1,0 +1,3 @@
+FUNCTION ProbeB()
+	INT h = _FormDataGetHnd();
+END

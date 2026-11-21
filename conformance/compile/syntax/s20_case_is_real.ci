@@ -1,0 +1,9 @@
+FUNCTION Z(REAL r)
+	INT y;
+	SELECT CASE r
+	CASE IS > 1.5
+		y = 1;
+	CASE 1 TO 2
+		y = 2;
+	END SELECT
+END

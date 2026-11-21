@@ -1,0 +1,6 @@
+INT FUNCTION ZzCase()
+	INT zæ = 1;
+	INT ZÆ = 2;
+	zæ = zæ + 1;
+	RETURN zæ + ZÆ;
+END

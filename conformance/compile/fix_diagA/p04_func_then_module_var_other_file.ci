@@ -1,0 +1,5 @@
+//// FILE: a.ci
+FUNCTION ZzFn()
+END
+//// FILE: b.ci
+MODULE INT ZzFn;

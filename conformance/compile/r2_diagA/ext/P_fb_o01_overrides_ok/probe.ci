@@ -1,0 +1,54 @@
+INT FUNCTION ProbeCb()
+	RETURN 0;
+END
+FUNCTION ProbeOk()
+	INT vi; STRING vs; REAL vr; OBJECT vo; TIMESTAMP vt; QUALITY vq;
+	SQLErrMsg();
+	SQLErrMsg(1);
+	MapOpen();
+	MapOpen("a", 1, "a");
+	StrToLocalText("a");
+	StrToLocalText("a");
+	DevClose(1);
+	DevClose(1, 1);
+	_ObjectCallMethod(vo, "a");
+	_ObjectCallMethod(vo, "a", 1, 1, 1, 1, 1);
+	ErrSetHw(1, 1);
+	ErrSetHw(1, 1, 1);
+	TrnBrowseClose(1);
+	TrnBrowseClose(1);
+	FormEdit(1, 1, vs, 1);
+	FormEdit(1, 1, vs, 1, 1, 1, 1);
+	DspGetMouseOver();
+	DspGetMouseOver(1, 1);
+	MapValueSet("a", "a", 1);
+	MapValueSet("a", "a", 1, 1);
+	SubscriptionGetTag(1);
+	SubscriptionGetTag(1, 1);
+	UserVerify("a", "a");
+	UserVerify("a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a");
+	EquipGetProperty("a", "a");
+	EquipGetProperty("a", "a", 1, "a");
+	TimestampDifference(vt, vt);
+	TimestampDifference(vt, vt, 1, 1);
+	SQLGetField(1, "a");
+	SQLGetField(1, "a", 1);
+	ServerBrowseOpen();
+	ServerBrowseOpen("a", "a", "a");
+	VariableTimestamp(1);
+	VariableTimestamp(1, 1);
+	MenuNodeGetTargetPage();
+	MenuNodeGetTargetPage(1);
+	MenuNodeSetExpanded(1, 1);
+	MenuNodeSetExpanded(1, 1);
+	DLLCallEx(1);
+	DLLCallEx(1, 1, 1, 1, 1, 1);
+	TrnNew(1, "a");
+	TrnNew(1, "a", "a", "a", "a", "a", "a", "a", "a", "a", "a");
+	SubscriptionGetTimestamp(1);
+	SubscriptionGetTimestamp(1, "a");
+	QualityToStr(vq);
+	QualityToStr(vq, 1, 1);
+	SubscriptionGetValue(1);
+	SubscriptionGetValue(1, 1);
+END

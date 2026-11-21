@@ -1,0 +1,21 @@
+//// PROJECT: Main
+//// INCLUDE: Alib
+//// INCLUDE: Zlib
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: Alib
+//// FILE: a.ci
+GLOBAL INT gA = 1;
+INT FUNCTION AFn()
+	RETURN gZ;
+END
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+GLOBAL INT gZ = 1;
+INT FUNCTION ZFn()
+	RETURN gA;
+END

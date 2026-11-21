@@ -1,0 +1,3 @@
+INT FUNCTION timestamp()
+	RETURN 0;
+END

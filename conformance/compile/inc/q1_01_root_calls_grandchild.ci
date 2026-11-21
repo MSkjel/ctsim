@@ -1,0 +1,19 @@
+//// PROJECT: Top
+//// INCLUDE: Mid
+//// FILE: top.ci
+INT FUNCTION TopFn()
+	RETURN BotFn();
+END
+
+//// PROJECT: Mid
+//// INCLUDE: Bot
+//// FILE: mid.ci
+INT FUNCTION MidFn()
+	RETURN 1;
+END
+
+//// PROJECT: Bot
+//// FILE: bot.ci
+INT FUNCTION BotFn()
+	RETURN 1;
+END

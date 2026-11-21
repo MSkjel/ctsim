@@ -1,0 +1,5 @@
+//// LABEL: PROBE_A = 1
+//// LABEL: PROBE_A = 2
+INT FUNCTION ProbeK()
+	RETURN PROBE_A;
+END

@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	TrnSelect(1, "a", 1);
+	TrnSelect(1, "a", 1, "a");
+	TrnSetTable("a", 1, 1.5, 1, vr);
+	TrnSetTable("a", 1, 1.5, 1, vr, 1, "a");
+	UserCreate("a", "a", "a", "a");
+	UserCreate("a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a");
+	UserPassword("a", "a");
+	UserPassword("a", "a", "a");
+	UserPasswordExpiryDays("a");
+	UserPasswordExpiryDays("a", "a");
+	WinFile("a");
+	WinFile("a", 1.5, 1.5, 1, "a");
+	WinNew("a");
+	WinNew("a", "a");
+	WinNewAt("a", 1, 1, 1);
+	WinNewAt("a", 1, 1, 1, "a");
+	WinNewPinAt("a", 1, 1);
+	WinNewPinAt("a", 1, 1, 1, 1, 1, "a");
+	WinPrint("a");
+	WinPrint("a", 1.5, 1.5, 1, "a");
+END

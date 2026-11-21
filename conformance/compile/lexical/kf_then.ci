@@ -1,0 +1,3 @@
+INT FUNCTION then()
+	RETURN 0;
+END

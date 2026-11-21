@@ -1,0 +1,3 @@
+MODULE OBJECT o = "x";
+FUNCTION Z()
+END

@@ -1,0 +1,6 @@
+INT FUNCTION ZD(INT a = 1)
+	RETURN a;
+END
+FUNCTION Z()
+	INT i = ZD;
+END

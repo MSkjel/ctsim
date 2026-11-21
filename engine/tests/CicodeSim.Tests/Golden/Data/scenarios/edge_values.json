@@ -1,0 +1,12 @@
+{"format": "ctsim-scenario/0", "clock": {"start": "2026-10-01T08:00:00Z"},
+ "steps": [
+  {"at": 0.0, "random": {"tag": "Motor_Speed", "every": "nan", "seed": 3}},
+  {"at": 0.0, "ramp": [1, 2]},
+  {"at": 0.0, "sine": "Tank1_Temp"},
+  {"at": 0.0, "ramp": {"tag": "Tank1_Temp", "from": 0, "to": 10, "until": "nan"}},
+  {"at": 0.0, "sine": {"tag": "Motor_Speed", "min": -1, "max": 1, "period": 10, "every": 0.25, "seconds": 20}},
+  {"at": 0.5, "set": {"Count_Long": {"value": "\u001c5"}, "Name_Str": "x\u001fy"}},
+  {"at": 0.5, "quality": {"Pump1_Run": 13835058055282163904}},
+  {"at": 1.0, "set": {"Count_Long": "\u0661\u0662"}},
+  {"at": 1.0, "expect": {"Count_Long": 12, "Tank1_Temp": 10.0}},
+  {"at": 20.0, "expect": {"Motor_Speed": {"value": 0.0, "tolerance": 1e-6}}}]}

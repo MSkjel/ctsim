@@ -1,0 +1,4 @@
+FUNCTION ProbeT()
+	INT i = 1;
+	RETURN i + 2;
+END

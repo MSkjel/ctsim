@@ -1,0 +1,3 @@
+INT FUNCTION do()
+	RETURN 0;
+END

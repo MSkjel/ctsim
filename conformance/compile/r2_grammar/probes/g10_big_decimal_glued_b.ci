@@ -1,0 +1,5 @@
+INT FUNCTION ZzF()
+	INT v;
+	v = 4294967296b;
+	RETURN v;
+END

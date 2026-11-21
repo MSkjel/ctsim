@@ -1,0 +1,21 @@
+//// PROJECT: Mbot
+//// INCLUDE: Alib
+//// FILE: zz.ci
+INT FUNCTION MbotFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Alib
+//// FILE: a.ci
+INT FUNCTION AlibFnA()
+	RETURN 1;
+END
+
+//// FILE: b.ci
+INT FUNCTION AlibFnB()
+	RETURN MbotFn();
+END
+
+//// COMPILE: Mbot
+//// COMPILE: Alib

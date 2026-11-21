@@ -1,0 +1,3 @@
+FUNCTION ProbeR()
+	DspStr(1, "f");
+END

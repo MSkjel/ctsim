@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	SetLogging("a", "a", "a");
+	SetLogging("a", "a", "a", 1);
+	SOEEventAdd(vt, "a");
+	SOEEventAdd(vt, "a", "a", "a");
+	SOEMount("a");
+	SOEMount("a", "a");
+	SPCPlot("a", 1);
+	SPCPlot("a", 1, "a", "a", 1);
+	SPCProcessXRSGet("a", vr, vr, vr);
+	SPCProcessXRSGet("a", vr, vr, vr, "a");
+	SPCProcessXRSSet("a", 1.5, 1.5, 1.5);
+	SPCProcessXRSSet("a", 1.5, 1.5, 1.5, "a");
+	SPCSpecLimitGet("a", vr, vr);
+	SPCSpecLimitGet("a", vr, vr, "a");
+	SPCSpecLimitSet("a", 1.5, 1.5);
+	SPCSpecLimitSet("a", 1.5, 1.5, "a");
+	SPCSubgroupSizeGet("a", vi);
+	SPCSubgroupSizeGet("a", vi, "a");
+	SPCSubgroupSizeSet("a", 1);
+	SPCSubgroupSizeSet("a", 1, "a");
+END

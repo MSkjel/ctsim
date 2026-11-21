@@ -1,0 +1,4 @@
+BOOLEAN FUNCTION ProbeT()
+	RETURN 1;
+END
+

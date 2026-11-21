@@ -1,0 +1,52 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [
+  {
+   "code": "W1007",
+   "msg": "Tag not defined",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "StrToInt(ZzTag.{If}) = 1 THEN"
+  },
+  {
+   "code": "W1007",
+   "msg": "Tag not defined",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "Sleep(ZzTag.{Timestamp}); END"
+  },
+  {
+   "code": "W1007",
+   "msg": "Tag not defined",
+   "file": "probe.ci",
+   "line": 5,
+   "context": "StrToInt(ZzTag.{Do}) DO Sleep(ZzTag.Quality"
+  },
+  {
+   "code": "W1007",
+   "msg": "Tag not defined",
+   "file": "probe.ci",
+   "line": 6,
+   "context": "Sleep(ZzTag.{Quality} + ZzTag.Var);"
+  },
+  {
+   "code": "W1007",
+   "msg": "Tag not defined",
+   "file": "probe.ci",
+   "line": 6,
+   "context": "Sleep(ZzTag.Quality + ZzTag.{Var}); END"
+  },
+  {
+   "code": "W1007",
+   "msg": "Tag not defined",
+   "file": "probe.ci",
+   "line": 8,
+   "context": "Sleep(ZzTag.{CiVBA}); END"
+  }
+ ]
+}

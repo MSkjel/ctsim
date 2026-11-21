@@ -1,0 +1,4 @@
+MODULE INT mzA, INT mzB;
+INT FUNCTION P()
+	RETURN mzA + mzB;
+END

@@ -1,0 +1,220 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2076",
+   "msg": "Unexpected FUNCTION declaration found, are you missing an END?",
+   "file": "ActionObject.ci",
+   "line": 93,
+   "context": "//----------------------------------------------------------------------------------------------- {FUNCTION} ActionObject_SetArgumentString(STRING"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 94,
+   "context": "ActionObject_SetArgumentString({STRING} pThis, INT"
+  },
+  {
+   "code": "E2011",
+   "msg": "Close bracket expected",
+   "file": "ActionObject.ci",
+   "line": 94,
+   "context": "ActionObject_SetArgumentString(STRING {pThis}, INT nArgument,"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 94,
+   "context": "ActionObject_SetArgumentString(STRING pThis{,} INT nArgument,"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 94,
+   "context": "STRING sValue{)} MapValueSet(pThis,"
+  },
+  {
+   "code": "E2076",
+   "msg": "Unexpected FUNCTION declaration found, are you missing an END?",
+   "file": "ActionObject.ci",
+   "line": 119,
+   "context": "//----------------------------------------------------------------------------------------------- STRING {FUNCTION} ActionObject_GetArgumentString(STRING"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 120,
+   "context": "ActionObject_GetArgumentString({STRING} pThis, INT"
+  },
+  {
+   "code": "E2011",
+   "msg": "Close bracket expected",
+   "file": "ActionObject.ci",
+   "line": 120,
+   "context": "ActionObject_GetArgumentString(STRING {pThis}, INT nArgument)"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 120,
+   "context": "ActionObject_GetArgumentString(STRING pThis{,} INT nArgument)"
+  },
+  {
+   "code": "E2021",
+   "msg": "Record already defined",
+   "file": "ActionObject.ci",
+   "line": 120,
+   "context": "pThis, INT {nArgument}) RETURN"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 120,
+   "context": "nArgument{)} RETURN MapValueGet(pThis,"
+  },
+  {
+   "code": "E2076",
+   "msg": "Unexpected FUNCTION declaration found, are you missing an END?",
+   "file": "ActionObject.ci",
+   "line": 145,
+   "context": "//----------------------------------------------------------------------------------------------- STRING {FUNCTION} ActionObject_GetKey(STRING"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 146,
+   "context": "ActionObject_GetKey({STRING} pThis) RETURN"
+  },
+  {
+   "code": "E2011",
+   "msg": "Close bracket expected",
+   "file": "ActionObject.ci",
+   "line": 146,
+   "context": "ActionObject_GetKey(STRING {pThis}) RETURN"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 146,
+   "context": "ActionObject_GetKey(STRING pThis{)} RETURN MapValueGet(pThis,"
+  },
+  {
+   "code": "E2076",
+   "msg": "Unexpected FUNCTION declaration found, are you missing an END?",
+   "file": "ActionObject.ci",
+   "line": 172,
+   "context": "//----------------------------------------------------------------------------------------------- STRING {FUNCTION} ActionObject_Invoke(STRING"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 173,
+   "context": "ActionObject_Invoke({STRING} pThis, STRING"
+  },
+  {
+   "code": "E2011",
+   "msg": "Close bracket expected",
+   "file": "ActionObject.ci",
+   "line": 173,
+   "context": "ActionObject_Invoke(STRING {pThis}, STRING sArgument)"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 173,
+   "context": "ActionObject_Invoke(STRING pThis{,} STRING sArgument)"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 173,
+   "context": "sArgument{)} STRING"
+  },
+  {
+   "code": "E2021",
+   "msg": "Record already defined",
+   "file": "ActionObject.ci",
+   "line": 175,
+   "context": "STRING {sActionFunction}; STRING"
+  },
+  {
+   "code": "E2076",
+   "msg": "Unexpected FUNCTION declaration found, are you missing an END?",
+   "file": "ActionObject.ci",
+   "line": 206,
+   "context": "//----------------------------------------------------------------------------------------------- INT {FUNCTION} ActionObject_GetArgumentCount(STRING"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 207,
+   "context": "ActionObject_GetArgumentCount({STRING} pActionObject)"
+  },
+  {
+   "code": "E2011",
+   "msg": "Close bracket expected",
+   "file": "ActionObject.ci",
+   "line": 207,
+   "context": "ActionObject_GetArgumentCount(STRING {pActionObject}) RETURN"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 207,
+   "context": "pActionObject{)} RETURN StrToInt(ActionObject_GetArgumentString(pActionObject,"
+  },
+  {
+   "code": "E2076",
+   "msg": "Unexpected FUNCTION declaration found, are you missing an END?",
+   "file": "ActionObject.ci",
+   "line": 232,
+   "context": "//----------------------------------------------------------------------------------------------- {FUNCTION} _ActionObject_Destruct(STRING"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 233,
+   "context": "_ActionObject_Destruct({STRING} pThis)"
+  },
+  {
+   "code": "E2011",
+   "msg": "Close bracket expected",
+   "file": "ActionObject.ci",
+   "line": 233,
+   "context": "_ActionObject_Destruct(STRING {pThis}) // DESTROY"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "ActionObject.ci",
+   "line": 233,
+   "context": "_ActionObject_Destruct(STRING pThis{)} // DESTROY"
+  },
+  {
+   "code": "E2034",
+   "msg": "END expected",
+   "file": "ActionObject.ci",
+   "line": 236,
+   "context": "COUNT = 0 END{}"
+  }
+ ],
+ "warnings": []
+}

@@ -1,0 +1,6 @@
+FUNCTION ProbeTarget(INT a)
+END
+FUNCTION ProbeQ()
+	INT i = ProbeTarget;
+END
+

@@ -1,0 +1,4 @@
+//// LABEL: ZzUn4(a, b, c) = StrLength(c)
+FUNCTION ZzF()
+	INT i = ZzUn4(, , "x");
+END

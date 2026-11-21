@@ -1,0 +1,5 @@
+INT FUNCTION ZzF()
+	INT v;
+	v = 21b1;
+	RETURN v;
+END

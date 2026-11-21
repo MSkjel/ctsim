@@ -1,0 +1,12 @@
+/** Doc
+ * @PARAM[in] nTempø the temp
+ * @param a\b
+ * @Returns value */
+/// <param name="nTempø">x</param>
+INT FUNCTION F1(INT a)
+  SELECT CASE a CASE 1 a = 2 END /* c */ SELECT a = 3
+  SELECT CASE a CASE 1 a = 2 END/**/SELECT a = 3
+  SELECT CASE a CASE 1 a = 2 END	select
+  RETURN a
+END
+FUNCTION F2() SELECT CASE 1 END SELECTX END SELECT END

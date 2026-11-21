@@ -1,0 +1,4 @@
+FUNCTION Z()
+	INT i;
+	i = CICODE;
+END

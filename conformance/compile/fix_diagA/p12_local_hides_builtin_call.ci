@@ -1,0 +1,5 @@
+FUNCTION ZzB()
+	INT Beep;
+	Beep = 0;
+	Beep(1, 2, 3);
+END

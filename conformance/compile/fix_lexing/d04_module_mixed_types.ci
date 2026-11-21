@@ -1,0 +1,5 @@
+MODULE INT mzA, STRING mzS;
+STRING FUNCTION P()
+	mzS = "x";
+	RETURN mzS + "y";
+END

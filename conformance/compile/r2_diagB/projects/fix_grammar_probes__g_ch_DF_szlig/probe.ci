@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT ﬂ_a = 1;
+	INT bﬂc = 2;
+	RETURN ﬂ_a + bﬂc;
+END

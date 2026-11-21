@@ -1,0 +1,6 @@
+MODULE INT zzM;
+FUNCTION ProbeA()
+	zzM = 1;
+	INT zzM;
+	zzM = 2;
+END

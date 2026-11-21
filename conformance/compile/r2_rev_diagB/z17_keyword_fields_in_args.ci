@@ -1,0 +1,9 @@
+FUNCTION Z()
+	IF StrToInt(ZzTag.If) = 1 THEN
+		Sleep(ZzTag.Timestamp);
+	END
+	WHILE StrToInt(ZzTag.Do) DO
+		Sleep(ZzTag.Quality + ZzTag.Var);
+	END
+	Sleep(ZzTag.CiVBA);
+END

@@ -1,0 +1,9 @@
+Int Function P()
+	iNT i = 0;
+	If i = 0 tHeN
+		i = 1 BitAnd 3;
+	ElSe
+		i = NoT i;
+	eNd
+	ReTuRn i;
+EnD

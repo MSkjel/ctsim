@@ -1,0 +1,9 @@
+//// LABEL: TRUE = 1
+//// LABEL: FALSE = 0
+INT FUNCTION ProbeTrue()
+	INT b = TRUE;
+	IF b = TRUE THEN
+		RETURN 1;
+	END
+	RETURN FALSE;
+END

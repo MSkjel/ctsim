@@ -1,0 +1,4 @@
+FUNCTION P()
+	OBJECT o;
+	INT i = _ObjectCallMethod(o, "m") BITAND 1;
+END

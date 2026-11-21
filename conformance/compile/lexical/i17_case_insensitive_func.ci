@@ -1,0 +1,6 @@
+INT FUNCTION ZzFoo()
+	RETURN 1;
+END
+INT FUNCTION P()
+	RETURN ZZFOO() + zzfoo();
+END

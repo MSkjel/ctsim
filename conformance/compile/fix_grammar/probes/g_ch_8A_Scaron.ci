@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT Š_a = 1;
+	INT bŠc = 2;
+	RETURN Š_a + bŠc;
+END

@@ -1,0 +1,16 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_IfShortCircuit()",
+ "function": "Conf_IfShortCircuit",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "if_and_rhs_ran=1;if_or_count=101",
+ "facts": {
+  "if_and_rhs_ran": "1",
+  "if_or_count": "101"
+ },
+ "source": "// The same inside an IF condition.\nSTRING FUNCTION Conf_IfShortCircuit()\n\tINT andRan;\n\tmTick = 0;\n\tIF 0 AND Conf_Tick() THEN\n\t\tmTick = mTick + 100;\n\tEND\n\tandRan = mTick;\n\tmTick = 0;\n\tIF 1 OR Conf_Tick() THEN\n\t\tmTick = mTick + 100;\n\tEND\n\tRETURN \"if_and_rhs_ran=\" + Conf_I(andRan) + \";if_or_count=\" + Conf_I(mTick);\nEND\n"
+}

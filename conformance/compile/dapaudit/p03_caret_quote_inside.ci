@@ -1,0 +1,4 @@
+STRING FUNCTION ProbeCaret()
+	STRING s = "a^"b";
+	RETURN s;
+END

@@ -1,0 +1,6 @@
+MODULE INT ma
+MODULE INT mb = 1 INT mc[2] = 1, 2
+GLOBAL STRING gzs = "x";
+INT FUNCTION Z() RETURN ma + mb + mc[0] END REAL mr = 1e3;
+MODULE OBJECT mo = -1;
+INT md = -FALSE, me = 0x10;

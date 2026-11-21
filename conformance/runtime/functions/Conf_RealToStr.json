@@ -1,0 +1,21 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_RealToStr()",
+ "function": "Conf_RealToStr",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "1.5|0.333333333333333|1E+21|100000|0.3|-0.0001|2",
+ "values": [
+  "1.5",
+  "0.333333333333333",
+  "1E+21",
+  "100000",
+  "0.3",
+  "-0.0001",
+  "2"
+ ],
+ "source": "// REAL to STRING on assignment.\nSTRING FUNCTION Conf_RealToStr()\n\tSTRING a = 1.5;\n\tSTRING b = 1.0 / 3.0;\n\tSTRING c = 1e21;\n\tSTRING d = 100000.0;\n\tSTRING e = 0.1 + 0.2;\n\tSTRING f = -0.0001;\n\tSTRING g = 2.0;\n\tRETURN a + \"|\" + b + \"|\" + c + \"|\" + d + \"|\" + e + \"|\" + f + \"|\" + g;\nEND\n"
+}

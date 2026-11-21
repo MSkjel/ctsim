@@ -1,0 +1,10 @@
+FUNCTION Z(INT x)
+	INT y;
+	IF x = 1 THEN
+		y = 1;
+	ELSE IF x = 2 THEN
+		y = 2;
+	ELSE
+		y = 3;
+	END END
+END

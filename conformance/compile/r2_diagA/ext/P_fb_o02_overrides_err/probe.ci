@@ -1,0 +1,47 @@
+INT FUNCTION ProbeCb()
+	RETURN 0;
+END
+FUNCTION ProbeErr()
+	INT vi; STRING vs; REAL vr; OBJECT vo; TIMESTAMP vt; QUALITY vq;
+	SQLErrMsg(1, 1);
+	MapOpen("a", 1, "a", 1);
+	StrToLocalText();
+	StrToLocalText("a", 1);
+	DevClose();
+	DevClose(1, 1, 1);
+	_ObjectCallMethod(vo);
+	ErrSetHw(1);
+	ErrSetHw(1, 1, 1, 1);
+	TrnBrowseClose();
+	TrnBrowseClose(1, 1);
+	FormEdit(1, 1, vs);
+	FormEdit(1, 1, vs, 1, 1, 1, 1, 1);
+	DspGetMouseOver(1, 1, 1);
+	MapValueSet("a", "a");
+	MapValueSet("a", "a", 1, 1, 1);
+	SubscriptionGetTag();
+	SubscriptionGetTag(1, 1, 1);
+	UserVerify("a");
+	UserVerify("a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", 1);
+	EquipGetProperty("a");
+	EquipGetProperty("a", "a", 1, "a", 1);
+	TimestampDifference(vt);
+	TimestampDifference(vt, vt, 1, 1, 1);
+	SQLGetField(1);
+	SQLGetField(1, "a", 1, 1);
+	ServerBrowseOpen("a", "a", "a", 1);
+	VariableTimestamp();
+	VariableTimestamp(1, 1, 1);
+	MenuNodeGetTargetPage(1, 1);
+	MenuNodeSetExpanded(1);
+	MenuNodeSetExpanded(1, 1, 1);
+	DLLCallEx();
+	TrnNew(1);
+	TrnNew(1, "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", 1);
+	SubscriptionGetTimestamp();
+	SubscriptionGetTimestamp(1, "a", 1);
+	QualityToStr();
+	QualityToStr(vq, 1, 1, 1);
+	SubscriptionGetValue();
+	SubscriptionGetValue(1, 1, 1);
+END

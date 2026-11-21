@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	INT bitxor;
+	RETURN 0;
+END

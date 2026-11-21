@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	RETURN DevControl(1, 2);
+END
+

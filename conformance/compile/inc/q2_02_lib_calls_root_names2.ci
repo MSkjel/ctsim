@@ -1,0 +1,15 @@
+//// PROJECT: Aroot
+//// INCLUDE: Zlib
+//// FILE: z.ci
+INT FUNCTION ArootFn()
+	RETURN 1;
+END
+
+//// PROJECT: Zlib
+//// FILE: a.ci
+INT FUNCTION ZlibFn()
+	RETURN ArootFn();
+END
+
+//// COMPILE: Aroot
+//// COMPILE: Zlib

@@ -1,0 +1,4 @@
+//// LABEL: PROBE_FN = StrLeft
+STRING FUNCTION ProbeK()
+	RETURN PROBE_FN("abc", 1);
+END

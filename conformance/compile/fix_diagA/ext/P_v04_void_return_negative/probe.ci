@@ -1,0 +1,4 @@
+FUNCTION ZzF()
+	RETURN -1;
+END
+

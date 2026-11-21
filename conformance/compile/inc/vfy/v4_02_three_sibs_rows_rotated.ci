@@ -1,0 +1,30 @@
+//// PROJECT: Root1
+//// INCLUDE: Zlib
+//// INCLUDE: Mbot
+//// INCLUDE: Alib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+INT FUNCTION SibDup()
+	RETURN 1;
+END
+
+
+//// PROJECT: Mbot
+//// FILE: m.ci
+INT FUNCTION MbotFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Alib
+//// FILE: a.ci
+INT FUNCTION SibDup()
+	RETURN 1;
+END
+

@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	QualityToStr(vq);
+	QualityToStr(vq, 1, 1);
+	RealToStr(1.5, 1, 1);
+	RealToStr(1.5, 1, 1, "a");
+	RepGetControl("a", 1);
+	RepGetControl("a", 1, "a");
+	Report("a");
+	Report("a", "a");
+	RepSetControl("a", 1, 1);
+	RepSetControl("a", 1, 1, "a");
+	SchdOpen("a");
+	SchdOpen("a", vt, 1, "a", "a", "a");
+	SchdSpecialItemAddRange("a", 1, "a", vt, vt);
+	SchdSpecialItemModify("a", 1, "a");
+	SchdSpecialItemModify("a", 1, "a", vt);
+	SchdSpecialItemOpen("a", "a");
+	SchdSpecialItemOpen("a", "a", "a");
+	SchdSpecialOpen("a", "a");
+	SchdSpecialOpen("a", "a", "a");
+	ScheduleItemAdd("a", "a", "a", vt, vt, "a");
+END

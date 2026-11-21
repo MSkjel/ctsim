@@ -1,0 +1,4 @@
+FUNCTION P()
+	INT n = 1;
+	OBJECT o = n;
+END

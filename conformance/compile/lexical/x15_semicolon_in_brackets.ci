@@ -1,0 +1,4 @@
+MODULE INT mA[3] = 1, 2, 3;
+INT FUNCTION P()
+	RETURN mA[ 1 ];
+END

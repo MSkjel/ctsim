@@ -1,0 +1,7 @@
+//// FILE: a.ci
+PRIVATE FUNCTION ProbePriv()
+END
+//// FILE: b.ci
+FUNCTION ProbeB()
+	ProbePriv();
+END

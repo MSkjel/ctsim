@@ -1,0 +1,4 @@
+//// LABEL: PROBE_OB(a=1, b) = ((a) + (b))
+INT FUNCTION ProbeK()
+	RETURN PROBE_OB(, 2) + PROBE_OB(5, 2);
+END

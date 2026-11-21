@@ -1,0 +1,6 @@
+INT FUNCTION Q()
+	RETURN 0;
+END
+FUNCTION P()
+	OnEvent(1, Q);
+END

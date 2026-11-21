@@ -1,0 +1,3 @@
+PUBLIC INT pX;
+FUNCTION ProbeA()
+END

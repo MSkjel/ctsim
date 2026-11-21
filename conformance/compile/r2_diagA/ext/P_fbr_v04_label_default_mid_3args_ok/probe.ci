@@ -1,0 +1,3 @@
+FUNCTION P()
+	DspButton(1, 0, "t");
+END

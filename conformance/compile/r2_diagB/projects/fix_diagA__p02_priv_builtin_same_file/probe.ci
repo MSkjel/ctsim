@@ -1,0 +1,7 @@
+PRIVATE INT FUNCTION StrLength(STRING s, INT x)
+	RETURN 1;
+END
+FUNCTION ZzB()
+	INT i;
+	i = StrLength("abc");
+END

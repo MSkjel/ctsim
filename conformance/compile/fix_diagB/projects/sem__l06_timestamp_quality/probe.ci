@@ -1,0 +1,8 @@
+FUNCTION ProbeA()
+	TIMESTAMP t;
+	QUALITY q;
+	INT i;
+	t = 5;
+	q = "x";
+	i = t;
+END

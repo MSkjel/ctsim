@@ -1,0 +1,4 @@
+FUNCTION P()
+	Print("x", 1);
+END
+

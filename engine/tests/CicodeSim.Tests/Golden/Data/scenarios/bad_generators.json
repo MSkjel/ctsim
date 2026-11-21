@@ -1,0 +1,7 @@
+{"format": "ctsim-scenario/0", "steps": [
+  {"at": 0.0, "sine": {"tag": "Motor_Speed", "period": 0}},
+  {"at": 0.0, "random": {"tag": "Motor_Speed", "every": 0}},
+  {"at": 0.0, "ramp": {"tag": "Tank1_Temp", "from": 0, "to": 10, "until": 1.0}},
+  {"at": 0.0, "ramp": {"from": 0, "to": 10}},
+  {"at": 0.5, "expect": {"Tank1_Temp": {"value": 5.0, "tolerance": 0.01}}},
+  {"at": 1.0, "expect": {"Tank1_Temp": 10.0}}]}

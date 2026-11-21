@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT ²q;
+	²q = 1;
+	RETURN ²q;
+END

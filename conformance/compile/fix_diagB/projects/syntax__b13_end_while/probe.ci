@@ -1,0 +1,6 @@
+FUNCTION Z(INT x)
+	WHILE x > 0 DO
+		x = x - 1;
+	END WHILE
+	x = 2;
+END

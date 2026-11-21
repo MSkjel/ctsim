@@ -1,0 +1,12 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+INT FUNCTION TimeSecond(INT t)
+	RETURN t;
+END

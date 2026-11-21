@@ -1,0 +1,92 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Alib",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "a.ci",
+     "line": 2,
+     "context": "AFn() RETURN {ZFn}(); END",
+     "project": "Alib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "a.ci",
+     "line": 2,
+     "context": "RETURN ZFn(){;} END",
+     "project": "Alib"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "a.ci",
+     "line": 2,
+     "context": "RETURN ZFn(){;} END",
+     "project": "Alib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "a.ci",
+     "line": 5,
+     "context": "ZFn(); END {}",
+     "project": "Alib"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "compile": "Main",
+   "ok": true,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "compile": "Zlib",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "z.ci",
+     "line": 2,
+     "context": "ZFn() RETURN {AFn}(); END",
+     "project": "Zlib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "z.ci",
+     "line": 2,
+     "context": "RETURN AFn(){;} END",
+     "project": "Zlib"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "z.ci",
+     "line": 2,
+     "context": "RETURN AFn(){;} END",
+     "project": "Zlib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "z.ci",
+     "line": 5,
+     "context": "AFn(); END {}",
+     "project": "Zlib"
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

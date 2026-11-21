@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT œ_a = 1;
+	INT bœc = 2;
+	RETURN œ_a + bœc;
+END

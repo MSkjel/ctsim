@@ -1,0 +1,19 @@
+//// PROJECT: Zroot
+//// INCLUDE: Mlib
+//// FILE: z.ci
+INT FUNCTION ZrootFn()
+	RETURN AlibFn();
+END
+
+//// PROJECT: Mlib
+//// INCLUDE: Alib
+//// FILE: m.ci
+INT FUNCTION MlibFn()
+	RETURN 1;
+END
+
+//// PROJECT: Alib
+//// FILE: a.ci
+INT FUNCTION AlibFn()
+	RETURN 1;
+END

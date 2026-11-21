@@ -1,0 +1,5 @@
+MODULE INT mUnused;
+GLOBAL INT gUnusedProbe;
+FUNCTION ProbeU()
+END
+

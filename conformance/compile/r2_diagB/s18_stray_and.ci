@@ -1,0 +1,4 @@
+FUNCTION Z()
+	INT x;
+	AND x = 1;
+END

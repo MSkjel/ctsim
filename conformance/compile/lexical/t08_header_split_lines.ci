@@ -1,0 +1,10 @@
+INT
+FUNCTION
+P
+(
+INT a
+,
+INT b = 2
+)
+	RETURN a + b;
+END

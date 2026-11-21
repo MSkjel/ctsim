@@ -1,0 +1,6 @@
+FUNCTION ProbeU()
+	IF zzUnknownThing = 1 THEN
+		Sleep(1);
+	END
+END
+

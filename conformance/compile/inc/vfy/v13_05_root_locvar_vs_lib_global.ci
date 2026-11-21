@@ -1,0 +1,13 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// LOCVAR: gShared INT
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN gShared;
+END
+
+
+//// PROJECT: Bot
+//// FILE: b.ci
+GLOBAL INT gShared = 1;
+

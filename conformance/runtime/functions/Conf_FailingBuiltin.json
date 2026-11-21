@@ -1,0 +1,16 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_FailingBuiltin()",
+ "function": "Conf_FailingBuiltin",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "fileopen=-1;err=262",
+ "facts": {
+  "fileopen": "-1",
+  "err": "262"
+ },
+ "source": "// A failing built-in: what it returns and the error code.\nSTRING FUNCTION Conf_FailingBuiltin()\n\tINT h;\n\tINT e;\n\tErrSet(1);\n\th = FileOpen(\"C:\\NoSuchFolderXyz\\none.txt\", \"r\");\n\te = IsError();\n\tRETURN \"fileopen=\" + Conf_I(h) + \";err=\" + Conf_I(e);\nEND\n"
+}

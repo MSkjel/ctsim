@@ -1,0 +1,5 @@
+/// doc comment ZzHidden1
+/** doc block ZzHidden2 */
+INT FUNCTION P()
+	RETURN 1;
+END

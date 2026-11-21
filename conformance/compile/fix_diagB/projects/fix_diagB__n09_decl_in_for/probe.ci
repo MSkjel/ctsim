@@ -1,0 +1,6 @@
+FUNCTION Z()
+	INT i;
+	FOR i = 1 TO 3 DO
+		REAL r = 1;
+	END
+END

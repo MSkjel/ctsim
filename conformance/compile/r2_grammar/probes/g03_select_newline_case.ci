@@ -1,0 +1,9 @@
+INT FUNCTION ZzF(INT a)
+	INT i = 0;
+	SELECT
+	CASE a
+	CASE 1
+		i = 2;
+	END SELECT
+	RETURN i;
+END

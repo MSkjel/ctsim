@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT Þq;
+	Þq = 1;
+	RETURN Þq;
+END

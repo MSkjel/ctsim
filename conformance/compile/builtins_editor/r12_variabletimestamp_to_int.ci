@@ -1,0 +1,3 @@
+FUNCTION P()
+	INT i = VariableTimestamp(1);
+END

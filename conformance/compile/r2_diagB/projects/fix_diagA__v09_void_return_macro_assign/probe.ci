@@ -1,0 +1,4 @@
+FUNCTION ZzF()
+	INT x;
+	RETURN Toggle(x);
+END

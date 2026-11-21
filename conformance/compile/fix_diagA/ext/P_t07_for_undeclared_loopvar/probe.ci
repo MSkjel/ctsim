@@ -1,0 +1,6 @@
+FUNCTION ProbeT()
+	FOR zzLoop = 0 TO 3 DO
+		Sleep(1);
+	END
+END
+

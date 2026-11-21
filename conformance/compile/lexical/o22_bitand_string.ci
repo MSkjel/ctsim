@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; INT j; REAL r; STRING s;
+	i = "a" BITAND "b";
+	RETURN 0;
+END

@@ -1,0 +1,4 @@
+FUNCTION ZzF()
+	RETURN mZz;
+END
+MODULE INT mZz;

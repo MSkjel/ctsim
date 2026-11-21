@@ -1,0 +1,6 @@
+//// FILE: a.ci
+PRIVATE FUNCTION ProbeSame()
+END
+//// FILE: b.ci
+FUNCTION ProbeSame()
+END

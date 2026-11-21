@@ -1,0 +1,25 @@
+//// PROJECT: Root1
+//// INCLUDE: Alib
+//// INCLUDE: Zlib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN Ps();
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+PRIVATE INT FUNCTION Ps()
+	RETURN 1;
+END
+INT FUNCTION ZF()
+	RETURN Ps();
+END
+
+
+//// PROJECT: Alib
+//// FILE: a.ci
+INT FUNCTION Ps()
+	RETURN 2;
+END
+

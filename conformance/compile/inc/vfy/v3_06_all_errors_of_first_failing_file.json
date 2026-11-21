@@ -1,0 +1,64 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Root1",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "a.ci",
+     "line": 2,
+     "context": "FUNCTION E1() {UnkA1}(); END FUNCTION",
+     "project": "Root1"
+    },
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "a.ci",
+     "line": 5,
+     "context": "FUNCTION E2() {UnkA2}(); END FUNCTION",
+     "project": "Root1"
+    },
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "a.ci",
+     "line": 8,
+     "context": "FUNCTION E3() {UnkA3}(); END",
+     "project": "Root1"
+    }
+   ],
+   "warnings": [
+    {
+     "code": "W1021",
+     "msg": "Possible missing operand between tags",
+     "file": "a.ci",
+     "line": 2,
+     "context": "UnkA1(){;} END FUNCTION",
+     "project": "Root1"
+    },
+    {
+     "code": "W1021",
+     "msg": "Possible missing operand between tags",
+     "file": "a.ci",
+     "line": 5,
+     "context": "UnkA2(){;} END FUNCTION",
+     "project": "Root1"
+    },
+    {
+     "code": "W1021",
+     "msg": "Possible missing operand between tags",
+     "file": "a.ci",
+     "line": 8,
+     "context": "UnkA3(){;} END",
+     "project": "Root1"
+    }
+   ]
+  }
+ ]
+}

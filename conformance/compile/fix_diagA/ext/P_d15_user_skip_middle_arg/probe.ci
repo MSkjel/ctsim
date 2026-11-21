@@ -1,0 +1,8 @@
+INT FUNCTION ProbeAdd(INT a, INT b = 2, INT c = 3)
+	RETURN a + b + c;
+END
+FUNCTION ProbeD()
+	INT s = ProbeAdd(1, , 4);
+	Sleep(s);
+END
+

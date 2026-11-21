@@ -1,0 +1,5 @@
+FUNCTION Z(REAL r)
+	IF r THEN
+		Sleep(0);
+	END
+END

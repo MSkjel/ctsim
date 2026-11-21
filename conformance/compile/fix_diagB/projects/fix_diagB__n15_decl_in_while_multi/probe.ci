@@ -1,0 +1,6 @@
+FUNCTION Z(INT a)
+	WHILE a DO
+		INT b, c;
+		a = 0;
+	END
+END

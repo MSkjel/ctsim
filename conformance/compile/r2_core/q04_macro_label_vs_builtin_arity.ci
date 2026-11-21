@@ -1,0 +1,4 @@
+//// LABEL: Sign(a, b) = (a + b)
+REAL FUNCTION ZzF()
+	RETURN Sign(1.5, 2);
+END

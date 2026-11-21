@@ -1,0 +1,7 @@
+//// PROJECT: Main
+//// FILE: a.ci
+FUNCTION Sleep()
+END
+INT FUNCTION F_root()
+	RETURN Unknown_root();
+END

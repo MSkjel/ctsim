@@ -1,0 +1,4 @@
+MODULE INT zzArr[2] = 1, 2, zzB;
+INT FUNCTION ProbeA()
+	RETURN zzArr[0];
+END

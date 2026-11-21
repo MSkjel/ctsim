@@ -1,0 +1,3 @@
+FUNCTION P()
+	QualityIsOverride(1);
+END

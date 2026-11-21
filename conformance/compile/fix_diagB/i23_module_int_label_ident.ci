@@ -1,0 +1,4 @@
+//// LABEL: ZIDLAB = zzSomething
+MODULE INT a = ZIDLAB;
+FUNCTION Z()
+END

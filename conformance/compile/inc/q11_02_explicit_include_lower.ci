@@ -1,0 +1,14 @@
+//// PROJECT: Main
+//// INCLUDE: =include
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN LibFn();
+END
+
+//// PROJECT: LibA
+//// INCLUDE: =Include
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN 1;
+END

@@ -1,0 +1,4 @@
+FUNCTION ProbeK()
+	INT i = TimeHour;
+END
+

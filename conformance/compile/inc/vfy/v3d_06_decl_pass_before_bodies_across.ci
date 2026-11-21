@@ -1,0 +1,27 @@
+//// PROJECT: Root1
+//// INCLUDE: Top
+//// INCLUDE: LibB
+//// FILE: r.ci
+FUNCTION RBad()
+	UnkRoot();
+END
+
+
+//// PROJECT: Top
+//// FILE: a.ci
+FUNCTION LaBad()
+	UnkLibA();
+END
+
+//// FILE: c.ci
+INT FUNCTION DupD()
+	RETURN 1;
+END
+
+
+//// PROJECT: LibB
+//// FILE: b.ci
+INT FUNCTION DupD()
+	RETURN 1;
+END
+

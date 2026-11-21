@@ -1,0 +1,5 @@
+FUNCTION ZzF()
+	STRING s;
+	s = "a";
+	RETURN s;
+END

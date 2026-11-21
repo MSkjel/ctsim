@@ -1,0 +1,9 @@
+FUNCTION Z(INT a)
+	INT i;
+	IF a THEN
+		FOR i = 1 TO 2 DO
+	ELSE
+		Sleep(1);
+	END
+	END
+END

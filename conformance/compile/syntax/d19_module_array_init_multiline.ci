@@ -1,0 +1,5 @@
+MODULE STRING s[3] = "a",
+	"b",
+	"c";
+FUNCTION Z()
+END

@@ -1,0 +1,5042 @@
+{
+"Abs": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218109"
+},
+"AccControl": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1026235"
+},
+"AccumBrowseClose": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1026236"
+},
+"AccumBrowseFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1026237"
+},
+"AccumBrowseGetField": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1026238"
+},
+"AccumBrowseNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1026239"
+},
+"AccumBrowseNumRecords": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1026240"
+},
+"AccumBrowseOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1026241"
+},
+"AccumBrowsePrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1026242"
+},
+"AlarmAck": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033445"
+},
+"AlarmAckRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033446"
+},
+"AlarmAckTag": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033447"
+},
+"AlarmActive": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033448"
+},
+"AlarmCatGetFormat": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033449"
+},
+"AlarmClear": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033450"
+},
+"AlarmClearRec": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033451"
+},
+"AlarmClearTag": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033452"
+},
+"AlarmComment": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033453"
+},
+"AlarmCommentRecID": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033454"
+},
+"AlarmCount": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033455"
+},
+"AlarmCountEquipment": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033456"
+},
+"AlarmCountList": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033457"
+},
+"AlarmDelete": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033458"
+},
+"AlarmDisable": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033459"
+},
+"AlarmDisableRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033460"
+},
+"AlarmDisableTag": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033461"
+},
+"AlarmDsp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033462"
+},
+"AlarmDspClusterAdd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033463"
+},
+"AlarmDspClusterInUse": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033464"
+},
+"AlarmDspClusterRemove": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033465"
+},
+"AlarmDspLast": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033466"
+},
+"AlarmDspNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033467"
+},
+"AlarmDspPrev": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033468"
+},
+"AlarmEnable": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033469"
+},
+"AlarmEnableRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033470"
+},
+"AlarmEnableTag": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033471"
+},
+"AlarmFilterClose": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1069679"
+},
+"AlarmFilterEditAppend": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069680"
+},
+"AlarmFilterEditAppendEquipment": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069681"
+},
+"AlarmFilterEditClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069682"
+},
+"AlarmFilterEditCommit": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1069683"
+},
+"AlarmFilterEditFirst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069684"
+},
+"AlarmFilterEditHasField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069689"
+},
+"AlarmFilterEditLast": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069685"
+},
+"AlarmFilterEditNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069686"
+},
+"AlarmFilterEditOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1069687"
+},
+"AlarmFilterEditPrev": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069713"
+},
+"AlarmFilterEditSet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069688"
+},
+"AlarmFilterOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069691"
+},
+"AlarmFirstTagRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033475"
+},
+"AlarmGetDelay": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033476"
+},
+"AlarmGetDelayRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033477"
+},
+"AlarmGetDsp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033478"
+},
+"AlarmGetFieldRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033479"
+},
+"AlarmGetFilterName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069692"
+},
+"AlarmGetInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033480"
+},
+"AlarmGetOrderbyKey": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033481"
+},
+"AlarmGetThreshold": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033482"
+},
+"AlarmGetThresholdRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033483"
+},
+"AlarmHelp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033484"
+},
+"AlarmHighestPriority": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033485"
+},
+"AlarmListCreate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033486"
+},
+"AlarmListDestroy": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033487"
+},
+"AlarmListDisplay": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033488"
+},
+"AlarmListFill": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033489"
+},
+"AlarmNextTagRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033492"
+},
+"AlarmNotifyVarChange": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033493"
+},
+"AlarmQueryFirstRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033494"
+},
+"AlarmQueryNextRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033495"
+},
+"AlarmSetDelay": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033496"
+},
+"AlarmSetDelayRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033497"
+},
+"AlarmSetInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033498"
+},
+"AlarmSetThreshold": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033499"
+},
+"AlarmSetThresholdRec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033500"
+},
+"AlarmSplit": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033501"
+},
+"AlarmSumAppend": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033502"
+},
+"AlarmSumCommit": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033503"
+},
+"AlarmSumDelete": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033504"
+},
+"AlarmSumFind": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033505"
+},
+"AlarmSumFirst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033506"
+},
+"AlarmSumGet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033507"
+},
+"AlarmSumLast": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033508"
+},
+"AlarmSumNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033509"
+},
+"AlarmSumPrev": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033510"
+},
+"AlarmSumSet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033511"
+},
+"AlarmSumSplit": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033512"
+},
+"AlarmSumType": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033513"
+},
+"AlarmTagFromEquipment": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1033514"
+},
+"AlmBrowseAck": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033515"
+},
+"AlmBrowseClose": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033516"
+},
+"AlmBrowseDisable": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033517"
+},
+"AlmBrowseEnable": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033518"
+},
+"AlmBrowseFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033519"
+},
+"AlmBrowseGetField": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033520"
+},
+"AlmBrowseNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033521"
+},
+"AlmBrowseNumRecords": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033522"
+},
+"AlmBrowseOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033523"
+},
+"AlmBrowsePrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033524"
+},
+"AlmSummaryAck": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033525"
+},
+"AlmSummaryClear": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033527"
+},
+"AlmSummaryClose": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033528"
+},
+"AlmSummaryCommit": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033526"
+},
+"AlmSummaryDelete": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033529"
+},
+"AlmSummaryDeleteAll": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033530"
+},
+"AlmSummaryDisable": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033531"
+},
+"AlmSummaryEnable": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033532"
+},
+"AlmSummaryFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033533"
+},
+"AlmSummaryGetField": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033534"
+},
+"AlmSummaryLast": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033535"
+},
+"AlmSummaryNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033536"
+},
+"AlmSummaryNumRecords": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033537"
+},
+"AlmSummaryOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033538"
+},
+"AlmSummaryPrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033539"
+},
+"AlmSummarySetFieldValue": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033540"
+},
+"AlmTagsAck": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033541"
+},
+"AlmTagsClear": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033542"
+},
+"AlmTagsClose": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033543"
+},
+"AlmTagsDisable": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033544"
+},
+"AlmTagsEnable": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033545"
+},
+"AlmTagsFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033546"
+},
+"AlmTagsGetField": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033547"
+},
+"AlmTagsNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033548"
+},
+"AlmTagsNumRecords": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1033549"
+},
+"AlmTagsOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033550"
+},
+"AlmTagsPrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1033551"
+},
+"AnByName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1030951"
+},
+"ArcCos": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188469"
+},
+"ArcSin": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188470"
+},
+"ArcTan": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188471"
+},
+"AreaCheck": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188576"
+},
+"ArrayCopy": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069786"
+},
+"ArrayCreate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069787"
+},
+"ArrayCreateByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069788"
+},
+"ArrayDestroy": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069789"
+},
+"ArrayDestroyByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069790"
+},
+"ArrayExists": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069791"
+},
+"ArrayExistsByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069792"
+},
+"ArrayFillFromAlarmDataByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069793"
+},
+"ArrayGetArrayByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069794"
+},
+"ArrayGetInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069795"
+},
+"ArrayGetInt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069796"
+},
+"ArrayGetIntByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069797"
+},
+"ArrayGetMapName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069798"
+},
+"ArrayGetMapNameByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069799"
+},
+"ArrayGetString": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069800"
+},
+"ArrayGetStringByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069801"
+},
+"ArrayIsDirty": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069802"
+},
+"ArraySetInt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069803"
+},
+"ArraySetIntByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069804"
+},
+"ArraySetIsDirty": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069805"
+},
+"ArraySetString": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069806"
+},
+"ArraySetStringByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069807"
+},
+"ArraySwap": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069808"
+},
+"Ass": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192655"
+},
+"AssChain": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192656"
+},
+"AssEquipParameters": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192661"
+},
+"AssGetProperty": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192663"
+},
+"AssGetScale": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192664"
+},
+"AssInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192665"
+},
+"AssInfoEx": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192666"
+},
+"AssMetadata": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192667"
+},
+"AssScaleStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192673"
+},
+"AssWinReplace": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192678"
+},
+"Beep": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218123"
+},
+"CallEvent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105346"
+},
+"ChainEvent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105347"
+},
+"CharToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192563"
+},
+"CitectColourToPackedRGB": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073023"
+},
+"CitectInfo": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1188579"
+},
+"ClipCopy": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069869"
+},
+"ClipPaste": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069870"
+},
+"ClipReadLn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069871"
+},
+"ClipSetMode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069872"
+},
+"ClipWriteLn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069873"
+},
+"ClusterActivate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1070589"
+},
+"ClusterDeactivate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1070590"
+},
+"ClusterFirst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1070591"
+},
+"ClusterGetName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1070592"
+},
+"ClusterIsActive": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1070593"
+},
+"ClusterNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1070594"
+},
+"ClusterServerTypes": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1070595"
+},
+"ClusterSetName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1070596"
+},
+"ClusterStatus": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1070597"
+},
+"ClusterSwapActive": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1070598"
+},
+"CodeSetMode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193639"
+},
+"CodeTrace": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188580"
+},
+"ComClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073043"
+},
+"ComOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073044"
+},
+"ComRead": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1073045"
+},
+"ComReset": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073046"
+},
+"ComWrite": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1073047"
+},
+"Cos": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218119"
+},
+"CreateControlObject": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1030952"
+},
+"CreateObject": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218053"
+},
+"DDEExec": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073072"
+},
+"DDEPost": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073082"
+},
+"DDERead": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073083"
+},
+"DDEWrite": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073084"
+},
+"DDEhExecute": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1073073"
+},
+"DDEhGetLastError": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073074"
+},
+"DDEhInitiate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073075"
+},
+"DDEhPoke": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1073076"
+},
+"DDEhReadLn": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1073077"
+},
+"DDEhRequest": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1073078"
+},
+"DDEhSetMode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073079"
+},
+"DDEhTerminate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073080"
+},
+"DDEhWriteLn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073081"
+},
+"DLLCall": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105176"
+},
+"DLLCallEx": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105177"
+},
+"DLLClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105178"
+},
+"DLLOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105179"
+},
+"DateAdd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193717"
+},
+"DateInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193719"
+},
+"DateSub": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193721"
+},
+"Debug": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1121828"
+},
+"DebugBreak": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188581"
+},
+"DegToRad": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188473"
+},
+"DevAppend": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076374"
+},
+"DevClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076375"
+},
+"DevControl": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076376"
+},
+"DevCurr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076377"
+},
+"DevDelete": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076378"
+},
+"DevDisable": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076379"
+},
+"DevEOF": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076380"
+},
+"DevFind": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076381"
+},
+"DevFlush": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076383"
+},
+"DevGetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076384"
+},
+"DevHistory": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076385"
+},
+"DevInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076386"
+},
+"DevModify": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076387"
+},
+"DevNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076388"
+},
+"DevOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076389"
+},
+"DevPrev": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076390"
+},
+"DevPrint": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076391"
+},
+"DevRead": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076392"
+},
+"DevReadLn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076393"
+},
+"DevRecNo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076394"
+},
+"DevSeek": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076395"
+},
+"DevSetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076396"
+},
+"DevSize": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076397"
+},
+"DevWrite": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076398"
+},
+"DevWriteLn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076399"
+},
+"DevZap": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076400"
+},
+"DisplayRuntimeManager": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188585"
+},
+"DllClassCallMethod": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1188712"
+},
+"DllClassCreate": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1188708"
+},
+"DllClassDispose": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1188707"
+},
+"DllClassGetProperty": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1188711"
+},
+"DllClassIsValid": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1188709"
+},
+"DllClassSetProperty": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1188710"
+},
+"DriverInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106222"
+},
+"DspAnCreateControlObject": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104634"
+},
+"DspAnFree": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104635"
+},
+"DspAnGetArea": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104636"
+},
+"DspAnGetMetadata": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104637"
+},
+"DspAnGetMetadataAt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104638"
+},
+"DspAnGetPos": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104639"
+},
+"DspAnGetPrivilege": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104640"
+},
+"DspAnInRgn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104642"
+},
+"DspAnInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104641"
+},
+"DspAnMove": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104643"
+},
+"DspAnMoveRel": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104644"
+},
+"DspAnNew": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104645"
+},
+"DspAnNewRel": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104646"
+},
+"DspAnSetMetadata": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104648"
+},
+"DspAnSetMetadataAt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104649"
+},
+"DspAnSetName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104647"
+},
+"DspArrayByAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1069809"
+},
+"DspBar": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104650"
+},
+"DspBmp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104651"
+},
+"DspChart": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104654"
+},
+"DspClearClip": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104655"
+},
+"DspCol": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104656"
+},
+"DspDel": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104657"
+},
+"DspDelayRenderBegin": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104658"
+},
+"DspDelayRenderEnd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104659"
+},
+"DspDirty": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104660"
+},
+"DspError": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104661"
+},
+"DspFile": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104662"
+},
+"DspFileGetInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104663"
+},
+"DspFileGetName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104664"
+},
+"DspFileScroll": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104665"
+},
+"DspFileSetName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104666"
+},
+"DspFont": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104667"
+},
+"DspFontHnd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104668"
+},
+"DspFullScreen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104669"
+},
+"DspGetAnCur": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104671"
+},
+"DspGetAnExtent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104672"
+},
+"DspGetAnFirst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104674"
+},
+"DspGetAnFromName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104675"
+},
+"DspGetAnFromNameRelative": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104676"
+},
+"DspGetAnFromPoint": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104677"
+},
+"DspGetAnNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104680"
+},
+"DspGetAnRawExtent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104673"
+},
+"DspGetEnv": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104684"
+},
+"DspGetMetadataFromName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104685"
+},
+"DspGetMetadataFromNameRelative": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104686"
+},
+"DspGetMouse": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104687"
+},
+"DspGetMouseOver": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104688"
+},
+"DspGetNameFromAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104689"
+},
+"DspGetNearestAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104690"
+},
+"DspGetParentAn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104691"
+},
+"DspGetSlider": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104692"
+},
+"DspGetTip": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104693"
+},
+"DspGrayButton": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104694"
+},
+"DspInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104695"
+},
+"DspInfoDestroy": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104696"
+},
+"DspInfoField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104697"
+},
+"DspInfoNew": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104698"
+},
+"DspInfoValid": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104699"
+},
+"DspIsButtonGray": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104700"
+},
+"DspKernel": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104701"
+},
+"DspMCI": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104704"
+},
+"DspMarkerMove": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104702"
+},
+"DspMarkerNew": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104703"
+},
+"DspPlaySound": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104705"
+},
+"DspRichText": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104708"
+},
+"DspRichTextEdit": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104709"
+},
+"DspRichTextEnable": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104710"
+},
+"DspRichTextGetInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104711"
+},
+"DspRichTextLoad": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104712"
+},
+"DspRichTextPgScroll": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104713"
+},
+"DspRichTextPrint": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104714"
+},
+"DspRichTextSave": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104715"
+},
+"DspRichTextScroll": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104716"
+},
+"DspRubEnd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104717"
+},
+"DspRubMove": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104718"
+},
+"DspRubSetClip": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104719"
+},
+"DspRubSetColor": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104720"
+},
+"DspRubStart": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104721"
+},
+"DspSetClip": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104722"
+},
+"DspSetCurColor": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104723"
+},
+"DspSetMetadataFromName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104724"
+},
+"DspSetMetadataFromNameRelative": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104725"
+},
+"DspSetPopupMenuFont": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104726"
+},
+"DspSetSlider": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104727"
+},
+"DspSetTip": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104728"
+},
+"DspSetTooltipFont": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104729"
+},
+"DspStatus": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104730"
+},
+"DspStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104731"
+},
+"DspSym": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104732"
+},
+"DspSymAnm": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104733"
+},
+"DspSymAtSize": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104735"
+},
+"DspText": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104736"
+},
+"DspTipMode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104737"
+},
+"DspTrend": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104738"
+},
+"DspTrendInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104739"
+},
+"DspWebContentGetURL": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104740"
+},
+"DspWebContentSetURL": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1104741"
+},
+"DumpKernel": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188586"
+},
+"EngToGeneric": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188587"
+},
+"EquipBrowseClose": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1105197"
+},
+"EquipBrowseFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105198"
+},
+"EquipBrowseGetField": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1105199"
+},
+"EquipBrowseNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105200"
+},
+"EquipBrowseNumRecords": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1105201"
+},
+"EquipBrowseOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105202"
+},
+"EquipBrowsePrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105203"
+},
+"EquipCheckUpdate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105204"
+},
+"EquipGetParameter": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105205"
+},
+"EquipGetProperty": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105206"
+},
+"EquipRefBrowseClose": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1105207"
+},
+"EquipRefBrowseFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105208"
+},
+"EquipRefBrowseGetField": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1105209"
+},
+"EquipRefBrowseNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105210"
+},
+"EquipRefBrowseNumRecords": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1105211"
+},
+"EquipRefBrowseOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105212"
+},
+"EquipRefBrowsePrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105213"
+},
+"EquipSetProperty": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105214"
+},
+"EquipStateBrowseClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105215"
+},
+"EquipStateBrowseFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105216"
+},
+"EquipStateBrowseGetField": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1105217"
+},
+"EquipStateBrowseNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105218"
+},
+"EquipStateBrowseNumRecords": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1105219"
+},
+"EquipStateBrowseOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105220"
+},
+"EquipStateBrowsePrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105221"
+},
+"ErrCom": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105314"
+},
+"ErrDrv": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105315"
+},
+"ErrGetHw": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105316"
+},
+"ErrInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105339"
+},
+"ErrLog": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105318"
+},
+"ErrMsg": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105319"
+},
+"ErrSet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105320"
+},
+"ErrSetHw": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105321"
+},
+"ErrSetLevel": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105322"
+},
+"ErrTrap": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105323"
+},
+"Exec": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188588"
+},
+"ExecuteDTSPkg": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192457"
+},
+"Exp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218110"
+},
+"Fact": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188475"
+},
+"FileClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105361"
+},
+"FileCopy": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218088"
+},
+"FileDelete": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105363"
+},
+"FileEOF": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105364"
+},
+"FileExist": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1105365"
+},
+"FileFind": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105366"
+},
+"FileFindClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105367"
+},
+"FileGetTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105368"
+},
+"FileMakePath": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105369"
+},
+"FileOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105370"
+},
+"FileRead": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105372"
+},
+"FileReadBlock": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105373"
+},
+"FileReadLn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105374"
+},
+"FileRename": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105375"
+},
+"FileRichTextPrint": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105376"
+},
+"FileSeek": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105377"
+},
+"FileSetTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105378"
+},
+"FileSize": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105379"
+},
+"FileSplitPath": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105380"
+},
+"FileWrite": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105381"
+},
+"FileWriteBlock": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105382"
+},
+"FileWriteLn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105383"
+},
+"FmtClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106148"
+},
+"FmtFieldHnd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106149"
+},
+"FmtGetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106150"
+},
+"FmtGetFieldCount": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106151"
+},
+"FmtGetFieldHnd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106152"
+},
+"FmtGetFieldName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106153"
+},
+"FmtGetFieldWidth": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106154"
+},
+"FmtOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106155"
+},
+"FmtSetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106156"
+},
+"FmtSetFieldHnd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106157"
+},
+"FmtToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106158"
+},
+"FormActive": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106071"
+},
+"FormAddList": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106072"
+},
+"FormButton": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106073"
+},
+"FormCheckBox": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106074"
+},
+"FormComboBox": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106075"
+},
+"FormCurr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106076"
+},
+"FormDestroy": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106077"
+},
+"FormEdit": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106078"
+},
+"FormField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106079"
+},
+"FormGetCurrInst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106080"
+},
+"FormGetData": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106081"
+},
+"FormGetInst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106082"
+},
+"FormGetText": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106083"
+},
+"FormGoto": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106084"
+},
+"FormGroupBox": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106085"
+},
+"FormInput": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106086"
+},
+"FormListAddText": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106087"
+},
+"FormListBox": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106088"
+},
+"FormListDeleteText": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106089"
+},
+"FormListSelectText": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106090"
+},
+"FormNew": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106091"
+},
+"FormOpenFile": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1106093"
+},
+"FormPassword": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106094"
+},
+"FormPosition": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106095"
+},
+"FormPrompt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106096"
+},
+"FormRadioButton": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106097"
+},
+"FormRead": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1106098"
+},
+"FormSaveAsFile": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1106099"
+},
+"FormSecurePassword": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106100"
+},
+"FormSelectPrinter": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1106101"
+},
+"FormSetData": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106102"
+},
+"FormSetInst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106103"
+},
+"FormSetText": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106104"
+},
+"FormWndHnd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106105"
+},
+"FullName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192337"
+},
+"FuzzyClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106178"
+},
+"FuzzyGetCodeValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106179"
+},
+"FuzzyGetShellValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106180"
+},
+"FuzzyOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106181"
+},
+"FuzzySetCodeValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106182"
+},
+"FuzzySetShellValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106183"
+},
+"FuzzyTrace": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106184"
+},
+"GetArea": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188589"
+},
+"GetEnv": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188590"
+},
+"GetEvent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105348"
+},
+"GetLanguage": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192338"
+},
+"GetLogging": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188591"
+},
+"GetPriv": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192339"
+},
+"GetWinTitle": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193972"
+},
+"GrpClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106197"
+},
+"GrpDelete": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106198"
+},
+"GrpFirst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106199"
+},
+"GrpIn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106200"
+},
+"GrpInsert": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106201"
+},
+"GrpMath": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106202"
+},
+"GrpName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106203"
+},
+"GrpNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106204"
+},
+"GrpOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106205"
+},
+"GrpToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106206"
+},
+"Halt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193641"
+},
+"HexToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192564"
+},
+"HighByte": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188476"
+},
+"HighWord": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188477"
+},
+"HtmlHelp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1305325"
+},
+"IODeviceControl": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106223"
+},
+"IODeviceInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106224"
+},
+"Input": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218093"
+},
+"IntToReal": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188595"
+},
+"IntToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192565"
+},
+"IsError": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105324"
+},
+"KerCmd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188596"
+},
+"KernelQueueLength": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188597"
+},
+"KernelTableInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188598"
+},
+"KernelTableItemCount": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188599"
+},
+"KeyAllowCursor": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106237"
+},
+"KeyBS": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106238"
+},
+"KeyGet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106240"
+},
+"KeyGetCursor": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106241"
+},
+"KeyMove": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106243"
+},
+"KeyPeek": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106244"
+},
+"KeyPut": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106245"
+},
+"KeyPutStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106246"
+},
+"KeyReplay": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106247"
+},
+"KeySetCursor": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106250"
+},
+"KeySetSeq": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106251"
+},
+"LanguageFileTranslate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188600"
+},
+"Ln": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188478"
+},
+"Log": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218113"
+},
+"Login": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192340"
+},
+"Logout": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192342"
+},
+"LowByte": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188480"
+},
+"LowWord": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188481"
+},
+"MailError": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106279"
+},
+"MailLogoff": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106280"
+},
+"MailLogon": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106281"
+},
+"MailRead": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1106282"
+},
+"MailSend": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106283"
+},
+"MapClear": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106298"
+},
+"MapClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106299"
+},
+"MapExists": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106300"
+},
+"MapKeyCount": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106301"
+},
+"MapKeyDelete": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106302"
+},
+"MapKeyExists": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106303"
+},
+"MapKeyFirst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106304"
+},
+"MapKeyNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106305"
+},
+"MapOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106306"
+},
+"MapValueGet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106307"
+},
+"MapValueSet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106308"
+},
+"MapValueSetQuality": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1106309"
+},
+"Max": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188482"
+},
+"MenuGetChild": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188522"
+},
+"MenuGetFirstChild": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188523"
+},
+"MenuGetGenericNode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188524"
+},
+"MenuGetNextChild": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188525"
+},
+"MenuGetNodeByPath": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188526"
+},
+"MenuGetPageNode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188527"
+},
+"MenuGetParent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188528"
+},
+"MenuGetPrevChild": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188529"
+},
+"MenuGetWindowNode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188530"
+},
+"MenuNodeAddChild": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188531"
+},
+"MenuNodeGetCurr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188532"
+},
+"MenuNodeGetDepth": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188533"
+},
+"MenuNodeGetExpanded": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188538"
+},
+"MenuNodeGetProperty": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188534"
+},
+"MenuNodeGetTargetPage": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188535"
+},
+"MenuNodeHasCommand": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188536"
+},
+"MenuNodeIsDisabled": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188537"
+},
+"MenuNodeIsHidden": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188539"
+},
+"MenuNodeRemove": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188540"
+},
+"MenuNodeRunCommand": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188541"
+},
+"MenuNodeSetDisabledWhen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188542"
+},
+"MenuNodeSetExpanded": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188543"
+},
+"MenuNodeSetHiddenWhen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188544"
+},
+"MenuNodeSetProperty": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188545"
+},
+"MenuReload": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188546"
+},
+"Message": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1188601"
+},
+"Min": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188483"
+},
+"MsgBrdcst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193643"
+},
+"MsgClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193644"
+},
+"MsgGetCurr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193645"
+},
+"MsgOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193646"
+},
+"MsgRPC": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193648"
+},
+"MsgRead": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193647"
+},
+"MsgState": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193649"
+},
+"MsgWrite": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193650"
+},
+"MultiMonitorStart": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193973"
+},
+"Name": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218099"
+},
+"OLEDateToTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193724"
+},
+"ObjectAssociateEvents": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1030954"
+},
+"ObjectAssociatePropertyWithTag": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1030955"
+},
+"ObjectHasInterface": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1030957"
+},
+"ObjectIsValid": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1030958"
+},
+"ObjectToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1030959"
+},
+"OnEvent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105349"
+},
+"PackedRGBToCitectColour": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1073029"
+},
+"PageBack": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188739"
+},
+"PageExists": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188742"
+},
+"PageFileInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188744"
+},
+"PageFileInfoEx": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188745"
+},
+"PageForward": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188746"
+},
+"PageGetInt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188747"
+},
+"PageGetStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188748"
+},
+"PageHome": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188753"
+},
+"PageInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188754"
+},
+"PageLast": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188756"
+},
+"PageListCount": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188757"
+},
+"PageListCurrent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188758"
+},
+"PageListDelete": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188761"
+},
+"PageListDisplay": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188760"
+},
+"PageListInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188759"
+},
+"PageNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188763"
+},
+"PagePeekCurrent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188764"
+},
+"PagePeekLast": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188765"
+},
+"PagePopLast": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188766"
+},
+"PagePrev": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188768"
+},
+"PagePushLast": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188771"
+},
+"PageRecall": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188772"
+},
+"PageSetInt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188775"
+},
+"PageSetStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188776"
+},
+"PageTask": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188779"
+},
+"PageTransformCoords": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188780"
+},
+"ParameterGet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188602"
+},
+"ParameterPut": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188603"
+},
+"PathToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192566"
+},
+"Pi": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188484"
+},
+"PlotClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188844"
+},
+"PlotDraw": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188845"
+},
+"PlotGetMarker": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188846"
+},
+"PlotGrid": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188847"
+},
+"PlotInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188848"
+},
+"PlotLine": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188849"
+},
+"PlotMarker": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188850"
+},
+"PlotOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188851"
+},
+"PlotScaleMarker": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188852"
+},
+"PlotSetMarker": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188853"
+},
+"PlotText": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188854"
+},
+"PlotXYLine": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188855"
+},
+"Pow": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188485"
+},
+"PrintFont": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1076402"
+},
+"ProcessRestart": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188606"
+},
+"ProductInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188607"
+},
+"ProjectInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188608"
+},
+"ProjectRestartGet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188609"
+},
+"ProjectRestartSet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188610"
+},
+"ProjectSet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188611"
+},
+"Prompt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188612"
+},
+"QualityCreate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189265"
+},
+"QualityGetPart": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189266"
+},
+"QualityIsBad": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189268"
+},
+"QualityIsControlInhibit": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189267"
+},
+"QualityIsGood": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189269"
+},
+"QualityIsUncertain": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189271"
+},
+"QualitySetPart": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189272"
+},
+"QualityToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189273"
+},
+"QueClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193651"
+},
+"QueLength": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193652"
+},
+"QueOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193653"
+},
+"QuePeek": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193654"
+},
+"QueRead": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193655"
+},
+"QueWrite": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193656"
+},
+"RadToDeg": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188486"
+},
+"Rand": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188487"
+},
+"ReRead": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193657"
+},
+"RealToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192567"
+},
+"RepGetCluster": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189289"
+},
+"RepGetControl": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189290"
+},
+"RepSetControl": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189292"
+},
+"Report": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189291"
+},
+"ResetScreenProfile": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192246"
+},
+"Round": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188488"
+},
+"SOEArchive": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192396"
+},
+"SOEDismount": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192397"
+},
+"SOEEventAdd": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192398"
+},
+"SOEMount": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192399"
+},
+"SPCAlarms": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192535"
+},
+"SPCClientInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192536"
+},
+"SPCGetHistogramTable": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192537"
+},
+"SPCGetSubgroupTable": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192538"
+},
+"SPCProcessXRSGet": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192540"
+},
+"SPCProcessXRSSet": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192541"
+},
+"SPCSetLimit": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192542"
+},
+"SPCSpecLimitGet": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192543"
+},
+"SPCSpecLimitSet": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192544"
+},
+"SPCSubgroupSizeGet": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192545"
+},
+"SPCSubgroupSizeSet": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192546"
+},
+"SQLAppend": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192458"
+},
+"SQLBeginTran": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192459"
+},
+"SQLCall": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192460"
+},
+"SQLCancel": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192461"
+},
+"SQLClose": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192462"
+},
+"SQLCommit": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192463"
+},
+"SQLConnect": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192464"
+},
+"SQLCreate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192465"
+},
+"SQLDisconnect": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192466"
+},
+"SQLDispose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192467"
+},
+"SQLEnd": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192468"
+},
+"SQLErrMsg": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192469"
+},
+"SQLExec": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192470"
+},
+"SQLFieldInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192471"
+},
+"SQLGetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192472"
+},
+"SQLGetRecordset": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192473"
+},
+"SQLGetScalar": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192474"
+},
+"SQLInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192475"
+},
+"SQLIsNullField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192476"
+},
+"SQLNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192477"
+},
+"SQLNumChange": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192479"
+},
+"SQLNumFields": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192480"
+},
+"SQLOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192481"
+},
+"SQLParamsClearAll": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192482"
+},
+"SQLParamsSetAsInt": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192483"
+},
+"SQLParamsSetAsReal": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192484"
+},
+"SQLParamsSetAsString": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192485"
+},
+"SQLPrev": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192486"
+},
+"SQLQueryCreate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192487"
+},
+"SQLQueryDispose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192488"
+},
+"SQLRollBack": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192489"
+},
+"SQLRowCount": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192490"
+},
+"SQLSet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192491"
+},
+"SQLTraceOff": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192492"
+},
+"SQLTraceOn": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192493"
+},
+"SchdClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189301"
+},
+"SchdConfigClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189302"
+},
+"SchdConfigFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189303"
+},
+"SchdConfigGetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189304"
+},
+"SchdConfigNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189305"
+},
+"SchdConfigNumRecords": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189306"
+},
+"SchdConfigOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189307"
+},
+"SchdConfigPrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189308"
+},
+"SchdFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189309"
+},
+"SchdGetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189310"
+},
+"SchdNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189311"
+},
+"SchdNumRecords": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189312"
+},
+"SchdOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189313"
+},
+"SchdPrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189314"
+},
+"SchdSpecialAdd": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189315"
+},
+"SchdSpecialClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189316"
+},
+"SchdSpecialDelete": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1190689"
+},
+"SchdSpecialFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189317"
+},
+"SchdSpecialGetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189318"
+},
+"SchdSpecialItemAdd": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189319"
+},
+"SchdSpecialItemAddRange": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189320"
+},
+"SchdSpecialItemClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189321"
+},
+"SchdSpecialItemDelete": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189322"
+},
+"SchdSpecialItemDeleteRange": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189323"
+},
+"SchdSpecialItemFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189324"
+},
+"SchdSpecialItemGetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189325"
+},
+"SchdSpecialItemModify": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189326"
+},
+"SchdSpecialItemModifyRange": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189327"
+},
+"SchdSpecialItemNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189328"
+},
+"SchdSpecialItemNumRecords": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189329"
+},
+"SchdSpecialItemOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189330"
+},
+"SchdSpecialItemPrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189331"
+},
+"SchdSpecialModify": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189332"
+},
+"SchdSpecialNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189333"
+},
+"SchdSpecialNumRecords": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189334"
+},
+"SchdSpecialOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189335"
+},
+"SchdSpecialPrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189336"
+},
+"ScheduleItemAdd": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189337"
+},
+"ScheduleItemDelete": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189338"
+},
+"ScheduleItemModify": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189339"
+},
+"ScheduleItemSetRepeat": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1189340"
+},
+"SemClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193658"
+},
+"SemOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193659"
+},
+"SemSignal": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193660"
+},
+"SemWait": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193661"
+},
+"SendKeys": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218126"
+},
+"ServerBrowseClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192408"
+},
+"ServerBrowseFirst": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192410"
+},
+"ServerBrowseGetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192413"
+},
+"ServerBrowseNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192411"
+},
+"ServerBrowseNumRecords": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192414"
+},
+"ServerBrowseOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192409"
+},
+"ServerBrowsePrev": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192412"
+},
+"ServerDumpKernel": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1188614"
+},
+"ServerGetProperty": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192415"
+},
+"ServerInfo": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1192416"
+},
+"ServerInfoEx": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192417"
+},
+"ServerIsOnline": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192418"
+},
+"ServerRPC": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193662"
+},
+"ServerReload": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192419"
+},
+"ServerRestart": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192420"
+},
+"ServiceGetList": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188615"
+},
+"SetArea": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188616"
+},
+"SetEvent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1105350"
+},
+"SetLogging": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188617"
+},
+"Shutdown": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188618"
+},
+"ShutdownMode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188620"
+},
+"Sign": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188489"
+},
+"Sin": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218120"
+},
+"Sleep": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193663"
+},
+"SleepMS": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193664"
+},
+"Sqrt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218116"
+},
+"StrCalcWidth": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192568"
+},
+"StrClean": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192569"
+},
+"StrFill": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192571"
+},
+"StrFormat": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192572"
+},
+"StrGetChar": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192573"
+},
+"StrLeft": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192574"
+},
+"StrLength": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192575"
+},
+"StrLower": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192577"
+},
+"StrMid": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192578"
+},
+"StrPad": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192579"
+},
+"StrReplace": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192580"
+},
+"StrRight": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192581"
+},
+"StrSearch": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192582"
+},
+"StrSetChar": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192583"
+},
+"StrToChar": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192586"
+},
+"StrToDate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192587"
+},
+"StrToFmt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192588"
+},
+"StrToGrp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192589"
+},
+"StrToHex": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192590"
+},
+"StrToInt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192591"
+},
+"StrToLines": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192592"
+},
+"StrToLocalText": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192593"
+},
+"StrToPeriod": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192594"
+},
+"StrToReal": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192595"
+},
+"StrToTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192596"
+},
+"StrToTimestamp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193764"
+},
+"StrToValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192597"
+},
+"StrTrim": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192598"
+},
+"StrTruncFont": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192599"
+},
+"StrTruncFontHnd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192600"
+},
+"StrUpper": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192602"
+},
+"StrWord": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192603"
+},
+"SubscriptionAddCallback": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192719"
+},
+"SubscriptionGetAttribute": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192720"
+},
+"SubscriptionGetInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192721"
+},
+"SubscriptionGetQuality": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192722"
+},
+"SubscriptionGetTag": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192723"
+},
+"SubscriptionGetTimestamp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192724"
+},
+"SubscriptionGetValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192725"
+},
+"SubscriptionRemoveCallback": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192726"
+},
+"SwitchConfig": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188621"
+},
+"SysTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193725"
+},
+"SysTimeDelta": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193726"
+},
+"TableLookUp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192708"
+},
+"TableMath": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192709"
+},
+"TableShift": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192710"
+},
+"TagBrowseClose": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192727"
+},
+"TagBrowseFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192728"
+},
+"TagBrowseGetField": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192729"
+},
+"TagBrowseNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192730"
+},
+"TagBrowseNumRecords": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192731"
+},
+"TagBrowseOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192732"
+},
+"TagBrowsePrev": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192733"
+},
+"TagGetProperty": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192738"
+},
+"TagGetScale": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192739"
+},
+"TagGetValue": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1192740"
+},
+"TagInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192741"
+},
+"TagInfoEx": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192742"
+},
+"TagRDBReload": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192744"
+},
+"TagRead": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192745"
+},
+"TagReadEx": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192746"
+},
+"TagResolve": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192747"
+},
+"TagScaleStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192748"
+},
+"TagSetOverrideBad": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192749"
+},
+"TagSetOverrideGood": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192750"
+},
+"TagSetOverrideQuality": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192751"
+},
+"TagSetOverrideUncertain": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192752"
+},
+"TagSubscribe": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192753"
+},
+"TagUnresolve": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192754"
+},
+"TagUnsubscribe": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192755"
+},
+"TagWrite": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192756"
+},
+"TagWriteIntArray": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192758"
+},
+"TagWriteRealArray": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192759"
+},
+"Tan": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1218121"
+},
+"TaskCall": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194741"
+},
+"TaskCluster": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193665"
+},
+"TaskGetSignal": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193666"
+},
+"TaskHnd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193667"
+},
+"TaskKill": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193668"
+},
+"TaskNew": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193669"
+},
+"TaskNewEx": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193670"
+},
+"TaskResume": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193671"
+},
+"TaskSetSignal": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193672"
+},
+"TaskSuspend": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193673"
+},
+"TimeCurrent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193728"
+},
+"TimeInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193730"
+},
+"TimeIntToTimestamp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193765"
+},
+"TimeSet": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193734"
+},
+"TimeToOLEDate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193735"
+},
+"TimeToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193736"
+},
+"TimeUTCOffset": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193737"
+},
+"TimestampAdd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193766"
+},
+"TimestampCreate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193768"
+},
+"TimestampCurrent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193767"
+},
+"TimestampDifference": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193769"
+},
+"TimestampFormat": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193770"
+},
+"TimestampGetPart": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193771"
+},
+"TimestampSub": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193772"
+},
+"TimestampToStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193773"
+},
+"TimestampToTimeInt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193774"
+},
+"TraceMsg": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188628"
+},
+"TrnAddHistory": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193807"
+},
+"TrnBrowseClose": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1193808"
+},
+"TrnBrowseFirst": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193809"
+},
+"TrnBrowseGetField": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1193810"
+},
+"TrnBrowseNext": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193811"
+},
+"TrnBrowseNumRecords": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1193812"
+},
+"TrnBrowseOpen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193813"
+},
+"TrnBrowsePrev": {
+"fg_note": false,
+"kind": "non-blocking",
+"topic": "1193814"
+},
+"TrnClientInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193815"
+},
+"TrnDelHistory": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193818"
+},
+"TrnDelete": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193817"
+},
+"TrnEcho": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193819"
+},
+"TrnEventGetTable": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193820"
+},
+"TrnEventGetTableMS": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193821"
+},
+"TrnEventSetTable": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193822"
+},
+"TrnEventSetTableMS": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193823"
+},
+"TrnFlush": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193828"
+},
+"TrnGetBufEvent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193829"
+},
+"TrnGetBufTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193830"
+},
+"TrnGetBufValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193831"
+},
+"TrnGetCluster": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193832"
+},
+"TrnGetCursorEvent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193833"
+},
+"TrnGetCursorMSTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193834"
+},
+"TrnGetCursorPos": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193835"
+},
+"TrnGetCursorTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193836"
+},
+"TrnGetCursorValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193837"
+},
+"TrnGetCursorValueStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193838"
+},
+"TrnGetDefScale": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193839"
+},
+"TrnGetDisplayMode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193840"
+},
+"TrnGetEvent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193841"
+},
+"TrnGetFormat": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193842"
+},
+"TrnGetGatedValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193843"
+},
+"TrnGetInvalidValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193844"
+},
+"TrnGetMSTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193846"
+},
+"TrnGetMode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193845"
+},
+"TrnGetPen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193847"
+},
+"TrnGetPenComment": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193848"
+},
+"TrnGetPenFocus": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193849"
+},
+"TrnGetPenNo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193850"
+},
+"TrnGetPeriod": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193851"
+},
+"TrnGetScale": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193852"
+},
+"TrnGetScaleStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193853"
+},
+"TrnGetSpan": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193854"
+},
+"TrnGetTable": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193855"
+},
+"TrnGetTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193856"
+},
+"TrnGetUnits": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193857"
+},
+"TrnInfo": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193858"
+},
+"TrnIsValidValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193859"
+},
+"TrnNew": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193860"
+},
+"TrnScroll": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193864"
+},
+"TrnSelect": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193865"
+},
+"TrnSetCursor": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193866"
+},
+"TrnSetCursorPos": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193867"
+},
+"TrnSetDisplayMode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193868"
+},
+"TrnSetEvent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193869"
+},
+"TrnSetPen": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193870"
+},
+"TrnSetPenFocus": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193871"
+},
+"TrnSetPeriod": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193872"
+},
+"TrnSetScale": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193873"
+},
+"TrnSetSpan": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193874"
+},
+"TrnSetTable": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193875"
+},
+"TrnSetTime": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193876"
+},
+"UserCreate": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192347"
+},
+"UserCreateByRole": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192348"
+},
+"UserDelete": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192350"
+},
+"UserInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192352"
+},
+"UserLogin": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192353"
+},
+"UserPassword": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192354"
+},
+"UserPasswordExpiryDays": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192355"
+},
+"UserSetStr": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192357"
+},
+"UserUpdateRecord": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192358"
+},
+"UserVerify": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1192359"
+},
+"VariableQuality": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1189274"
+},
+"VariableTimestamp": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193775"
+},
+"Version": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1188629"
+},
+"WhoAmI": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1192362"
+},
+"WinCopy": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193974"
+},
+"WinFile": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193975"
+},
+"WinFree": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193977"
+},
+"WinFreeEx": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193978"
+},
+"WinGetClicked": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193979"
+},
+"WinGetFirstChild": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193976"
+},
+"WinGetFocus": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193980"
+},
+"WinGetName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193981"
+},
+"WinGetNextChild": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193982"
+},
+"WinGetParent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193983"
+},
+"WinGetWndHnd": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193984"
+},
+"WinGoto": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193985"
+},
+"WinMode": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193986"
+},
+"WinMove": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193987"
+},
+"WinNew": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193988"
+},
+"WinNewAt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193989"
+},
+"WinNewPinAt": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193990"
+},
+"WinNext": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193991"
+},
+"WinNumber": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193992"
+},
+"WinPos": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193993"
+},
+"WinPrev": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193994"
+},
+"WinPrint": {
+"fg_note": false,
+"kind": "blocking",
+"topic": "1193995"
+},
+"WinPrintFile": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193996"
+},
+"WinSelect": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193997"
+},
+"WinSetName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193998"
+},
+"WinSize": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1193999"
+},
+"WinStyle": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194000"
+},
+"WndFind": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194002"
+},
+"WndGetFileProfile": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194003"
+},
+"WndInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194005"
+},
+"WndMonitorInfo": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194006"
+},
+"WndMonitorInfoEx": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194007"
+},
+"WndPutFileProfile": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194008"
+},
+"WndShow": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194009"
+},
+"XMLClose": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194055"
+},
+"XMLCreate": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194056"
+},
+"XMLGetAttribute": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194057"
+},
+"XMLGetAttributeCount": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194058"
+},
+"XMLGetAttributeName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194059"
+},
+"XMLGetAttributeValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194060"
+},
+"XMLGetChild": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194061"
+},
+"XMLGetChildCount": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194062"
+},
+"XMLGetParent": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194063"
+},
+"XMLGetRoot": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194064"
+},
+"XMLNodeAddChild": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194065"
+},
+"XMLNodeFind": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194066"
+},
+"XMLNodeGetName": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194067"
+},
+"XMLNodeGetValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194068"
+},
+"XMLNodeRemove": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194069"
+},
+"XMLNodeSetValue": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194070"
+},
+"XMLOpen": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194071"
+},
+"XMLSave": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194072"
+},
+"XMLSetAttribute": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1194073"
+},
+"_ObjectCallMethod": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1030948"
+},
+"_ObjectGetProperty": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1030949"
+},
+"_ObjectSetProperty": {
+"fg_note": false,
+"kind": "unstated",
+"topic": "1030950"
+}
+}

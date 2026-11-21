@@ -1,0 +1,4 @@
+FUNCTION Z()
+	STRING s = "CNT";
+	TraceMsg(s);
+END

@@ -1,0 +1,53 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Alib",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "b.ci",
+     "line": 2,
+     "context": "AlibFnB() RETURN {MbotFn}(); END",
+     "project": "Alib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "b.ci",
+     "line": 2,
+     "context": "RETURN MbotFn(){;} END",
+     "project": "Alib"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "b.ci",
+     "line": 2,
+     "context": "RETURN MbotFn(){;} END",
+     "project": "Alib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "b.ci",
+     "line": 5,
+     "context": "MbotFn(); END {}",
+     "project": "Alib"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "compile": "Mbot",
+   "ok": true,
+   "errors": [],
+   "warnings": []
+  }
+ ]
+}

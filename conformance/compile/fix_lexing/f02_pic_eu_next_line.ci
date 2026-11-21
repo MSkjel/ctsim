@@ -1,0 +1,7 @@
+STRING FUNCTION P()
+	REAL r = 1.5;
+	STRING s;
+	s = r:###
+	EUZzTail;
+	RETURN s;
+END

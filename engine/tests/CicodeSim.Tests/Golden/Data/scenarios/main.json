@@ -1,0 +1,23 @@
+{"format": "ctsim-scenario/0", "project": "Main",
+ "tags": {"Pump1_Run": {"value": 1}, "Valve_A": 1},
+ "user": {"name": "Engineer", "login": true},
+ "page": {"window": 0, "name": "Overview"},
+ "end": 14.0,
+ "steps": [
+  {"at": 1.0, "set": {"Motor_Speed": 5}},
+  {"at": 1.0, "expect": {"Motor_Speed": 5}},
+  {"at": 1.0, "ramp": {"tag": "Tank1_Temp", "from": 0, "to": 130, "seconds": 10, "every": 1}},
+  {"at": 6.0, "expect": {"Tank1_Temp": {"value": 65, "tolerance": 0.01}}},
+  {"at": 6.0, "expect": {"Tank1_Temp": 66}},
+  {"at": 7.0, "sine": {"tag": "Count_Long", "min": 0, "max": 100, "period": 4, "every": 1, "seconds": 3}},
+  {"at": 8.0, "expect": {"Count_Long": 100}},
+  {"at": 8.0, "random": {"tag": "Byte_Val", "min": 0, "max": 255, "every": 0.5, "seed": 42}},
+  {"at": 9.0, "quality": {"Motor_Speed": "bad_comm_failure"}},
+  {"at": 9.0, "expect": {"Motor_Speed": {"value": 5, "quality": "bad"}}},
+  {"at": 12.0, "expect": {"Tank1_Temp": 130, "Nope_Tag": 1}},
+  {"at": 12.0, "expectAlarm": {"ALM_TEMP": "on"}},
+  {"at": 12.5, "ack": "ALM_TEMP"},
+  {"at": 12.5, "expectAlarm": {"ALM_TEMP": {"on": 1, "ack": 1}}},
+  {"at": 13.0, "call": "PageDisplay(\"Mixer\")"},
+  {"at": 13.0, "expectPage": {"window": 0, "name": "Mixer"}}
+ ]}

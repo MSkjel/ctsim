@@ -1,0 +1,4 @@
+MODULE INT mzArr[2] = 1, 2, mzB;
+INT FUNCTION P()
+	RETURN mzArr[0];
+END

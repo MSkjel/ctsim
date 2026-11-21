@@ -1,0 +1,21 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// FILE: r.ci
+GLOBAL INT gm2 = 1;
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// FILE: zm.ci
+INT FUNCTION ZmidFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// FILE: l.ci
+MODULE INT gm2 = 2;
+INT FUNCTION LeafFn()
+	RETURN gm2;
+END
+

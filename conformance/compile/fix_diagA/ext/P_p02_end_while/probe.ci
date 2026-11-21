@@ -1,0 +1,6 @@
+FUNCTION ProbeP(INT a)
+	WHILE a < 3 DO
+		a = a + 1;
+	END WHILE
+END
+

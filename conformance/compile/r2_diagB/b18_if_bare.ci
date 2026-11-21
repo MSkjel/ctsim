@@ -1,0 +1,8 @@
+INT FUNCTION ZCb()
+	RETURN 0;
+END
+FUNCTION Z()
+	IF ZCb THEN
+		Sleep(0);
+	END
+END

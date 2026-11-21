@@ -1,0 +1,4 @@
+STRING FUNCTION P()
+	STRING s = "ZzLab";
+	RETURN s;
+END

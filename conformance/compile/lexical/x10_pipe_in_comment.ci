@@ -1,0 +1,6 @@
+INT FUNCTION P()
+	! a | b
+	// c | d
+	/* e | f */
+	RETURN 0;
+END

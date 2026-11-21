@@ -1,0 +1,4 @@
+FUNCTION ProbeA()
+	INT i;
+	i = "abc";
+END

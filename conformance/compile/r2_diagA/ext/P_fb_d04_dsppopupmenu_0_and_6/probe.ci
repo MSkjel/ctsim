@@ -1,0 +1,4 @@
+FUNCTION P()
+	DspPopupMenu();
+	DspPopupMenu(1, "a", 1, 1, 1, 1);
+END

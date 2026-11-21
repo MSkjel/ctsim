@@ -1,0 +1,58 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Deterministic>true</Deterministic>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Platforms>AnyCPU</Platforms>
+    <Prefer32Bit>false</Prefer32Bit>
+    <!-- net10.0 builds run on any newer installed runtime. -->
+    <RollForward>LatestMajor</RollForward>
+    <Authors>MSkjel</Authors>
+    <Copyright>Copyright (C) 2026 MSkjel</Copyright>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+  </PropertyGroup>
+  <!-- the version: the newest vX.Y.Z tag, the next patch level on a later commit (a build of
+       it is told apart from the release), 0.0.0 without a tag. -p:Version=x.y.z sets it. -->
+  <Target
+    Name="VersionFromTag"
+    BeforeTargets="GetAssemblyVersion;GenerateNuspec"
+    Condition="'$(VersionFromTag)' != 'false'"
+  >
+    <Exec
+      Command="git describe --tags --match &quot;v[0-9]*.[0-9]*.[0-9]*&quot; --exclude &quot;v*[!0-9.]*&quot;"
+      WorkingDirectory="$(MSBuildThisFileDirectory)"
+      ConsoleToMSBuild="true"
+      IgnoreExitCode="true"
+      StandardOutputImportance="low"
+      StandardErrorImportance="low"
+      EchoOff="true"
+    >
+      <Output TaskParameter="ConsoleOutput" PropertyName="_Described" />
+    </Exec>
+    <PropertyGroup>
+      <_Release>^v(\d+)\.(\d+)\.(\d+)(-(\d+)-g[0-9a-f]+)?$</_Release>
+      <_IsRelease>$([System.Text.RegularExpressions.Regex]::IsMatch('$(_Described)', '$(_Release)'))</_IsRelease>
+      <_Major Condition="'$(_IsRelease)' == 'True'"
+        >$([System.Text.RegularExpressions.Regex]::Replace('$(_Described)', '$(_Release)', '$1'))</_Major>
+      <_Minor Condition="'$(_IsRelease)' == 'True'"
+        >$([System.Text.RegularExpressions.Regex]::Replace('$(_Described)', '$(_Release)', '$2'))</_Minor>
+      <_Patch Condition="'$(_IsRelease)' == 'True'"
+        >$([System.Text.RegularExpressions.Regex]::Replace('$(_Described)', '$(_Release)', '$3'))</_Patch>
+      <_Patch Condition="'$(_IsRelease)' == 'True' And $(_Described.Contains('-g'))"
+        >$([MSBuild]::Add($(_Patch), 1))</_Patch>
+      <Version Condition="'$(_IsRelease)' == 'True'">$(_Major).$(_Minor).$(_Patch)</Version>
+      <Version Condition="'$(_IsRelease)' != 'True'">0.0.0</Version>
+      <PackageVersion>$(Version)</PackageVersion>
+    </PropertyGroup>
+  </Target>
+  <!-- when the build was made (EngineInfo.BuildTime): ctsim version, hello, discovery;
+       -p:NoBuildStamp=true leaves it out (a reproducible build) -->
+  <ItemGroup Condition="'$(NoBuildStamp)' != 'true'">
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>BuildTime</_Parameter1>
+      <_Parameter2>$([System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"))</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
+</Project>

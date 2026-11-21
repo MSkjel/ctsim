@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT a²b;
+	a²b = 1;
+	RETURN a²b;
+END

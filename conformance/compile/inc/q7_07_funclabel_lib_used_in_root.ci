@@ -1,0 +1,13 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN LTwice(3);
+END
+
+//// PROJECT: LibA
+//// LABEL: LTwice(a) = (a)*2
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN 1;
+END

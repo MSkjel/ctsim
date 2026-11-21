@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	INT myVar = 1;
+	RETURN MYVAR + myvar + MyVaR;
+END

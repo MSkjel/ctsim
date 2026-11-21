@@ -1,0 +1,19 @@
+//// PROJECT: Main
+//// INCLUDE: Alib
+//// INCLUDE: Zlib
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN Pv();
+END
+
+//// PROJECT: Alib
+//// FILE: a.ci
+PRIVATE INT FUNCTION Pv()
+	RETURN 2;
+END
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+INT FUNCTION Pv()
+	RETURN 1;
+END

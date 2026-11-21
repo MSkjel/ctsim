@@ -1,0 +1,6 @@
+FUNCTION ZzF()
+	RETURN
+	// comment
+	1;
+END
+

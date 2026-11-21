@@ -1,0 +1,6 @@
+FUNCTION ProbeN(INT a)
+	Sleep(a);
+	INT b = 2;
+	Sleep(b);
+END
+

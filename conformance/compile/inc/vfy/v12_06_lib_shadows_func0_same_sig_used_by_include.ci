@@ -1,0 +1,14 @@
+//// PROJECT: Root1
+//// INCLUDE: Zlib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN StrToInt(IntToStr(3));
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+STRING FUNCTION IntToStr(INT n)
+	RETURN "7";
+END
+

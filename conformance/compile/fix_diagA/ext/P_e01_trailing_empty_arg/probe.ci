@@ -1,0 +1,4 @@
+FUNCTION ZzF()
+	StrLeft("abc", );
+END
+

@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	AlarmCount(1);
+	AlarmCount(1, "a", 1, 1);
+	AlarmCountEquipment(1);
+	AlarmCountEquipment(1, "a", "a", 1, 1, 1);
+	AlarmDelete(1, 1);
+	AlarmDelete(1, 1, "a");
+	AlarmDisable(1, 1);
+	AlarmDisable(1, 1, "a", 1, "a");
+	AlarmDisableRec(1);
+	AlarmDisableRec(1, "a", 1, "a");
+	AlarmDsp(1, 1);
+	AlarmDsp(1, 1, 1, "a", 1, "a");
+	AlarmDspLast(1);
+	AlarmDspLast(1, 1, 1, "a", 1, "a");
+	AlarmEnable(1, 1);
+	AlarmEnable(1, 1, "a", 1);
+	AlarmEnableRec(1);
+	AlarmEnableRec(1, "a", 1);
+	AlarmEnableTag("a");
+	AlarmEnableTag("a", "a", 1);
+END

@@ -1,0 +1,6 @@
+//// FILE: a.ci
+FUNCTION P()
+END
+//// FILE: b.ci
+FUNCTION P()
+END

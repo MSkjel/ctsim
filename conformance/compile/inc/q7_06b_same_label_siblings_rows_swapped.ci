@@ -1,0 +1,21 @@
+//// PROJECT: Main
+//// INCLUDE: Zlib
+//// INCLUDE: Alib
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: Alib
+//// LABEL: SAMELBL = 5
+//// FILE: a.ci
+INT FUNCTION AFn()
+	RETURN 1;
+END
+
+//// PROJECT: Zlib
+//// LABEL: SAMELBL = 7
+//// FILE: z.ci
+INT FUNCTION ZFn()
+	RETURN 1;
+END

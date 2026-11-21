@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; STRING s;
+	i = "a" = "b" AND 1 BITOR 2;
+	RETURN 0;
+END

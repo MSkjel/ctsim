@@ -1,0 +1,10 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "call": "IntToStr(TRUE)",
+ "ok": false,
+ "error": "0x100001B1",
+ "code": 433,
+ "codeName": "Cicode type mismatch (doc)"
+}

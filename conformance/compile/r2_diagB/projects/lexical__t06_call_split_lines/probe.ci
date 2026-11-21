@@ -1,0 +1,7 @@
+INT FUNCTION P()
+	RETURN StrToInt(
+		"1"
+	)
+	+ StrLength(
+	"ab");
+END

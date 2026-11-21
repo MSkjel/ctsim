@@ -1,0 +1,6 @@
+MODULE INT Beep;
+FUNCTION ProbeQ()
+	Beep(1);
+	Beep = 2;
+END
+

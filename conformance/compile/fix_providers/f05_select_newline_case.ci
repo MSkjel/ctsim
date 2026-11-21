@@ -1,0 +1,9 @@
+FUNCTION Z(INT a)
+SELECT
+CASE a
+CASE 1
+a = 2;
+END
+SELECT
+a = 3;
+END

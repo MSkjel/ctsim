@@ -1,0 +1,3 @@
+//// LABEL: ZzOne(a) = ZzT3(a)
+FUNCTION ZzOne( )
+END

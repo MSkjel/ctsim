@@ -1,0 +1,5 @@
+//// LABEL: ZzUn3(a=1) = StrLength("x")
+FUNCTION ZzF()
+	INT i = ZzUn3( );
+	INT j = ZzUn3(1, );
+END

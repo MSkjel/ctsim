@@ -1,0 +1,15 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: a.ci
+GLOBAL INT gDup = 1;
+//// FILE: b.ci
+INT FUNCTION Dup()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// FILE: l.ci
+GLOBAL INT gDup = 1;
+INT FUNCTION Dup()
+	RETURN 2;
+END

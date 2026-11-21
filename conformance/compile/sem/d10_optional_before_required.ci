@@ -1,0 +1,3 @@
+INT FUNCTION ProbeOpt(INT a = 1, INT b)
+	RETURN a + b;
+END

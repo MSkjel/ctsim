@@ -1,0 +1,5 @@
+GLOBAL STRING zzX = "a";
+MODULE INT zzX = 1;
+INT FUNCTION ZzF()
+	RETURN zzX - 1;
+END

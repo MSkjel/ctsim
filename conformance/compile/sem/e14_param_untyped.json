@@ -1,0 +1,24 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2015",
+   "msg": "Bad raw data type",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "FUNCTION ProbeT({a}) Sleep(a);"
+  },
+  {
+   "code": "E2015",
+   "msg": "Bad raw data type",
+   "file": "probe.ci",
+   "line": null,
+   "context": "AddDefaultValue"
+  }
+ ],
+ "warnings": []
+}

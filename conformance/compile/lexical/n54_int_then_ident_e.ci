@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT v;
+	v = 1ex;
+	RETURN v;
+END

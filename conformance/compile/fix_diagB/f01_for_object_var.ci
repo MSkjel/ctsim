@@ -1,0 +1,6 @@
+FUNCTION Z()
+	OBJECT o;
+	FOR o = 1 TO 3 DO
+		Sleep(0);
+	END
+END

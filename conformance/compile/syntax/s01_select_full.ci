@@ -1,0 +1,17 @@
+FUNCTION Z(INT x)
+	INT y;
+	SELECT CASE x
+	CASE 1
+		y = 1;
+	CASE 2, 3
+		y = 2;
+	CASE 4 TO 6
+		y = 3;
+	CASE IS > 7
+		y = 4;
+	CASE 7, 8 TO 9, IS < -1
+		y = 6;
+	CASE ELSE
+		y = 5;
+	END SELECT
+END

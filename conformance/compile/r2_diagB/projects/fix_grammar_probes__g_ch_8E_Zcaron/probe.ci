@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT é_a = 1;
+	INT béc = 2;
+	RETURN é_a + béc;
+END

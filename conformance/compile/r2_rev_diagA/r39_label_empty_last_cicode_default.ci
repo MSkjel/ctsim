@@ -1,0 +1,6 @@
+//// LABEL: ZzOp3(x, y) = ZzTgt3(x, y)
+FUNCTION ZzTgt3(INT a, INT b = 1)
+END
+FUNCTION ZzF()
+	ZzOp3(1, );
+END

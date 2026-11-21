@@ -1,0 +1,7 @@
+//// FILE: a.ci
+FUNCTION ProbeA()
+END
+//// FILE: b.ci
+FUNCTION ProbeB()
+	zzNope();
+END

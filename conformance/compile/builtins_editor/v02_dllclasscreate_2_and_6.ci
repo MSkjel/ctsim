@@ -1,0 +1,4 @@
+FUNCTION P()
+	OBJECT o = DllClassCreate("a", "b");
+	OBJECT o2 = DllClassCreate("a", "b", 1, 2, 3, 4);
+END

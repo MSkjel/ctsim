@@ -1,0 +1,13 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION Clash()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+GLOBAL INT Clash = 1;
+INT FUNCTION LibFn()
+	RETURN 1;
+END

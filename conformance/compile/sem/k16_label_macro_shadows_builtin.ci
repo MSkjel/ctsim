@@ -1,0 +1,4 @@
+//// LABEL: StrLeft(a) = StrRight(a, 1)
+STRING FUNCTION ProbeK()
+	RETURN StrLeft("abc");
+END

@@ -1,0 +1,3 @@
+FUNCTION P()
+	StrLeft(1, 1);
+END

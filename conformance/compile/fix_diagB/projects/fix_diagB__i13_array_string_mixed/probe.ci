@@ -1,0 +1,3 @@
+MODULE STRING a[2] = "x", 5;
+FUNCTION Z()
+END

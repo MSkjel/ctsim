@@ -1,0 +1,5 @@
+STRING FUNCTION P()
+	STRING s;
+	s = "abc^";
+	RETURN s;
+END

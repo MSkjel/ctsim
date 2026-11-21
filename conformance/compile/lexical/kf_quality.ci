@@ -1,0 +1,3 @@
+INT FUNCTION quality()
+	RETURN 0;
+END

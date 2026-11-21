@@ -1,0 +1,34 @@
+//// PROJECT: Root1
+//// INCLUDE: Alib
+//// INCLUDE: Zlib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN LEAFK + LTri(2);
+END
+
+
+//// PROJECT: Alib
+//// FILE: a.ci
+INT FUNCTION AlibFn()
+	RETURN LEAFK + LTri(3);
+END
+
+
+//// PROJECT: Zlib
+//// INCLUDE: Leaf
+//// FILE: z.ci
+INT FUNCTION ZlibFn()
+	RETURN LEAFK;
+END
+
+
+//// PROJECT: Leaf
+//// LABEL: LEAFK = 7
+//// LABEL: LTri(a) = (a)*3
+//// FILE: l.ci
+INT FUNCTION LeafFn()
+	RETURN 1;
+END
+
+//// COMPILE: Root1
+//// COMPILE: Alib

@@ -1,0 +1,4 @@
+FUNCTION ProbeQ()
+	MODULE INT mInside;
+END
+

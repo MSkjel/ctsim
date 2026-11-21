@@ -1,0 +1,14 @@
+//// PROJECT: Root1
+//// INCLUDE: Zlib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+STRING FUNCTION AddZeroFront(INT n)
+	RETURN "";
+END
+

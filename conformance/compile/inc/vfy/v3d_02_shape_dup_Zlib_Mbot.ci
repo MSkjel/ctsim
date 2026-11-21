@@ -1,0 +1,44 @@
+//// PROJECT: Root1
+//// INCLUDE: Alib
+//// INCLUDE: Zlib
+//// FILE: a.ci
+INT FUNCTION Own_Root1()
+	RETURN 1;
+END
+
+
+//// PROJECT: Alib
+//// INCLUDE: Mbot
+//// FILE: z.ci
+INT FUNCTION Own_Alib()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zlib
+//// INCLUDE: Leaf
+//// FILE: a.ci
+INT FUNCTION Own_Zlib()
+	RETURN 1;
+END
+INT FUNCTION DupV()
+	RETURN 1;
+END
+
+
+//// PROJECT: Mbot
+//// FILE: m.ci
+INT FUNCTION Own_Mbot()
+	RETURN 1;
+END
+INT FUNCTION DupV()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// FILE: b.ci
+INT FUNCTION Own_Leaf()
+	RETURN 1;
+END
+

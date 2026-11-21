@@ -1,0 +1,4 @@
+FUNCTION Z()
+	INT CNT;
+	CNT = 2;
+END

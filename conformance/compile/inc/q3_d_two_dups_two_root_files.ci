@@ -1,0 +1,21 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: a.ci
+INT FUNCTION Dup1()
+	RETURN 1;
+END
+
+//// FILE: b.ci
+INT FUNCTION Dup2()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// FILE: l.ci
+INT FUNCTION Dup1()
+	RETURN 2;
+END
+
+INT FUNCTION Dup2()
+	RETURN 2;
+END

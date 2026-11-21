@@ -1,0 +1,53 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Root1",
+   "ok": true,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "compile": "Zmid",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "a.ci",
+     "line": 2,
+     "context": "LeafFn() RETURN {R1Fn}(); END",
+     "project": "Leaf"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "a.ci",
+     "line": 2,
+     "context": "RETURN R1Fn(){;} END",
+     "project": "Leaf"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "a.ci",
+     "line": 2,
+     "context": "RETURN R1Fn(){;} END",
+     "project": "Leaf"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "a.ci",
+     "line": 5,
+     "context": "R1Fn(); END {}",
+     "project": "Leaf"
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

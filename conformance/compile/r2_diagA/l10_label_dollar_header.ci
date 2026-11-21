@@ -1,0 +1,2 @@
+FUNCTION VarToStr(STRING s)
+END

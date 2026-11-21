@@ -1,0 +1,6 @@
+FUNCTION ZzG(INT a, INT b = 1, INT c = 2)
+END
+FUNCTION ProbeA()
+	ZzG();
+	ZzG(1);
+END

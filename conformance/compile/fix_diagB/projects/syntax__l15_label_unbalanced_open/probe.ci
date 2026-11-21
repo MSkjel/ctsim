@@ -1,0 +1,5 @@
+FUNCTION Z()
+	FOREVER
+		Sleep(1);
+	END
+END

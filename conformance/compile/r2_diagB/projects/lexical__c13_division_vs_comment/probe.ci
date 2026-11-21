@@ -1,0 +1,7 @@
+INT FUNCTION P()
+	INT i;
+	i = 4/2;
+	i = 4 / 2 //2 ZzHidden
+	;
+	RETURN i;
+END

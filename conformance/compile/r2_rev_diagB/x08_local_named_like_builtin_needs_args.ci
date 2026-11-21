@@ -1,0 +1,5 @@
+FUNCTION Z()
+	INT StrLeft;
+	StrLeft = 1;
+	Sleep(StrLeft);
+END

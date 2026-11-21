@@ -1,0 +1,6 @@
+STRING FUNCTION ZS()
+	RETURN "";
+END
+FUNCTION Z()
+	FormButton(1, 1, "x", ZS, 0);
+END

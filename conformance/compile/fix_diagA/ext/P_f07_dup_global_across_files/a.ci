@@ -1,0 +1,4 @@
+GLOBAL INT gProbeX;
+FUNCTION ProbeA()
+	gProbeX = 1;
+END

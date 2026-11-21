@@ -1,0 +1,53 @@
+//// FILE: a.ci
+INT FUNCTION ZzF(INT a)
+	RETURN a;
+END
+
+INT FUNCTION ZzU()
+	INT ZzF = 0;
+	RETURN ZzF(1);
+END
+
+INT FUNCTION ZzW()
+	RETURN ZzF(2);
+END
+
+INT FUNCTION ZzS()
+	INT i = StrToInt("1");
+	INT StrToInt = 0;
+	i = i + StrToInt("2");
+	RETURN i;
+END
+
+INT FUNCTION ZzH(INT a)
+	RETURN a;
+END
+
+INT FUNCTION ZzV()
+	RETURN ZzH(1);
+END
+
+INT ZzH;
+//// FILE: b.ci
+PRIVATE INT FUNCTION ZzP(INT a, INT b)
+	RETURN a + b;
+END
+
+INT FUNCTION ZzQ()
+	RETURN ZzP(1, 2);
+END
+//// FILE: c.ci
+INT FUNCTION ZzP(STRING s)
+	RETURN StrToInt(s);
+END
+
+INT FUNCTION ZzR()
+	RETURN ZzP("3");
+END
+//// FILE: d.ci
+INT FUNCTION ZzCase()
+	INT zæ = 1;
+	INT ZÆ = 2;
+	zæ = zæ + 1;
+	RETURN zæ + ZÆ;
+END

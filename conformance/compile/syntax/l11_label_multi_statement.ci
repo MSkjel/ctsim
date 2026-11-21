@@ -1,0 +1,6 @@
+//// LABEL: TWO = a = 1; b = 2
+FUNCTION Z()
+	INT a;
+	INT b;
+	TWO;
+END

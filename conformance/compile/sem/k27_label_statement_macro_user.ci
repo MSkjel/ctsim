@@ -1,0 +1,6 @@
+//// LABEL: PROBE_SET(v) = v = 7;
+FUNCTION ProbeK()
+	INT i;
+	PROBE_SET(i)
+	Sleep(i);
+END

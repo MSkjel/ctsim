@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT aﬁb;
+	aﬁb = 1;
+	RETURN aﬁb;
+END

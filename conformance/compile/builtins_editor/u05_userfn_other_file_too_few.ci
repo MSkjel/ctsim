@@ -1,0 +1,8 @@
+//// FILE: a.ci
+INT FUNCTION F(INT a, STRING s)
+	RETURN a;
+END
+//// FILE: b.ci
+FUNCTION P()
+	F(1);
+END

@@ -1,0 +1,6 @@
+STRING FUNCTION P()
+	STRING s;
+	s = "q^"q ^^ ^n ^t ^r ^f ^v ^N ^T ^0x41 ^0x4 ^0 ^q ^' ^( ^) ^, ^@ ^!";
+	s = ZzVisible;
+	RETURN s;
+END

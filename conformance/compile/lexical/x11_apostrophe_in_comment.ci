@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	! don't
+	RETURN 0;
+END

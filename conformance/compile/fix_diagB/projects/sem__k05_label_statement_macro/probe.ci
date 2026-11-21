@@ -1,0 +1,4 @@
+FUNCTION ProbeK()
+	INT i = 0;
+	Toggle(i);
+END

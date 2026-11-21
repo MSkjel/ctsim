@@ -1,0 +1,14 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// FILE: liba.ci
+FUNCTION Sleep()
+END
+INT FUNCTION F_lib()
+	RETURN Unknown_lib();
+END

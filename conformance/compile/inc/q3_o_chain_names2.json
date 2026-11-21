@@ -1,0 +1,47 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Aroot",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "m.ci",
+     "line": 2,
+     "context": "F_bot() RETURN {Unknown_bot}(); END",
+     "project": "Mbot"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "m.ci",
+     "line": 2,
+     "context": "Unknown_bot(){;} END",
+     "project": "Mbot"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "m.ci",
+     "line": 2,
+     "context": "Unknown_bot(){;} END",
+     "project": "Mbot"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "m.ci",
+     "line": 4,
+     "context": "Unknown_bot(); END {}",
+     "project": "Mbot"
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

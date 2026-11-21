@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT ž_a = 1;
+	INT bžc = 2;
+	RETURN ž_a + bžc;
+END

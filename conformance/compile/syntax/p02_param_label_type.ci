@@ -1,0 +1,3 @@
+//// LABEL: BOOL = INT
+FUNCTION F(BOOL b = TRUE)
+END

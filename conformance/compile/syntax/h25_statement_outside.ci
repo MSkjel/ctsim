@@ -1,0 +1,4 @@
+INT x;
+x = 1;
+FUNCTION F()
+END

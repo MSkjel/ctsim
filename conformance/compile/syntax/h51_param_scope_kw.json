@@ -1,0 +1,38 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2015",
+   "msg": "Bad raw data type",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "FUNCTION F({GLOBAL} INT a) END"
+  },
+  {
+   "code": "E2008",
+   "msg": "Tag expected",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "FUNCTION F({GLOBAL} INT a) END"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "FUNCTION F({GLOBAL} INT a) END"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "F(GLOBAL INT a{)} END"
+  }
+ ],
+ "warnings": []
+}

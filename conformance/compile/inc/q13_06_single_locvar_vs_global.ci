@@ -1,0 +1,7 @@
+//// PROJECT: Main
+//// LOCVAR: LvG INT
+//// FILE: main.ci
+GLOBAL INT LvG = 1;
+INT FUNCTION MainFn()
+	RETURN LvG;
+END

@@ -1,0 +1,4 @@
+//// LABEL: PROBE_DBL(x) = ((x) * 2)
+INT FUNCTION ProbeK()
+	RETURN PROBE_DBL(1, 2);
+END

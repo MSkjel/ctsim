@@ -1,0 +1,6 @@
+MODULE INT mX;
+FUNCTION ProbeD()
+	INT mX;
+	mX = 1;
+END
+

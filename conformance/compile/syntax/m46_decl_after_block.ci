@@ -1,0 +1,7 @@
+FUNCTION Z()
+	INT a = 0;
+	IF a THEN
+		a = 2;
+	END
+	INT b = a;
+END

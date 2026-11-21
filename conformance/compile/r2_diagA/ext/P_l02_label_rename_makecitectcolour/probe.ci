@@ -1,0 +1,3 @@
+INT FUNCTION MakeCitectColour(INT r, INT g, INT b)
+	RETURN r;
+END

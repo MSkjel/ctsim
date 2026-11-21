@@ -1,0 +1,5 @@
+FUNCTION ZzF()
+	INT x;
+	x = 1;
+	RETURN StrLength("a") MOD 2;
+END

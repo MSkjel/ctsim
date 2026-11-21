@@ -1,0 +1,16 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// LABEL: MTwice(a) = (a)*2
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN MTwice(3);
+END
+
+//// COMPILE: Main
+//// COMPILE: LibA

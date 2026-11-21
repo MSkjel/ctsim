@@ -1,0 +1,16 @@
+INT FUNCTION P()
+	INT i;
+	i = 1
+	+
+	2
+	*
+	3;
+	IF
+	i
+	=
+	7
+	THEN
+	i = 0;
+	END
+	RETURN i;
+END

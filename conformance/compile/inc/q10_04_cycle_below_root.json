@@ -1,0 +1,23 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Main",
+   "ok": false,
+   "errors": [
+    {
+     "code": "F4017",
+     "msg": "Project includes itself",
+     "file": "",
+     "line": null,
+     "context": "The project CiP_A contains a circular reference. Check the structure of your include projects.",
+     "project": ""
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

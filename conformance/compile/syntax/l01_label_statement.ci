@@ -1,0 +1,6 @@
+//// LABEL: INCM = mX = mX + 1
+MODULE INT mX;
+FUNCTION Z()
+	INCM;
+	INCM
+END

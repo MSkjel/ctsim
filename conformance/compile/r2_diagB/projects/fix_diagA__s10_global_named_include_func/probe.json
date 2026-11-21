@@ -1,0 +1,60 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2021",
+   "msg": "Record already defined",
+   "file": "citect.ci",
+   "line": 2747,
+   "context": "FUNCTION {PageGoto}(STRING sPageName,"
+  }
+ ],
+ "warnings": [
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "citect.ci",
+   "line": 240,
+   "context": "PageGoto{(}\"SxW_Style_Startup\");"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "citect.ci",
+   "line": 240,
+   "context": "PageGoto(\"SxW_Style_Startup\"){;} ELSE IF"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "citect.ci",
+   "line": 242,
+   "context": "PageGoto{(}\"Tab_Style_Startup\");"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "citect.ci",
+   "line": 242,
+   "context": "PageGoto(\"Tab_Style_Startup\"){;} ELSE"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "citect.ci",
+   "line": 244,
+   "context": "PageGoto{(}\"PageMenu\");"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "citect.ci",
+   "line": 244,
+   "context": "PageGoto(\"PageMenu\"){;} END END"
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; STRING s;
+	i = "a" < "b" = 1;
+	RETURN 0;
+END

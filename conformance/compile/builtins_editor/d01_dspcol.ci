@@ -1,0 +1,3 @@
+FUNCTION P()
+	DspCol(1, 1);
+END

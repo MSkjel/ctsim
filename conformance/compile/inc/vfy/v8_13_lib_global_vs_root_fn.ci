@@ -1,0 +1,12 @@
+//// PROJECT: Root1
+//// INCLUDE: Zlib
+//// FILE: a.ci
+INT FUNCTION Cl4()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+GLOBAL INT Cl4 = 1;
+

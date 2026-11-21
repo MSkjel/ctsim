@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	RETURN DspStr(1, "f");
+END
+

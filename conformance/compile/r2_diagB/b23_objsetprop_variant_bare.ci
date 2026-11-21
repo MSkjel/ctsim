@@ -1,0 +1,7 @@
+INT FUNCTION ZCb()
+	RETURN 0;
+END
+FUNCTION Z()
+	OBJECT o;
+	_ObjectSetProperty(o, "x", ZCb);
+END

@@ -1,0 +1,6 @@
+STRING FUNCTION P()
+	INT i; REAL r; STRING s;
+	s = r:#0-###.##EU;
+	s = ZzVisible;
+	RETURN s;
+END

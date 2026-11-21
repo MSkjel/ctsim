@@ -1,0 +1,5 @@
+FUNCTION Z(QUALITY q)
+	IF q THEN
+		Sleep(0);
+	END
+END

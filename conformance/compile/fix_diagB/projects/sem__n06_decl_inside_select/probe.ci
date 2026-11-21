@@ -1,0 +1,7 @@
+FUNCTION ProbeN(INT a)
+	SELECT CASE a
+	CASE 1
+		INT b;
+		b = 1;
+	END SELECT
+END

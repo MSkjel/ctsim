@@ -1,0 +1,7 @@
+INT FUNCTION ProbeLen(STRING s)
+	RETURN StrLength(s);
+END
+FUNCTION ProbeD()
+	INT n = ProbeLen(42);
+END
+

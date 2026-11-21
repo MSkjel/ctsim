@@ -1,0 +1,4 @@
+MODULE INT PageGoto;
+FUNCTION ZzB()
+END
+

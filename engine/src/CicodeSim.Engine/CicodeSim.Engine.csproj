@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The Cicode engine: RDB reader, VM, compiler, simulated runtime, page animator.
+       .NET Framework 4.8 (built into Windows 10/11), AnyCPU, no NuGet runtime dependencies. -->
+  <PropertyGroup>
+    <TargetFrameworks>net48;net10.0</TargetFrameworks>
+    <RootNamespace>CicodeSim</RootNamespace>
+    <AssemblyName>CicodeSim.Engine</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+  <!-- BigInteger (the exact float text of FloatText) on net48 is in the framework's System.Numerics. -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <Reference Include="System.Numerics" />
+    <!-- the SQL functions' providers (ODBC, OLE DB, SQL Server): the framework's own -->
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- the runtime's built-in table (the repo's data/ folder); the error texts are read from the
+         install on the computer (Compiled/InstallTexts.cs) -->
+    <EmbeddedResource
+      Include="..\..\..\data\builtins_table.json"
+      LogicalName="CicodeSim.Data.builtins_table.json"
+    />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="CicodeSim.Tests" />
+  </ItemGroup>
+</Project>

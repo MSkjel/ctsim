@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	TagScaleStr("a", 1, 1);
+	TagScaleStr("a", 1, 1, "a", 1);
+	TagSetOverrideBad("a");
+	TagSetOverrideBad("a", 1, "a");
+	TagSetOverrideGood("a");
+	TagSetOverrideGood("a", 1, "a");
+	TagSetOverrideQuality("a", vq);
+	TagSetOverrideQuality("a", vq, 1, "a");
+	TagSetOverrideUncertain("a");
+	TagSetOverrideUncertain("a", 1, "a");
+	TagSubscribe("a");
+	TagSubscribe("a", 1, "a", 1.5, "a", 1, 1);
+	TagWrite("a", "a");
+	TagWrite("a", "a", 1, 1, "a");
+	TagWriteIntArray("a", 1, vi);
+	TagWriteIntArray("a", 1, vi, 1, 1, "a");
+	TagWriteRealArray("a", 1, vr);
+	TagWriteRealArray("a", 1, vr, 1, 1, "a");
+	TaskNew("a", "a", 1);
+	TaskNew("a", "a", 1, "a");
+END

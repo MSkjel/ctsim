@@ -1,0 +1,8 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "call": "StrLeft(StrUpper(\"abc\"), 2)",
+ "ok": true,
+ "result": "Unknown"
+}

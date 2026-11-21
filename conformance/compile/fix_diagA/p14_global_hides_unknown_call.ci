@@ -1,0 +1,6 @@
+//// FILE: a.ci
+GLOBAL INT ZzG;
+//// FILE: b.ci
+FUNCTION ZzB()
+	ZzG(1);
+END

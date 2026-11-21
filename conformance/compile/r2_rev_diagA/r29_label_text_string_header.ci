@@ -1,0 +1,3 @@
+//// LABEL: ZzCs() = "abc"
+FUNCTION ZzCs()
+END

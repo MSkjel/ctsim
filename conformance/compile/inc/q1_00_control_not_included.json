@@ -1,0 +1,47 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Top",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "top.ci",
+     "line": 2,
+     "context": "TopFn() RETURN {BotFn}(); END",
+     "project": "Top"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "top.ci",
+     "line": 2,
+     "context": "RETURN BotFn(){;} END",
+     "project": "Top"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "top.ci",
+     "line": 2,
+     "context": "RETURN BotFn(){;} END",
+     "project": "Top"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "top.ci",
+     "line": 5,
+     "context": "BotFn(); END {}",
+     "project": "Top"
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

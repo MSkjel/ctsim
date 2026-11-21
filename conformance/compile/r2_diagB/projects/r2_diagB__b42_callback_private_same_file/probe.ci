@@ -1,0 +1,6 @@
+PRIVATE INT FUNCTION ZP()
+	RETURN 0;
+END
+FUNCTION Z()
+	FormButton(1, 1, "x", ZP, 0);
+END

@@ -1,0 +1,6 @@
+INT FUNCTION P()
+	INT i;
+	/* outer /* inner */ ZzAfterInnerClose */
+	i = 1;
+	RETURN i;
+END

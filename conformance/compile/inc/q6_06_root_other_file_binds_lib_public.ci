@@ -1,0 +1,17 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+PRIVATE INT FUNCTION Pv(INT a, INT b)
+	RETURN a + b;
+END
+
+//// FILE: other.ci
+INT FUNCTION Other()
+	RETURN Pv(1, 2);
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+INT FUNCTION Pv()
+	RETURN 0;
+END

@@ -1,0 +1,15 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [],
+ "aliases": [
+  "fix_diagA/ext/P_o02_case_insensitive_order/a.ci",
+  "fix_diagA/ext/P_o04_prefix_order/a.ci",
+  "fix_diagA/ext/P_s01_public_then_private_other_file/b.ci",
+  "fix_diagA/ext/P_s06_global_then_private_func/b.ci"
+ ]
+}

@@ -1,0 +1,4 @@
+//// LABEL: ZzPg(a, b) = _PageGoto(a, b)
+FUNCTION ZzF()
+	ZzPg("x", );
+END

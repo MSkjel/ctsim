@@ -1,0 +1,4 @@
+FUNCTION ProbeP()
+	INT nop;
+END
+

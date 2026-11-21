@@ -1,0 +1,27 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "Z() \"abc\"{;} 5; END"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "\"abc\"; 5{;} END"
+  }
+ ],
+ "aliases": [
+  "r2_diagB/projects/syntax__m10_expr_statement_literal/probe.ci"
+ ]
+}

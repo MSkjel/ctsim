@@ -1,0 +1,4 @@
+FUNCTION Z()
+	BOOL b;
+	b = 1;
+END

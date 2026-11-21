@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	SubscriptionGetAttribute(1, "a");
+	SubscriptionGetAttribute(1, "a", 1);
+	TableMath(vr, 1, 1);
+	TableMath(vr, 1, 1, 1);
+	TagBrowseOpen("a", "a", "a");
+	TagBrowseOpen("a", "a", "a", "a");
+	TagGetProperty("a", "a");
+	TagGetProperty("a", "a", 1, "a");
+	TagGetScale("a", 1, 1);
+	TagGetScale("a", 1, 1, 1, "a");
+	TagGetValue("a");
+	TagGetValue("a", 1, 1, 1, 1, 1.5, 1, 1);
+	TagInfo("a", "a");
+	TagInfo("a", "a", "a", 1);
+	TagInfoEx("a", 1);
+	TagInfoEx("a", 1, "a", 1);
+	TagRead("a");
+	TagRead("a", 1, "a");
+	TagReadEx("a");
+	TagReadEx("a", 1, "a");
+END

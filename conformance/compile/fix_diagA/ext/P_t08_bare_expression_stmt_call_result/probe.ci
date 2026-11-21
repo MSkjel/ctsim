@@ -1,0 +1,9 @@
+INT FUNCTION ProbeOne()
+	RETURN 1;
+END
+FUNCTION ProbeT()
+	ProbeOne();
+	StrLength("a");
+	1 + 2;
+END
+

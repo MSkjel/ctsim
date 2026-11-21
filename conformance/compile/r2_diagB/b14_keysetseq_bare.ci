@@ -1,0 +1,6 @@
+INT FUNCTION ZCb()
+	RETURN 0;
+END
+FUNCTION Z()
+	KeySetSeq("ENTER", 1, ZCb);
+END

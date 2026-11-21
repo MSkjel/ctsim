@@ -1,0 +1,6 @@
+//// FILE: a.ci
+GLOBAL INT gShared;
+//// FILE: b.ci
+INT FUNCTION ProbeS()
+	RETURN gShared;
+END

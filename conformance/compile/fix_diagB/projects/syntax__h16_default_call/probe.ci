@@ -1,0 +1,2 @@
+FUNCTION F(INT a = StrToInt("5"))
+END

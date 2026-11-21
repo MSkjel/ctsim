@@ -1,0 +1,5 @@
+FUNCTION ZV()
+END
+FUNCTION Z()
+	DLLCallEx(0, ZV);
+END

@@ -1,0 +1,4 @@
+//// LABEL: ZNEG = -1
+MODULE INT a = -ZNEG;
+FUNCTION Z()
+END

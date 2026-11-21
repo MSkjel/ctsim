@@ -1,0 +1,4 @@
+FUNCTION ProbeQ(INT a)
+	IF a THEN Sleep(1); END;
+END;
+

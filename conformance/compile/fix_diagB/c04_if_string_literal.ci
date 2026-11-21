@@ -1,0 +1,5 @@
+FUNCTION Z()
+	IF "a" THEN
+		Sleep(0);
+	END
+END

@@ -1,0 +1,4 @@
+//// FILE: a.ci
+FUNCTION Z()
+	KeyLeft();
+END

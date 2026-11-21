@@ -1,0 +1,3 @@
+FUNCTION P()
+	LOCAL INT i = 1;
+END

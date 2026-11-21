@@ -1,0 +1,5 @@
+MODULE INT m;
+FUNCTION Z()
+	INT m;
+	m = 1;
+END

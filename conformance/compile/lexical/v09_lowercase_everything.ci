@@ -1,0 +1,23 @@
+int function p()
+	int i = 0;
+	if i = 0 then
+		i = 1;
+	else
+		i = 2;
+	end
+	while i < 5 do
+		i = i + 1;
+	end
+	for i = 0 to 3 do
+		i = i mod 2;
+	end
+	select case i
+	case 1
+		i = 2;
+	case is > 3
+		i = 4;
+	case else
+		i = 0;
+	end select
+	return i;
+end

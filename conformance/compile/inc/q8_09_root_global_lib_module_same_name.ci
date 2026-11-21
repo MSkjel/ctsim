@@ -1,0 +1,14 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+GLOBAL INT gX = 1;
+INT FUNCTION MainFn()
+	RETURN gX;
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+MODULE INT gX = 2;
+INT FUNCTION LibFn()
+	RETURN gX;
+END

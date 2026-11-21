@@ -1,0 +1,3 @@
+INT FUNCTION ProbeA()
+	RETURN ProbeB(1);
+END

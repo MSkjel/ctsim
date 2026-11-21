@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT v;
+	v = 09;
+	RETURN v;
+END

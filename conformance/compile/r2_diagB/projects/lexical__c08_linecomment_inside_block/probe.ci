@@ -1,0 +1,7 @@
+INT FUNCTION P()
+	INT i;
+	/* ! bang inside block
+	   // slashes inside block
+	   still ZzHidden */ i = ZzVisible;
+	RETURN i;
+END

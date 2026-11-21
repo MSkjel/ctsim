@@ -1,0 +1,6 @@
+STRING FUNCTION Red()
+	RETURN "x";
+END
+STRING FUNCTION P()
+	RETURN Red() + "a";
+END

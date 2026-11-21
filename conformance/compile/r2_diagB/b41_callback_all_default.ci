@@ -1,0 +1,6 @@
+INT FUNCTION ZD(INT a = 1)
+	RETURN a;
+END
+FUNCTION Z()
+	FormButton(1, 1, "x", ZD, 0);
+END

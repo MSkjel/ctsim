@@ -1,0 +1,6 @@
+FUNCTION ProbeN(INT a)
+	WHILE a < 3 DO
+		STRING s;
+		a = a + 1;
+	END
+END

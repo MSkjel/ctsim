@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT nTempø = 1;
+	INT æøå = 2;
+	RETURN nTempø + æøå;
+END

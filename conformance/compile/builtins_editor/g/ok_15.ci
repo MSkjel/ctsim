@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	PageGetStr("a");
+	PageGetStr("a", 1);
+	PageGoto("a");
+	PageGoto("a", "a");
+	PagePopUp("a");
+	PagePopUp("a", "a", 1);
+	PageProcessAnalyst("a", "a");
+	PageProcessAnalyst("a", "a", 1, 1, "a", "a", 1, 1, "a");
+	PageProcessAnalystPens("a", "a");
+	PageProcessAnalystPens("a", "a", "a", "a", "a", "a", "a", "a", "a", 1, "a", 1, "a", "a");
+	PageSetInt("a", 1);
+	PageSetInt("a", 1, 1);
+	PageSetStr("a", "a");
+	PageSetStr("a", "a", 1);
+	PageSOE();
+	PageSOE(1, 1);
+	PageSummary();
+	PageSummary(1);
+	PageTransformCoords(1, 1, 1, vi, vi);
+	PageTransformCoords(1, 1, 1, vi, vi, 1);
+END

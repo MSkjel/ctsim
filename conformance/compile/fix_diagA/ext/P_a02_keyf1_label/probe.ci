@@ -1,0 +1,4 @@
+INT FUNCTION ProbeK()
+	RETURN KEY_F1;
+END
+

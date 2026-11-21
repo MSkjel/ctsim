@@ -1,0 +1,6 @@
+//// LABEL: ZzInt = INT
+ZzInt FUNCTION ZzF()
+	RETURN 1;
+END
+ZzInt FUNCTION ZzG()
+END

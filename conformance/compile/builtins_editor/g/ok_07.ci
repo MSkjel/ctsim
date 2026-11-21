@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	ArraySetStringByAn(1, "a", 1);
+	ArraySetStringByAn(1, "a", 1, 1, 1);
+	Ass(1, "a", "a", 1);
+	Ass(1, "a", "a", 1, "a");
+	AssChainWin("a");
+	AssChainWin("a", 1, 1, 1);
+	AssGetProperty("a", "a");
+	AssGetProperty("a", "a", 1);
+	AssGetScale("a", 1, 1);
+	AssGetScale("a", 1, 1, 1);
+	AssInfo("a", "a");
+	AssInfo("a", "a", 1);
+	AssInfoEx("a", "a");
+	AssInfoEx("a", "a", 1);
+	AssMetadata(1);
+	AssMetadata(1, 1);
+	AssMetadataPage("a");
+	AssMetadataPage("a", 1);
+	AssMetadataPopUp("a");
+	AssMetadataPopUp("a", 1);
+END

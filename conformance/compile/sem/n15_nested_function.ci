@@ -1,0 +1,4 @@
+FUNCTION ProbeN()
+	FUNCTION Inner()
+	END
+END

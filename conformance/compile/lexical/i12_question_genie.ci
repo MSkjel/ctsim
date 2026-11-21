@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i;
+	i = ?abc?;
+	RETURN i;
+END

@@ -1,0 +1,4 @@
+MODULE REAL mZr = 1.5;
+FUNCTION ZzF()
+	RETURN mZr;
+END

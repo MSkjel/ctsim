@@ -1,0 +1,6 @@
+REAL FUNCTION ZR()
+	RETURN 0;
+END
+FUNCTION Z()
+	FormButton(1, 1, "x", ZR, 0);
+END

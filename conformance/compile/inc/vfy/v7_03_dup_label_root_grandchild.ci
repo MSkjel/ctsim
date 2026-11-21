@@ -1,0 +1,24 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// LABEL: DUPLB = 1
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// FILE: zm.ci
+INT FUNCTION ZmidFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// LABEL: DUPLB = 2
+//// FILE: l.ci
+INT FUNCTION LeafFn()
+	RETURN 1;
+END
+

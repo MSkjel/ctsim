@@ -1,0 +1,3 @@
+INT FUNCTION bitxor()
+	RETURN 0;
+END

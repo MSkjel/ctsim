@@ -1,0 +1,7 @@
+FUNCTION Z(INT x, INT a)
+	INT y;
+	SELECT CASE x + 1
+	CASE a + 1, StrToInt("3")
+		y = 1;
+	END SELECT
+END

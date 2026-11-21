@@ -1,0 +1,4 @@
+FUNCTION ProbeP()
+	INT i = GetGlbInt(1);
+END
+

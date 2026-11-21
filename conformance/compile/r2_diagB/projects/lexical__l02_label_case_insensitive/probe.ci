@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i;
+	i = ZZMYLAB + zzmylab;
+	RETURN i;
+END

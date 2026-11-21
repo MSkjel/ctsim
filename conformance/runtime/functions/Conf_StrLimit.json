@@ -1,0 +1,15 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_StrLimit()",
+ "function": "Conf_StrLimit",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "len=255",
+ "facts": {
+  "len": "255"
+ },
+ "source": "// String length limit on concatenation.\nSTRING FUNCTION Conf_StrLimit()\n\tSTRING a = StrFill(\"a\", 200);\n\tSTRING s;\n\ts = a + a;\n\tRETURN \"len=\" + Conf_I(StrLength(s));\nEND\n"
+}

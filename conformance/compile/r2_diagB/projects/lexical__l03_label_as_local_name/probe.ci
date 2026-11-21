@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	INT ZzLab;
+	RETURN 0;
+END

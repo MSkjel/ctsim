@@ -1,0 +1,8 @@
+FUNCTION Z()
+	INT i;
+	REAL r;
+	STRING s;
+	OBJECT o;
+	QUALITY q;
+	TIMESTAMP t;
+END

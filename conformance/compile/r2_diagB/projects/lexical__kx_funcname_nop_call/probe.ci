@@ -1,0 +1,6 @@
+INT FUNCTION nop()
+	RETURN 1;
+END
+INT FUNCTION P()
+	RETURN nop();
+END

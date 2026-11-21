@@ -1,0 +1,41 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-09-28",
+ "setup": "debugger attached, BreakOnError=1 (exception filter hardwareError), ErrSet level 0",
+ "trigger": "TaskNew(\"GetTagVal\", \"^\"NoSuchTagXyz^\"\", 0)",
+ "where": "Include ddewrite.ci:23 `sTagValue = TagRead(sTag);` (the built-in TagRead raises 424)",
+ "ipc": [
+  {
+   "cmd": "0x100B",
+   "tid": -1,
+   "text": "Thread T Hardware error (424) 'Tag not found' ErrPage: 'TagRead' ErrDesc: 'GetTagVal'"
+  },
+  {
+   "cmd": "0x1002",
+   "tid": "T",
+   "line": 23,
+   "note": "the failing statement; the task is still running"
+  },
+  {
+   "cmd": "0x100E",
+   "tid": "T",
+   "code": 424,
+   "desc": "Tag not found",
+   "errpage": "TagRead",
+   "errdesc": "GetTagVal"
+  },
+  {
+   "cmd": "0x1002",
+   "tid": "T",
+   "line": 24,
+   "note": "the next statement; the task is suspended here (0x1003 if line 24 has a breakpoint)"
+  }
+ ],
+ "suspended": true,
+ "afterwards": "locals readable while stopped; a step lands on a later line; continue resumes, no thread end or session end",
+ "evidence": [
+  "the live debugger's message log (hardware error, step, error on a breakpoint line)",
+  "extension repo dap/PROTOCOL.md 'Hardware error sequence'"
+ ]
+}

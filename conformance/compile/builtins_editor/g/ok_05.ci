@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	AlarmSumSplit(1);
+	AlarmSumSplit(1, "a", 1, 1, 1);
+	AlarmSumType(1);
+	AlarmSumType(1, "a");
+	AlmBrowseDisable(1);
+	AlmBrowseDisable(1, 1, "a");
+	AlmBrowseEnable(1);
+	AlmBrowseEnable(1, 1);
+	AlmBrowseOpen("a", "a");
+	AlmBrowseOpen("a", "a", "a", 1);
+	AlmSummaryDisable(1);
+	AlmSummaryDisable(1, 1, "a");
+	AlmSummaryEnable(1);
+	AlmSummaryEnable(1, 1);
+	AlmSummaryOpen("a", "a");
+	AlmSummaryOpen("a", "a", "a", 1, 1);
+	AlmTagsDisable(1);
+	AlmTagsDisable(1, 1, "a");
+	AlmTagsEnable(1);
+	AlmTagsEnable(1, 1);
+END

@@ -1,0 +1,24 @@
+//// PROJECT: Root1
+//// INCLUDE: Alib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN AlibFn();
+END
+
+
+//// PROJECT: Alib
+//// FILE: a.ci
+INT FUNCTION AlibFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Unrel
+//// FILE: u.ci
+INT FUNCTION AlibFn()
+	RETURN 1;
+END
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+

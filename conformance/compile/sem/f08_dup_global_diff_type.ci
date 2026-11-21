@@ -1,0 +1,10 @@
+//// FILE: a.ci
+GLOBAL INT gProbeX;
+FUNCTION ProbeA()
+	gProbeX = 1;
+END
+//// FILE: b.ci
+GLOBAL STRING gProbeX;
+FUNCTION ProbeB()
+	gProbeX = "a";
+END

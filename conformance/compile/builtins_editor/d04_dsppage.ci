@@ -1,0 +1,3 @@
+FUNCTION P()
+	DspPage("a", "b", "c");
+END

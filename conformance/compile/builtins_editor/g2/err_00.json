@@ -1,0 +1,298 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 11,
+   "context": "AssGetScale(\"a\", 1){;} DevControl(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 12,
+   "context": "DevControl(1, 1){;} DspButtonFn(1,"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "probe.ci",
+   "line": 13,
+   "context": "DevControl(1, 1); {DspButtonFn(1, 1)}; DspChart(1,"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 13,
+   "context": "DevControl(1, 1); {DspButtonFn(1, 1)}; DspChart(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 14,
+   "context": "DspChart(1, \"a\"){;} DspSymAnm(1);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 15,
+   "context": "DspSymAnm(1){;} DspSymAnmEx(1,"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "probe.ci",
+   "line": 16,
+   "context": "DspSymAnm(1); {DspSymAnmEx(1, 1)}; Exec();"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 16,
+   "context": "DspSymAnm(1); {DspSymAnmEx(1, 1)}; Exec();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 17,
+   "context": "1); Exec(){;} ExecuteDTSPkg();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 18,
+   "context": "ExecuteDTSPkg(){;} FTPOpen(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 19,
+   "context": "FTPOpen(\"a\", \"a\"){;} LibAlarmFilterForm();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 21,
+   "context": "PageGetStr(){;} PageProcessAnalyst(\"a\");"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 24,
+   "context": "1, \"a\", vt){;} ScheduleItemDelete(\"a\");"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 25,
+   "context": "ScheduleItemDelete(\"a\"){;} ServerGetProperty(\"a\");"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 26,
+   "context": "ServerGetProperty(\"a\"){;} ServerInfo(\"a\");"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 27,
+   "context": "ServerInfo(\"a\"){;} ServerRPC(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 28,
+   "context": "\"a\", \"a\"){;} SPCProcessXRSGet(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 29,
+   "context": "SPCProcessXRSGet(\"a\", vr, vr){;} SPCProcessXRSSet(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 30,
+   "context": "1.5, 1.5){;} SPCSpecLimitSet(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 31,
+   "context": "SPCSpecLimitSet(\"a\", 1.5){;} StrToTimestamp();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 32,
+   "context": "StrToTimestamp(){;} StrTruncFont(\"a\");"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 33,
+   "context": "StrTruncFont(\"a\"){;} TagGetProperty(\"a\");"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 34,
+   "context": "TagGetProperty(\"a\"){;} TimestampToStr(vt);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 35,
+   "context": "TimestampToStr(vt){;} UserPassword(\"a\");"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 36,
+   "context": "UserPassword(\"a\"){;} AlmSummaryNext();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 37,
+   "context": "AlmSummaryNext(){;} AlmSummaryNext(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 38,
+   "context": "AlmSummaryNext(1, {1}); Debug(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 39,
+   "context": "\"a\", \"a\"){;} Debug(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 40,
+   "context": "\"a\", \"a\", {1}); TestVariantNULL(1);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 41,
+   "context": "TestVariantNULL({1}); DspVerbose();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 42,
+   "context": "DspVerbose(){;} DspVerbose(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 43,
+   "context": "DspVerbose(\"a\", {1}); DevWrite(1);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 44,
+   "context": "DevWrite(1){;} DevWrite(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 45,
+   "context": "DevWrite(1, \"a\", {1}); Message(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 46,
+   "context": "Message(\"a\", \"a\"){;} Message(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 47,
+   "context": "Message(\"a\", \"a\", 1, {1}); TimeIntToTimestamp();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 48,
+   "context": "TimeIntToTimestamp(){;} TimeIntToTimestamp(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 49,
+   "context": "TimeIntToTimestamp(1, 1, 1, {1}); DspInfoField(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 50,
+   "context": "DspInfoField(1, \"a\"){;} END"
+  }
+ ],
+ "warnings": [
+  {
+   "code": "W1004",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 22,
+   "context": "PageProcessAnalyst(\"a\"){;} PageProcessAnalystPens(\"a\");"
+  },
+  {
+   "code": "W1004",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 23,
+   "context": "PageProcessAnalystPens(\"a\"){;} SchdSpecialItemAddRange(\"a\","
+  }
+ ]
+}

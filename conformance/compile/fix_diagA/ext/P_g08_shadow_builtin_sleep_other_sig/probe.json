@@ -1,0 +1,39 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "citect.ci",
+   "line": 237,
+   "context": "Sleep({splashTime}); IF PageFileInfo(\"SxW_Style_Startup\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "citect.ci",
+   "line": 853,
+   "context": "Sleep({5}); IF"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "citect.ci",
+   "line": 862,
+   "context": "Sleep({1}); END;"
+  }
+ ],
+ "warnings": [
+  {
+   "code": "W1006",
+   "msg": "Function has the same name as built-in function",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "FUNCTION {Sleep}() END"
+  }
+ ]
+}

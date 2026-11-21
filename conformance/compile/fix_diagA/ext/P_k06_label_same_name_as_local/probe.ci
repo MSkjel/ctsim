@@ -1,0 +1,5 @@
+FUNCTION ProbeK()
+	INT PROBE_V;
+	PROBE_V = 1;
+END
+

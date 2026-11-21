@@ -1,0 +1,6 @@
+//// PROJECT: Main
+//// LOCVAR: LvMain INT
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN LvMain;
+END

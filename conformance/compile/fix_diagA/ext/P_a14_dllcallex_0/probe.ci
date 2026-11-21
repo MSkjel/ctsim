@@ -1,0 +1,4 @@
+FUNCTION P()
+	DLLCallEx();
+END
+

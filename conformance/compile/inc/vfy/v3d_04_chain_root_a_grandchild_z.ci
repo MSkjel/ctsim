@@ -1,0 +1,22 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// FILE: a.ci
+INT FUNCTION DupC()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// FILE: m.ci
+INT FUNCTION ZmidFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// FILE: z.ci
+INT FUNCTION DupC()
+	RETURN 1;
+END
+

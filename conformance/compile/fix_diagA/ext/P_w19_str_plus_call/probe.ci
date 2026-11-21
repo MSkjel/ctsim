@@ -1,0 +1,6 @@
+FUNCTION ZzF()
+	INT x;
+	x = 1;
+	RETURN "a" + StrLeft("b", 1);
+END
+

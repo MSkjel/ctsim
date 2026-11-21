@@ -1,0 +1,25 @@
+bin/
+obj/
+*.user
+.vs/
+TestResults/
+
+# Local only: the tests that run local projects (partial classes of the committed tests)
+engine/tests/CicodeSim.Tests/Local/
+# Local only: data made from AVEVA's projects and install (their content: never committed).
+# Golden data made from the projects (CICODESIM_GOLDEN_WRITE=1 writes it)
+engine/tests/CicodeSim.Tests/Golden/Data/*.inputs.json
+engine/tests/CicodeSim.Tests/Golden/Data/*.jsonl.gz
+# (the goldens of the synthetic install are ours: committed)
+!engine/tests/CicodeSim.Tests/Golden/Data/scenarios.jsonl.gz
+!engine/tests/CicodeSim.Tests/Golden/Data/world_ops.jsonl.gz
+!engine/tests/CicodeSim.Tests/Golden/Data/world_ops_inputs.jsonl.gz
+# page models of the example projects' pages (the tests that read them skip without them)
+engine/tests/CicodeSim.Tests/Page/Fixtures/Example*.page.json
+# recorded runtime cases and captures of the example projects' pages
+conformance/pages/ExampleSA/
+conformance/sweeps/
+# texts and statistics taken from the install (the engine reads the texts from the install)
+data/compiler_errstr.json
+data/cicode_runtime_errors.json
+data/builtins_usage.json

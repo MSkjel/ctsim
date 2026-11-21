@@ -1,0 +1,5 @@
+FUNCTION ZzF()
+	OBJECT o;
+	RETURN o;
+END
+

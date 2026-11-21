@@ -1,0 +1,11 @@
+FUNCTION Z(STRING s)
+	INT y;
+	SELECT CASE s
+	CASE "a", "b"
+		y = 1;
+	CASE "c" TO "m"
+		y = 2;
+	CASE IS >= "x"
+		y = 3;
+	END SELECT
+END

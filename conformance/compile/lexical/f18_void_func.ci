@@ -1,0 +1,7 @@
+FUNCTION ZzVoidF()
+END
+STRING FUNCTION P()
+	STRING s;
+	s = ZzVoidF():###;
+	RETURN s;
+END

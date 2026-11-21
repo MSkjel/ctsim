@@ -1,0 +1,448 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Root1",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 385,
+     "context": "IntToStr({nDateFrom}) + \";\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 387,
+     "context": "IntToStr({nDateTo}) + \";\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 393,
+     "context": "IntToStr({nDateFrom}) + \";\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 395,
+     "context": "IntToStr({nDateTo}) + \";\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 401,
+     "context": "IntToStr({nTimeFrom}) + \";\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 403,
+     "context": "IntToStr({nTimeTo}) + \";\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 409,
+     "context": "IntToStr({nDateFrom}) + \";\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 411,
+     "context": "IntToStr({nDateTo}) + \";\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 415,
+     "context": "IntToStr({nTimeFrom}) + \";\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 417,
+     "context": "IntToStr({nTimeTo}) + \";\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 510,
+     "context": "IntToStr({Number}); ELSE",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 512,
+     "context": "IntToStr({Number}); END",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 555,
+     "context": "IntToStr({nTemp}); nTemp",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 557,
+     "context": "IntToStr({nTemp}); END",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 600,
+     "context": "IntToStr({nTemp}); nTemp",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 602,
+     "context": "IntToStr({nTemp}); END",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 645,
+     "context": "IntToStr({nTemp}); nTemp",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 647,
+     "context": "IntToStr({nTemp}); END",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 690,
+     "context": "IntToStr({nTemp}); nTemp",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 692,
+     "context": "IntToStr({nTemp}); END",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1296,
+     "context": "IntToStr({nDate1}) + \",\" + IntToStr(nDate2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1296,
+     "context": "IntToStr({nDate2}) + \",\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1297,
+     "context": "IntToStr({nTime1}) + \",\" + IntToStr(nTime2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1297,
+     "context": "IntToStr({nTime2}) + \",\" + m_sachkName[hData]",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1535,
+     "context": "IntToStr({nDate1}) + \",\" + IntToStr(nDate2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1535,
+     "context": "IntToStr({nDate2}) + \",\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1536,
+     "context": "IntToStr({nTime1}) + \",\" + IntToStr(nTime2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1536,
+     "context": "IntToStr({nTime2}) + \",\" + m_sschkName[hData]",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1764,
+     "context": "IntToStr({nDate1}) + \",\" + IntToStr(nDate2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1764,
+     "context": "IntToStr({nDate2}) + \",\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1765,
+     "context": "IntToStr({nTime1}) + \",\" + IntToStr(nTime2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1765,
+     "context": "IntToStr({nTime2}) + \",\" + m_sdchkName[hData]",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1993,
+     "context": "IntToStr({nDate1}) + \",\" + IntToStr(nDate2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1993,
+     "context": "IntToStr({nDate2}) + \",\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1994,
+     "context": "IntToStr({nTime1}) + \",\" + IntToStr(nTime2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 1994,
+     "context": "IntToStr({nTime2}) + \",\" + m_sdchkName[hData]",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2160,
+     "context": "IntToStr({nDate1}) + \",\" + IntToStr(nDate2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2160,
+     "context": "IntToStr({nDate2}) + \",\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2161,
+     "context": "IntToStr({nTime1}) + \",\" + IntToStr(nTime2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2161,
+     "context": "IntToStr({nTime2}) + \",\" + m_sachkName[hData]",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2331,
+     "context": "IntToStr({nDate1}) + \",\" + IntToStr(nDate2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2331,
+     "context": "IntToStr({nDate2}) + \",\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2332,
+     "context": "IntToStr({nTime1}) + \",\" + IntToStr(nTime2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2332,
+     "context": "IntToStr({nTime2}) + \",\" + m_sschkName[hData]",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2494,
+     "context": "IntToStr({nDate1}) + \",\" + IntToStr(nDate2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2494,
+     "context": "IntToStr({nDate2}) + \",\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2495,
+     "context": "IntToStr({nTime1}) + \",\" + IntToStr(nTime2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2495,
+     "context": "IntToStr({nTime2}) + \",\" + m_sdchkName[hData]",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2659,
+     "context": "IntToStr({nDate1}) + \",\" + IntToStr(nDate2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2659,
+     "context": "IntToStr({nDate2}) + \",\";",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2660,
+     "context": "IntToStr({nTime1}) + \",\" + IntToStr(nTime2)",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 2660,
+     "context": "IntToStr({nTime2}) + \",\" + m_sechkName[hData]",
+     "project": "Include"
+    },
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "AFilter.ci",
+     "line": 3254,
+     "context": "(IntToStr({result}) = value);",
+     "project": "Include"
+    }
+   ],
+   "warnings": [
+    {
+     "code": "W1006",
+     "msg": "Function has the same name as built-in function",
+     "file": "a.ci",
+     "line": 1,
+     "context": "STRING FUNCTION {IntToStr}() RETURN",
+     "project": "Zlib"
+    }
+   ]
+  }
+ ]
+}

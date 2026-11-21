@@ -1,0 +1,4 @@
+FUNCTION Z()
+	FOR 5;
+	Sleep(1);
+END

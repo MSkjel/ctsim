@@ -1,0 +1,22 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// FILE: a.ci
+INT FUNCTION DupS()
+	RETURN 1;
+END
+FUNCTION Other()
+	UnkS1();
+END
+
+//// FILE: b.ci
+FUNCTION Later()
+	UnkS1b();
+END
+
+
+//// PROJECT: Bot
+//// FILE: l.ci
+INT FUNCTION DupS()
+	RETURN 1;
+END
+

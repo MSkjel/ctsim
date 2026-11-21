@@ -1,0 +1,6 @@
+INT FUNCTION P()
+	INT i;
+	i = 1 + ! comment ZzHidden
+	2;
+	RETURN i;
+END

@@ -1,0 +1,6 @@
+# Text files are LF in the repository and in every checkout, whatever core.autocrlf says.
+* text=auto eol=lf
+
+# The conformance cases are what the AVEVA compiler was given and what it answered: their bytes
+# (CRLF, LF, mixed, a lone CR) are part of each case.
+conformance/** -text

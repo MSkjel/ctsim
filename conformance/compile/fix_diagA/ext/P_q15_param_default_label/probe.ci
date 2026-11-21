@@ -1,0 +1,3 @@
+FUNCTION ProbeQ(INT a = KEY_F1, STRING s = "x", REAL r = -1.5)
+END
+

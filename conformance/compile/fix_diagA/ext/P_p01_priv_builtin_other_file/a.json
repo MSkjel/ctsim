@@ -1,0 +1,21 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [
+  {
+   "code": "W1006",
+   "msg": "Function has the same name as built-in function",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "INT FUNCTION {StrLength}(STRING s,"
+  }
+ ],
+ "aliases": [
+  "r2_diagB/projects/fix_diagA__p01_priv_builtin_other_file/a.ci",
+  "r2_diagB/projects/fix_diagA__p15_private_w1006_other_file_include/b.ci"
+ ]
+}

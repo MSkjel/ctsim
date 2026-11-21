@@ -1,0 +1,4 @@
+FUNCTION ZzF()
+	INT x;
+	RETURN x = 5;
+END

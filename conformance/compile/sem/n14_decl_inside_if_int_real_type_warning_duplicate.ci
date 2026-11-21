@@ -1,0 +1,6 @@
+FUNCTION ProbeN(INT a)
+	INT b;
+	IF a = 1 THEN
+		INT b;
+	END
+END

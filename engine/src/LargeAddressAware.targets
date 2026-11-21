@@ -1,0 +1,41 @@
+<Project>
+  <!-- IMAGE_FILE_LARGE_ADDRESS_AWARE (0x20) in the PE file header of the net48 exe, set on the
+       intermediate assembly right after the compiler wrote it (no VS tools needed); the compiler
+       leaves it out of a 32-bit preferred image. -->
+  <UsingTask
+    TaskName="CtsimSetLargeAddressAware"
+    TaskFactory="RoslynCodeTaskFactory"
+    AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll"
+  >
+    <ParameterGroup>
+      <Path ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System.IO" />
+      <Code Type="Fragment" Language="cs">
+        <![CDATA[
+        byte[] b = File.ReadAllBytes(Path);
+        int pe = BitConverter.ToInt32(b, 0x3C);
+        if (b.Length < pe + 24 || b[pe] != 'P' || b[pe + 1] != 'E') { Log.LogError("not a PE file: " + Path); return false; }
+        int ch = pe + 4 + 18;
+        int c = b[ch] | (b[ch + 1] << 8);
+        if ((c & 0x20) == 0)
+        {
+            c |= 0x20;
+            b[ch] = (byte)c;
+            b[ch + 1] = (byte)(c >> 8);
+            File.WriteAllBytes(Path, b);
+            Log.LogMessage(MessageImportance.Normal, "LargeAddressAware set: " + Path);
+        }
+      ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+  <Target
+    Name="CtsimLargeAddressAware"
+    AfterTargets="CoreCompile"
+    Condition="'$(TargetFramework)' == 'net48'"
+  >
+    <CtsimSetLargeAddressAware Path="@(IntermediateAssembly->'%(FullPath)')" />
+  </Target>
+</Project>

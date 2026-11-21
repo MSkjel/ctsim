@@ -1,0 +1,8 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "call": "RealToStr(1.5, 10, 4)",
+ "ok": true,
+ "result": "    1.5000"
+}

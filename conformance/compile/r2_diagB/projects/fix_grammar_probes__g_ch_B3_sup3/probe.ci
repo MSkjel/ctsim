@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT ³_a = 1;
+	INT b³c = 2;
+	RETURN ³_a + b³c;
+END

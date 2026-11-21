@@ -1,0 +1,7 @@
+//// FILE: a.ci
+GLOBAL INT gProbeZ;
+//// FILE: b.ci
+FUNCTION ProbeQ()
+	INT gProbeZ;
+	gProbeZ = 1;
+END

@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	MapOpen("a", 1, "a");
+	MenuGetPageNode("a");
+	MenuGetPageNode("a", 1);
+	MenuNodeAddChild(1, "a", "a");
+	MenuNodeAddChild(1, "a", "a", "a", "a", 1);
+	MenuNodeSetDisabledWhen(1, "a");
+	MenuNodeSetDisabledWhen(1, "a", "a", 1);
+	MenuNodeSetHiddenWhen(1, "a");
+	MenuNodeSetHiddenWhen(1, "a", "a");
+	MsgBrdcst("a", 1, "a");
+	MsgBrdcst("a", 1, "a", "a");
+	MsgOpen("a", 1, QCb);
+	MsgOpen("a", 1, QCb, "a");
+	ObjectAssociatePropertyWithTag(vo, "a", "a");
+	ObjectAssociatePropertyWithTag(vo, "a", "a", "a");
+	PageExists("a");
+	PageFile();
+	PageFile("a");
+	PageGetInt("a");
+	PageGetInt("a", 1);
+END

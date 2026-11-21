@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	RETURN ScheduleItemDelete("c", 1);
+END
+

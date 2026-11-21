@@ -1,0 +1,4 @@
+FUNCTION Z()
+	INT a = 0;
+	WHILE a < 3 DO a = a + 1; END
+END

@@ -1,0 +1,3 @@
+INT FUNCTION cicode()
+	RETURN 0;
+END

@@ -1,0 +1,3 @@
+FUNCTION P()
+	INT i = AlarmTagFromEquipment("a") BITAND 1;
+END

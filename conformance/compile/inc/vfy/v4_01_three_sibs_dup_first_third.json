@@ -1,0 +1,23 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Root1",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2021",
+     "msg": "Record already defined",
+     "file": "a.ci",
+     "line": 1,
+     "context": "INT FUNCTION {SibDup}() RETURN",
+     "project": "Zlib"
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

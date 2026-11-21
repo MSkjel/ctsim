@@ -1,0 +1,3 @@
+FUNCTION P()
+	ReRead(1);
+END

@@ -1,0 +1,8 @@
+FUNCTION ProbeU()
+	INT i;
+	FOR i = 0 TO 3 DO
+		Sleep(i);
+	END FOR
+	Sleep(5);
+	i = 2;
+END

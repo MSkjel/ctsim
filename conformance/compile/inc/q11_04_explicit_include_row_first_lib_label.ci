@@ -1,0 +1,14 @@
+//// PROJECT: Main
+//// INCLUDE: =INCLUDE
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// LABEL: FALSE = 0
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN 1;
+END

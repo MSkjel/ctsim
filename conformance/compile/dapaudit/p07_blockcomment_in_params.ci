@@ -1,0 +1,3 @@
+INT FUNCTION ProbeParams(INT a /* x, y */, INT b)
+	RETURN a + b;
+END

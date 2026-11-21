@@ -1,0 +1,6 @@
+FUNCTION ProbeObj(OBJECT o)
+END
+FUNCTION ProbeD()
+	ProbeObj(5);
+END
+

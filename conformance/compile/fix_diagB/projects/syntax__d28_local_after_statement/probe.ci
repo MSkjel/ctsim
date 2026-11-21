@@ -1,0 +1,6 @@
+FUNCTION Z()
+	INT a;
+	a = 1;
+	Sleep(0);
+	INT b = a;
+END

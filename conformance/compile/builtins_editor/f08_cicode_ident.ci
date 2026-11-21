@@ -1,0 +1,3 @@
+FUNCTION P()
+	INT cicode = 1;
+END

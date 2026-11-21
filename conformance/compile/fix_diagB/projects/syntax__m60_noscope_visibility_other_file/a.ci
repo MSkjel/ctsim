@@ -1,0 +1,4 @@
+INT nsX;
+FUNCTION A()
+	nsX = 1;
+END

@@ -1,0 +1,14 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// LOCVAR: LvSame INT
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN LvSame;
+END
+
+//// PROJECT: LibA
+//// LOCVAR: LvSame INT
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN 1;
+END

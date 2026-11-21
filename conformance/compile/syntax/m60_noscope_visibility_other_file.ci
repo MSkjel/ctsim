@@ -1,0 +1,9 @@
+//// FILE: a.ci
+INT nsX;
+FUNCTION A()
+	nsX = 1;
+END
+//// FILE: b.ci
+FUNCTION B()
+	nsX = 2;
+END

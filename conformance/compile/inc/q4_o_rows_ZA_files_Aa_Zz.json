@@ -1,0 +1,47 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Main",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "z.ci",
+     "line": 2,
+     "context": "F_Zlib_z() RETURN {Unknown_Zlib_z}(); END",
+     "project": "Zlib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "z.ci",
+     "line": 2,
+     "context": "Unknown_Zlib_z(){;} END",
+     "project": "Zlib"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "z.ci",
+     "line": 2,
+     "context": "Unknown_Zlib_z(){;} END",
+     "project": "Zlib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "z.ci",
+     "line": 4,
+     "context": "Unknown_Zlib_z(); END {}",
+     "project": "Zlib"
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

@@ -1,0 +1,3 @@
+//// LABEL: PROBE_M(x) = (x)
+FUNCTION PROBE_M(INT x)
+END

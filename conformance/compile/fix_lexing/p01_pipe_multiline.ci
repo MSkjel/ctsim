@@ -1,0 +1,7 @@
+INT FUNCTION P()
+	INT i;
+	i = 1 + |abc
+	ZzInsidePipe|;
+	i = ZzVisiblePipe;
+	RETURN i;
+END

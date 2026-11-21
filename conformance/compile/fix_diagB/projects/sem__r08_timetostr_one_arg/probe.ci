@@ -1,0 +1,3 @@
+FUNCTION ProbeR()
+	STRING s = TimeToStr(TimeCurrent());
+END

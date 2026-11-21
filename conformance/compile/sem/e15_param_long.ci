@@ -1,0 +1,3 @@
+FUNCTION ProbeT(LONG a)
+	Sleep(a);
+END

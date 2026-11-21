@@ -1,0 +1,6 @@
+FUNCTION Z()
+	QUALITY q;
+	FOR q = 1 TO 3 DO
+		Sleep(0);
+	END
+END

@@ -1,0 +1,7 @@
+INT FUNCTION ProbeOne()
+	RETURN 1;
+END
+FUNCTION ProbeT()
+	RETURN ProbeOne();
+END
+

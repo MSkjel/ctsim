@@ -1,0 +1,6 @@
+FUNCTION Z(INT a)
+	INT b;
+	IF a THEN b = 1; END IF b THEN b = 2; END
+	WHILE a < 0 DO a = a + 1; END WHILE a > 5 DO a = a - 1; END
+	SELECT CASE a CASE 1 b = 1; END SELECT
+END

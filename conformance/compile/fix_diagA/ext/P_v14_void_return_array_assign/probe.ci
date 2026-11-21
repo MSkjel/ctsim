@@ -1,0 +1,5 @@
+MODULE INT mArr[3];
+FUNCTION ZzF()
+	RETURN mArr[1] = 5;
+END
+

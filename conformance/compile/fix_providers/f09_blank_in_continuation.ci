@@ -1,0 +1,8 @@
+FUNCTION Z(INT a)
+        a = Max(1,
+
+                2);
+    a = a +
+
+      1;
+END

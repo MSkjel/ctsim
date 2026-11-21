@@ -1,0 +1,12 @@
+/**
+ * @brief Calculates the area of a rectangle.
+ * @param width The width.
+ */
+REAL FUNCTION CalculateArea(REAL width, REAL height)
+    RETURN width * height;
+END
+INT FUNCTION UseFmt(REAL r)
+	STRING s;
+	s = r:###.## + r:#0## + r:###EU + r:5 + r:-5.2;
+	RETURN StrLength(s);
+END

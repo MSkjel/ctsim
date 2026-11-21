@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT aäb;
+	aäb = 1;
+	RETURN aäb;
+END

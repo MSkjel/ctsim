@@ -1,0 +1,4 @@
+MODULE INT mX = StrToInt("5");
+FUNCTION ProbeA()
+END
+

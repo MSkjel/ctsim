@@ -1,0 +1,17 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2037",
+   "msg": "Must return value from function",
+   "file": "probe.ci",
+   "line": 4,
+   "context": "ProbeT() END {}"
+  }
+ ],
+ "warnings": []
+}

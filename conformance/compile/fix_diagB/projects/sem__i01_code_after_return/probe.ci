@@ -1,0 +1,4 @@
+INT FUNCTION ProbeU()
+	RETURN 1;
+	Sleep(1);
+END

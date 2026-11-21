@@ -1,0 +1,3 @@
+INT FUNCTION global()
+	RETURN 0;
+END

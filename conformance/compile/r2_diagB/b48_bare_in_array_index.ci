@@ -1,0 +1,8 @@
+MODULE INT mA[3];
+INT FUNCTION ZCb()
+	RETURN 0;
+END
+FUNCTION Z()
+	INT i;
+	i = mA[ZCb];
+END

@@ -1,0 +1,4 @@
+FUNCTION P()
+	OBJECT o;
+	OBJECT r = _ObjectCallMethod(o, "m");
+END

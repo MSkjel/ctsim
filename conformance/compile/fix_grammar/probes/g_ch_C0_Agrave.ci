@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT À_a = 1;
+	INT bÀc = 2;
+	RETURN À_a + bÀc;
+END

@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	INT a, GLOBAL INT b;
+	RETURN a;
+END

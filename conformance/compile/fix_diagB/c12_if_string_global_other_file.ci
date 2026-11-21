@@ -1,0 +1,8 @@
+//// FILE: a.ci
+GLOBAL STRING gS;
+//// FILE: b.ci
+FUNCTION Z()
+	IF gS THEN
+		Sleep(0);
+	END
+END

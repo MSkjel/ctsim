@@ -1,0 +1,6 @@
+FUNCTION Z()
+	INT i;
+	FOR i = 1 TO 3
+		Sleep(0);
+	END
+END

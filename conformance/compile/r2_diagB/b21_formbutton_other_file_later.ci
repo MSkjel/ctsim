@@ -1,0 +1,8 @@
+//// FILE: a.ci
+FUNCTION Z()
+	FormButton(1, 1, "x", ZCb, 0);
+END
+//// FILE: b.ci
+INT FUNCTION ZCb()
+	RETURN 0;
+END

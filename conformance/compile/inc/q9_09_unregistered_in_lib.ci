@@ -1,0 +1,13 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// INCLUDE: =CiP_Missing
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN 1;
+END

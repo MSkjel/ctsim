@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i;
+	i = ZzCluster.ZzTag.Field;
+	RETURN i;
+END

@@ -1,0 +1,5 @@
+MODULE INT mArr[5];
+FUNCTION ProbeQ()
+	mArr[10] = 1;
+END
+

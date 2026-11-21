@@ -1,0 +1,6 @@
+FUNCTION ProbeV()
+END
+FUNCTION ProbeR()
+	INT i = ProbeV();
+	Sleep(i);
+END

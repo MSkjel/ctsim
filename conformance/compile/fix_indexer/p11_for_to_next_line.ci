@@ -1,0 +1,10 @@
+FUNCTION ProbeA()
+	INT i;
+	FOR i = 1
+	TO 3
+	DO
+		Sleep(0);
+	END
+	INT k = 1;
+	Sleep(k);
+END

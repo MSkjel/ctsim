@@ -1,0 +1,39 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2015",
+   "msg": "Bad raw data type",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "_TimeSub(INT t,{0})"
+  },
+  {
+   "code": "E2008",
+   "msg": "Tag expected",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "_TimeSub(INT t,{0})"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "_TimeSub(INT t,0{)}"
+  }
+ ],
+ "warnings": [
+  {
+   "code": "W1006",
+   "msg": "Function has the same name as built-in function",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "{_TimeSub}(INT t,0)"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+//// PROJECT: Root1
+//// INCLUDE: =*CiP_Nope9
+//// INCLUDE: Zlib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN ZlibFn();
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+INT FUNCTION ZlibFn()
+	RETURN 1;
+END
+

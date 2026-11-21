@@ -1,0 +1,7 @@
+INT FUNCTION P(INT a)
+	SELECT CASE a
+	CASE 1
+		a = 2;
+	END /* c */ SELECT
+	RETURN a;
+END

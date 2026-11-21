@@ -1,0 +1,15 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// FILE: c.ci
+INT FUNCTION R1Fn()
+	RETURN mB;
+END
+
+
+//// PROJECT: Bot
+//// FILE: c.ci
+MODULE INT mB = 2;
+INT FUNCTION BotFn()
+	RETURN mB;
+END
+

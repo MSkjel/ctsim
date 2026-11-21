@@ -1,0 +1,23 @@
+//// PROJECT: Root1
+//// INCLUDE: Alib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Alib
+//// INCLUDE: Zlib
+//// FILE: a.ci
+INT FUNCTION AlibFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zlib
+//// INCLUDE: =cip_alib
+//// FILE: z.ci
+INT FUNCTION ZlibFn()
+	RETURN 1;
+END
+

@@ -1,0 +1,33 @@
+//// PROJECT: Root1
+//// INCLUDE: Alib
+//// INCLUDE: Zlib
+//// INCLUDE: Mbot
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Alib
+//// FILE: a.ci
+INT FUNCTION AlibFn()
+	RETURN ZlibFn();
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+INT FUNCTION ZlibFn()
+	RETURN MbotFn();
+END
+
+
+//// PROJECT: Mbot
+//// FILE: m.ci
+INT FUNCTION MbotFn()
+	RETURN AlibFn();
+END
+
+//// COMPILE: Root1
+//// COMPILE: Zlib
+//// COMPILE: Mbot

@@ -1,0 +1,3 @@
+FUNCTION Z()
+	FormButton(1, 1, "x", ItemListFreeAll, 0);
+END

@@ -1,0 +1,3 @@
+FUNCTION P()
+	TimestampDifference(1, 2);
+END

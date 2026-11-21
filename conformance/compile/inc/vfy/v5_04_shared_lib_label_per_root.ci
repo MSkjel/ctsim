@@ -1,0 +1,26 @@
+//// PROJECT: Root1
+//// INCLUDE: LibB
+//// LABEL: HOOKK = 5
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Root2
+//// INCLUDE: LibB
+//// FILE: r.ci
+INT FUNCTION R2Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: LibB
+//// FILE: b.ci
+INT FUNCTION LibBFn()
+	RETURN HOOKK;
+END
+
+//// COMPILE: Root1
+//// COMPILE: Root2
+//// COMPILE: LibB

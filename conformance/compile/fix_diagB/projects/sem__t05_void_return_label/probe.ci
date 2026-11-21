@@ -1,0 +1,3 @@
+FUNCTION ProbeT()
+	RETURN TRUE;
+END

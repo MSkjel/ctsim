@@ -1,0 +1,4 @@
+FUNCTION Z()
+	INT i;
+	i = 1;
+END

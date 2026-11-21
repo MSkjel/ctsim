@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i;
+	i = ZzLab 2;
+	RETURN i;
+END

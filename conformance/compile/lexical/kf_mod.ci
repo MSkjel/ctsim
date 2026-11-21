@@ -1,0 +1,3 @@
+INT FUNCTION mod()
+	RETURN 0;
+END

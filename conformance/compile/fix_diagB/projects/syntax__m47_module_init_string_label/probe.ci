@@ -1,0 +1,3 @@
+MODULE STRING s = "a" "b";
+FUNCTION Z()
+END

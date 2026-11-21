@@ -1,0 +1,5 @@
+FUNCTION ProbeG()
+	INT KEY_F1;
+	KEY_F1 = 2;
+END
+

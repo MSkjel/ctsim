@@ -1,0 +1,6 @@
+FUNCTION Z()
+	FOR mLater = 1 TO 3 DO
+		Sleep(0);
+	END
+END
+MODULE INT mLater;

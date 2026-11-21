@@ -1,0 +1,7 @@
+//// FILE: a.ci
+PUBLIC FUNCTION P()
+END
+//// FILE: b.ci
+FUNCTION Q()
+	P();
+END

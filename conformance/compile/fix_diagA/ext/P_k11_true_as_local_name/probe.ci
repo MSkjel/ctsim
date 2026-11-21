@@ -1,0 +1,4 @@
+FUNCTION ProbeK()
+	INT TRUE;
+END
+

@@ -1,0 +1,4 @@
+FUNCTION ProbeR()
+	TaskNew("a", "b");
+END
+

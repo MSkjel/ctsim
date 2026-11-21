@@ -1,0 +1,3 @@
+REAL FUNCTION Abs(REAL r)
+	RETURN r;
+END

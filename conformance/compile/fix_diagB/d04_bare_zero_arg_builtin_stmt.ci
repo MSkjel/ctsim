@@ -1,0 +1,3 @@
+FUNCTION Z()
+	PageNext;
+END

@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT a = StrToInt("1" +
+		"2"), b = 3;
+	RETURN a + b;
+END

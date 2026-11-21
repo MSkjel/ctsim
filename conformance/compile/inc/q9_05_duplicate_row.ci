@@ -1,0 +1,13 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN LibFn();
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN 1;
+END

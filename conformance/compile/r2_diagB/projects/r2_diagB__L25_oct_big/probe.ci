@@ -1,0 +1,4 @@
+FUNCTION Z()
+	INT i;
+	i = 0o40000000000;
+END

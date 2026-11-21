@@ -1,0 +1,10 @@
+INT FUNCTION ZzF(INT i)
+	SELECT CASE i
+	CASE 1CASE 2
+		i = 3;
+	END SELECT
+	IF i = 1THEN
+		i = 2;
+	END
+	RETURN i;
+END

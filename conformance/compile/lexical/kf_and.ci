@@ -1,0 +1,3 @@
+INT FUNCTION and()
+	RETURN 0;
+END

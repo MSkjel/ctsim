@@ -1,0 +1,7 @@
+! file header ZzHidden
+// another
+/* block */
+INT FUNCTION P() ! trailing on header ZzHidden2
+	RETURN 1; // trailing
+END ! after end
+! last line without newline

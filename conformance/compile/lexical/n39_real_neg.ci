@@ -1,0 +1,5 @@
+REAL FUNCTION P()
+	REAL v;
+	v = -1.5;
+	RETURN v;
+END

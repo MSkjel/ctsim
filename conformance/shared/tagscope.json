@@ -1,0 +1,484 @@
+{
+ "format": "ctsim-vectors/tagscope/0",
+ "user": "C:\\ProgramData\\AVEVA Plant SCADA 2023 R2\\User",
+ "inputs": "f24fb5025b98397f02f8a0d8e7d960f0a5261b7f",
+ "what": "the tag scope of each project compiled as each root: projects in search order [name, relation] (the projects AVEVA ships only)",
+ "cases": [
+  {
+   "project": "Example",
+   "root": "Example",
+   "projects": [
+    [
+     "Example",
+     "own"
+    ],
+    [
+     "SxW_Style_Include",
+     "include"
+    ],
+    [
+     "Tab_Style_Include",
+     "include"
+    ],
+    [
+     "Library_Controls",
+     "include"
+    ],
+    [
+     "Library_Equipment",
+     "include"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "System",
+     "include"
+    ]
+   ]
+  },
+  {
+   "project": "ExampleSA",
+   "root": "ExampleSA",
+   "projects": [
+    [
+     "ExampleSA",
+     "own"
+    ],
+    [
+     "SA_Include",
+     "include"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "SA_Controls",
+     "include"
+    ],
+    [
+     "SA_Library",
+     "include"
+    ],
+    [
+     "IndustrialGraphics_Include",
+     "include"
+    ],
+    [
+     "System",
+     "include"
+    ]
+   ]
+  },
+  {
+   "project": "Include",
+   "root": "Example",
+   "projects": [
+    [
+     "Include",
+     "own"
+    ],
+    [
+     "System",
+     "include"
+    ],
+    [
+     "Example",
+     "includer"
+    ],
+    [
+     "Library_Controls",
+     "includer"
+    ],
+    [
+     "Library_Equipment",
+     "includer"
+    ],
+    [
+     "SxW_Style_Include",
+     "includer"
+    ],
+    [
+     "Tab_Style_Include",
+     "includer"
+    ]
+   ]
+  },
+  {
+   "project": "Include",
+   "root": "ExampleSA",
+   "projects": [
+    [
+     "Include",
+     "own"
+    ],
+    [
+     "System",
+     "include"
+    ],
+    [
+     "ExampleSA",
+     "includer"
+    ],
+    [
+     "IndustrialGraphics_Include",
+     "includer"
+    ],
+    [
+     "SA_Controls",
+     "includer"
+    ],
+    [
+     "SA_Include",
+     "includer"
+    ],
+    [
+     "SA_Library",
+     "includer"
+    ]
+   ]
+  },
+  {
+   "project": "IndustrialGraphics_Include",
+   "root": "ExampleSA",
+   "projects": [
+    [
+     "IndustrialGraphics_Include",
+     "own"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "System",
+     "include"
+    ],
+    [
+     "ExampleSA",
+     "includer"
+    ],
+    [
+     "SA_Include",
+     "compiled"
+    ],
+    [
+     "SA_Controls",
+     "compiled"
+    ],
+    [
+     "SA_Library",
+     "compiled"
+    ]
+   ]
+  },
+  {
+   "project": "Library_Controls",
+   "root": "Example",
+   "projects": [
+    [
+     "Library_Controls",
+     "own"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "System",
+     "include"
+    ],
+    [
+     "Library_Equipment",
+     "includer"
+    ],
+    [
+     "SxW_Style_Include",
+     "includer"
+    ],
+    [
+     "Tab_Style_Include",
+     "includer"
+    ],
+    [
+     "Example",
+     "includer"
+    ]
+   ]
+  },
+  {
+   "project": "Library_Equipment",
+   "root": "Example",
+   "projects": [
+    [
+     "Library_Equipment",
+     "own"
+    ],
+    [
+     "Library_Controls",
+     "include"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "System",
+     "include"
+    ],
+    [
+     "Example",
+     "includer"
+    ],
+    [
+     "SxW_Style_Include",
+     "compiled"
+    ],
+    [
+     "Tab_Style_Include",
+     "compiled"
+    ]
+   ]
+  },
+  {
+   "project": "SA_Controls",
+   "root": "ExampleSA",
+   "projects": [
+    [
+     "SA_Controls",
+     "own"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "System",
+     "include"
+    ],
+    [
+     "SA_Include",
+     "includer"
+    ],
+    [
+     "SA_Library",
+     "includer"
+    ],
+    [
+     "ExampleSA",
+     "includer"
+    ],
+    [
+     "IndustrialGraphics_Include",
+     "compiled"
+    ]
+   ]
+  },
+  {
+   "project": "SA_Include",
+   "root": "ExampleSA",
+   "projects": [
+    [
+     "SA_Include",
+     "own"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "SA_Controls",
+     "include"
+    ],
+    [
+     "System",
+     "include"
+    ],
+    [
+     "ExampleSA",
+     "includer"
+    ],
+    [
+     "SA_Library",
+     "compiled"
+    ],
+    [
+     "IndustrialGraphics_Include",
+     "compiled"
+    ]
+   ]
+  },
+  {
+   "project": "SA_Library",
+   "root": "ExampleSA",
+   "projects": [
+    [
+     "SA_Library",
+     "own"
+    ],
+    [
+     "SA_Controls",
+     "include"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "System",
+     "include"
+    ],
+    [
+     "ExampleSA",
+     "includer"
+    ],
+    [
+     "SA_Include",
+     "compiled"
+    ],
+    [
+     "IndustrialGraphics_Include",
+     "compiled"
+    ]
+   ]
+  },
+  {
+   "project": "SxW_Style_Include",
+   "root": "Example",
+   "projects": [
+    [
+     "SxW_Style_Include",
+     "own"
+    ],
+    [
+     "Tab_Style_Include",
+     "include"
+    ],
+    [
+     "Library_Controls",
+     "include"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "System",
+     "include"
+    ],
+    [
+     "Example",
+     "includer"
+    ],
+    [
+     "Library_Equipment",
+     "compiled"
+    ]
+   ]
+  },
+  {
+   "project": "System",
+   "root": "Example",
+   "projects": [
+    [
+     "System",
+     "own"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "Example",
+     "includer"
+    ],
+    [
+     "Library_Controls",
+     "includer"
+    ],
+    [
+     "Library_Equipment",
+     "includer"
+    ],
+    [
+     "SxW_Style_Include",
+     "includer"
+    ],
+    [
+     "Tab_Style_Include",
+     "includer"
+    ]
+   ]
+  },
+  {
+   "project": "System",
+   "root": "ExampleSA",
+   "projects": [
+    [
+     "System",
+     "own"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "ExampleSA",
+     "includer"
+    ],
+    [
+     "IndustrialGraphics_Include",
+     "includer"
+    ],
+    [
+     "SA_Controls",
+     "includer"
+    ],
+    [
+     "SA_Include",
+     "includer"
+    ],
+    [
+     "SA_Library",
+     "includer"
+    ]
+   ]
+  },
+  {
+   "project": "Tab_Style_Include",
+   "root": "Example",
+   "projects": [
+    [
+     "Tab_Style_Include",
+     "own"
+    ],
+    [
+     "Library_Controls",
+     "include"
+    ],
+    [
+     "Include",
+     "include"
+    ],
+    [
+     "System",
+     "include"
+    ],
+    [
+     "SxW_Style_Include",
+     "includer"
+    ],
+    [
+     "Example",
+     "includer"
+    ],
+    [
+     "Library_Equipment",
+     "compiled"
+    ]
+   ]
+  }
+ ]
+}

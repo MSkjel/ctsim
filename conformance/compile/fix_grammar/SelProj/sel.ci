@@ -1,0 +1,12 @@
+FUNCTION SelTest(INT i)
+	SELECT CASE i
+	CASE 1
+		i = 2;
+	CASE ELSE
+		i = 3; END SELECT
+	i = 4;
+END
+
+FUNCTION Next()
+	Sleep(1);
+END

@@ -1,0 +1,6 @@
+INT FUNCTION ZzF()
+	INT i = 1;
+	/***/ i = ZzLiveA;
+	/****/ i = ZzLiveB;
+	RETURN i;
+END

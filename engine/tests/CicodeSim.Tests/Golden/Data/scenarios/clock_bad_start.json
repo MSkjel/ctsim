@@ -1,0 +1,2 @@
+{"format": "ctsim-scenario/0", "clock": {"start": "2026-02-29T24:30:00Z"},
+ "steps": [{"at": 0.5, "set": {"Pump1_Run": 1}}, {"at": 1.0, "expect": {"Pump1_Run": 1}}]}

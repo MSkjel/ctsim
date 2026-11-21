@@ -1,0 +1,13 @@
+function Z(int a)
+if a then
+a = 1;
+else if a > 2 then
+a = 2;
+end end
+select case a
+case 1
+a = 3;
+case else
+a = 4;
+end select
+end

@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT µ_a = 1;
+	INT bµc = 2;
+	RETURN µ_a + bµc;
+END

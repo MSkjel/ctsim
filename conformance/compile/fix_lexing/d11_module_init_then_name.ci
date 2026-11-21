@@ -1,0 +1,4 @@
+MODULE STRING mzA = "x", mzB;
+STRING FUNCTION P()
+	RETURN mzA;
+END

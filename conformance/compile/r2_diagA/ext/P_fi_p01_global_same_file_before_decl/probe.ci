@@ -1,0 +1,4 @@
+FUNCTION ProbeA()
+	gZzEarly = 1;
+END
+GLOBAL INT gZzEarly;

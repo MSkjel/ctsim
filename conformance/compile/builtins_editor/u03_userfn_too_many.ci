@@ -1,0 +1,6 @@
+INT FUNCTION F(INT a, INT b)
+	RETURN a + b;
+END
+FUNCTION P()
+	F(1, 2, 3);
+END

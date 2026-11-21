@@ -1,0 +1,4 @@
+STRING FUNCTION GetGlbStr(INT i)
+	RETURN "";
+END
+

@@ -1,0 +1,5 @@
+FUNCTION ProbeT()
+	BOOLEAN bFlag;
+	bFlag = 1;
+END
+

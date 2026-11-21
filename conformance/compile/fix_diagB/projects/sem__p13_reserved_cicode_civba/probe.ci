@@ -1,0 +1,3 @@
+FUNCTION ProbeP()
+	INT cicode;
+END

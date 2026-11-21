@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT º_a = 1;
+	INT bºc = 2;
+	RETURN º_a + bºc;
+END

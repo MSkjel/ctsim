@@ -1,0 +1,4 @@
+INT FUNCTION ProbeTrue()
+	INT b = TRUE;
+	RETURN b;
+END

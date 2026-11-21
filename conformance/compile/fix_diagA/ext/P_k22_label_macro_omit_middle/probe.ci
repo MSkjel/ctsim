@@ -1,0 +1,4 @@
+INT FUNCTION ProbeK()
+	RETURN DspButton(1, , "t");
+END
+

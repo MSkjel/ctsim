@@ -1,0 +1,6 @@
+//// PROJECT: Main
+//// INCLUDE: =cip_main
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END

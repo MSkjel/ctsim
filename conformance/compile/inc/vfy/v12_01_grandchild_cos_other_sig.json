@@ -1,0 +1,47 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Leaf",
+   "ok": true,
+   "errors": [],
+   "warnings": [
+    {
+     "code": "W1006",
+     "msg": "Function has the same name as built-in function",
+     "file": "l.ci",
+     "line": 1,
+     "context": "REAL FUNCTION {Cos}() RETURN",
+     "project": "Leaf"
+    }
+   ]
+  },
+  {
+   "compile": "Root1",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2022",
+     "msg": "Incorrect number of arguments for function",
+     "file": "r.ci",
+     "line": 2,
+     "context": "RETURN Cos({1.0}); END",
+     "project": "Root1"
+    }
+   ],
+   "warnings": [
+    {
+     "code": "W1006",
+     "msg": "Function has the same name as built-in function",
+     "file": "l.ci",
+     "line": 1,
+     "context": "REAL FUNCTION {Cos}() RETURN",
+     "project": "Leaf"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+MODULE INT mX = zzUnknownThing;
+FUNCTION ProbeU()
+	mX = 1;
+END

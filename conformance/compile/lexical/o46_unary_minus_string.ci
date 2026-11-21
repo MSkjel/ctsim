@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; STRING s;
+	i = -"a";
+	RETURN 0;
+END

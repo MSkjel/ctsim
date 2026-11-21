@@ -1,0 +1,20 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2006",
+   "msg": "Bad integer value",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "OBJECT o = -{1.0}; FUNCTION"
+  }
+ ],
+ "warnings": [],
+ "aliases": [
+  "r2_diagB/projects/fix_diagB__m09_module_object_minus1_real/probe.ci"
+ ]
+}

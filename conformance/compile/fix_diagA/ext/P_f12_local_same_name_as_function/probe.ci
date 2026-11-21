@@ -1,0 +1,5 @@
+FUNCTION ProbeD()
+	INT ProbeD;
+	ProbeD = 1;
+END
+

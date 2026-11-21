@@ -1,0 +1,6 @@
+MODULE STRING mA[3];
+FUNCTION Z()
+	IF mA[1] THEN
+		Sleep(0);
+	END
+END

@@ -1,0 +1,5 @@
+INT FUNCTION ProbeC()
+	INT i = zzNoSuchFunc();
+	RETURN i;
+END
+

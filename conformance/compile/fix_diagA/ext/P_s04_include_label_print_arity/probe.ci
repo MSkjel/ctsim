@@ -1,0 +1,8 @@
+FUNCTION ProbeS()
+	Print("a");
+	Print("a", 1);
+	INT i = IFDEF("zzTag", 1, 0);
+	STRING s = VarToStr(i);
+	INT k = TimeSecond(TimeCurrent());
+END
+

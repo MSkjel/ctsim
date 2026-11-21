@@ -1,0 +1,5 @@
+//// LABEL: CNT = 5
+FUNCTION Z()
+	STRING s = "CNT";
+	TraceMsg(s);
+END

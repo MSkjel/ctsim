@@ -1,0 +1,7 @@
+FUNCTION ProbeU(INT a)
+	SELECT CASE a
+	CASE 1
+		Sleep(1);
+	END
+END
+

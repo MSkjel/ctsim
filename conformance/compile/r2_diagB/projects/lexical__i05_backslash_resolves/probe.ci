@@ -1,0 +1,6 @@
+INT FUNCTION P()
+	INT a\b = 1;
+	INT i;
+	i = a;
+	RETURN i;
+END

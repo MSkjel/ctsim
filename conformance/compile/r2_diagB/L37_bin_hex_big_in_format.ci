@@ -1,0 +1,4 @@
+FUNCTION Z()
+	STRING s;
+	s = 1:0x100000000;
+END

@@ -1,0 +1,4 @@
+FUNCTION Z()
+	REAL r;
+	r = TestSinWave;
+END

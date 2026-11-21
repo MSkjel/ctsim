@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	INT Normal = 5;
+	RETURN Normal;
+END

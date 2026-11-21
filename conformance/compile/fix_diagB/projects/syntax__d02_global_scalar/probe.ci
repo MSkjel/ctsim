@@ -1,0 +1,3 @@
+GLOBAL INT g;
+FUNCTION Z()
+END

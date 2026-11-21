@@ -1,0 +1,7 @@
+INT FUNCTION P()
+	INT i
+	INT j
+	i = 1
+	j = 2
+	RETURN i + j
+END

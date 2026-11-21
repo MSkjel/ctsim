@@ -1,0 +1,6 @@
+//// LABEL: ZzR5(a) = ZzT5()
+FUNCTION ZzR5(INT x)
+END
+FUNCTION ZzU()
+	ZzT5();
+END

@@ -1,0 +1,3 @@
+INT FUNCTION P()
+	RETURN _TimeSub(1, 0);
+END

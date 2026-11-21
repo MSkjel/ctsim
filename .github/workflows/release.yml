@@ -1,0 +1,83 @@
+name: Release
+
+# Push a tag vX.Y.Z on a commit of main that passed CI to publish ctsim.exe. The tag is the
+# version (engine/Directory.Build.props). The commit's own CI run is the test gate.
+on:
+  push:
+    tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    # (waits for the commit's CI run when the commit and the tag were pushed together)
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Check CI passed on this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          # CI's runs on this exact commit: a push to main, or a manual run
+          runs() {
+            gh run list --workflow ci.yml --commit "$GITHUB_SHA" --limit 50 \
+              --json databaseId,event,status,conclusion \
+              --jq '.[] | select(.event == "push" or .event == "workflow_dispatch") | "\(.databaseId) \(.status) \(.conclusion)"'
+          }
+          if runs | grep -q " completed success$"; then
+            echo "CI passed on $GITHUB_SHA."
+            exit 0
+          fi
+          id=$(runs | awk '$2 != "completed" { print $1; exit }')
+          if [ -n "$id" ]; then
+            echo "Waiting for CI run $id."
+            if gh run watch "$id" --exit-status --interval 60 > /dev/null; then
+              echo "CI passed on $GITHUB_SHA."
+              exit 0
+            fi
+          fi
+          echo "::error::CI has not passed on $GITHUB_SHA. Push it to main or run CI on the tag, then re-run this workflow."
+          exit 1
+
+  publish:
+    needs: check
+    runs-on: windows-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      DOTNET_NOLOGO: "1"
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+    steps:
+      # (the tags: the build reads its version from them)
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Build ctsim.exe
+        run: dotnet build engine/src/ctsim/ctsim.csproj -c Release -f net48
+
+      - name: Publish the release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $v = $env:GITHUB_REF_NAME.Substring(1)
+          $said = (& engine/src/ctsim/bin/Release/net48/ctsim.exe --version | Out-String).Trim()
+          if ($said -notlike "cicode-sim $v.0,*") {
+            Write-Output "::error::The build is not version ${v}: $said"
+            exit 1
+          }
+          $zip = "ctsim-$v-net48.zip"
+          Compress-Archive -Path engine/src/ctsim/bin/Release/net48/* -DestinationPath $zip
+          gh release create $env:GITHUB_REF_NAME $zip --verify-tag --title "ctsim $v" --generate-notes
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

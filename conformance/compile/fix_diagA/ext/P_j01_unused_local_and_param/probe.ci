@@ -1,0 +1,5 @@
+FUNCTION ProbeU(INT aUnusedParam)
+	INT iUnused;
+	STRING sUnused = "x";
+END
+

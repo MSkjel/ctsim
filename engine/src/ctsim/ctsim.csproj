@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- ctsim.exe: the engine's host, shipped with ctgedit and the VS Code extension: serve / dap / servers
+       (named-pipe server, DAP framing + ctsim/* requests). The development commands are ctsim-dev. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net48;net10.0</TargetFrameworks>
+    <RootNamespace>CicodeSim.Host</RootNamespace>
+    <AssemblyName>ctsim</AssemblyName>
+  </PropertyGroup>
+  <!-- net48: ctsim.exe runs as a 32-bit process (the runtime's bitness, so the maths built-ins
+       call the 32-bit Universal CRT and give its digits: sin / cos / tan differ in the last
+       digit between the 32- and 64-bit CRT) with
+       4 GB of address space (LargeAddressAware). AnyCPU + Prefer32Bit, not PlatformTarget x86:
+       the test assembly (64-bit) loads ctsim's commands as a library, which an x86-only image
+       refuses; 32BITPREF only decides the bitness of the process ctsim.exe starts. -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="CicodeSim.Tests" />
+    <InternalsVisibleTo Include="ctsim-dev" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CicodeSim.Engine\CicodeSim.Engine.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\LargeAddressAware.targets" />
+</Project>

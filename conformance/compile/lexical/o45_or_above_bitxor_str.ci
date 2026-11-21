@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; STRING s;
+	i = "a" < "b" OR 1 BITXOR 2;
+	RETURN 0;
+END

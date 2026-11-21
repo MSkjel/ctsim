@@ -1,0 +1,3 @@
+INT FUNCTION else()
+	RETURN 0;
+END

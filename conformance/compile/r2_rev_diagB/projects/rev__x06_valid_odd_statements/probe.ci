@@ -1,0 +1,17 @@
+FUNCTION Z(INT a, STRING s)
+	INT i;
+	INT b = a = 1;
+	IF(a)THEN i = 1 ELSE IF a <> 2 THEN i = 2 ELSE i = 3 END END
+	WHILE NOT - a DO a = a + 1 END
+	FOR i = StrToInt("1") TO (a) + 1 DO ; END
+	SELECT CASE s CASE "a" TO "c", IS >= "x" DO i = 1 CASE ELSE i = 2 END SELECT
+	s = i:###;
+	s = "a" + i:#0.## + "b";
+	i = - - 1 + NOT NOT a + b;
+	FOR i = 1
+	TO 3
+	DO
+		i = i MOD 2;
+	END
+	RETURN
+END

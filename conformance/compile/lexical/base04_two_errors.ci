@@ -1,0 +1,6 @@
+INT FUNCTION P()
+	INT i;
+	i = 'a';
+	i = 'b';
+	RETURN i;
+END

@@ -1,0 +1,25 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// FILE: r.ci
+PRIVATE INT FUNCTION Pq(INT a)
+	RETURN a;
+END
+INT FUNCTION R1Fn()
+	RETURN Pq(1);
+END
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// FILE: zm.ci
+INT FUNCTION ZmidFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// FILE: l.ci
+INT FUNCTION Pq()
+	RETURN 1;
+END
+

@@ -1,0 +1,5 @@
+FUNCTION Z(TIMESTAMP t)
+	IF t THEN
+		Sleep(0);
+	END
+END

@@ -1,0 +1,3 @@
+INT FUNCTION ProbeS()
+	RETURN gShared;
+END

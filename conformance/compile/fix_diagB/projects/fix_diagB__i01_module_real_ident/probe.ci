@@ -1,0 +1,4 @@
+MODULE INT a = 1;
+MODULE REAL r = a;
+FUNCTION Z()
+END

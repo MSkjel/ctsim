@@ -1,0 +1,6 @@
+FUNCTION Z()
+	INT i;
+	i = ZzTag.End;
+	Sleep(i);
+	i = ZzTag.Select + ZzTag.Function;
+END

@@ -1,0 +1,3 @@
+MODULE OBJECT o = zzNothing;
+FUNCTION Z()
+END

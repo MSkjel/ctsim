@@ -1,0 +1,4 @@
+GLOBAL STRING gProbeX;
+FUNCTION ProbeB()
+	gProbeX = "a";
+END

@@ -1,0 +1,3 @@
+FUNCTION P()
+	INT i = "abc" MOD 2;
+END

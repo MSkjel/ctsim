@@ -1,0 +1,4 @@
+MODULE INT mOther;
+FUNCTION A()
+	mOther = 1;
+END

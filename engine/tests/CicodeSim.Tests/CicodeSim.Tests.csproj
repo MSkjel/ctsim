@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net48;net10.0</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.12.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\CicodeSim.Engine\CicodeSim.Engine.csproj" />
+    <ProjectReference Include="..\..\src\ctsim\ctsim.csproj" />
+    <ProjectReference Include="..\..\src\ctsim-dev\ctsim-dev.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Golden\Data\**" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Page\Fixtures\**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

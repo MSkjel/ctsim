@@ -1,0 +1,8 @@
+STRING FUNCTION S()
+	RETURN "a";
+END
+FUNCTION Z()
+	IF S() THEN
+		Sleep(0);
+	END
+END

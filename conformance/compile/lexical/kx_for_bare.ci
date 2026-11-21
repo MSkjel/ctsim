@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i;
+	FOR;
+	RETURN 0;
+END

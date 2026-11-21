@@ -1,0 +1,3 @@
+INT FUNCTION ProbeK()
+	RETURN true + False + key_f1;
+END

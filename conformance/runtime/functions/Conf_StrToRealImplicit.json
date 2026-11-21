@@ -1,0 +1,17 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_StrToRealImplicit()",
+ "function": "Conf_StrToRealImplicit",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "1,5=1.5/0;1.5x=1.5/433;abc=0/433",
+ "facts": {
+  "1,5": "1.5/0",
+  "1.5x": "1.5/433",
+  "abc": "0/433"
+ },
+ "source": "// STRING to REAL on assignment.\nSTRING FUNCTION Conf_StrToRealImplicit()\n\tREAL a;\n\tREAL b;\n\tREAL c;\n\tINT e1;\n\tINT e2;\n\tINT e3;\n\tErrSet(1);\n\ta = \"1,5\";\n\te1 = IsError();\n\tb = \"1.5x\";\n\te2 = IsError();\n\tc = \"abc\";\n\te3 = IsError();\n\tRETURN \"1,5=\" + Conf_R(a) + \"/\" + Conf_I(e1) + \";1.5x=\" + Conf_R(b) + \"/\" + Conf_I(e2) + \";abc=\" + Conf_R(c) + \"/\" + Conf_I(e3);\nEND\n"
+}

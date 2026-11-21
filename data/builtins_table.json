@@ -1,0 +1,6884 @@
+[
+{
+"i": 0,
+"name": "Version",
+"args": "1",
+"ret": 7
+},
+{
+"i": 1,
+"name": "_PageGoto",
+"args": "77",
+"ret": 1
+},
+{
+"i": 2,
+"name": "PageNext",
+"args": "",
+"ret": 1
+},
+{
+"i": 3,
+"name": "PagePrev",
+"args": "",
+"ret": 1
+},
+{
+"i": 4,
+"name": "PageLast",
+"args": "",
+"ret": 1
+},
+{
+"i": 5,
+"name": "WinGoto",
+"args": "1",
+"ret": 1
+},
+{
+"i": 6,
+"name": "WinNext",
+"args": "",
+"ret": 1
+},
+{
+"i": 7,
+"name": "WinPrev",
+"args": "",
+"ret": 1
+},
+{
+"i": 8,
+"name": "WinNew",
+"args": "77",
+"ret": 1
+},
+{
+"i": 9,
+"name": "WinFree",
+"args": "",
+"ret": 1
+},
+{
+"i": 10,
+"name": "WinMove",
+"args": "1111",
+"ret": 1
+},
+{
+"i": 11,
+"name": "WinGetWndHnd",
+"args": "",
+"ret": 4
+},
+{
+"i": 12,
+"name": "KeyBS",
+"args": "",
+"ret": 1
+},
+{
+"i": 13,
+"name": "KeyMove",
+"args": "1",
+"ret": 1
+},
+{
+"i": 14,
+"name": "KeySetCursor",
+"args": "1",
+"ret": 1
+},
+{
+"i": 15,
+"name": "KeyPut",
+"args": "1",
+"ret": 1
+},
+{
+"i": 16,
+"name": "KeyGet",
+"args": "",
+"ret": 1
+},
+{
+"i": 17,
+"name": "KeyPutStr",
+"args": "7",
+"ret": 1
+},
+{
+"i": 18,
+"name": "KeyReplay",
+"args": "1",
+"ret": 1
+},
+{
+"i": 19,
+"name": "GetGlbInt",
+"args": "1",
+"ret": 4
+},
+{
+"i": 20,
+"name": "GetGlbFlt",
+"args": "1",
+"ret": 2
+},
+{
+"i": 21,
+"name": "GetGlbBool",
+"args": "1",
+"ret": 1
+},
+{
+"i": 22,
+"name": "GetGlbStr",
+"args": "1",
+"ret": 7
+},
+{
+"i": 23,
+"name": "SetGlbInt",
+"args": "14",
+"ret": 9
+},
+{
+"i": 24,
+"name": "SetGlbFlt",
+"args": "12",
+"ret": 9
+},
+{
+"i": 25,
+"name": "SetGlbBool",
+"args": "11",
+"ret": 9
+},
+{
+"i": 26,
+"name": "SetGlbStr",
+"args": "17",
+"ret": 9
+},
+{
+"i": 27,
+"name": "ParameterPut",
+"args": "777",
+"ret": 1
+},
+{
+"i": 28,
+"name": "ParameterGet",
+"args": "777",
+"ret": 7
+},
+{
+"i": 29,
+"name": "CharToStr",
+"args": "1",
+"ret": 7
+},
+{
+"i": 30,
+"name": "IntToStr",
+"args": "4",
+"ret": 7
+},
+{
+"i": 31,
+"name": "RealToStr",
+"args": "2117",
+"ret": 7
+},
+{
+"i": 32,
+"name": "StrLeft",
+"args": "71",
+"ret": 7
+},
+{
+"i": 33,
+"name": "StrRight",
+"args": "71",
+"ret": 7
+},
+{
+"i": 34,
+"name": "StrMid",
+"args": "711",
+"ret": 7
+},
+{
+"i": 35,
+"name": "StrSearch",
+"args": "177",
+"ret": 1
+},
+{
+"i": 36,
+"name": "StrLength",
+"args": "7",
+"ret": 1
+},
+{
+"i": 37,
+"name": "StrToInt",
+"args": "7",
+"ret": 4
+},
+{
+"i": 38,
+"name": "StrToReal",
+"args": "7",
+"ret": 2
+},
+{
+"i": 39,
+"name": "StrUpper",
+"args": "7",
+"ret": 7
+},
+{
+"i": 40,
+"name": "StrLower",
+"args": "7",
+"ret": 7
+},
+{
+"i": 41,
+"name": "StrFill",
+"args": "71",
+"ret": 7
+},
+{
+"i": 42,
+"name": "Sqrt",
+"args": "2",
+"ret": 2
+},
+{
+"i": 43,
+"name": "Exp",
+"args": "2",
+"ret": 2
+},
+{
+"i": 44,
+"name": "Sin",
+"args": "2",
+"ret": 2
+},
+{
+"i": 45,
+"name": "Cos",
+"args": "2",
+"ret": 2
+},
+{
+"i": 46,
+"name": "Tan",
+"args": "2",
+"ret": 2
+},
+{
+"i": 47,
+"name": "ArcSin",
+"args": "2",
+"ret": 2
+},
+{
+"i": 48,
+"name": "ArcCos",
+"args": "2",
+"ret": 2
+},
+{
+"i": 49,
+"name": "ArcTan",
+"args": "2",
+"ret": 2
+},
+{
+"i": 50,
+"name": "Ln",
+"args": "2",
+"ret": 2
+},
+{
+"i": 51,
+"name": "Log",
+"args": "2",
+"ret": 2
+},
+{
+"i": 52,
+"name": "Sign",
+"args": "2",
+"ret": 2
+},
+{
+"i": 53,
+"name": "Abs",
+"args": "2",
+"ret": 2
+},
+{
+"i": 54,
+"name": "Pow",
+"args": "22",
+"ret": 2
+},
+{
+"i": 55,
+"name": "DegToRad",
+"args": "2",
+"ret": 2
+},
+{
+"i": 56,
+"name": "RadToDeg",
+"args": "2",
+"ret": 2
+},
+{
+"i": 57,
+"name": "StrToValue",
+"args": "7",
+"ret": 2
+},
+{
+"i": 58,
+"name": "Round",
+"args": "21",
+"ret": 2
+},
+{
+"i": 59,
+"name": "Min",
+"args": "22",
+"ret": 2
+},
+{
+"i": 60,
+"name": "Max",
+"args": "22",
+"ret": 2
+},
+{
+"i": 61,
+"name": "Rand",
+"args": "1",
+"ret": 1
+},
+{
+"i": 62,
+"name": "LowByte",
+"args": "4",
+"ret": 4
+},
+{
+"i": 63,
+"name": "HighByte",
+"args": "4",
+"ret": 4
+},
+{
+"i": 64,
+"name": "LowWord",
+"args": "4",
+"ret": 4
+},
+{
+"i": 65,
+"name": "HighWord",
+"args": "4",
+"ret": 4
+},
+{
+"i": 66,
+"name": "Pi",
+"args": "",
+"ret": 2
+},
+{
+"i": 67,
+"name": "_Wave",
+"args": "11111",
+"ret": 1
+},
+{
+"i": 68,
+"name": "DspPage",
+"args": "777",
+"ret": 1
+},
+{
+"i": 69,
+"name": "DspFont",
+"args": "714444",
+"ret": 1
+},
+{
+"i": 70,
+"name": "DspText",
+"args": "1171111",
+"ret": 1
+},
+{
+"i": 71,
+"name": "DspBar",
+"args": "171",
+"ret": 1
+},
+{
+"i": 72,
+"name": "DspTrend",
+"args": "1711111111",
+"ret": 1
+},
+{
+"i": 73,
+"name": "DspSym",
+"args": "1711",
+"ret": 1
+},
+{
+"i": 74,
+"name": "DspSymAnm",
+"args": "17777777717",
+"ret": 1
+},
+{
+"i": 75,
+"name": "DspCol",
+"args": "11",
+"ret": 1
+},
+{
+"i": 76,
+"name": "DspDel",
+"args": "1",
+"ret": 1
+},
+{
+"i": 77,
+"name": "DspAnMove",
+"args": "111",
+"ret": 1
+},
+{
+"i": 78,
+"name": "DspAnMoveRel",
+"args": "111",
+"ret": 1
+},
+{
+"i": 79,
+"name": "DspGetMouse",
+"args": "55",
+"ret": 1
+},
+{
+"i": 80,
+"name": "DspFontHnd",
+"args": "7",
+"ret": 1
+},
+{
+"i": 81,
+"name": "DspGetNearestAn",
+"args": "11",
+"ret": 1
+},
+{
+"i": 82,
+"name": "SetArea",
+"args": "1",
+"ret": 1
+},
+{
+"i": 83,
+"name": "SysTime",
+"args": "",
+"ret": 4
+},
+{
+"i": 84,
+"name": "SysTimeDelta",
+"args": "5",
+"ret": 4
+},
+{
+"i": 85,
+"name": "Exec",
+"args": "71",
+"ret": 1
+},
+{
+"i": 86,
+"name": "TraceMsg",
+"args": "7",
+"ret": 1
+},
+{
+"i": 87,
+"name": "Prompt",
+"args": "7",
+"ret": 1
+},
+{
+"i": 88,
+"name": "DspError",
+"args": "7",
+"ret": 1
+},
+{
+"i": 89,
+"name": "Login",
+"args": "7717",
+"ret": 1
+},
+{
+"i": 90,
+"name": "Logout",
+"args": "",
+"ret": 1
+},
+{
+"i": 91,
+"name": "WhoAmI",
+"args": "",
+"ret": 1
+},
+{
+"i": 92,
+"name": "Shutdown",
+"args": "77471",
+"ret": 1
+},
+{
+"i": 93,
+"name": "Beep",
+"args": "1",
+"ret": 1
+},
+{
+"i": 94,
+"name": "DspAnGetPos",
+"args": "1551",
+"ret": 1
+},
+{
+"i": 95,
+"name": "DspAnNew",
+"args": "11",
+"ret": 1
+},
+{
+"i": 96,
+"name": "StrToChar",
+"args": "7",
+"ret": 1
+},
+{
+"i": 97,
+"name": "StrTrim",
+"args": "7",
+"ret": 7
+},
+{
+"i": 98,
+"name": "StrClean",
+"args": "7",
+"ret": 7
+},
+{
+"i": 99,
+"name": "StrWord",
+"args": "8",
+"ret": 7
+},
+{
+"i": 100,
+"name": "Fact",
+"args": "4",
+"ret": 4
+},
+{
+"i": 101,
+"name": "WinNumber",
+"args": "7",
+"ret": 1
+},
+{
+"i": 102,
+"name": "PageInfo",
+"args": "1",
+"ret": 7
+},
+{
+"i": 103,
+"name": "_WinTitle",
+"args": "7",
+"ret": 1
+},
+{
+"i": 104,
+"name": "DspAnNewRel",
+"args": "111",
+"ret": 1
+},
+{
+"i": 105,
+"name": "OnEvent",
+"args": "19",
+"ret": 1
+},
+{
+"i": 106,
+"name": "CallEvent",
+"args": "11",
+"ret": 1
+},
+{
+"i": 107,
+"name": "KeyPeek",
+"args": "1",
+"ret": 1
+},
+{
+"i": 108,
+"name": "GetArea",
+"args": "",
+"ret": 1
+},
+{
+"i": 109,
+"name": "_DspButton",
+"args": "117111111",
+"ret": 1
+},
+{
+"i": 110,
+"name": "DspVerbose",
+"args": "7",
+"ret": 1
+},
+{
+"i": 111,
+"name": "DspAnInRgn",
+"args": "111",
+"ret": 1
+},
+{
+"i": 112,
+"name": "WinSelect",
+"args": "1",
+"ret": 1
+},
+{
+"i": 113,
+"name": "AlarmDsp",
+"args": "111717",
+"ret": 1
+},
+{
+"i": 114,
+"name": "AlarmAck",
+"args": "117",
+"ret": 1
+},
+{
+"i": 115,
+"name": "Report",
+"args": "77",
+"ret": 1
+},
+{
+"i": 116,
+"name": "KeySetSeq",
+"args": "719",
+"ret": 1
+},
+{
+"i": 117,
+"name": "KeySetType",
+"args": "1",
+"ret": 1
+},
+{
+"i": 118,
+"name": "TimeCurrent",
+"args": "",
+"ret": 4
+},
+{
+"i": 119,
+"name": "_TimeSub",
+"args": "41",
+"ret": 4
+},
+{
+"i": 120,
+"name": "TimeToStr",
+"args": "411",
+"ret": 7
+},
+{
+"i": 121,
+"name": "StrFormat",
+"args": "2117",
+"ret": 7
+},
+{
+"i": 122,
+"name": "EngToGeneric",
+"args": "222",
+"ret": 4
+},
+{
+"i": 123,
+"name": "DateAdd",
+"args": "44",
+"ret": 4
+},
+{
+"i": 124,
+"name": "DateSub",
+"args": "44",
+"ret": 4
+},
+{
+"i": 125,
+"name": "DspDirty",
+"args": "1",
+"ret": 1
+},
+{
+"i": 126,
+"name": "AlarmDspNext",
+"args": "1",
+"ret": 1
+},
+{
+"i": 127,
+"name": "AlarmDspPrev",
+"args": "1",
+"ret": 1
+},
+{
+"i": 128,
+"name": "AlarmDisable",
+"args": "11747",
+"ret": 1
+},
+{
+"i": 129,
+"name": "AlarmEnable",
+"args": "1171",
+"ret": 1
+},
+{
+"i": 130,
+"name": "DspInfo",
+"args": "111",
+"ret": 7
+},
+{
+"i": 131,
+"name": "DspInfoField",
+"args": "1777",
+"ret": 7
+},
+{
+"i": 132,
+"name": "DevCurr",
+"args": "",
+"ret": 1
+},
+{
+"i": 133,
+"name": "DevPrint",
+"args": "171",
+"ret": 1
+},
+{
+"i": 134,
+"name": "StrToTime",
+"args": "7",
+"ret": 4
+},
+{
+"i": 135,
+"name": "StrToDate",
+"args": "7",
+"ret": 4
+},
+{
+"i": 136,
+"name": "DDERead",
+"args": "7771",
+"ret": 7
+},
+{
+"i": 137,
+"name": "DDEWrite",
+"args": "7777",
+"ret": 7
+},
+{
+"i": 138,
+"name": "DDEPost",
+"args": "77",
+"ret": 7
+},
+{
+"i": 139,
+"name": "DspInfoNew",
+"args": "1",
+"ret": 1
+},
+{
+"i": 140,
+"name": "Name",
+"args": "4",
+"ret": 7
+},
+{
+"i": 141,
+"name": "FullName",
+"args": "",
+"ret": 7
+},
+{
+"i": 142,
+"name": "DevSetField",
+"args": "177",
+"ret": 1
+},
+{
+"i": 143,
+"name": "DevGetField",
+"args": "17",
+"ret": 7
+},
+{
+"i": 144,
+"name": "DspInfoValid",
+"args": "1",
+"ret": 1
+},
+{
+"i": 145,
+"name": "DspInfoDestroy",
+"args": "1",
+"ret": 1
+},
+{
+"i": 146,
+"name": "RepGetControl",
+"args": "717",
+"ret": 4
+},
+{
+"i": 147,
+"name": "RepSetControl",
+"args": "7147",
+"ret": 4
+},
+{
+"i": 148,
+"name": "ErrLog",
+"args": "7",
+"ret": 1
+},
+{
+"i": 149,
+"name": "TaskNew",
+"args": "7717",
+"ret": 1
+},
+{
+"i": 150,
+"name": "DDEExec",
+"args": "77",
+"ret": 1
+},
+{
+"i": 151,
+"name": "WndShow",
+"args": "41",
+"ret": 1
+},
+{
+"i": 152,
+"name": "WndFind",
+"args": "7",
+"ret": 4
+},
+{
+"i": 153,
+"name": "DevDisable",
+"args": "71",
+"ret": 1
+},
+{
+"i": 154,
+"name": "DevOpen",
+"args": "71",
+"ret": 1
+},
+{
+"i": 155,
+"name": "DevClose",
+"args": "11",
+"ret": 1
+},
+{
+"i": 156,
+"name": "DevNext",
+"args": "1",
+"ret": 1
+},
+{
+"i": 157,
+"name": "DevPrev",
+"args": "1",
+"ret": 1
+},
+{
+"i": 158,
+"name": "DevSeek",
+"args": "14",
+"ret": 1
+},
+{
+"i": 159,
+"name": "DevRecNo",
+"args": "1",
+"ret": 4
+},
+{
+"i": 160,
+"name": "DevEOF",
+"args": "1",
+"ret": 1
+},
+{
+"i": 161,
+"name": "DevWrite",
+"args": "17",
+"ret": 1
+},
+{
+"i": 162,
+"name": "DevRead",
+"args": "11",
+"ret": 7
+},
+{
+"i": 163,
+"name": "DevFind",
+"args": "177",
+"ret": 1
+},
+{
+"i": 164,
+"name": "DevFlush",
+"args": "1",
+"ret": 1
+},
+{
+"i": 165,
+"name": "_PageDisplay",
+"args": "77",
+"ret": 1
+},
+{
+"i": 166,
+"name": "PagePopLast",
+"args": "",
+"ret": 7
+},
+{
+"i": 167,
+"name": "PagePushLast",
+"args": "7",
+"ret": 1
+},
+{
+"i": 168,
+"name": "PagePeekLast",
+"args": "11",
+"ret": 7
+},
+{
+"i": 169,
+"name": "Halt",
+"args": "",
+"ret": 1
+},
+{
+"i": 170,
+"name": "ErrSetHw",
+"args": "111",
+"ret": 1
+},
+{
+"i": 171,
+"name": "ErrGetHw",
+"args": "11",
+"ret": 1
+},
+{
+"i": 172,
+"name": "ErrTrap",
+"args": "11",
+"ret": 1
+},
+{
+"i": 173,
+"name": "IsError",
+"args": "",
+"ret": 1
+},
+{
+"i": 174,
+"name": "ErrSetLevel",
+"args": "1",
+"ret": 1
+},
+{
+"i": 175,
+"name": "ErrSet",
+"args": "1",
+"ret": 9
+},
+{
+"i": 176,
+"name": "_AlarmQueryFirstRec",
+"args": "11117",
+"ret": 4
+},
+{
+"i": 177,
+"name": "_AlarmQueryNextRec",
+"args": "411117",
+"ret": 4
+},
+{
+"i": 178,
+"name": "AlarmAckRec",
+"args": "47",
+"ret": 1
+},
+{
+"i": 179,
+"name": "AlarmDisableRec",
+"args": "4747",
+"ret": 1
+},
+{
+"i": 180,
+"name": "AlarmEnableRec",
+"args": "471",
+"ret": 1
+},
+{
+"i": 181,
+"name": "AlarmFirstTagRec",
+"args": "7777",
+"ret": 4
+},
+{
+"i": 182,
+"name": "AlarmNextTagRec",
+"args": "47777",
+"ret": 4
+},
+{
+"i": 183,
+"name": "Sleep",
+"args": "4",
+"ret": 1
+},
+{
+"i": 184,
+"name": "rdbSetPath",
+"args": "7",
+"ret": 1
+},
+{
+"i": 185,
+"name": "rdbGetPath",
+"args": "",
+"ret": 7
+},
+{
+"i": 186,
+"name": "TrnSetPeriod",
+"args": "12",
+"ret": 1
+},
+{
+"i": 187,
+"name": "TrnGetPeriod",
+"args": "1",
+"ret": 2
+},
+{
+"i": 188,
+"name": "TrnSetTime",
+"args": "114",
+"ret": 1
+},
+{
+"i": 189,
+"name": "TrnGetTime",
+"args": "111",
+"ret": 4
+},
+{
+"i": 190,
+"name": "TrnSetScale",
+"args": "1112",
+"ret": 1
+},
+{
+"i": 191,
+"name": "TrnGetScale",
+"args": "111",
+"ret": 2
+},
+{
+"i": 192,
+"name": "TrnGetFormat",
+"args": "1155",
+"ret": 1
+},
+{
+"i": 193,
+"name": "TrnGetUnits",
+"args": "11",
+"ret": 7
+},
+{
+"i": 194,
+"name": "TrnSetPenFocus",
+"args": "11",
+"ret": 1
+},
+{
+"i": 195,
+"name": "TrnSetCursor",
+"args": "11",
+"ret": 1
+},
+{
+"i": 196,
+"name": "TrnGetCursorTime",
+"args": "11",
+"ret": 4
+},
+{
+"i": 197,
+"name": "TrnGetCursorValue",
+"args": "11",
+"ret": 2
+},
+{
+"i": 198,
+"name": "TrnScroll",
+"args": "1114",
+"ret": 1
+},
+{
+"i": 199,
+"name": "TrnNew",
+"args": "17777777777",
+"ret": 1
+},
+{
+"i": 200,
+"name": "TrnDelete",
+"args": "1",
+"ret": 1
+},
+{
+"i": 201,
+"name": "TrnEcho",
+"args": "11",
+"ret": 1
+},
+{
+"i": 202,
+"name": "TrnGetScaleStr",
+"args": "1111",
+"ret": 7
+},
+{
+"i": 203,
+"name": "TrnGetCursorValueStr",
+"args": "111",
+"ret": 7
+},
+{
+"i": 204,
+"name": "KeyGetCursor",
+"args": "",
+"ret": 1
+},
+{
+"i": 205,
+"name": "TrnSetPen",
+"args": "117",
+"ret": 1
+},
+{
+"i": 206,
+"name": "TrnGetPen",
+"args": "111",
+"ret": 7
+},
+{
+"i": 207,
+"name": "Input",
+"args": "777",
+"ret": 7
+},
+{
+"i": 208,
+"name": "Message",
+"args": "771",
+"ret": 1
+},
+{
+"i": 209,
+"name": "FormOpenFile",
+"args": "7771",
+"ret": 7
+},
+{
+"i": 210,
+"name": "KeyAllowCursor",
+"args": "11",
+"ret": 1
+},
+{
+"i": 211,
+"name": "StrToPeriod",
+"args": "7",
+"ret": 4
+},
+{
+"i": 212,
+"name": "DspFile",
+"args": "1111",
+"ret": 1
+},
+{
+"i": 213,
+"name": "DspFileSetName",
+"args": "17",
+"ret": 1
+},
+{
+"i": 214,
+"name": "DspFileGetName",
+"args": "1",
+"ret": 7
+},
+{
+"i": 215,
+"name": "DspFileScroll",
+"args": "111",
+"ret": 1
+},
+{
+"i": 216,
+"name": "DspFileGetInfo",
+"args": "11",
+"ret": 1
+},
+{
+"i": 217,
+"name": "RdbOpen",
+"args": "7",
+"ret": 1
+},
+{
+"i": 218,
+"name": "RdbOpenPage",
+"args": "7",
+"ret": 1
+},
+{
+"i": 219,
+"name": "RdbOpenSub",
+"args": "17",
+"ret": 1
+},
+{
+"i": 220,
+"name": "RdbClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 221,
+"name": "RdbEOF",
+"args": "1",
+"ret": 1
+},
+{
+"i": 222,
+"name": "RdbSet",
+"args": "177",
+"ret": 1
+},
+{
+"i": 223,
+"name": "RdbGet",
+"args": "17",
+"ret": 7
+},
+{
+"i": 224,
+"name": "RdbFirstRec",
+"args": "1",
+"ret": 4
+},
+{
+"i": 225,
+"name": "RdbLastRec",
+"args": "1",
+"ret": 4
+},
+{
+"i": 226,
+"name": "RdbNextRec",
+"args": "1",
+"ret": 4
+},
+{
+"i": 227,
+"name": "RdbPrevRec",
+"args": "1",
+"ret": 4
+},
+{
+"i": 228,
+"name": "RdbPosRec",
+"args": "14",
+"ret": 4
+},
+{
+"i": 229,
+"name": "RdbNoRec",
+"args": "1",
+"ret": 4
+},
+{
+"i": 230,
+"name": "RdbFind",
+"args": "177",
+"ret": 4
+},
+{
+"i": 231,
+"name": "AlarmSetInfo",
+"args": "117",
+"ret": 1
+},
+{
+"i": 232,
+"name": "AlarmGetInfo",
+"args": "117",
+"ret": 4
+},
+{
+"i": 233,
+"name": "AlarmComment",
+"args": "71",
+"ret": 1
+},
+{
+"i": 234,
+"name": "AlarmActive",
+"args": "17",
+"ret": 1
+},
+{
+"i": 235,
+"name": "DevInfo",
+"args": "11",
+"ret": 7
+},
+{
+"i": 236,
+"name": "CitectInfo",
+"args": "777",
+"ret": 4
+},
+{
+"i": 237,
+"name": "TrnAddHistory",
+"args": "77",
+"ret": 1
+},
+{
+"i": 238,
+"name": "TrnDelHistory",
+"args": "77",
+"ret": 1
+},
+{
+"i": 239,
+"name": "TrnGetBufValue",
+"args": "111",
+"ret": 2
+},
+{
+"i": 240,
+"name": "TrnGetBufTime",
+"args": "111",
+"ret": 4
+},
+{
+"i": 241,
+"name": "DspAnWrite",
+"args": "",
+"ret": 1
+},
+{
+"i": 242,
+"name": "AlarmHelp",
+"args": "",
+"ret": 1
+},
+{
+"i": 243,
+"name": "TrnGetMode",
+"args": "11",
+"ret": 1
+},
+{
+"i": 244,
+"name": "TrnGetPenFocus",
+"args": "1",
+"ret": 1
+},
+{
+"i": 245,
+"name": "DspStr",
+"args": "1771111",
+"ret": 1
+},
+{
+"i": 246,
+"name": "FormRead",
+"args": "1",
+"ret": 1
+},
+{
+"i": 247,
+"name": "FormGetText",
+"args": "11",
+"ret": 7
+},
+{
+"i": 248,
+"name": "FormSetText",
+"args": "117",
+"ret": 1
+},
+{
+"i": 249,
+"name": "FormNew",
+"args": "7111",
+"ret": 1
+},
+{
+"i": 250,
+"name": "FormField",
+"args": "111118791",
+"ret": 1
+},
+{
+"i": 251,
+"name": "FormPrompt",
+"args": "11711",
+"ret": 1
+},
+{
+"i": 252,
+"name": "FormEdit",
+"args": "1181111",
+"ret": 1
+},
+{
+"i": 253,
+"name": "FormInput",
+"args": "117811",
+"ret": 1
+},
+{
+"i": 254,
+"name": "FormButton",
+"args": "11791",
+"ret": 1
+},
+{
+"i": 255,
+"name": "FormPassword",
+"args": "11781",
+"ret": 1
+},
+{
+"i": 256,
+"name": "FormSetInst",
+"args": "1147",
+"ret": 1
+},
+{
+"i": 257,
+"name": "FormGetInst",
+"args": "1158",
+"ret": 1
+},
+{
+"i": 258,
+"name": "FormCurr",
+"args": "55",
+"ret": 1
+},
+{
+"i": 259,
+"name": "FormGetCurrInst",
+"args": "58",
+"ret": 1
+},
+{
+"i": 260,
+"name": "FormActive",
+"args": "1",
+"ret": 1
+},
+{
+"i": 261,
+"name": "FormDestroy",
+"args": "1",
+"ret": 1
+},
+{
+"i": 262,
+"name": "DspAnInfo",
+"args": "11",
+"ret": 7
+},
+{
+"i": 263,
+"name": "TableMath",
+"args": "6111",
+"ret": 2
+},
+{
+"i": 264,
+"name": "WinPos",
+"args": "11",
+"ret": 1
+},
+{
+"i": 265,
+"name": "WinSize",
+"args": "111",
+"ret": 1
+},
+{
+"i": 266,
+"name": "TrnGetTable",
+"args": "74216447",
+"ret": 1
+},
+{
+"i": 267,
+"name": "AlarmSplit",
+"args": "1",
+"ret": 1
+},
+{
+"i": 268,
+"name": "TrnSetCursorPos",
+"args": "11",
+"ret": 1
+},
+{
+"i": 269,
+"name": "TrnGetCursorPos",
+"args": "1",
+"ret": 1
+},
+{
+"i": 270,
+"name": "TrnSetTable",
+"args": "7421647",
+"ret": 1
+},
+{
+"i": 271,
+"name": "MsgOpen",
+"args": "7197",
+"ret": 1
+},
+{
+"i": 272,
+"name": "MsgClose",
+"args": "71",
+"ret": 1
+},
+{
+"i": 273,
+"name": "MsgRead",
+"args": "58",
+"ret": 1
+},
+{
+"i": 274,
+"name": "MsgWrite",
+"args": "147",
+"ret": 1
+},
+{
+"i": 275,
+"name": "MsgRPC",
+"args": "1771",
+"ret": 7
+},
+{
+"i": 276,
+"name": "MsgBrdcst",
+"args": "7477",
+"ret": 1
+},
+{
+"i": 277,
+"name": "TrnFlush",
+"args": "77",
+"ret": 1
+},
+{
+"i": 278,
+"name": "AlarmSetThreshold",
+"args": "18",
+"ret": 1
+},
+{
+"i": 279,
+"name": "FileDelete",
+"args": "7",
+"ret": 1
+},
+{
+"i": 280,
+"name": "FileReName",
+"args": "77",
+"ret": 1
+},
+{
+"i": 281,
+"name": "FileOpen",
+"args": "77",
+"ret": 4
+},
+{
+"i": 282,
+"name": "FileClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 283,
+"name": "FileSeek",
+"args": "44",
+"ret": 4
+},
+{
+"i": 284,
+"name": "FileSize",
+"args": "4",
+"ret": 4
+},
+{
+"i": 285,
+"name": "FileEOF",
+"args": "4",
+"ret": 1
+},
+{
+"i": 286,
+"name": "FileReadBlock",
+"args": "481",
+"ret": 1
+},
+{
+"i": 287,
+"name": "FileWriteBlock",
+"args": "481",
+"ret": 1
+},
+{
+"i": 288,
+"name": "FileRead",
+"args": "41",
+"ret": 7
+},
+{
+"i": 289,
+"name": "FileReadLn",
+"args": "4",
+"ret": 7
+},
+{
+"i": 290,
+"name": "FileWrite",
+"args": "47",
+"ret": 1
+},
+{
+"i": 291,
+"name": "FileWriteLn",
+"args": "47",
+"ret": 1
+},
+{
+"i": 292,
+"name": "FileCopy",
+"args": "771",
+"ret": 1
+},
+{
+"i": 293,
+"name": "MsgGetCurr",
+"args": "",
+"ret": 1
+},
+{
+"i": 294,
+"name": "DevWriteLn",
+"args": "17",
+"ret": 1
+},
+{
+"i": 295,
+"name": "DevReadLn",
+"args": "1",
+"ret": 7
+},
+{
+"i": 296,
+"name": "DevAppend",
+"args": "1",
+"ret": 1
+},
+{
+"i": 297,
+"name": "DevDelete",
+"args": "1",
+"ret": 1
+},
+{
+"i": 298,
+"name": "QueOpen",
+"args": "71",
+"ret": 1
+},
+{
+"i": 299,
+"name": "QueClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 300,
+"name": "QueWrite",
+"args": "147",
+"ret": 1
+},
+{
+"i": 301,
+"name": "QueRead",
+"args": "1581",
+"ret": 1
+},
+{
+"i": 302,
+"name": "QueLength",
+"args": "1",
+"ret": 4
+},
+{
+"i": 303,
+"name": "SemOpen",
+"args": "71",
+"ret": 1
+},
+{
+"i": 304,
+"name": "SemClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 305,
+"name": "SemSignal",
+"args": "1",
+"ret": 1
+},
+{
+"i": 306,
+"name": "SemWait",
+"args": "14",
+"ret": 1
+},
+{
+"i": 307,
+"name": "FmtOpen",
+"args": "771",
+"ret": 1
+},
+{
+"i": 308,
+"name": "FmtClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 309,
+"name": "FmtSetField",
+"args": "177",
+"ret": 1
+},
+{
+"i": 310,
+"name": "FmtGetField",
+"args": "17",
+"ret": 7
+},
+{
+"i": 311,
+"name": "FmtSetFieldHnd",
+"args": "117",
+"ret": 1
+},
+{
+"i": 312,
+"name": "FmtGetFieldHnd",
+"args": "11",
+"ret": 7
+},
+{
+"i": 313,
+"name": "FmtFieldHnd",
+"args": "17",
+"ret": 1
+},
+{
+"i": 314,
+"name": "FmtToStr",
+"args": "1",
+"ret": 7
+},
+{
+"i": 315,
+"name": "StrToFmt",
+"args": "17",
+"ret": 1
+},
+{
+"i": 316,
+"name": "AlarmDelete",
+"args": "117",
+"ret": 1
+},
+{
+"i": 317,
+"name": "DspGetAnCur",
+"args": "",
+"ret": 1
+},
+{
+"i": 318,
+"name": "WinMode",
+"args": "1",
+"ret": 1
+},
+{
+"i": 319,
+"name": "WinPrint",
+"args": "72217",
+"ret": 1
+},
+{
+"i": 320,
+"name": "WinFile",
+"args": "72217",
+"ret": 1
+},
+{
+"i": 321,
+"name": "WinCopy",
+"args": "2217",
+"ret": 1
+},
+{
+"i": 322,
+"name": "_DspButtonFn",
+"args": "197111991",
+"ret": 1
+},
+{
+"i": 323,
+"name": "TableLookUp",
+"args": "612",
+"ret": 1
+},
+{
+"i": 324,
+"name": "TableShift",
+"args": "611",
+"ret": 1
+},
+{
+"i": 325,
+"name": "ReRead",
+"args": "1",
+"ret": 9
+},
+{
+"i": 326,
+"name": "WndPutProfile",
+"args": "777",
+"ret": 1
+},
+{
+"i": 327,
+"name": "WndGetProfile",
+"args": "777",
+"ret": 7
+},
+{
+"i": 328,
+"name": "Debug",
+"args": "7777",
+"ret": 1
+},
+{
+"i": 329,
+"name": "TaskKill",
+"args": "1",
+"ret": 1
+},
+{
+"i": 330,
+"name": "TaskSuspend",
+"args": "1",
+"ret": 1
+},
+{
+"i": 331,
+"name": "TaskResume",
+"args": "1",
+"ret": 1
+},
+{
+"i": 332,
+"name": "TaskHnd",
+"args": "7",
+"ret": 1
+},
+{
+"i": 333,
+"name": "DspFullScreen",
+"args": "1",
+"ret": 1
+},
+{
+"i": 334,
+"name": "GrpOpen",
+"args": "71",
+"ret": 1
+},
+{
+"i": 335,
+"name": "GrpClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 336,
+"name": "GrpInsert",
+"args": "11",
+"ret": 1
+},
+{
+"i": 337,
+"name": "GrpDelete",
+"args": "11",
+"ret": 1
+},
+{
+"i": 338,
+"name": "GrpIn",
+"args": "11",
+"ret": 1
+},
+{
+"i": 339,
+"name": "GrpFirst",
+"args": "1",
+"ret": 1
+},
+{
+"i": 340,
+"name": "GrpNext",
+"args": "11",
+"ret": 1
+},
+{
+"i": 341,
+"name": "GrpMath",
+"args": "1111",
+"ret": 1
+},
+{
+"i": 342,
+"name": "StrToGrp",
+"args": "17",
+"ret": 1
+},
+{
+"i": 343,
+"name": "GrpToStr",
+"args": "1",
+"ret": 7
+},
+{
+"i": 344,
+"name": "GrpName",
+"args": "1",
+"ret": 7
+},
+{
+"i": 345,
+"name": "AlarmSetThresholdRec",
+"args": "4177",
+"ret": 1
+},
+{
+"i": 346,
+"name": "ErrMsg",
+"args": "1",
+"ret": 7
+},
+{
+"i": 347,
+"name": "StrPad",
+"args": "771",
+"ret": 7
+},
+{
+"i": 348,
+"name": "ErrCom",
+"args": "",
+"ret": 1
+},
+{
+"i": 349,
+"name": "FormGetData",
+"args": "1",
+"ret": 1
+},
+{
+"i": 350,
+"name": "ServerInfo",
+"args": "717",
+"ret": 7
+},
+{
+"i": 351,
+"name": "WinNewAt",
+"args": "71147",
+"ret": 1
+},
+{
+"i": 352,
+"name": "DevSize",
+"args": "1",
+"ret": 4
+},
+{
+"i": 353,
+"name": "GetEvent",
+"args": "1",
+"ret": 1
+},
+{
+"i": 354,
+"name": "ChainEvent",
+"args": "1",
+"ret": 1
+},
+{
+"i": 355,
+"name": "AlarmSumFirst",
+"args": "7",
+"ret": 4
+},
+{
+"i": 356,
+"name": "AlarmSumNext",
+"args": "47",
+"ret": 4
+},
+{
+"i": 357,
+"name": "AlarmSumGet",
+"args": "487",
+"ret": 7
+},
+{
+"i": 358,
+"name": "AlarmSumSet",
+"args": "48871",
+"ret": 1
+},
+{
+"i": 359,
+"name": "AlarmGetDsp",
+"args": "18",
+"ret": 7
+},
+{
+"i": 360,
+"name": "SetEvent",
+"args": "11",
+"ret": 1
+},
+{
+"i": 361,
+"name": "AlarmSumSplit",
+"args": "47441",
+"ret": 4
+},
+{
+"i": 362,
+"name": "AlarmSumDelete",
+"args": "47",
+"ret": 1
+},
+{
+"i": 363,
+"name": "FormSetData",
+"args": "1",
+"ret": 1
+},
+{
+"i": 364,
+"name": "FormPosition",
+"args": "111",
+"ret": 1
+},
+{
+"i": 365,
+"name": "WndInfo",
+"args": "1",
+"ret": 4
+},
+{
+"i": 366,
+"name": "DevHistory",
+"args": "1",
+"ret": 1
+},
+{
+"i": 367,
+"name": "CodeSetMode",
+"args": "11",
+"ret": 1
+},
+{
+"i": 368,
+"name": "ErrInfo",
+"args": "1",
+"ret": 7
+},
+{
+"i": 369,
+"name": "DLLOpen",
+"args": "777",
+"ret": 1
+},
+{
+"i": 370,
+"name": "DLLClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 371,
+"name": "DLLCall",
+"args": "17",
+"ret": 7
+},
+{
+"i": 372,
+"name": "AlarmSumAppend",
+"args": "87441",
+"ret": 4
+},
+{
+"i": 373,
+"name": "DevZap",
+"args": "1",
+"ret": 1
+},
+{
+"i": 374,
+"name": "AlarmGetFieldRec",
+"args": "4847",
+"ret": 7
+},
+{
+"i": 375,
+"name": "DspTrendInfo",
+"args": "711",
+"ret": 4
+},
+{
+"i": 376,
+"name": "FormGoto",
+"args": "1",
+"ret": 1
+},
+{
+"i": 377,
+"name": "FormWndHnd",
+"args": "1",
+"ret": 4
+},
+{
+"i": 378,
+"name": "DspKernel",
+"args": "1",
+"ret": 1
+},
+{
+"i": 379,
+"name": "PointNew",
+"args": "711441",
+"ret": 1
+},
+{
+"i": 380,
+"name": "PointFree",
+"args": "1",
+"ret": 1
+},
+{
+"i": 381,
+"name": "PointWrite",
+"args": "171",
+"ret": 1
+},
+{
+"i": 382,
+"name": "PointRead",
+"args": "11",
+"ret": 1
+},
+{
+"i": 383,
+"name": "PointStatus",
+"args": "11",
+"ret": 1
+},
+{
+"i": 384,
+"name": "PointData",
+"args": "11",
+"ret": 7
+},
+{
+"i": 385,
+"name": "WinPrintFile",
+"args": "7722144",
+"ret": 1
+},
+{
+"i": 386,
+"name": "GetPriv",
+"args": "11",
+"ret": 1
+},
+{
+"i": 387,
+"name": "GetEnv",
+"args": "8",
+"ret": 7
+},
+{
+"i": 388,
+"name": "WndPutFileProfile",
+"args": "8888",
+"ret": 1
+},
+{
+"i": 389,
+"name": "WndGetFileProfile",
+"args": "8888",
+"ret": 7
+},
+{
+"i": 390,
+"name": "ClipCopy",
+"args": "8",
+"ret": 1
+},
+{
+"i": 391,
+"name": "ClipPaste",
+"args": "",
+"ret": 7
+},
+{
+"i": 392,
+"name": "ClipWriteLn",
+"args": "8",
+"ret": 1
+},
+{
+"i": 393,
+"name": "ClipReadLn",
+"args": "",
+"ret": 7
+},
+{
+"i": 394,
+"name": "DevControl",
+"args": "118",
+"ret": 1
+},
+{
+"i": 395,
+"name": "UserInfo",
+"args": "1",
+"ret": 7
+},
+{
+"i": 396,
+"name": "IODeviceInfo",
+"args": "8177",
+"ret": 7
+},
+{
+"i": 397,
+"name": "IODeviceControl",
+"args": "81877",
+"ret": 1
+},
+{
+"i": 398,
+"name": "AlarmClear",
+"args": "117",
+"ret": 1
+},
+{
+"i": 399,
+"name": "SQLConnect",
+"args": "8",
+"ret": 1
+},
+{
+"i": 400,
+"name": "SQLDisconnect",
+"args": "1",
+"ret": 1
+},
+{
+"i": 401,
+"name": "SQLExec",
+"args": "18",
+"ret": 1
+},
+{
+"i": 402,
+"name": "SQLNext",
+"args": "1",
+"ret": 1
+},
+{
+"i": 403,
+"name": "SQLEnd",
+"args": "1",
+"ret": 1
+},
+{
+"i": 404,
+"name": "SQLGetField",
+"args": "184",
+"ret": 7
+},
+{
+"i": 405,
+"name": "SQLNumFields",
+"args": "1",
+"ret": 1
+},
+{
+"i": 406,
+"name": "SQLFieldInfo",
+"args": "1185",
+"ret": 1
+},
+{
+"i": 407,
+"name": "SQLBeginTran",
+"args": "1",
+"ret": 1
+},
+{
+"i": 408,
+"name": "SQLCommit",
+"args": "1",
+"ret": 1
+},
+{
+"i": 409,
+"name": "SQLRollBack",
+"args": "1",
+"ret": 1
+},
+{
+"i": 410,
+"name": "SQLNumChange",
+"args": "1",
+"ret": 4
+},
+{
+"i": 411,
+"name": "SQLTraceOn",
+"args": "811",
+"ret": 1
+},
+{
+"i": 412,
+"name": "SQLTraceOff",
+"args": "1",
+"ret": 1
+},
+{
+"i": 413,
+"name": "SQLErrMsg",
+"args": "1",
+"ret": 7
+},
+{
+"i": 414,
+"name": "SQLInfo",
+"args": "11",
+"ret": 7
+},
+{
+"i": 415,
+"name": "GraphOpen",
+"args": "811",
+"ret": 1
+},
+{
+"i": 416,
+"name": "GraphLine",
+"args": "11116221",
+"ret": 1
+},
+{
+"i": 417,
+"name": "GraphBox",
+"args": "1111111",
+"ret": 1
+},
+{
+"i": 418,
+"name": "GraphGrid",
+"args": "111111",
+"ret": 1
+},
+{
+"i": 419,
+"name": "GraphText",
+"args": "11118",
+"ret": 1
+},
+{
+"i": 420,
+"name": "GraphClose",
+"args": "",
+"ret": 1
+},
+{
+"i": 421,
+"name": "GraphGetInfo",
+"args": "18",
+"ret": 7
+},
+{
+"i": 422,
+"name": "TrnGetDefScale",
+"args": "7667",
+"ret": 1
+},
+{
+"i": 423,
+"name": "GraphScaleMarker",
+"args": "1111",
+"ret": 1
+},
+{
+"i": 424,
+"name": "GraphMarker",
+"args": "11111",
+"ret": 1
+},
+{
+"i": 425,
+"name": "_DspExec",
+"args": "88",
+"ret": 1
+},
+{
+"i": 426,
+"name": "TrnGetPenNo",
+"args": "18",
+"ret": 1
+},
+{
+"i": 427,
+"name": "AlarmSumLast",
+"args": "7",
+"ret": 4
+},
+{
+"i": 428,
+"name": "AlarmSumPrev",
+"args": "47",
+"ret": 4
+},
+{
+"i": 429,
+"name": "StrGetChar",
+"args": "81",
+"ret": 1
+},
+{
+"i": 430,
+"name": "StrSetChar",
+"args": "811",
+"ret": 1
+},
+{
+"i": 431,
+"name": "ComOpen",
+"args": "81",
+"ret": 1
+},
+{
+"i": 432,
+"name": "ComClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 433,
+"name": "ComRead",
+"args": "1851",
+"ret": 1
+},
+{
+"i": 434,
+"name": "ComWrite",
+"args": "1851",
+"ret": 1
+},
+{
+"i": 435,
+"name": "ComReset",
+"args": "1",
+"ret": 1
+},
+{
+"i": 436,
+"name": "SPCSetLimit",
+"args": "1121",
+"ret": 1
+},
+{
+"i": 437,
+"name": "DspPlaySound",
+"args": "81",
+"ret": 1
+},
+{
+"i": 438,
+"name": "DspMCI",
+"args": "8",
+"ret": 7
+},
+{
+"i": 439,
+"name": "WndHelp",
+"args": "818",
+"ret": 1
+},
+{
+"i": 440,
+"name": "DspChart",
+"args": "1811111111",
+"ret": 1
+},
+{
+"i": 441,
+"name": "DspMarkerNew",
+"args": "114",
+"ret": 1
+},
+{
+"i": 442,
+"name": "DspMarkerMove",
+"args": "111",
+"ret": 1
+},
+{
+"i": 443,
+"name": "AlarmSaveType",
+"args": "17",
+"ret": 1
+},
+{
+"i": 444,
+"name": "FileExist",
+"args": "8",
+"ret": 1
+},
+{
+"i": 445,
+"name": "FileGetTime",
+"args": "4",
+"ret": 4
+},
+{
+"i": 446,
+"name": "FileSetTime",
+"args": "44",
+"ret": 1
+},
+{
+"i": 447,
+"name": "PageGetInt",
+"args": "71",
+"ret": 4
+},
+{
+"i": 448,
+"name": "PageSetInt",
+"args": "741",
+"ret": 1
+},
+{
+"i": 449,
+"name": "ServerControl",
+"args": "811",
+"ret": 1
+},
+{
+"i": 450,
+"name": "MailLogon",
+"args": "881",
+"ret": 1
+},
+{
+"i": 451,
+"name": "MailLogoff",
+"args": "",
+"ret": 1
+},
+{
+"i": 452,
+"name": "MailSend",
+"args": "88881",
+"ret": 1
+},
+{
+"i": 453,
+"name": "MailRead",
+"args": "88881",
+"ret": 1
+},
+{
+"i": 454,
+"name": "MailError",
+"args": "",
+"ret": 1
+},
+{
+"i": 455,
+"name": "AlarmSetPriority",
+"args": "1",
+"ret": 1
+},
+{
+"i": 456,
+"name": "AlarmSetPriorityRec",
+"args": "41",
+"ret": 1
+},
+{
+"i": 457,
+"name": "FormRadioButton",
+"args": "1188",
+"ret": 1
+},
+{
+"i": 458,
+"name": "FormCheckBox",
+"args": "1188",
+"ret": 1
+},
+{
+"i": 459,
+"name": "FormGroupBox",
+"args": "11118",
+"ret": 1
+},
+{
+"i": 460,
+"name": "FormListBox",
+"args": "111181",
+"ret": 1
+},
+{
+"i": 461,
+"name": "FormComboBox",
+"args": "111181",
+"ret": 1
+},
+{
+"i": 462,
+"name": "FormAddList",
+"args": "8",
+"ret": 1
+},
+{
+"i": 463,
+"name": "SQLSet",
+"args": "18",
+"ret": 1
+},
+{
+"i": 464,
+"name": "SQLAppend",
+"args": "18",
+"ret": 1
+},
+{
+"i": 465,
+"name": "WinGetFocus",
+"args": "",
+"ret": 1
+},
+{
+"i": 466,
+"name": "DspBarLoad",
+"args": "8",
+"ret": 1
+},
+{
+"i": 467,
+"name": "DspSymLoad",
+"args": "8",
+"ret": 1
+},
+{
+"i": 468,
+"name": "DspTrnLoad",
+"args": "7",
+"ret": 1
+},
+{
+"i": 469,
+"name": "QuePeek",
+"args": "1581",
+"ret": 1
+},
+{
+"i": 470,
+"name": "HexToStr",
+"args": "41",
+"ret": 7
+},
+{
+"i": 471,
+"name": "StrToHex",
+"args": "8",
+"ret": 4
+},
+{
+"i": 472,
+"name": "PathToStr",
+"args": "8",
+"ret": 7
+},
+{
+"i": 473,
+"name": "KerCmd",
+"args": "88",
+"ret": 1
+},
+{
+"i": 474,
+"name": "TimeSet",
+"args": "4",
+"ret": 1
+},
+{
+"i": 475,
+"name": "TimeToFmtStr",
+"args": "48",
+"ret": 7
+},
+{
+"i": 476,
+"name": "DspFlushObj",
+"args": "1",
+"ret": 1
+},
+{
+"i": 477,
+"name": "FileFind",
+"args": "81",
+"ret": 7
+},
+{
+"i": 478,
+"name": "FileSplitPath",
+"args": "88888",
+"ret": 1
+},
+{
+"i": 479,
+"name": "FileMakePath",
+"args": "8888",
+"ret": 7
+},
+{
+"i": 480,
+"name": "AlarmSumFind",
+"args": "447",
+"ret": 4
+},
+{
+"i": 481,
+"name": "PrintFont",
+"args": "8",
+"ret": 1
+},
+{
+"i": 482,
+"name": "AlarmGetThresholdRec",
+"args": "417",
+"ret": 2
+},
+{
+"i": 483,
+"name": "AlarmGetThreshold",
+"args": "1",
+"ret": 2
+},
+{
+"i": 484,
+"name": "KeyOEM",
+"args": "81",
+"ret": 1
+},
+{
+"i": 485,
+"name": "DDEhInitiate",
+"args": "88",
+"ret": 4
+},
+{
+"i": 486,
+"name": "DDEhTerminate",
+"args": "4",
+"ret": 4
+},
+{
+"i": 487,
+"name": "DDEhRequest",
+"args": "48",
+"ret": 7
+},
+{
+"i": 488,
+"name": "DDEhPoke",
+"args": "488",
+"ret": 4
+},
+{
+"i": 489,
+"name": "DDEhExecute",
+"args": "48",
+"ret": 4
+},
+{
+"i": 490,
+"name": "FormListAddText",
+"args": "118",
+"ret": 1
+},
+{
+"i": 491,
+"name": "FormListSelectText",
+"args": "118",
+"ret": 1
+},
+{
+"i": 492,
+"name": "ErrDrv",
+"args": "885",
+"ret": 7
+},
+{
+"i": 493,
+"name": "IntToReal",
+"args": "4",
+"ret": 2
+},
+{
+"i": 494,
+"name": "PlotOpen",
+"args": "184",
+"ret": 1
+},
+{
+"i": 495,
+"name": "PlotClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 496,
+"name": "PlotGrid",
+"args": "11111114141444",
+"ret": 1
+},
+{
+"i": 497,
+"name": "PlotLine",
+"args": "114114116224",
+"ret": 1
+},
+{
+"i": 498,
+"name": "PlotXYLine",
+"args": "114114116226224",
+"ret": 1
+},
+{
+"i": 499,
+"name": "PlotDraw",
+"args": "1114141111",
+"ret": 1
+},
+{
+"i": 500,
+"name": "PlotMarker",
+"args": "1141111",
+"ret": 1
+},
+{
+"i": 501,
+"name": "PlotText",
+"args": "111118",
+"ret": 1
+},
+{
+"i": 502,
+"name": "PlotInfo",
+"args": "118",
+"ret": 7
+},
+{
+"i": 503,
+"name": "PlotScaleMarker",
+"args": "1111141",
+"ret": 1
+},
+{
+"i": 504,
+"name": "PlotSetMarker",
+"args": "18",
+"ret": 1
+},
+{
+"i": 505,
+"name": "PlotGetMarker",
+"args": "8",
+"ret": 1
+},
+{
+"i": 506,
+"name": "TrnSetEvent",
+"args": "114",
+"ret": 1
+},
+{
+"i": 507,
+"name": "DspGrayButton",
+"args": "11",
+"ret": 1
+},
+{
+"i": 508,
+"name": "DumpKernel",
+"args": "18",
+"ret": 1
+},
+{
+"i": 509,
+"name": "DspIsButtonGray",
+"args": "1",
+"ret": 1
+},
+{
+"i": 510,
+"name": "DspSetTip",
+"args": "18",
+"ret": 1
+},
+{
+"i": 511,
+"name": "DspGetTip",
+"args": "11",
+"ret": 7
+},
+{
+"i": 512,
+"name": "Ass",
+"args": "17717",
+"ret": 1
+},
+{
+"i": 513,
+"name": "SendKeys",
+"args": "88",
+"ret": 1
+},
+{
+"i": 514,
+"name": "DspTipMode",
+"args": "1",
+"ret": 1
+},
+{
+"i": 515,
+"name": "DDEhGetLastError",
+"args": "4",
+"ret": 4
+},
+{
+"i": 516,
+"name": "TagWrite",
+"args": "77117",
+"ret": 4
+},
+{
+"i": 517,
+"name": "TagRead",
+"args": "717",
+"ret": 7
+},
+{
+"i": 518,
+"name": "WndViewer",
+"args": "818",
+"ret": 1
+},
+{
+"i": 519,
+"name": "UserCreate",
+"args": "88888888888888",
+"ret": 1
+},
+{
+"i": 520,
+"name": "UserDelete",
+"args": "8",
+"ret": 1
+},
+{
+"i": 521,
+"name": "UserPassword",
+"args": "888",
+"ret": 1
+},
+{
+"i": 522,
+"name": "ProjectRestartSet",
+"args": "8",
+"ret": 1
+},
+{
+"i": 523,
+"name": "ProjectRestartGet",
+"args": "",
+"ret": 7
+},
+{
+"i": 524,
+"name": "ProjectSet",
+"args": "7",
+"ret": 1
+},
+{
+"i": 525,
+"name": "ShutdownMode",
+"args": "",
+"ret": 4
+},
+{
+"i": 526,
+"name": "PointWriteArrayLong",
+"args": "151",
+"ret": 1
+},
+{
+"i": 527,
+"name": "PointWriteArrayReal",
+"args": "161",
+"ret": 1
+},
+{
+"i": 528,
+"name": "AlarmSumCommit",
+"args": "47",
+"ret": 1
+},
+{
+"i": 529,
+"name": "AccControl",
+"args": "717",
+"ret": 4
+},
+{
+"i": 530,
+"name": "DevModify",
+"args": "88881",
+"ret": 1
+},
+{
+"i": 531,
+"name": "DspRubStart",
+"args": "111",
+"ret": 1
+},
+{
+"i": 532,
+"name": "DspRubMove",
+"args": "11",
+"ret": 1
+},
+{
+"i": 533,
+"name": "DspRubEnd",
+"args": "5555",
+"ret": 1
+},
+{
+"i": 534,
+"name": "DspRubSetClip",
+"args": "1111",
+"ret": 1
+},
+{
+"i": 535,
+"name": "TrnGetEvent",
+"args": "111",
+"ret": 4
+},
+{
+"i": 536,
+"name": "TrnGetCursorEvent",
+"args": "11",
+"ret": 4
+},
+{
+"i": 537,
+"name": "TrnGetBufEvent",
+"args": "111",
+"ret": 4
+},
+{
+"i": 538,
+"name": "TrnEventGetTable",
+"args": "74416517",
+"ret": 1
+},
+{
+"i": 539,
+"name": "TrnEventSetTable",
+"args": "7441657",
+"ret": 1
+},
+{
+"i": 540,
+"name": "DspBmp",
+"args": "181",
+"ret": 1
+},
+{
+"i": 541,
+"name": "CodeTrace",
+"args": "11",
+"ret": 1
+},
+{
+"i": 542,
+"name": "TrnSetSpan",
+"args": "14",
+"ret": 1
+},
+{
+"i": 543,
+"name": "TrnGetSpan",
+"args": "1",
+"ret": 4
+},
+{
+"i": 544,
+"name": "ClipSetMode",
+"args": "1",
+"ret": 1
+},
+{
+"i": 545,
+"name": "DspGetEnv",
+"args": "8",
+"ret": 7
+},
+{
+"i": 546,
+"name": "FormSaveAsFile",
+"args": "8888",
+"ret": 7
+},
+{
+"i": 547,
+"name": "FormSelectPrinter",
+"args": "",
+"ret": 7
+},
+{
+"i": 548,
+"name": "SwitchConfig",
+"args": "1",
+"ret": 1
+},
+{
+"i": 549,
+"name": "TrnSelect",
+"args": "1717",
+"ret": 1
+},
+{
+"i": 550,
+"name": "DspStatus",
+"args": "11",
+"ret": 1
+},
+{
+"i": 551,
+"name": "DspGetAnFromPoint",
+"args": "111",
+"ret": 1
+},
+{
+"i": 552,
+"name": "DspGetAnExtent",
+"args": "15555",
+"ret": 1
+},
+{
+"i": 553,
+"name": "ErrHelp",
+"args": "8",
+"ret": 1
+},
+{
+"i": 554,
+"name": "PageGetStr",
+"args": "71",
+"ret": 7
+},
+{
+"i": 555,
+"name": "PageSetStr",
+"args": "771",
+"ret": 1
+},
+{
+"i": 556,
+"name": "AssInfo",
+"args": "771",
+"ret": 7
+},
+{
+"i": 557,
+"name": "AssChain",
+"args": "111",
+"ret": 1
+},
+{
+"i": 558,
+"name": "TrnInfo",
+"args": "818",
+"ret": 7
+},
+{
+"i": 559,
+"name": "DspGetSlider",
+"args": "1",
+"ret": 1
+},
+{
+"i": 560,
+"name": "DspSetSlider",
+"args": "11",
+"ret": 1
+},
+{
+"i": 561,
+"name": "DspSymAtSize",
+"args": "18111111",
+"ret": 1
+},
+{
+"i": 562,
+"name": "TagInfo",
+"args": "7771",
+"ret": 7
+},
+{
+"i": 563,
+"name": "AreaCheck",
+"args": "1",
+"ret": 1
+},
+{
+"i": 564,
+"name": "TagScaleStr",
+"args": "71171",
+"ret": 7
+},
+{
+"i": 565,
+"name": "AssScaleStr",
+"args": "7111",
+"ret": 7
+},
+{
+"i": 566,
+"name": "SleepMS",
+"args": "4",
+"ret": 1
+},
+{
+"i": 567,
+"name": "DLLCallOEM",
+"args": "18",
+"ret": 7
+},
+{
+"i": 568,
+"name": "DspDelayRenderBegin",
+"args": "",
+"ret": 1
+},
+{
+"i": 569,
+"name": "DspDelayRenderEnd",
+"args": "",
+"ret": 1
+},
+{
+"i": 570,
+"name": "SPCSubgroupSizeSet",
+"args": "717",
+"ret": 1
+},
+{
+"i": 571,
+"name": "SPCSubgroupSizeGet",
+"args": "757",
+"ret": 1
+},
+{
+"i": 572,
+"name": "TrnClientInfo",
+"args": "11145",
+"ret": 7
+},
+{
+"i": 573,
+"name": "SPCClientInfo",
+"args": "81",
+"ret": 2
+},
+{
+"i": 574,
+"name": "SPCGetHistogramTable",
+"args": "816",
+"ret": 1
+},
+{
+"i": 575,
+"name": "SPCGetSubgroupTable",
+"args": "816",
+"ret": 1
+},
+{
+"i": 576,
+"name": "SPCProcessXRSSet",
+"args": "72227",
+"ret": 1
+},
+{
+"i": 577,
+"name": "SPCProcessXRSGet",
+"args": "76667",
+"ret": 1
+},
+{
+"i": 578,
+"name": "SPCSpecLimitSet",
+"args": "7227",
+"ret": 1
+},
+{
+"i": 579,
+"name": "SPCSpecLimitGet",
+"args": "7667",
+"ret": 1
+},
+{
+"i": 580,
+"name": "SPCAlarms",
+"args": "81",
+"ret": 1
+},
+{
+"i": 581,
+"name": "AlarmClearRec",
+"args": "47",
+"ret": 1
+},
+{
+"i": 582,
+"name": "DDEhWriteLn",
+"args": "177",
+"ret": 1
+},
+{
+"i": 583,
+"name": "DDEhReadLn",
+"args": "17",
+"ret": 7
+},
+{
+"i": 584,
+"name": "DDEhSetMode",
+"args": "14",
+"ret": 1
+},
+{
+"i": 585,
+"name": "DevOpenGrp",
+"args": "11",
+"ret": 1
+},
+{
+"i": 586,
+"name": "DspRichText",
+"args": "1441",
+"ret": 1
+},
+{
+"i": 587,
+"name": "DspRichTextLoad",
+"args": "17",
+"ret": 1
+},
+{
+"i": 588,
+"name": "DspRichTextScroll",
+"args": "111",
+"ret": 1
+},
+{
+"i": 589,
+"name": "DspShow",
+"args": "11",
+"ret": 1
+},
+{
+"i": 590,
+"name": "DspIsVisible",
+"args": "1",
+"ret": 1
+},
+{
+"i": 591,
+"name": "DspRichTextPgScroll",
+"args": "11",
+"ret": 1
+},
+{
+"i": 592,
+"name": "DspRichTextGetInfo",
+"args": "11",
+"ret": 7
+},
+{
+"i": 593,
+"name": "DspRichTextSave",
+"args": "17",
+"ret": 1
+},
+{
+"i": 594,
+"name": "DspRichTextPrint",
+"args": "17",
+"ret": 1
+},
+{
+"i": 595,
+"name": "DspRichTextEnable",
+"args": "11",
+"ret": 1
+},
+{
+"i": 596,
+"name": "DspRichTextEdit",
+"args": "11",
+"ret": 1
+},
+{
+"i": 597,
+"name": "FileRichTextPrint",
+"args": "77",
+"ret": 1
+},
+{
+"i": 598,
+"name": "SPCClientTableGet",
+"args": "811161",
+"ret": 1
+},
+{
+"i": 599,
+"name": "SetLanguage",
+"args": "81",
+"ret": 1
+},
+{
+"i": 600,
+"name": "StrToLocalText",
+"args": "8",
+"ret": 7
+},
+{
+"i": 601,
+"name": "ClusterSetName",
+"args": "771",
+"ret": 1
+},
+{
+"i": 602,
+"name": "ClusterGetName",
+"args": "881",
+"ret": 1
+},
+{
+"i": 603,
+"name": "DebugBreak",
+"args": "",
+"ret": 9
+},
+{
+"i": 604,
+"name": "FuzzyOpen",
+"args": "7",
+"ret": 4
+},
+{
+"i": 605,
+"name": "FuzzyClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 606,
+"name": "FuzzySetShellValue",
+"args": "412",
+"ret": 1
+},
+{
+"i": 607,
+"name": "FuzzyGetShellValue",
+"args": "415",
+"ret": 2
+},
+{
+"i": 608,
+"name": "FuzzySetCodeValue",
+"args": "414",
+"ret": 1
+},
+{
+"i": 609,
+"name": "FuzzyGetCodeValue",
+"args": "415",
+"ret": 4
+},
+{
+"i": 610,
+"name": "FuzzyTrace",
+"args": "41",
+"ret": 1
+},
+{
+"i": 611,
+"name": "LanguageFileTranslate",
+"args": "77",
+"ret": 1
+},
+{
+"i": 612,
+"name": "DspGetParentAn",
+"args": "1",
+"ret": 1
+},
+{
+"i": 613,
+"name": "FormListDeleteText",
+"args": "118",
+"ret": 1
+},
+{
+"i": 614,
+"name": "DspAnGetPrivilege",
+"args": "1",
+"ret": 1
+},
+{
+"i": 615,
+"name": "DspAnGetArea",
+"args": "1",
+"ret": 1
+},
+{
+"i": 616,
+"name": "FtpFileFind",
+"args": "18",
+"ret": 7
+},
+{
+"i": 617,
+"name": "FtpOpen",
+"args": "888",
+"ret": 1
+},
+{
+"i": 618,
+"name": "FtpClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 619,
+"name": "FtpFileCopy",
+"args": "188",
+"ret": 1
+},
+{
+"i": 620,
+"name": "LineOpen",
+"args": "7477",
+"ret": 1
+},
+{
+"i": 621,
+"name": "LineClose",
+"args": "177",
+"ret": 1
+},
+{
+"i": 622,
+"name": "LineMakeCall",
+"args": "1777",
+"ret": 1
+},
+{
+"i": 623,
+"name": "LineAnswer",
+"args": "177",
+"ret": 1
+},
+{
+"i": 624,
+"name": "LineDrop",
+"args": "177",
+"ret": 1
+},
+{
+"i": 625,
+"name": "LineInfo",
+"args": "1477",
+"ret": 7
+},
+{
+"i": 626,
+"name": "CAPIPost",
+"args": "71",
+"ret": 1
+},
+{
+"i": 627,
+"name": "CreateControlObject",
+"args": "7711117",
+"ret": 12
+},
+{
+"i": 628,
+"name": "DspAnCreateControlObject",
+"args": "17117",
+"ret": 12
+},
+{
+"i": 629,
+"name": "_ObjectCallMethod",
+"args": "<7@",
+"ret": 13
+},
+{
+"i": 630,
+"name": "_ObjectSetProperty",
+"args": "<7?",
+"ret": 1
+},
+{
+"i": 631,
+"name": "_ObjectGetProperty",
+"args": "<7",
+"ret": 13
+},
+{
+"i": 632,
+"name": "ObjectAssociateEvents",
+"args": "7<",
+"ret": 1
+},
+{
+"i": 633,
+"name": "ObjectAssociatePropertyWithTag",
+"args": "<777",
+"ret": 1
+},
+{
+"i": 634,
+"name": "CreateObject",
+"args": "7",
+"ret": 12
+},
+{
+"i": 635,
+"name": "ObjectByNameEx",
+"args": "17",
+"ret": 12
+},
+{
+"i": 636,
+"name": "DspAnFree",
+"args": "1",
+"ret": 1
+},
+{
+"i": 637,
+"name": "TrnGetBufMSTime",
+"args": "111",
+"ret": 4
+},
+{
+"i": 638,
+"name": "AnByName",
+"args": "7",
+"ret": 4
+},
+{
+"i": 639,
+"name": "CitectColourToPackedRGB",
+"args": "4",
+"ret": 4
+},
+{
+"i": 640,
+"name": "PackedRGBToCitectColour",
+"args": "4",
+"ret": 4
+},
+{
+"i": 641,
+"name": "ObjectSaveState",
+"args": "<7",
+"ret": 1
+},
+{
+"i": 642,
+"name": "DateInfo",
+"args": "11",
+"ret": 7
+},
+{
+"i": 643,
+"name": "TimeInfo",
+"args": "1",
+"ret": 7
+},
+{
+"i": 644,
+"name": "TrnGetMSTime",
+"args": "111",
+"ret": 4
+},
+{
+"i": 645,
+"name": "PageFileInfo",
+"args": "71",
+"ret": 1
+},
+{
+"i": 646,
+"name": "TrnGetCursorMSTime",
+"args": "11",
+"ret": 4
+},
+{
+"i": 647,
+"name": "TrnEventGetTableMS",
+"args": "744165157",
+"ret": 1
+},
+{
+"i": 648,
+"name": "TrnEventSetTableMS",
+"args": "74416557",
+"ret": 1
+},
+{
+"i": 649,
+"name": "FileFindClose",
+"args": "",
+"ret": 1
+},
+{
+"i": 650,
+"name": "AlarmSetQuery",
+"args": "1771",
+"ret": 1
+},
+{
+"i": 651,
+"name": "ExecuteDTSPkg",
+"args": "777777777777",
+"ret": 4
+},
+{
+"i": 652,
+"name": "DspSetTooltipFont",
+"args": "747",
+"ret": 9
+},
+{
+"i": 653,
+"name": "TrnSetDisplayMode",
+"args": "114",
+"ret": 1
+},
+{
+"i": 654,
+"name": "TrnGetDisplayMode",
+"args": "11",
+"ret": 4
+},
+{
+"i": 655,
+"name": "TaskSetSignal",
+"args": "11",
+"ret": 1
+},
+{
+"i": 656,
+"name": "TaskGetSignal",
+"args": "1",
+"ret": 1
+},
+{
+"i": 657,
+"name": "AlarmSumType",
+"args": "47",
+"ret": 1
+},
+{
+"i": 658,
+"name": "TrnIsValidValue",
+"args": "2",
+"ret": 1
+},
+{
+"i": 659,
+"name": "TrnGetGatedValue",
+"args": "",
+"ret": 2
+},
+{
+"i": 660,
+"name": "TrnGetInvalidValue",
+"args": "",
+"ret": 2
+},
+{
+"i": 661,
+"name": "VbCallOpen",
+"args": "7@",
+"ret": 12
+},
+{
+"i": 662,
+"name": "_VbExpressionOpen",
+"args": "7",
+"ret": 12
+},
+{
+"i": 663,
+"name": "_VbCallRun",
+"args": "<",
+"ret": 4
+},
+{
+"i": 664,
+"name": "VbCallReturn",
+"args": "<",
+"ret": 13
+},
+{
+"i": 665,
+"name": "_VbCicodeCallReturn",
+"args": "<?",
+"ret": 9
+},
+{
+"i": 666,
+"name": "UserPasswordExpiryDays",
+"args": "88",
+"ret": 1
+},
+{
+"i": 667,
+"name": "MsgState",
+"args": "1",
+"ret": 1
+},
+{
+"i": 668,
+"name": "StrToLines",
+"args": "845",
+"ret": 7
+},
+{
+"i": 669,
+"name": "UserSetStr",
+"args": "888",
+"ret": 1
+},
+{
+"i": 670,
+"name": "UserUpdateRecord",
+"args": "",
+"ret": 1
+},
+{
+"i": 671,
+"name": "AlarmGetOrderbyKey",
+"args": "1",
+"ret": 7
+},
+{
+"i": 672,
+"name": "_ObjectServerInvoke",
+"args": "888888888888",
+"ret": 7
+},
+{
+"i": 673,
+"name": "_ObjectServerInvokeEx",
+"args": "88",
+"ret": 7
+},
+{
+"i": 674,
+"name": "DriverInfo",
+"args": "8177",
+"ret": 7
+},
+{
+"i": 675,
+"name": "_RunTest",
+"args": "7",
+"ret": 4
+},
+{
+"i": 676,
+"name": "_RunTests",
+"args": "",
+"ret": 1
+},
+{
+"i": 677,
+"name": "GetWinTitle",
+"args": "",
+"ret": 7
+},
+{
+"i": 678,
+"name": "AlarmSetDelay",
+"args": "17",
+"ret": 1
+},
+{
+"i": 679,
+"name": "AlarmSetDelayRec",
+"args": "4177",
+"ret": 1
+},
+{
+"i": 680,
+"name": "AlarmGetDelay",
+"args": "1",
+"ret": 4
+},
+{
+"i": 681,
+"name": "AlarmGetDelayRec",
+"args": "417",
+"ret": 4
+},
+{
+"i": 682,
+"name": "ObjectResetState",
+"args": "1",
+"ret": 1
+},
+{
+"i": 683,
+"name": "AlarmNotifyVarChange",
+"args": "724471",
+"ret": 1
+},
+{
+"i": 684,
+"name": "ObjectIsValid",
+"args": "<",
+"ret": 1
+},
+{
+"i": 685,
+"name": "ObjectToStr",
+"args": "<",
+"ret": 7
+},
+{
+"i": 686,
+"name": "ObjectHasInterface",
+"args": "<8",
+"ret": 1
+},
+{
+"i": 687,
+"name": "TimeToOLEDate",
+"args": "41",
+"ret": 2
+},
+{
+"i": 688,
+"name": "OLEDateToTime",
+"args": "21",
+"ret": 4
+},
+{
+"i": 689,
+"name": "DspGetAnFirst",
+"args": "",
+"ret": 1
+},
+{
+"i": 690,
+"name": "DspGetAnNext",
+"args": "1",
+"ret": 1
+},
+{
+"i": 691,
+"name": "TimeUTCOffset",
+"args": "4",
+"ret": 4
+},
+{
+"i": 692,
+"name": "ObjectNothing",
+"args": "",
+"ret": 12
+},
+{
+"i": 693,
+"name": "HtmlHelp",
+"args": "818",
+"ret": 1
+},
+{
+"i": 694,
+"name": "DisplayRuntimeManager",
+"args": "",
+"ret": 4
+},
+{
+"i": 695,
+"name": "DLLCallEx",
+"args": "1@",
+"ret": 13
+},
+{
+"i": 696,
+"name": "FtpFileFindClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 697,
+"name": "ServerInfoEx",
+"args": "71777",
+"ret": 7
+},
+{
+"i": 698,
+"name": "RepGetCluster",
+"args": "",
+"ret": 7
+},
+{
+"i": 699,
+"name": "TrnGetCluster",
+"args": "1",
+"ret": 7
+},
+{
+"i": 700,
+"name": "ClusterActivate",
+"args": "7",
+"ret": 1
+},
+{
+"i": 701,
+"name": "ClusterDeactivate",
+"args": "7",
+"ret": 1
+},
+{
+"i": 702,
+"name": "ClusterIsActive",
+"args": "7",
+"ret": 1
+},
+{
+"i": 703,
+"name": "ClusterStatus",
+"args": "71",
+"ret": 1
+},
+{
+"i": 704,
+"name": "ClusterServerTypes",
+"args": "7",
+"ret": 1
+},
+{
+"i": 705,
+"name": "ClusterFirst",
+"args": "",
+"ret": 7
+},
+{
+"i": 706,
+"name": "ClusterNext",
+"args": "7",
+"ret": 7
+},
+{
+"i": 707,
+"name": "TrnBrowseOpen",
+"args": "777",
+"ret": 4
+},
+{
+"i": 708,
+"name": "TrnBrowseFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 709,
+"name": "TrnBrowseNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 710,
+"name": "TrnBrowsePrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 711,
+"name": "TrnBrowseGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 712,
+"name": "TrnBrowseNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 713,
+"name": "TrnBrowseClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 714,
+"name": "TrnGetPenComment",
+"args": "11",
+"ret": 7
+},
+{
+"i": 715,
+"name": "ClusterSwapActive",
+"args": "77",
+"ret": 1
+},
+{
+"i": 716,
+"name": "TagSubscribe",
+"args": "7472711",
+"ret": 4
+},
+{
+"i": 717,
+"name": "TagUnsubscribe",
+"args": "4",
+"ret": 4
+},
+{
+"i": 718,
+"name": "SubscriptionGetAttribute",
+"args": "471",
+"ret": 7
+},
+{
+"i": 719,
+"name": "AlmSummaryOpen",
+"args": "77741",
+"ret": 4
+},
+{
+"i": 720,
+"name": "AlmSummaryFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 721,
+"name": "AlmSummaryNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 722,
+"name": "AlmSummaryPrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 723,
+"name": "AlmSummaryGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 724,
+"name": "AlmSummarySetFieldValue",
+"args": "477",
+"ret": 1
+},
+{
+"i": 725,
+"name": "AlmSummaryCommit",
+"args": "4",
+"ret": 1
+},
+{
+"i": 726,
+"name": "AlmSummaryDelete",
+"args": "4",
+"ret": 1
+},
+{
+"i": 727,
+"name": "AlmSummaryDeleteAll",
+"args": "4",
+"ret": 1
+},
+{
+"i": 728,
+"name": "AlmSummaryClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 729,
+"name": "AlmTagsOpen",
+"args": "7771",
+"ret": 4
+},
+{
+"i": 730,
+"name": "AlmTagsFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 731,
+"name": "AlmTagsNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 732,
+"name": "AlmTagsPrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 733,
+"name": "AlmTagsGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 734,
+"name": "AlmTagsNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 735,
+"name": "AlmTagsClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 736,
+"name": "SubscriptionAddCallback",
+"args": "47",
+"ret": 4
+},
+{
+"i": 737,
+"name": "SubscriptionRemoveCallback",
+"args": "47",
+"ret": 4
+},
+{
+"i": 738,
+"name": "AccumBrowseOpen",
+"args": "777",
+"ret": 4
+},
+{
+"i": 739,
+"name": "AccumBrowseFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 740,
+"name": "AccumBrowseNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 741,
+"name": "AccumBrowsePrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 742,
+"name": "AccumBrowseGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 743,
+"name": "AccumBrowseNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 744,
+"name": "AccumBrowseClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 745,
+"name": "AlarmDspLast",
+"args": "111717",
+"ret": 1
+},
+{
+"i": 746,
+"name": "TagGetProperty",
+"args": "7717",
+"ret": 7
+},
+{
+"i": 747,
+"name": "AssGetProperty",
+"args": "771",
+"ret": 7
+},
+{
+"i": 748,
+"name": "TagGetScale",
+"args": "71117",
+"ret": 7
+},
+{
+"i": 749,
+"name": "AssGetScale",
+"args": "7111",
+"ret": 7
+},
+{
+"i": 750,
+"name": "AlmSummaryAck",
+"args": "4",
+"ret": 1
+},
+{
+"i": 751,
+"name": "AlmSummaryEnable",
+"args": "41",
+"ret": 1
+},
+{
+"i": 752,
+"name": "AlmSummaryDisable",
+"args": "447",
+"ret": 1
+},
+{
+"i": 753,
+"name": "AlmSummaryClear",
+"args": "4",
+"ret": 1
+},
+{
+"i": 754,
+"name": "AlmTagsAck",
+"args": "4",
+"ret": 1
+},
+{
+"i": 755,
+"name": "AlmTagsEnable",
+"args": "41",
+"ret": 1
+},
+{
+"i": 756,
+"name": "AlmTagsDisable",
+"args": "447",
+"ret": 1
+},
+{
+"i": 757,
+"name": "AlmTagsClear",
+"args": "4",
+"ret": 1
+},
+{
+"i": 758,
+"name": "ServiceGetList",
+"args": "",
+"ret": 7
+},
+{
+"i": 759,
+"name": "TaskNewEx",
+"args": "77147",
+"ret": 1
+},
+{
+"i": 760,
+"name": "TaskCluster",
+"args": "",
+"ret": 7
+},
+{
+"i": 761,
+"name": "TagInfoEx",
+"args": "7171",
+"ret": 7
+},
+{
+"i": 762,
+"name": "AssInfoEx",
+"args": "771",
+"ret": 7
+},
+{
+"i": 763,
+"name": "UserLogin",
+"args": "777",
+"ret": 1
+},
+{
+"i": 764,
+"name": "FormSecurePassword",
+"args": "11781",
+"ret": 1
+},
+{
+"i": 765,
+"name": "UserVerify",
+"args": "777777777777",
+"ret": 1
+},
+{
+"i": 766,
+"name": "KernelQueueLength",
+"args": "7",
+"ret": 1
+},
+{
+"i": 767,
+"name": "KernelTableItemCount",
+"args": "7",
+"ret": 1
+},
+{
+"i": 768,
+"name": "KernelTableInfo",
+"args": "777",
+"ret": 7
+},
+{
+"i": 769,
+"name": "EquipBrowseOpen",
+"args": "777",
+"ret": 4
+},
+{
+"i": 770,
+"name": "EquipBrowseFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 771,
+"name": "EquipBrowseNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 772,
+"name": "EquipBrowsePrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 773,
+"name": "EquipBrowseGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 774,
+"name": "EquipBrowseNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 775,
+"name": "EquipBrowseClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 776,
+"name": "EquipGetProperty",
+"args": "7717",
+"ret": 7
+},
+{
+"i": 777,
+"name": "EquipCheckUpdate",
+"args": "17",
+"ret": 1
+},
+{
+"i": 778,
+"name": "AlmSummaryLast",
+"args": "4",
+"ret": 1
+},
+{
+"i": 779,
+"name": "WinStyle",
+"args": "11",
+"ret": 1
+},
+{
+"i": 780,
+"name": "ProcessRestart",
+"args": "",
+"ret": 1
+},
+{
+"i": 781,
+"name": "ServerRestart",
+"args": "77",
+"ret": 1
+},
+{
+"i": 782,
+"name": "TagRDBReload",
+"args": "",
+"ret": 1
+},
+{
+"i": 783,
+"name": "AlarmSumFindExact",
+"args": "4447",
+"ret": 4
+},
+{
+"i": 784,
+"name": "TagResolve",
+"args": "7",
+"ret": 4
+},
+{
+"i": 785,
+"name": "TagUnresolve",
+"args": "4",
+"ret": 4
+},
+{
+"i": 786,
+"name": "MenuGetGenericNode",
+"args": "1",
+"ret": 4
+},
+{
+"i": 787,
+"name": "MenuGetPageNode",
+"args": "71",
+"ret": 4
+},
+{
+"i": 788,
+"name": "MenuGetWindowNode",
+"args": "1",
+"ret": 4
+},
+{
+"i": 789,
+"name": "MenuGetChild",
+"args": "47",
+"ret": 4
+},
+{
+"i": 790,
+"name": "MenuGetFirstChild",
+"args": "4",
+"ret": 4
+},
+{
+"i": 791,
+"name": "MenuGetNextChild",
+"args": "4",
+"ret": 4
+},
+{
+"i": 792,
+"name": "MenuGetPrevChild",
+"args": "4",
+"ret": 4
+},
+{
+"i": 793,
+"name": "MenuGetParent",
+"args": "4",
+"ret": 4
+},
+{
+"i": 794,
+"name": "MenuNodeAddChild",
+"args": "477771",
+"ret": 4
+},
+{
+"i": 795,
+"name": "MenuNodeGetProperty",
+"args": "41",
+"ret": 7
+},
+{
+"i": 796,
+"name": "MenuNodeSetProperty",
+"args": "417",
+"ret": 1
+},
+{
+"i": 797,
+"name": "MenuNodeRemove",
+"args": "4",
+"ret": 1
+},
+{
+"i": 798,
+"name": "TaskCall",
+"args": "77",
+"ret": 7
+},
+{
+"i": 799,
+"name": "MenuReload",
+"args": "",
+"ret": 9
+},
+{
+"i": 800,
+"name": "WndMonitorInfo",
+"args": "11",
+"ret": 4
+},
+{
+"i": 801,
+"name": "MultiMonitorStart",
+"args": "",
+"ret": 9
+},
+{
+"i": 802,
+"name": "ServerReload",
+"args": "771",
+"ret": 1
+},
+{
+"i": 803,
+"name": "ServerGetProperty",
+"args": "7777",
+"ret": 7
+},
+{
+"i": 804,
+"name": "TimestampCurrent",
+"args": "",
+"ret": 19
+},
+{
+"i": 805,
+"name": "TimestampToTimeInt",
+"args": "C1",
+"ret": 4
+},
+{
+"i": 806,
+"name": "TimeIntToTimestamp",
+"args": "441",
+"ret": 19
+},
+{
+"i": 807,
+"name": "TimestampAdd",
+"args": "C41",
+"ret": 19
+},
+{
+"i": 808,
+"name": "TimestampSub",
+"args": "C41",
+"ret": 19
+},
+{
+"i": 809,
+"name": "TimestampDifference",
+"args": "CC11",
+"ret": 4
+},
+{
+"i": 810,
+"name": "TimestampToStr",
+"args": "C11",
+"ret": 7
+},
+{
+"i": 811,
+"name": "TimestampFormat",
+"args": "C71",
+"ret": 7
+},
+{
+"i": 812,
+"name": "TimestampGetPart",
+"args": "C11",
+"ret": 4
+},
+{
+"i": 813,
+"name": "TimestampCreate",
+"args": "11111111",
+"ret": 19
+},
+{
+"i": 814,
+"name": "QualityToStr",
+"args": "D11",
+"ret": 7
+},
+{
+"i": 815,
+"name": "QualityIsGood",
+"args": "D",
+"ret": 1
+},
+{
+"i": 816,
+"name": "QualityIsBad",
+"args": "D",
+"ret": 1
+},
+{
+"i": 817,
+"name": "QualityIsUncertain",
+"args": "D",
+"ret": 1
+},
+{
+"i": 818,
+"name": "QualityIsOverride",
+"args": "D",
+"ret": 1
+},
+{
+"i": 819,
+"name": "QualityIsControlInhibit",
+"args": "D",
+"ret": 1
+},
+{
+"i": 820,
+"name": "QualityCreate",
+"args": "1111114",
+"ret": 20
+},
+{
+"i": 821,
+"name": "QualityGetPart",
+"args": "D",
+"ret": 4
+},
+{
+"i": 822,
+"name": "QualitySetPart",
+"args": "D14",
+"ret": 20
+},
+{
+"i": 823,
+"name": "PageTransformCoords",
+"args": "144551",
+"ret": 1
+},
+{
+"i": 824,
+"name": "WinSetName",
+"args": "71",
+"ret": 1
+},
+{
+"i": 825,
+"name": "ProductInfo",
+"args": "1",
+"ret": 7
+},
+{
+"i": 826,
+"name": "ProjectInfo",
+"args": "11",
+"ret": 7
+},
+{
+"i": 827,
+"name": "ServerBrowseOpen",
+"args": "777",
+"ret": 4
+},
+{
+"i": 828,
+"name": "ServerBrowseFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 829,
+"name": "ServerBrowseNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 830,
+"name": "ServerBrowsePrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 831,
+"name": "ServerBrowseGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 832,
+"name": "ServerBrowseNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 833,
+"name": "ServerBrowseClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 834,
+"name": "PageBack",
+"args": "1",
+"ret": 1
+},
+{
+"i": 835,
+"name": "PageForward",
+"args": "1",
+"ret": 1
+},
+{
+"i": 836,
+"name": "PageHome",
+"args": "7",
+"ret": 1
+},
+{
+"i": 837,
+"name": "PagePeekCurrent",
+"args": "",
+"ret": 1
+},
+{
+"i": 838,
+"name": "PageRecall",
+"args": "1",
+"ret": 1
+},
+{
+"i": 839,
+"name": "PageTask",
+"args": "177",
+"ret": 1
+},
+{
+"i": 840,
+"name": "SetLogging",
+"args": "7771",
+"ret": 1
+},
+{
+"i": 841,
+"name": "GetLogging",
+"args": "77",
+"ret": 7
+},
+{
+"i": 842,
+"name": "VariableQuality",
+"args": "?",
+"ret": 20
+},
+{
+"i": 843,
+"name": "VariableTimestamp",
+"args": "?4",
+"ret": 19
+},
+{
+"i": 844,
+"name": "ServerIsOnline",
+"args": "771",
+"ret": 1
+},
+{
+"i": 845,
+"name": "MenuNodeIsHidden",
+"args": "4",
+"ret": 1
+},
+{
+"i": 846,
+"name": "MenuNodeIsDisabled",
+"args": "4",
+"ret": 1
+},
+{
+"i": 847,
+"name": "MenuNodeRunCommand",
+"args": "4",
+"ret": 1
+},
+{
+"i": 848,
+"name": "MenuNodeSetHiddenWhen",
+"args": "477",
+"ret": 1
+},
+{
+"i": 849,
+"name": "MenuNodeSetDisabledWhen",
+"args": "4771",
+"ret": 1
+},
+{
+"i": 850,
+"name": "MenuNodeHasCommand",
+"args": "4",
+"ret": 1
+},
+{
+"i": 851,
+"name": "StrCalcWidth",
+"args": "71",
+"ret": 1
+},
+{
+"i": 852,
+"name": "StrTruncFontHnd",
+"args": "7111",
+"ret": 7
+},
+{
+"i": 853,
+"name": "StrTruncFont",
+"args": "7711",
+"ret": 7
+},
+{
+"i": 854,
+"name": "AssMetadata",
+"args": "11",
+"ret": 1
+},
+{
+"i": 855,
+"name": "DspAnGetMetadataAt",
+"args": "147",
+"ret": 7
+},
+{
+"i": 856,
+"name": "DspAnSetMetadataAt",
+"args": "1177",
+"ret": 1
+},
+{
+"i": 857,
+"name": "DspAnGetMetadata",
+"args": "17",
+"ret": 7
+},
+{
+"i": 858,
+"name": "FmtGetFieldCount",
+"args": "1",
+"ret": 1
+},
+{
+"i": 859,
+"name": "FmtGetFieldName",
+"args": "11",
+"ret": 7
+},
+{
+"i": 860,
+"name": "DspAnSetMetadata",
+"args": "177",
+"ret": 1
+},
+{
+"i": 861,
+"name": "TestVariantINT",
+"args": "4",
+"ret": 13
+},
+{
+"i": 862,
+"name": "TestVariantREAL",
+"args": "2",
+"ret": 13
+},
+{
+"i": 863,
+"name": "TestVariantSTRING",
+"args": "7",
+"ret": 13
+},
+{
+"i": 864,
+"name": "TestVariantTIMESTAMP",
+"args": "C",
+"ret": 13
+},
+{
+"i": 865,
+"name": "TestVariantQUALITY",
+"args": "D",
+"ret": 13
+},
+{
+"i": 866,
+"name": "TestVariantNULL",
+"args": "",
+"ret": 13
+},
+{
+"i": 867,
+"name": "TestVariantSTRINGNULL",
+"args": "",
+"ret": 13
+},
+{
+"i": 868,
+"name": "TestStringNULL",
+"args": "",
+"ret": 7
+},
+{
+"i": 869,
+"name": "SubscriptionGetInfo",
+"args": "47",
+"ret": 7
+},
+{
+"i": 870,
+"name": "SubscriptionGetTimestamp",
+"args": "47",
+"ret": 19
+},
+{
+"i": 871,
+"name": "SubscriptionGetQuality",
+"args": "4",
+"ret": 20
+},
+{
+"i": 872,
+"name": "SubscriptionGetValue",
+"args": "41",
+"ret": 13
+},
+{
+"i": 873,
+"name": "SubscriptionGetTag",
+"args": "41",
+"ret": 13
+},
+{
+"i": 874,
+"name": "AlarmCatGetFormat",
+"args": "11",
+"ret": 7
+},
+{
+"i": 875,
+"name": "FmtGetFieldWidth",
+"args": "11",
+"ret": 1
+},
+{
+"i": 876,
+"name": "ServerRPC",
+"args": "77717",
+"ret": 7
+},
+{
+"i": 877,
+"name": "AlarmDspClusterAdd",
+"args": "17",
+"ret": 1
+},
+{
+"i": 878,
+"name": "AlarmDspClusterRemove",
+"args": "17",
+"ret": 1
+},
+{
+"i": 879,
+"name": "AlarmDspClusterInUse",
+"args": "17",
+"ret": 1
+},
+{
+"i": 880,
+"name": "TagReadEx",
+"args": "717",
+"ret": 13
+},
+{
+"i": 881,
+"name": "TagSetOverrideQuality",
+"args": "7D17",
+"ret": 1
+},
+{
+"i": 882,
+"name": "TagSetOverrideGood",
+"args": "717",
+"ret": 1
+},
+{
+"i": 883,
+"name": "TagSetOverrideUncertain",
+"args": "717",
+"ret": 1
+},
+{
+"i": 884,
+"name": "TagSetOverrideBad",
+"args": "717",
+"ret": 1
+},
+{
+"i": 885,
+"name": "TestDbl2Flt",
+"args": "2",
+"ret": 2
+},
+{
+"i": 886,
+"name": "PasswordEncrypt",
+"args": "7",
+"ret": 7
+},
+{
+"i": 887,
+"name": "PasswordDecrypt",
+"args": "7",
+"ret": 7
+},
+{
+"i": 888,
+"name": "VariableToStr",
+"args": "?1",
+"ret": 7
+},
+{
+"i": 889,
+"name": "ScheduleItemAdd",
+"args": "777CC77",
+"ret": 4
+},
+{
+"i": 890,
+"name": "ScheduleItemSetRepeat",
+"args": "7444444C44447",
+"ret": 1
+},
+{
+"i": 891,
+"name": "ScheduleItemModify",
+"args": "747CC77",
+"ret": 1
+},
+{
+"i": 892,
+"name": "ScheduleItemDelete",
+"args": "74",
+"ret": 1
+},
+{
+"i": 893,
+"name": "SchdConfigOpen",
+"args": "C4777",
+"ret": 4
+},
+{
+"i": 894,
+"name": "SchdConfigFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 895,
+"name": "SchdConfigNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 896,
+"name": "SchdConfigPrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 897,
+"name": "SchdConfigGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 898,
+"name": "SchdConfigNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 899,
+"name": "SchdConfigClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 900,
+"name": "EquipStateBrowseOpen",
+"args": "777",
+"ret": 4
+},
+{
+"i": 901,
+"name": "EquipStateBrowseFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 902,
+"name": "EquipStateBrowseNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 903,
+"name": "EquipStateBrowsePrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 904,
+"name": "EquipStateBrowseGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 905,
+"name": "EquipStateBrowseNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 906,
+"name": "EquipStateBrowseClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 907,
+"name": "StrToTimestamp",
+"args": "711",
+"ret": 19
+},
+{
+"i": 908,
+"name": "EquipSetProperty",
+"args": "7777",
+"ret": 1
+},
+{
+"i": 909,
+"name": "SchdOpen",
+"args": "7C4777",
+"ret": 4
+},
+{
+"i": 910,
+"name": "SchdFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 911,
+"name": "SchdNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 912,
+"name": "SchdPrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 913,
+"name": "SchdGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 914,
+"name": "SchdNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 915,
+"name": "SchdClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 916,
+"name": "SchdSpecialOpen",
+"args": "777",
+"ret": 4
+},
+{
+"i": 917,
+"name": "SchdSpecialFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 918,
+"name": "SchdSpecialNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 919,
+"name": "SchdSpecialPrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 920,
+"name": "SchdSpecialGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 921,
+"name": "SchdSpecialNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 922,
+"name": "SchdSpecialClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 923,
+"name": "SchdSpecialItemOpen",
+"args": "777",
+"ret": 4
+},
+{
+"i": 924,
+"name": "SchdSpecialItemFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 925,
+"name": "SchdSpeciaItemlNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 926,
+"name": "SchdSpecialItemPrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 927,
+"name": "SchdSpecialItemGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 928,
+"name": "SchdSpecialItemNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 929,
+"name": "SchdSpecialItemClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 930,
+"name": "SchdSpecialAdd",
+"args": "77",
+"ret": 4
+},
+{
+"i": 931,
+"name": "SchdSpecialModify",
+"args": "747",
+"ret": 4
+},
+{
+"i": 932,
+"name": "SchdSpecialDelete",
+"args": "74",
+"ret": 4
+},
+{
+"i": 933,
+"name": "SchdSpecialItemAdd",
+"args": "747C",
+"ret": 4
+},
+{
+"i": 934,
+"name": "SchdSpecialItemModify",
+"args": "747C",
+"ret": 4
+},
+{
+"i": 935,
+"name": "SchdSpecialItemDelete",
+"args": "74",
+"ret": 4
+},
+{
+"i": 936,
+"name": "ServerDumpKernel",
+"args": "1777",
+"ret": 1
+},
+{
+"i": 937,
+"name": "SQLCreate",
+"args": "8",
+"ret": 1
+},
+{
+"i": 938,
+"name": "SQLOpen",
+"args": "1",
+"ret": 1
+},
+{
+"i": 939,
+"name": "SQLClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 940,
+"name": "SQLDispose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 941,
+"name": "SQLGetRecordset",
+"args": "18",
+"ret": 1
+},
+{
+"i": 942,
+"name": "SQLCall",
+"args": "18",
+"ret": 4
+},
+{
+"i": 943,
+"name": "SQLGetScalar",
+"args": "185",
+"ret": 7
+},
+{
+"i": 944,
+"name": "SQLQueryCreate",
+"args": "1",
+"ret": 1
+},
+{
+"i": 945,
+"name": "SQLQueryDispose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 946,
+"name": "SQLCancel",
+"args": "1",
+"ret": 1
+},
+{
+"i": 947,
+"name": "SQLIsNullField",
+"args": "184",
+"ret": 1
+},
+{
+"i": 948,
+"name": "SQLRowCount",
+"args": "1",
+"ret": 4
+},
+{
+"i": 949,
+"name": "SQLPrev",
+"args": "1",
+"ret": 1
+},
+{
+"i": 950,
+"name": "SQLParamsSetAsInt",
+"args": "184",
+"ret": 1
+},
+{
+"i": 951,
+"name": "SQLParamsSetAsReal",
+"args": "182",
+"ret": 1
+},
+{
+"i": 952,
+"name": "SQLParamsSetAsString",
+"args": "1881",
+"ret": 1
+},
+{
+"i": 953,
+"name": "SQLParamsClearAll",
+"args": "1",
+"ret": 1
+},
+{
+"i": 954,
+"name": "TagBrowseOpen",
+"args": "7777",
+"ret": 4
+},
+{
+"i": 955,
+"name": "TagBrowseClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 956,
+"name": "TagBrowseNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 957,
+"name": "TagBrowseFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 958,
+"name": "TagBrowseNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 959,
+"name": "TagBrowsePrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 960,
+"name": "TagBrowseGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 961,
+"name": "AlarmFilterEditSet",
+"args": "17",
+"ret": 1
+},
+{
+"i": 962,
+"name": "AlarmFilterEditAppend",
+"args": "17",
+"ret": 1
+},
+{
+"i": 963,
+"name": "AlarmFilterEditCommit",
+"args": "1",
+"ret": 1
+},
+{
+"i": 964,
+"name": "AlarmFilterEditFirst",
+"args": "1",
+"ret": 7
+},
+{
+"i": 965,
+"name": "AlarmFilterEditNext",
+"args": "1",
+"ret": 7
+},
+{
+"i": 966,
+"name": "AlarmAckTag",
+"args": "77",
+"ret": 1
+},
+{
+"i": 967,
+"name": "AlarmFilterEditOpen",
+"args": "71",
+"ret": 1
+},
+{
+"i": 968,
+"name": "AlarmFilterEditClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 969,
+"name": "AlarmFilterEditPrev",
+"args": "1",
+"ret": 7
+},
+{
+"i": 970,
+"name": "AlarmFilterEditLast",
+"args": "1",
+"ret": 7
+},
+{
+"i": 971,
+"name": "AlarmCount",
+"args": "1741",
+"ret": 4
+},
+{
+"i": 972,
+"name": "AlarmCountList",
+"args": "1",
+"ret": 4
+},
+{
+"i": 973,
+"name": "AlmBrowseOpen",
+"args": "7771",
+"ret": 4
+},
+{
+"i": 974,
+"name": "AlmBrowseFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 975,
+"name": "AlmBrowseNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 976,
+"name": "AlmBrowsePrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 977,
+"name": "AlmBrowseGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 978,
+"name": "AlmBrowseNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 979,
+"name": "AlmBrowseClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 980,
+"name": "AlmBrowseAck",
+"args": "4",
+"ret": 1
+},
+{
+"i": 981,
+"name": "AlmBrowseEnable",
+"args": "41",
+"ret": 1
+},
+{
+"i": 982,
+"name": "AlmBrowseDisable",
+"args": "447",
+"ret": 1
+},
+{
+"i": 983,
+"name": "AlmBrowseClear",
+"args": "4",
+"ret": 1
+},
+{
+"i": 984,
+"name": "AlarmFilterOpen",
+"args": "711",
+"ret": 1
+},
+{
+"i": 985,
+"name": "AlarmFilterClose",
+"args": "7",
+"ret": 1
+},
+{
+"i": 986,
+"name": "AlarmGetFilterName",
+"args": "1",
+"ret": 7
+},
+{
+"i": 987,
+"name": "PurgeMemory",
+"args": "",
+"ret": 1
+},
+{
+"i": 988,
+"name": "AlmSummaryNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 989,
+"name": "SOEEventAdd",
+"args": "C777",
+"ret": 1
+},
+{
+"i": 990,
+"name": "SOEArchive",
+"args": "77",
+"ret": 1
+},
+{
+"i": 991,
+"name": "SOEMount",
+"args": "77",
+"ret": 1
+},
+{
+"i": 992,
+"name": "SOEDismount",
+"args": "7",
+"ret": 1
+},
+{
+"i": 993,
+"name": "PageListCurrent",
+"args": "",
+"ret": 1
+},
+{
+"i": 994,
+"name": "PageListCount",
+"args": "",
+"ret": 1
+},
+{
+"i": 995,
+"name": "PageListInfo",
+"args": "11",
+"ret": 7
+},
+{
+"i": 996,
+"name": "PageListDelete",
+"args": "1",
+"ret": 1
+},
+{
+"i": 997,
+"name": "PageListDisplay",
+"args": "1",
+"ret": 1
+},
+{
+"i": 998,
+"name": "XMLCreate",
+"args": "77",
+"ret": 1
+},
+{
+"i": 999,
+"name": "XMLClose",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1000,
+"name": "XMLOpen",
+"args": "7",
+"ret": 1
+},
+{
+"i": 1001,
+"name": "XMLSave",
+"args": "17",
+"ret": 1
+},
+{
+"i": 1002,
+"name": "XMLGetRoot",
+"args": "1",
+"ret": 4
+},
+{
+"i": 1003,
+"name": "XMLNodeFind",
+"args": "17",
+"ret": 4
+},
+{
+"i": 1004,
+"name": "XMLGetParent",
+"args": "14",
+"ret": 4
+},
+{
+"i": 1005,
+"name": "XMLGetChildCount",
+"args": "14",
+"ret": 4
+},
+{
+"i": 1006,
+"name": "XMLGetChild",
+"args": "144",
+"ret": 4
+},
+{
+"i": 1007,
+"name": "XMLNodeGetName",
+"args": "14",
+"ret": 7
+},
+{
+"i": 1008,
+"name": "XMLNodeGetValue",
+"args": "14",
+"ret": 7
+},
+{
+"i": 1009,
+"name": "XMLGetAttributeCount",
+"args": "14",
+"ret": 1
+},
+{
+"i": 1010,
+"name": "XMLGetAttributeName",
+"args": "141",
+"ret": 7
+},
+{
+"i": 1011,
+"name": "XMLGetAttributeValue",
+"args": "141",
+"ret": 7
+},
+{
+"i": 1012,
+"name": "XMLGetAttribute",
+"args": "147",
+"ret": 7
+},
+{
+"i": 1013,
+"name": "XMLNodeSetValue",
+"args": "147",
+"ret": 1
+},
+{
+"i": 1014,
+"name": "XMLSetAttribute",
+"args": "1477",
+"ret": 1
+},
+{
+"i": 1015,
+"name": "XMLNodeAddChild",
+"args": "1477",
+"ret": 4
+},
+{
+"i": 1016,
+"name": "XMLNodeRemove",
+"args": "14",
+"ret": 1
+},
+{
+"i": 1017,
+"name": "GetLanguage",
+"args": "1",
+"ret": 7
+},
+{
+"i": 1018,
+"name": "DllClassCreate",
+"args": "77@",
+"ret": 12
+},
+{
+"i": 1019,
+"name": "DllClassIsValid",
+"args": "<",
+"ret": 1
+},
+{
+"i": 1020,
+"name": "DllClassDispose",
+"args": "<",
+"ret": 1
+},
+{
+"i": 1021,
+"name": "DllClassSetProperty",
+"args": "<7?",
+"ret": 1
+},
+{
+"i": 1022,
+"name": "DllClassGetProperty",
+"args": "<7",
+"ret": 13
+},
+{
+"i": 1023,
+"name": "DllClassCallMethod",
+"args": "<7@",
+"ret": 13
+},
+{
+"i": 1024,
+"name": "AlarmFilterEditHasField",
+"args": "17",
+"ret": 1
+},
+{
+"i": 1025,
+"name": "AlarmQueryFirstRec",
+"args": "11117",
+"ret": 4
+},
+{
+"i": 1026,
+"name": "AlarmQueryNextRec",
+"args": "411117",
+"ret": 4
+},
+{
+"i": 1027,
+"name": "PageExists",
+"args": "7",
+"ret": 1
+},
+{
+"i": 1028,
+"name": "TagWriteIntArray",
+"args": "715117",
+"ret": 4
+},
+{
+"i": 1029,
+"name": "TagWriteRealArray",
+"args": "716117",
+"ret": 4
+},
+{
+"i": 1030,
+"name": "_LibControl_GetANName",
+"args": "7",
+"ret": 1
+},
+{
+"i": 1031,
+"name": "_LibControl_GetStr",
+"args": "777",
+"ret": 7
+},
+{
+"i": 1032,
+"name": "_LibControl_GetStr_ByAN",
+"args": "177",
+"ret": 7
+},
+{
+"i": 1033,
+"name": "_LibControl_GetInt",
+"args": "774",
+"ret": 4
+},
+{
+"i": 1034,
+"name": "_LibControl_GetInt_ByAN",
+"args": "174",
+"ret": 4
+},
+{
+"i": 1035,
+"name": "_LibControl_StrArray_GetLen",
+"args": "7",
+"ret": 1
+},
+{
+"i": 1036,
+"name": "_LibControl_StrArray_GetInt",
+"args": "714",
+"ret": 4
+},
+{
+"i": 1037,
+"name": "_LibControl_StrReplace",
+"args": "7771",
+"ret": 7
+},
+{
+"i": 1038,
+"name": "_LibControl_SetCallbackArg",
+"args": "7771",
+"ret": 7
+},
+{
+"i": 1039,
+"name": "_LibControl_StrArray_SetLen",
+"args": "711",
+"ret": 7
+},
+{
+"i": 1040,
+"name": "_LibControl_StrArray_SetInt",
+"args": "714",
+"ret": 7
+},
+{
+"i": 1041,
+"name": "AlarmCountEquipment",
+"args": "177411",
+"ret": 4
+},
+{
+"i": 1042,
+"name": "AlarmDisableTag",
+"args": "7747",
+"ret": 1
+},
+{
+"i": 1043,
+"name": "AlarmEnableTag",
+"args": "771",
+"ret": 1
+},
+{
+"i": 1044,
+"name": "AlarmClearTag",
+"args": "77",
+"ret": 1
+},
+{
+"i": 1045,
+"name": "__Tabmenu_GetMenuConfigDisabled",
+"args": "4",
+"ret": 1
+},
+{
+"i": 1046,
+"name": "DspGetMouseOver",
+"args": "11",
+"ret": 1
+},
+{
+"i": 1047,
+"name": "__ObjectMasterAN",
+"args": "111",
+"ret": 1
+},
+{
+"i": 1048,
+"name": "_DspCursor_MouseUp",
+"args": "111",
+"ret": 1
+},
+{
+"i": 1049,
+"name": "_DspCursor_MouseDown",
+"args": "11",
+"ret": 1
+},
+{
+"i": 1050,
+"name": "_DspObjectGetCursorUp",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1051,
+"name": "_DspObjectGetCursorDown",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1052,
+"name": "_DspObjectGetCursor",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1053,
+"name": "_DspFixedWidthText",
+"args": "17111",
+"ret": 1
+},
+{
+"i": 1054,
+"name": "__TabAlarm_GetIDByAN",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1055,
+"name": "WinNewPinAt",
+"args": "7114117",
+"ret": 1
+},
+{
+"i": 1056,
+"name": "EquipRefBrowseOpen",
+"args": "777",
+"ret": 4
+},
+{
+"i": 1057,
+"name": "EquipRefBrowseFirst",
+"args": "4",
+"ret": 1
+},
+{
+"i": 1058,
+"name": "EquipRefBrowseNext",
+"args": "4",
+"ret": 1
+},
+{
+"i": 1059,
+"name": "EquipRefBrowsePrev",
+"args": "4",
+"ret": 1
+},
+{
+"i": 1060,
+"name": "EquipRefBrowseGetField",
+"args": "47",
+"ret": 7
+},
+{
+"i": 1061,
+"name": "EquipRefBrowseNumRecords",
+"args": "4",
+"ret": 4
+},
+{
+"i": 1062,
+"name": "EquipRefBrowseClose",
+"args": "4",
+"ret": 1
+},
+{
+"i": 1063,
+"name": "DspGetAnFromName",
+"args": "7",
+"ret": 1
+},
+{
+"i": 1064,
+"name": "DspAnSetName",
+"args": "17",
+"ret": 1
+},
+{
+"i": 1065,
+"name": "DspGetNameFromAn",
+"args": "1",
+"ret": 7
+},
+{
+"i": 1066,
+"name": "WinGetClicked",
+"args": "",
+"ret": 1
+},
+{
+"i": 1067,
+"name": "DspGetMetadataFromName",
+"args": "77",
+"ret": 7
+},
+{
+"i": 1068,
+"name": "DspSetMetadataFromName",
+"args": "777",
+"ret": 1
+},
+{
+"i": 1069,
+"name": "WinGetName",
+"args": "1",
+"ret": 7
+},
+{
+"i": 1070,
+"name": "TagGetValue",
+"args": "71141214",
+"ret": 13
+},
+{
+"i": 1071,
+"name": "WinGetParent",
+"args": "11",
+"ret": 1
+},
+{
+"i": 1072,
+"name": "AlarmHighestPriority",
+"args": "177411",
+"ret": 1
+},
+{
+"i": 1073,
+"name": "MenuNodeSetExpanded",
+"args": "44",
+"ret": 1
+},
+{
+"i": 1074,
+"name": "MenuNodeGetExpanded",
+"args": "4",
+"ret": 4
+},
+{
+"i": 1075,
+"name": "DspGetAnFromNameRelative",
+"args": "17",
+"ret": 1
+},
+{
+"i": 1076,
+"name": "DspSetMetadataFromNameRelative",
+"args": "1777",
+"ret": 1
+},
+{
+"i": 1077,
+"name": "DspGetMetadataFromNameRelative",
+"args": "177",
+"ret": 7
+},
+{
+"i": 1078,
+"name": "AssWinReplace",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1079,
+"name": "PageFileInfoEx",
+"args": "71",
+"ret": 7
+},
+{
+"i": 1080,
+"name": "WinGetFirstChild",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1081,
+"name": "WinGetNextChild",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1082,
+"name": "ArrayCreate",
+"args": "7111",
+"ret": 1
+},
+{
+"i": 1083,
+"name": "ArrayDestroy",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1084,
+"name": "ArraySetString",
+"args": "17111",
+"ret": 1
+},
+{
+"i": 1085,
+"name": "ArrayGetString",
+"args": "1111",
+"ret": 7
+},
+{
+"i": 1086,
+"name": "ArraySetInt",
+"args": "14111",
+"ret": 1
+},
+{
+"i": 1087,
+"name": "ArrayGetInt",
+"args": "1111",
+"ret": 4
+},
+{
+"i": 1088,
+"name": "ArrayCreateByAn",
+"args": "1111",
+"ret": 1
+},
+{
+"i": 1089,
+"name": "ArrayDestroyByAn",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1090,
+"name": "ArraySetStringByAn",
+"args": "17111",
+"ret": 1
+},
+{
+"i": 1091,
+"name": "ArrayGetStringByAn",
+"args": "1111",
+"ret": 7
+},
+{
+"i": 1092,
+"name": "ArraySetIntByAn",
+"args": "14111",
+"ret": 1
+},
+{
+"i": 1093,
+"name": "ArrayGetIntByAn",
+"args": "1111",
+"ret": 4
+},
+{
+"i": 1094,
+"name": "ArrayGetArrayByAn",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1095,
+"name": "ArrayIsDirty",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1096,
+"name": "ArraySetIsDirty",
+"args": "11",
+"ret": 1
+},
+{
+"i": 1097,
+"name": "ArrayGetInfo",
+"args": "11",
+"ret": 1
+},
+{
+"i": 1098,
+"name": "ArrayCopy",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1099,
+"name": "ArraySwap",
+"args": "11",
+"ret": 1
+},
+{
+"i": 1100,
+"name": "ArrayFillFromAlarmDataByAn",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1101,
+"name": "DspArrayByAn",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1102,
+"name": "MenuNodeGetCurr",
+"args": "",
+"ret": 4
+},
+{
+"i": 1103,
+"name": "MenuNodeGetDepth",
+"args": "4",
+"ret": 1
+},
+{
+"i": 1104,
+"name": "MenuNodeGetTargetPage",
+"args": "4",
+"ret": 7
+},
+{
+"i": 1105,
+"name": "AlarmFilterEditAppendEquipment",
+"args": "171",
+"ret": 1
+},
+{
+"i": 1106,
+"name": "DspGetAnRawExtent",
+"args": "15555",
+"ret": 1
+},
+{
+"i": 1107,
+"name": "WinFreeEx",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1108,
+"name": "AlarmListCreate",
+"args": "1111117711",
+"ret": 1
+},
+{
+"i": 1109,
+"name": "AlarmListDestroy",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1110,
+"name": "AlarmListDisplay",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1111,
+"name": "DspSetCurColor",
+"args": "4",
+"ret": 4
+},
+{
+"i": 1112,
+"name": "WndMonitorInfoEx",
+"args": "71",
+"ret": 4
+},
+{
+"i": 1113,
+"name": "MapOpen",
+"args": "717",
+"ret": 7
+},
+{
+"i": 1114,
+"name": "MapClose",
+"args": "7",
+"ret": 1
+},
+{
+"i": 1115,
+"name": "MapExists",
+"args": "7",
+"ret": 1
+},
+{
+"i": 1116,
+"name": "MapValueSet",
+"args": "77?1",
+"ret": 1
+},
+{
+"i": 1117,
+"name": "MapValueGet",
+"args": "77",
+"ret": 13
+},
+{
+"i": 1118,
+"name": "MapKeyExists",
+"args": "77",
+"ret": 1
+},
+{
+"i": 1119,
+"name": "MapKeyDelete",
+"args": "77",
+"ret": 1
+},
+{
+"i": 1120,
+"name": "MapKeyFirst",
+"args": "7",
+"ret": 7
+},
+{
+"i": 1121,
+"name": "MapKeyNext",
+"args": "77",
+"ret": 7
+},
+{
+"i": 1122,
+"name": "MapKeyCount",
+"args": "7",
+"ret": 4
+},
+{
+"i": 1123,
+"name": "MapValueSetQuality",
+"args": "77D",
+"ret": 1
+},
+{
+"i": 1124,
+"name": "AlarmListFill",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1125,
+"name": "ResetScreenProfile",
+"args": "",
+"ret": 1
+},
+{
+"i": 1126,
+"name": "ArrayExists",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1127,
+"name": "ArrayExistsByAn",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1128,
+"name": "ArrayGetMapName",
+"args": "1",
+"ret": 7
+},
+{
+"i": 1129,
+"name": "ArrayGetMapNameByAn",
+"args": "1",
+"ret": 7
+},
+{
+"i": 1130,
+"name": "DspSetClip",
+"args": "11111",
+"ret": 1
+},
+{
+"i": 1131,
+"name": "AssEquipParameters",
+"args": "177",
+"ret": 1
+},
+{
+"i": 1132,
+"name": "EquipGetParameter",
+"args": "777",
+"ret": 7
+},
+{
+"i": 1133,
+"name": "MenuGetNodeByPath",
+"args": "47",
+"ret": 4
+},
+{
+"i": 1134,
+"name": "AlarmCommentRecID",
+"args": "7717",
+"ret": 1
+},
+{
+"i": 1135,
+"name": "DspSetPopupMenuFont",
+"args": "1",
+"ret": 9
+},
+{
+"i": 1136,
+"name": "StrReplace",
+"args": "7777",
+"ret": 7
+},
+{
+"i": 1137,
+"name": "DspClearClip",
+"args": "1",
+"ret": 1
+},
+{
+"i": 1138,
+"name": "AlarmTagFromEquipment",
+"args": "77",
+"ret": 7
+},
+{
+"i": 1139,
+"name": "MapClear",
+"args": "7",
+"ret": 1
+},
+{
+"i": 1140,
+"name": "SchdSpecialItemAddRange",
+"args": "747CC",
+"ret": 1
+},
+{
+"i": 1141,
+"name": "SchdSpecialItemDeleteRange",
+"args": "74CC",
+"ret": 1
+},
+{
+"i": 1142,
+"name": "SchdSpecialItemModifyRange",
+"args": "74CC7CC",
+"ret": 1
+},
+{
+"i": 1143,
+"name": "DspWebContentSetURL",
+"args": "17",
+"ret": 1
+},
+{
+"i": 1144,
+"name": "DspWebContentGetURL",
+"args": "1",
+"ret": 7
+},
+{
+"i": 1145,
+"name": "DspRubSetColor",
+"args": "1",
+"ret": 4
+},
+{
+"i": 1146,
+"name": "UserCreateByRole",
+"args": "8888",
+"ret": 1
+}
+]

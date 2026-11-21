@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT µq;
+	µq = 1;
+	RETURN µq;
+END

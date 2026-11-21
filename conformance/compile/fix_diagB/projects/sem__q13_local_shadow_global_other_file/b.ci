@@ -1,0 +1,4 @@
+FUNCTION ProbeQ()
+	INT gProbeZ;
+	gProbeZ = 1;
+END

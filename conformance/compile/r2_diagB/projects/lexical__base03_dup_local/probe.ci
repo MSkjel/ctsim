@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT abc;
+	INT abc;
+	RETURN abc;
+END

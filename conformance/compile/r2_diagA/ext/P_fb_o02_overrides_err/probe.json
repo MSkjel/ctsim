@@ -1,0 +1,311 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 6,
+   "context": "SQLErrMsg(1, {1}); MapOpen(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 7,
+   "context": "MapOpen(\"a\", 1, \"a\", {1}); StrToLocalText();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 8,
+   "context": "StrToLocalText(){;} StrToLocalText(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 9,
+   "context": "StrToLocalText(\"a\", {1}); DevClose();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 10,
+   "context": "DevClose(){;} DevClose(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 11,
+   "context": "DevClose(1, 1, {1}); _ObjectCallMethod(vo);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 12,
+   "context": "_ObjectCallMethod(vo{)}; ErrSetHw(1);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 12,
+   "context": "_ObjectCallMethod(vo){;} ErrSetHw(1);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 13,
+   "context": "ErrSetHw(1){;} ErrSetHw(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 14,
+   "context": "ErrSetHw(1, 1, 1, {1}); TrnBrowseClose();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 15,
+   "context": "TrnBrowseClose(){;} TrnBrowseClose(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 16,
+   "context": "TrnBrowseClose(1, {1}); FormEdit(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 17,
+   "context": "FormEdit(1, 1, vs){;} FormEdit(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 18,
+   "context": "1, 1, 1, 1, {1}); DspGetMouseOver(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 19,
+   "context": "DspGetMouseOver(1, 1, {1}); MapValueSet(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 20,
+   "context": "MapValueSet(\"a\", \"a\"){;} MapValueSet(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 21,
+   "context": "\"a\", 1, 1, {1}); SubscriptionGetTag();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 22,
+   "context": "SubscriptionGetTag(){;} SubscriptionGetTag(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 23,
+   "context": "SubscriptionGetTag(1, 1, {1}); UserVerify(\"a\");"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 24,
+   "context": "UserVerify(\"a\"){;} UserVerify(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 25,
+   "context": "\"a\", \"a\", {1}); EquipGetProperty(\"a\");"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 26,
+   "context": "EquipGetProperty(\"a\"){;} EquipGetProperty(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 27,
+   "context": "\"a\", 1, \"a\", {1}); TimestampDifference(vt);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 28,
+   "context": "TimestampDifference(vt){;} TimestampDifference(vt,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 29,
+   "context": "vt, 1, 1, {1}); SQLGetField(1);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 30,
+   "context": "SQLGetField(1){;} SQLGetField(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 31,
+   "context": "SQLGetField(1, \"a\", 1, {1}); ServerBrowseOpen(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 32,
+   "context": "\"a\", \"a\", {1}); VariableTimestamp();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 33,
+   "context": "VariableTimestamp(){;} VariableTimestamp(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 34,
+   "context": "VariableTimestamp(1, 1, {1}); MenuNodeGetTargetPage(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 35,
+   "context": "MenuNodeGetTargetPage(1, {1}); MenuNodeSetExpanded(1);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 36,
+   "context": "MenuNodeSetExpanded(1){;} MenuNodeSetExpanded(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 37,
+   "context": "MenuNodeSetExpanded(1, 1, {1}); DLLCallEx();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 38,
+   "context": "DLLCallEx({)}; TrnNew(1);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 38,
+   "context": "DLLCallEx(){;} TrnNew(1);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 39,
+   "context": "TrnNew(1){;} TrnNew(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 40,
+   "context": "\"a\", \"a\", {1}); SubscriptionGetTimestamp();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 41,
+   "context": "SubscriptionGetTimestamp(){;} SubscriptionGetTimestamp(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 42,
+   "context": "SubscriptionGetTimestamp(1, \"a\", {1}); QualityToStr();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 43,
+   "context": "QualityToStr(){;} QualityToStr(vq,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 44,
+   "context": "QualityToStr(vq, 1, 1, {1}); SubscriptionGetValue();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 45,
+   "context": "SubscriptionGetValue(){;} SubscriptionGetValue(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 46,
+   "context": "SubscriptionGetValue(1, 1, {1}); END"
+  }
+ ],
+ "warnings": []
+}

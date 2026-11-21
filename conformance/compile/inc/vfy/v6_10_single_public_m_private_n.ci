@@ -1,0 +1,11 @@
+//// PROJECT: Root1
+//// FILE: m.ci
+INT FUNCTION Pb()
+	RETURN 1;
+END
+
+//// FILE: n.ci
+PRIVATE INT FUNCTION Pb()
+	RETURN 2;
+END
+

@@ -1,0 +1,12 @@
+/// <summary>
+/// Does things
+/// </summary>
+/// <param name="a">first</param>
+INT FUNCTION F(INT a)
+	RETURN a;
+END
+/// <summary>
+/// unclosed
+INT FUNCTION G()
+	RETURN 1;
+END

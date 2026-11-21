@@ -1,0 +1,3 @@
+GLOBAL INT StrLength;
+FUNCTION ZzF()
+END

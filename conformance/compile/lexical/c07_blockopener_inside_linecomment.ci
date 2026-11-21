@@ -1,0 +1,8 @@
+INT FUNCTION P()
+	INT i;
+	! a /* inside a bang comment
+	i = ZzVisible1;
+	// a /* inside a slash comment
+	i = ZzVisible2;
+	RETURN i;
+END

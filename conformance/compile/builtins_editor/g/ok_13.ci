@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	IFDEF(1, 1, 1);
+	IFDEFAdvAlm(1, 1, 1);
+	IFDEFAnaAlm(1, 1, 1);
+	IFDEFDigAlm(1, 1, 1);
+	IFDEFHresAlm(1, 1, 1);
+	InfoForm();
+	InfoForm(1);
+	InfoFormAn(1);
+	InfoFormAn(1, 1);
+	IODeviceControl("a", 1, "a");
+	IODeviceControl("a", 1, "a", "a", "a");
+	IODeviceInfo("a", 1);
+	IODeviceInfo("a", 1, "a", "a");
+	KeyReplay();
+	KeyReplay(1);
+	LibAlarmFilterForm(1);
+	LibAlarmFilterForm(1, "a", "a", 1, "a");
+	Login("a", "a");
+	Login("a", "a", 1, "a");
+	MapOpen();
+END

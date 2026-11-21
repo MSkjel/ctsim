@@ -1,0 +1,3 @@
+//// LABEL: ZMAC(a=1) = a + 1
+FUNCTION Z(INT ZMAC)
+END

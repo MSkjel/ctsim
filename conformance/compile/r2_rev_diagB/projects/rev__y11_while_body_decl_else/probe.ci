@@ -1,0 +1,7 @@
+FUNCTION Z(INT a)
+	IF a THEN
+		WHILE a DO
+		ELSE
+		END
+	END
+END

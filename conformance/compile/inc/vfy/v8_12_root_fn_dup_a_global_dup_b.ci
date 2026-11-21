@@ -1,0 +1,18 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// FILE: a.ci
+INT FUNCTION Fd()
+	RETURN 1;
+END
+
+//// FILE: b.ci
+GLOBAL INT gd = 1;
+
+
+//// PROJECT: Bot
+//// FILE: l.ci
+GLOBAL INT gd = 1;
+INT FUNCTION Fd()
+	RETURN 1;
+END
+

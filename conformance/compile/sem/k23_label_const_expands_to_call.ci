@@ -1,0 +1,4 @@
+//// LABEL: PROBE_NOW = TimeCurrent()
+INT FUNCTION ProbeK()
+	RETURN PROBE_NOW;
+END

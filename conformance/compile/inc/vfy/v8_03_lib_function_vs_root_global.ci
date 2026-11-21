@@ -1,0 +1,12 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// FILE: r.ci
+GLOBAL INT Cl2 = 1;
+
+
+//// PROJECT: Bot
+//// FILE: b.ci
+INT FUNCTION Cl2()
+	RETURN 1;
+END
+

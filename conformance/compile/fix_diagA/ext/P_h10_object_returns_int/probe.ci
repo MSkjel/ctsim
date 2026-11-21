@@ -1,0 +1,4 @@
+OBJECT FUNCTION ProbeR()
+	RETURN 0;
+END
+

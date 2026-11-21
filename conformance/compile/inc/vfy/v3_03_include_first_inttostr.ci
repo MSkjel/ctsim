@@ -1,0 +1,17 @@
+//// PROJECT: Root1
+//// INCLUDE: Zlib
+//// FILE: a.ci
+FUNCTION R1Bad()
+	Unknown_root();
+END
+
+
+//// PROJECT: Zlib
+//// FILE: a.ci
+STRING FUNCTION IntToStr()
+	RETURN "x";
+END
+FUNCTION ZBad()
+	Unknown_zlib();
+END
+

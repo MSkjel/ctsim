@@ -1,0 +1,5 @@
+STRING FUNCTION P()
+	STRING s;
+	s = "blåbærsyltetøy ÆØÅ é ü ß";
+	RETURN s;
+END

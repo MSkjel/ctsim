@@ -1,0 +1,48 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Root1",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2015",
+     "msg": "Bad raw data type",
+     "file": "r.ci",
+     "line": 1,
+     "context": "KeyMove({1})",
+     "project": "Root1"
+    },
+    {
+     "code": "E2008",
+     "msg": "Tag expected",
+     "file": "r.ci",
+     "line": 1,
+     "context": "KeyMove({1})",
+     "project": "Root1"
+    },
+    {
+     "code": "E2041",
+     "msg": "Operand expected",
+     "file": "r.ci",
+     "line": 1,
+     "context": "KeyMove(1{)}",
+     "project": "Root1"
+    }
+   ],
+   "warnings": [
+    {
+     "code": "W1006",
+     "msg": "Function has the same name as built-in function",
+     "file": "r.ci",
+     "line": 1,
+     "context": "{KeyMove}(1)",
+     "project": "Root1"
+    }
+   ]
+  }
+ ]
+}

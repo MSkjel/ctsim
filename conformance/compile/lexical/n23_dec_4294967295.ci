@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT v;
+	v = 4294967295;
+	RETURN v;
+END

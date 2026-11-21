@@ -1,0 +1,16 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_ForTo()",
+ "function": "Conf_ForTo",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "count=3;i_after=4",
+ "facts": {
+  "count": "3",
+  "i_after": "4"
+ },
+ "source": "// FOR: is TO re-evaluated on every pass?\nSTRING FUNCTION Conf_ForTo()\n\tINT i;\n\tINT n = 5;\n\tINT count = 0;\n\tFOR i = 1 TO n DO\n\t\tn = n - 1;\n\t\tcount = count + 1;\n\tEND\n\tRETURN \"count=\" + Conf_I(count) + \";i_after=\" + Conf_I(i);\nEND\n"
+}

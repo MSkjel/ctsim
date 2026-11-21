@@ -1,0 +1,59 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Bot",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "bot.ci",
+     "line": 2,
+     "context": "BotFn() RETURN {MidFn}(); END",
+     "project": "Bot"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "bot.ci",
+     "line": 2,
+     "context": "RETURN MidFn(){;} END",
+     "project": "Bot"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "bot.ci",
+     "line": 2,
+     "context": "RETURN MidFn(){;} END",
+     "project": "Bot"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "bot.ci",
+     "line": 5,
+     "context": "MidFn(); END {}",
+     "project": "Bot"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "compile": "Mid",
+   "ok": true,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "compile": "Top",
+   "ok": true,
+   "errors": [],
+   "warnings": []
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+INT FUNCTION ProbeCoerce()
+	INT a = Abs("-5");
+	INT b = Round("2.5", "0");
+	RETURN a + b;
+END

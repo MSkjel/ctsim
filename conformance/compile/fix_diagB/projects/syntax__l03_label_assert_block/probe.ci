@@ -1,0 +1,4 @@
+FUNCTION Z(INT x)
+	Assert(x > 0);
+	IF x THEN Assert(x) END
+END

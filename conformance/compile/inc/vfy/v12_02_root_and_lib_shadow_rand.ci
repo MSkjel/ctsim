@@ -1,0 +1,14 @@
+//// PROJECT: Root1
+//// INCLUDE: Zlib
+//// FILE: r.ci
+INT FUNCTION Rand(INT n)
+	RETURN n;
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+INT FUNCTION Rand(INT n)
+	RETURN n;
+END
+

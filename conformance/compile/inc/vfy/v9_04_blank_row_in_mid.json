@@ -1,0 +1,31 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Root1",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2008",
+     "msg": "Tag expected",
+     "file": "INCLUDE.DBF",
+     "line": 1,
+     "context": "{}",
+     "project": "Zmid"
+    },
+    {
+     "code": "F4016",
+     "msg": "The include project was not found in Plant SCADA Studio",
+     "file": "INCLUDE.DBF",
+     "line": null,
+     "context": "",
+     "project": "Zmid"
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

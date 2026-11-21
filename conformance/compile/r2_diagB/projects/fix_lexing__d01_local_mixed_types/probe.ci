@@ -1,0 +1,6 @@
+STRING FUNCTION P()
+	INT a, STRING s;
+	a = 1;
+	s = "x";
+	RETURN s + "y";
+END

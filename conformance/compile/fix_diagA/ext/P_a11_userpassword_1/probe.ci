@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	RETURN UserPassword("a");
+END
+

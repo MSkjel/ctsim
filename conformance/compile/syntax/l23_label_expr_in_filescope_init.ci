@@ -1,0 +1,4 @@
+//// LABEL: SUM = 3 + 4
+MODULE INT m = SUM;
+FUNCTION Z()
+END

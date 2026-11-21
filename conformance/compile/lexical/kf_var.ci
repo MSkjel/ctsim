@@ -1,0 +1,3 @@
+INT FUNCTION var()
+	RETURN 0;
+END

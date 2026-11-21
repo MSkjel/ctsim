@@ -1,0 +1,20 @@
+//// PROJECT: Main
+//// INCLUDE: A
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: A
+//// INCLUDE: B
+//// FILE: a.ci
+INT FUNCTION AFn()
+	RETURN 1;
+END
+
+//// PROJECT: B
+//// INCLUDE: A
+//// FILE: b.ci
+INT FUNCTION BFn()
+	RETURN 1;
+END

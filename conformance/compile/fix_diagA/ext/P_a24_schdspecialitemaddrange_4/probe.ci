@@ -1,0 +1,5 @@
+FUNCTION P()
+	TIMESTAMP t = TimestampCurrent();
+	SchdSpecialItemAddRange("c", "1", t, t);
+END
+

@@ -1,0 +1,4 @@
+INT FUNCTION ProbeR()
+	Sleep(1);
+END
+

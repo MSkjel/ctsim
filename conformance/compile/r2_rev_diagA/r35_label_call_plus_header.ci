@@ -1,0 +1,3 @@
+//// LABEL: ZzE(a) = ZzT6(a) + 1
+FUNCTION ZzE(INT x)
+END

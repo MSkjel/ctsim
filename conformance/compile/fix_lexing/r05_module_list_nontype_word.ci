@@ -1,0 +1,4 @@
+MODULE INT ma, LONG mb;
+INT FUNCTION P()
+	RETURN LONG + ma;
+END

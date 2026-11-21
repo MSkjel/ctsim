@@ -1,0 +1,3 @@
+INT FUNCTION while()
+	RETURN 0;
+END

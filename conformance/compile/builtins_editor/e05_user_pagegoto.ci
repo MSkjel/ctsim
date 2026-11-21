@@ -1,0 +1,3 @@
+INT FUNCTION PageGoto(STRING s)
+	RETURN 0;
+END

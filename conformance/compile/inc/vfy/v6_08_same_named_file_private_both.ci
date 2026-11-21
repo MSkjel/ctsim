@@ -1,0 +1,20 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// FILE: x.ci
+PRIVATE INT FUNCTION Pw()
+	RETURN 1;
+END
+INT FUNCTION R1Fn()
+	RETURN Pw();
+END
+
+
+//// PROJECT: Bot
+//// FILE: x.ci
+PRIVATE INT FUNCTION Pw()
+	RETURN 2;
+END
+INT FUNCTION BotFn()
+	RETURN Pw();
+END
+

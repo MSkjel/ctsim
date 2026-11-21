@@ -1,0 +1,4 @@
+FUNCTION ZzF()
+	RETURN StrLength("a") + 1;
+END
+

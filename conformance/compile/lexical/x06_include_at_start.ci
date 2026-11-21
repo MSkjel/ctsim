@@ -1,0 +1,4 @@
+@<ZzNoSuchFile.cii>
+INT FUNCTION P()
+	RETURN 0;
+END

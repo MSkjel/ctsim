@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i;
+	i = $3;
+	RETURN i;
+END

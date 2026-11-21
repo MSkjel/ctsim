@@ -1,0 +1,4 @@
+PRIVATE INT pX;
+FUNCTION ProbeA()
+END
+

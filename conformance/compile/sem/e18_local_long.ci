@@ -1,0 +1,4 @@
+FUNCTION ProbeT()
+	LONG lX;
+	lX = 5;
+END

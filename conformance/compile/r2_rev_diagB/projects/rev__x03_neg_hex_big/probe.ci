@@ -1,0 +1,5 @@
+FUNCTION Z()
+	INT i;
+	i = -0x80000001;
+	Sleep(i);
+END

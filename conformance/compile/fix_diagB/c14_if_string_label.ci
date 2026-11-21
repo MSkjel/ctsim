@@ -1,0 +1,6 @@
+//// LABEL: ZSTRLAB = "abc"
+FUNCTION Z()
+	IF ZSTRLAB THEN
+		Sleep(0);
+	END
+END

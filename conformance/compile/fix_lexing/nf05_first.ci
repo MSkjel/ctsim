@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT Šq;
+	Šq = 1;
+	RETURN Šq;
+END

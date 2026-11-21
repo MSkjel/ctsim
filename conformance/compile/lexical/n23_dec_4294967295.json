@@ -1,0 +1,12 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [],
+ "aliases": [
+  "r2_diagB/projects/lexical__n23_dec_4294967295/probe.ci"
+ ]
+}

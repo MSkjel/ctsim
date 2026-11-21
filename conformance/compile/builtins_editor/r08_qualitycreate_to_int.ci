@@ -1,0 +1,3 @@
+FUNCTION P()
+	INT i = QualityCreate(1);
+END

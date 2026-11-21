@@ -1,0 +1,5 @@
+FUNCTION ProbeD(INT a)
+	INT a;
+	a = 1;
+END
+

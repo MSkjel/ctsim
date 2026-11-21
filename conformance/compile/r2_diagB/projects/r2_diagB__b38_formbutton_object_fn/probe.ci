@@ -1,0 +1,7 @@
+OBJECT FUNCTION ZO()
+	OBJECT o;
+	RETURN o;
+END
+FUNCTION Z()
+	FormButton(1, 1, "x", ZO, 0);
+END

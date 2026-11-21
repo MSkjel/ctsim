@@ -1,0 +1,5 @@
+INT FUNCTION ZzF()
+	INT a = 1
+	LONG b;
+	RETURN a;
+END

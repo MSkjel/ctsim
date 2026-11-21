@@ -1,0 +1,17 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION RootOnly()
+	RETURN 5;
+END
+
+INT FUNCTION MainFn()
+	RETURN RootOnly();
+END
+
+//// PROJECT: LibA
+//// LABEL: RootOnly = LibFn
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN 1;
+END

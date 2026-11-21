@@ -1,0 +1,4 @@
+STRING FUNCTION Z(INT i)
+	INT w = 5;
+	RETURN i:w;
+END

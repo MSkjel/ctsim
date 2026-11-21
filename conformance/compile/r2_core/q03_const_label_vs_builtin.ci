@@ -1,0 +1,4 @@
+//// LABEL: Sign = 5
+REAL FUNCTION ZzF()
+	RETURN Sign(1.5);
+END

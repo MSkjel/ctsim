@@ -1,0 +1,9 @@
+//// FILE: a.ci
+PRIVATE FUNCTION ZzA()
+END
+FUNCTION ZzU()
+	ZzA(1);
+END
+//// FILE: b.ci
+FUNCTION ZzA(INT x)
+END

@@ -1,0 +1,4 @@
+FUNCTION ProbeR()
+	INT h = WinNew("Page1");
+END
+

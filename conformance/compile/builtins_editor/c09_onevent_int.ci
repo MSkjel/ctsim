@@ -1,0 +1,3 @@
+FUNCTION P()
+	OnEvent(1, 5);
+END

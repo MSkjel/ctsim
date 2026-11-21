@@ -1,0 +1,3 @@
+FUNCTION ProbeD()
+	StrLeft("abc", 1, 2);
+END

@@ -1,0 +1,4 @@
+STRING FUNCTION ProbeR()
+	RETURN 1;
+END
+

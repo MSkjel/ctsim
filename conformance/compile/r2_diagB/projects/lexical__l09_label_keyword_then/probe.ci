@@ -1,0 +1,7 @@
+INT FUNCTION P()
+	INT i;
+	IF i = 1 ZzThen
+		i = 2;
+	END
+	RETURN i;
+END

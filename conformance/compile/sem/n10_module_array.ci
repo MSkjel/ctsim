@@ -1,0 +1,6 @@
+MODULE INT mArr[5];
+GLOBAL STRING gArr[2][3];
+FUNCTION ProbeN()
+	mArr[0] = 1;
+	gArr[1][2] = "x";
+END

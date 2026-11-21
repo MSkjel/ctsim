@@ -1,0 +1,3 @@
+FUNCTION ProbeQ()
+	INT h = FtpOpen("a", "b", "c");
+END

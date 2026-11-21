@@ -1,0 +1,4 @@
+FUNCTION Z(INT x)
+	INT y;
+	IF x y = 1; END
+END

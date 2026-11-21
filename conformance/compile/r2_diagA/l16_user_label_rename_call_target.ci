@@ -1,0 +1,6 @@
+//// LABEL: ZzRenS(a) = ZzSomeS(a)
+FUNCTION ZzRenS(INT x)
+END
+FUNCTION ZzUse()
+	ZzSomeS(1);
+END

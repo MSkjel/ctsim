@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT v;
+	v = 0o40000000000;
+	RETURN v;
+END

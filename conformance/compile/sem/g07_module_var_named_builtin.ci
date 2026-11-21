@@ -1,0 +1,4 @@
+MODULE INT StrLeft;
+FUNCTION ProbeG()
+	StrLeft = 2;
+END

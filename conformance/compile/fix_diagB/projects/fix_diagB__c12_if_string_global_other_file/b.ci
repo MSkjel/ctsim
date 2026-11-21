@@ -1,0 +1,5 @@
+FUNCTION Z()
+	IF gS THEN
+		Sleep(0);
+	END
+END

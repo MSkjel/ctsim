@@ -1,0 +1,9 @@
+FUNCTION Z(INT x)
+	SELECT CASE x
+	CASE 1
+		IF x THEN
+			x = 2;
+	CASE 2
+		x = 3;
+	END SELECT
+END

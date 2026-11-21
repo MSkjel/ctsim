@@ -1,0 +1,4 @@
+GLOBAL LONG gX;
+FUNCTION ProbeT()
+END
+

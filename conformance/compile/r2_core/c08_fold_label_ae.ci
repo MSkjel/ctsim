@@ -1,0 +1,4 @@
+//// LABEL: ZzLæ = 5
+INT FUNCTION ZzF()
+	RETURN ZZLÆ;
+END

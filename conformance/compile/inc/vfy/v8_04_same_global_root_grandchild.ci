@@ -1,0 +1,18 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// FILE: a.ci
+GLOBAL INT gRG = 1;
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// FILE: zm.ci
+INT FUNCTION ZmidFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// FILE: z.ci
+GLOBAL INT gRG = 1;
+

@@ -1,0 +1,6 @@
+//// PROJECT: Main
+//// INCLUDE: =Include
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN StrToInt("1") + TRUE;
+END

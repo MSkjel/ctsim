@@ -1,0 +1,11 @@
+//// PROJECT: Root1
+//// FILE: Zed.ci
+FUNCTION FZed()
+	Unknown_Zed();
+END
+
+//// FILE: abc.ci
+FUNCTION Fabc()
+	Unknown_abc();
+END
+

@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT v;
+	v = -2147483649;
+	RETURN v;
+END

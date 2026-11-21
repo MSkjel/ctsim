@@ -1,0 +1,4 @@
+STRING FUNCTION ZzF(INT a)
+	RETURN a:#
+	EU + ZzLiveD;
+END

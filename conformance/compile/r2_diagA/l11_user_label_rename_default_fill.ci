@@ -1,0 +1,3 @@
+//// LABEL: ZzRen3(a, b=1) = ZzOther3(a, b)
+FUNCTION ZzRen3(INT x)
+END

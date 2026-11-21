@@ -1,0 +1,39 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "info.ci",
+   "line": 205,
+   "context": "IODeviceInfo(hIODevice, 0){;} END _RefreshIODeviceStats();"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "info.ci",
+   "line": 230,
+   "context": "IODeviceInfo(hIODevice, 0){;} END _RefreshIODeviceStats();"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "info.ci",
+   "line": 265,
+   "context": "IODeviceInfo(hIODevice, 0){;} IF hIODevice"
+  }
+ ],
+ "warnings": [
+  {
+   "code": "W1006",
+   "msg": "Function has the same name as built-in function",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "{IODeviceInfo}(INT a,INT"
+  }
+ ]
+}

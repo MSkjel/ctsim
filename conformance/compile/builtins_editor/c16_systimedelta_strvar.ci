@@ -1,0 +1,4 @@
+FUNCTION P()
+	STRING s = "1";
+	SysTimeDelta(s);
+END

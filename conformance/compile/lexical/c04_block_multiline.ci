@@ -1,0 +1,8 @@
+INT FUNCTION P()
+	INT i;
+	/* line one ZzHidden1
+	   line two ZzHidden2 */
+	i = 1 /* inline ZzHidden3 */ + 2;
+	i = 1/**/+2;
+	RETURN i;
+END

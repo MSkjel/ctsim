@@ -1,0 +1,6 @@
+INT nFile;
+FUNCTION Z()
+	FOR nFile = 1 TO 3 DO
+		Sleep(0);
+	END
+END

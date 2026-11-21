@@ -1,0 +1,15 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// LOCVAR: Fshared INT
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN Fshared();
+END
+
+
+//// PROJECT: Bot
+//// FILE: b.ci
+INT FUNCTION Fshared()
+	RETURN 1;
+END
+

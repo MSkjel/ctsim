@@ -1,0 +1,8 @@
+INT FUNCTION ZCb()
+	RETURN 0;
+END
+FUNCTION Z()
+	IF OnEvent(5, ZCb) = 0 THEN
+		Sleep(0);
+	END
+END

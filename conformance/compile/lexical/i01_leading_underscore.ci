@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT _x = 1;
+	INT __y2_ = 2;
+	RETURN _x + __y2_;
+END

@@ -1,0 +1,25 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2031",
+   "msg": "FUNCTION expected",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "FUNCTION P() {PageKeyboardCommandsPut}(1, \"a\", \"b\","
+  }
+ ],
+ "warnings": [
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "1, 1, \"c\"){;} END"
+  }
+ ]
+}

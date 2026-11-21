@@ -1,0 +1,6 @@
+FUNCTION P()
+	LONG h;
+	h = SchdConfigOpen();
+	h = SchdOpen("e");
+	h = SchdSpecialItemModify("c", 1, "n");
+END

@@ -1,0 +1,4 @@
+//// LABEL: ZzFmt = ###
+STRING FUNCTION Z(INT i)
+	RETURN i:ZzFmt;
+END

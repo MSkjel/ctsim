@@ -1,0 +1,3 @@
+FUNCTION ProbeA()
+	GLOBAL INT gInside;
+END

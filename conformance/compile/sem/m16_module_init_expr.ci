@@ -1,0 +1,4 @@
+MODULE INT mX = 1 + 2;
+MODULE STRING mS = "a";
+FUNCTION ProbeA()
+END

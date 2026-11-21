@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	INT nTempÃ¸ = 1;
+	RETURN nTempÃ¸;
+END

@@ -1,0 +1,9 @@
+//// FILE: a.ci
+PRIVATE FUNCTION ZzFn()
+END
+//// FILE: b.ci
+PRIVATE FUNCTION ZzFn()
+END
+//// FILE: c.ci
+FUNCTION ZzFn()
+END

@@ -1,0 +1,17 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// FILE: a.ci
+FUNCTION Other()
+	UnkS2();
+END
+INT FUNCTION DupS2()
+	RETURN 1;
+END
+
+
+//// PROJECT: Bot
+//// FILE: l.ci
+INT FUNCTION DupS2()
+	RETURN 1;
+END
+

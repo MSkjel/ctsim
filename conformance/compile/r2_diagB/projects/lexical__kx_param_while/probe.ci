@@ -1,0 +1,3 @@
+INT FUNCTION ZzF(INT while)
+	RETURN 1;
+END

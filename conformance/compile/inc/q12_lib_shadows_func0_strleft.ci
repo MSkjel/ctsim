@@ -1,0 +1,11 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+STRING FUNCTION MainFn()
+	RETURN StrLeft("abc", 1);
+END
+//// PROJECT: LibA
+//// FILE: liba.ci
+STRING FUNCTION StrLeft(STRING s, INT n)
+	RETURN s;
+END

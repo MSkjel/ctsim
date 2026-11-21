@@ -1,0 +1,16 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: a.ci
+INT FUNCTION Dup()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// FILE: z.ci
+INT FUNCTION Dup()
+	RETURN 2;
+END
+
+INT FUNCTION F_lib()
+	RETURN Unknown_lib();
+END

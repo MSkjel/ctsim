@@ -1,0 +1,6 @@
+//// LABEL: ZzTwo = i = 1; i = 2;
+INT FUNCTION P()
+	INT i;
+	ZzTwo
+	RETURN i;
+END

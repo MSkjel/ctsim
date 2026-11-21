@@ -1,0 +1,4 @@
+FUNCTION ZzF()
+	INT i = TestSinWave;
+	INT j = FlashColourState;
+END

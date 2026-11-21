@@ -1,0 +1,4 @@
+FUNCTION ProbeB()
+	zzNope();
+END
+

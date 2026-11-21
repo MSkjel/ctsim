@@ -1,0 +1,26 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// LOCVAR: LvRoot INT
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN LvLeaf;
+END
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// FILE: zm.ci
+INT FUNCTION ZmidFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// LOCVAR: LvLeaf INT
+//// FILE: l.ci
+INT FUNCTION LeafFn()
+	RETURN LvRoot;
+END
+
+//// COMPILE: Root1
+//// COMPILE: Zmid

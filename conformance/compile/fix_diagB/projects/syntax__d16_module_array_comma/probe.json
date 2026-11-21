@@ -1,0 +1,27 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2011",
+   "msg": "Close bracket expected",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "MODULE INT a[2{,}3]; FUNCTION"
+  },
+  {
+   "code": "E2031",
+   "msg": "FUNCTION expected",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "MODULE INT a[2,{3}]; FUNCTION"
+  }
+ ],
+ "warnings": [],
+ "aliases": [
+  "r2_diagB/projects/syntax__d16_module_array_comma/probe.ci"
+ ]
+}

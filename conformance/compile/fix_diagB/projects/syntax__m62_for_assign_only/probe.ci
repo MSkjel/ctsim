@@ -1,0 +1,5 @@
+INT FUNCTION Z()
+	INT i;
+	FOR i = 5;
+	RETURN i;
+END

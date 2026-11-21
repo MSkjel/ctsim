@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	ScheduleItemAdd("a", "a", "a", vt, vt, "a", "a");
+	ScheduleItemDelete("a", 1);
+	ScheduleItemModify("a", 1, "a", vt, vt, "a");
+	ScheduleItemModify("a", 1, "a", vt, vt, "a", "a");
+	ScheduleItemSetRepeat("a", 1, 1, 1, 1, 1, 1, vt, 1, 1, 1);
+	ScheduleItemSetRepeat("a", 1, 1, 1, 1, 1, 1, vt, 1, 1, 1, 1, "a");
+	ServerDumpKernel(1, "a", "a");
+	ServerDumpKernel(1, "a", "a", "a");
+	ServerGetProperty("a", "a");
+	ServerGetProperty("a", "a", "a", "a");
+	ServerInfo("a", 1);
+	ServerInfo("a", 1, "a");
+	ServerInfoEx("a", 1, "a");
+	ServerInfoEx("a", 1, "a", "a", "a");
+	ServerIsOnline("a");
+	ServerIsOnline("a", "a", 1);
+	ServerReload("a");
+	ServerReload("a", "a", 1);
+	ServerRPC("a", "a", "a", 1);
+	ServerRPC("a", "a", "a", 1, "a");
+END

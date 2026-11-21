@@ -1,0 +1,4 @@
+FUNCTION ProbeQ()
+	DspCol(1, 2);
+END
+

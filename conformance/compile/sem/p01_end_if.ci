@@ -1,0 +1,6 @@
+FUNCTION ProbeP(INT a)
+	IF a = 1 THEN
+		Sleep(1);
+	END IF
+	Sleep(2);
+END

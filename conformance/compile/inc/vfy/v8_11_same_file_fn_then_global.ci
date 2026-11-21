@@ -1,0 +1,7 @@
+//// PROJECT: Root1
+//// FILE: q.ci
+INT FUNCTION Cy()
+	RETURN 1;
+END
+GLOBAL INT Cy = 1;
+

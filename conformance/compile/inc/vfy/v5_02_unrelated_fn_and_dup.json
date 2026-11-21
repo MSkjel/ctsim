@@ -1,0 +1,47 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Root1",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "r.ci",
+     "line": 2,
+     "context": "AlibFn() + {UnrelOnly}(); END",
+     "project": "Root1"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "r.ci",
+     "line": 2,
+     "context": "UnrelOnly(){;} END",
+     "project": "Root1"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "r.ci",
+     "line": 2,
+     "context": "UnrelOnly(){;} END",
+     "project": "Root1"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "r.ci",
+     "line": 6,
+     "context": "UnrelOnly(); END {}",
+     "project": "Root1"
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

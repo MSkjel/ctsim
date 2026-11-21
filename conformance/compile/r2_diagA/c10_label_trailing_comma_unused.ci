@@ -1,0 +1,4 @@
+//// LABEL: ZzUnused(a, b=1) = StrLength(a)
+FUNCTION ZzF()
+	INT i = ZzUnused("x", );
+END

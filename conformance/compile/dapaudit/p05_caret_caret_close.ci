@@ -1,0 +1,4 @@
+STRING FUNCTION ProbeCaret()
+	STRING s = "abc^^";
+	RETURN s;
+END

@@ -1,0 +1,26 @@
+//// PROJECT: Main
+//// INCLUDE: A
+//// INCLUDE: B
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: A
+//// FILE: a.ci
+INT FUNCTION F_A()
+	RETURN Unknown_A();
+END
+
+//// PROJECT: B
+//// INCLUDE: C
+//// FILE: b.ci
+INT FUNCTION BFn()
+	RETURN 1;
+END
+
+//// PROJECT: C
+//// FILE: c.ci
+INT FUNCTION F_C()
+	RETURN Unknown_C();
+END

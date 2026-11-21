@@ -1,0 +1,4 @@
+//// LABEL: PROBE_INC(x, step=10) = ((x) + (step))
+INT FUNCTION ProbeK()
+	RETURN PROBE_INC(1) + PROBE_INC(1, 2);
+END

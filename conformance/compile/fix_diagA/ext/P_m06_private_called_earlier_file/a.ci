@@ -1,0 +1,3 @@
+FUNCTION ProbeA()
+	ProbePriv();
+END

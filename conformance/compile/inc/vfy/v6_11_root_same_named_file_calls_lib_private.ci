@@ -1,0 +1,14 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// FILE: x.ci
+INT FUNCTION R1Fn()
+	RETURN Pv9();
+END
+
+
+//// PROJECT: Bot
+//// FILE: x.ci
+PRIVATE INT FUNCTION Pv9()
+	RETURN 1;
+END
+

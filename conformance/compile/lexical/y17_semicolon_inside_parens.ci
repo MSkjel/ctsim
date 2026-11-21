@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; INT j;
+	i = (1;2);
+	RETURN 0;
+END

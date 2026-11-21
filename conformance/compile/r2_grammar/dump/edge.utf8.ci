@@ -1,0 +1,40 @@
+/**/ Aa1
+/* x **/ Aa2
+/*** y ***/ Aa3
+/** @param p desc */ Aa4
+/*/ still comment */ Aa5
+/// <summary>
+/// text
+INT FUNCTION F1(INT a)
+  a = 1. + 1e3 + 1E+3 + 1.e5 + 1e + 0b101 + 0B11 + 0o17 + 0O7 + .5 + 017;
+  a = 0x100000000 + 0xFFFFFFFF + 0x0000000001 + 4294967295 + 4294967296 + 00004294967295 + 0o40000000000;
+  s = a : ### + a:#0-###.##EU + a : 
+   ### + a:/* c */###;
+  s = a: ! c
+  ###;
+  s = a:5 + a:-5.2 + a:~ + a:0x5 + a:###engunit + a:#### EU + a:6.0EU + a:0### + a:###! Zz + a:#S##;
+  iF a THEN a = nIf + a\if + ÆIF + x²if; End
+  s = "a^"b" + "multi
+line^
+" + TRUE + false;
+  IF a == 1 OR a >< 2 OR a <> 3 OR a != 4 THEN
+  END
+  SELECT CASE a CASE 1 a = 2 END SELECT a = 3
+  RETURN a
+END
+FUNCTION F2 RETURN (1) END INT FUNCTION F3() RETURN 1; END
+PRIVATE
+INT
+FUNCTION // c
+  F4()
+  SELECT CASE a
+  CASE 1
+  END
+  SELECT
+  RETURN 2;
+END
+FUNCTION F5()
+  FOR i = 1 TO 2 DO a = 1 END FOR
+END
+FUNCTION F6()
+END

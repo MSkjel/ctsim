@@ -1,0 +1,34 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// FILE: zm.ci
+INT FUNCTION ZmidFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// INCLUDE: Mbot
+//// FILE: l.ci
+INT FUNCTION LeafFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Mbot
+//// INCLUDE: =CIP_LEAF
+//// FILE: m.ci
+INT FUNCTION MbotFn()
+	RETURN 1;
+END
+
+//// COMPILE: Root1
+//// COMPILE: Leaf
+//// COMPILE: Mbot

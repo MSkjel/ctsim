@@ -1,0 +1,3 @@
+INT FUNCTION P()
+	RETURN FtpOpen();
+END

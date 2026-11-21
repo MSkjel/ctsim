@@ -1,0 +1,7 @@
+INT FUNCTION ZCb()
+	RETURN 0;
+END
+FUNCTION Z()
+	STRING s;
+	FormField(1, 1, 10, 1, 1, s, "x", ZCb, 0);
+END

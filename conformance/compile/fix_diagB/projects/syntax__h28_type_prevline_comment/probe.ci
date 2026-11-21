@@ -1,0 +1,7 @@
+INT // comment
+! another
+/* block */
+FUNCTION /* c */ F /* c */ ( /* c */ INT a /* c */ = /* c */ 1 ! c
+)
+	RETURN a;
+END

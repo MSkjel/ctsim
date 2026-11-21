@@ -1,0 +1,6 @@
+STRING FUNCTION P()
+	STRING s;
+	s = "a ! b // c /* d";
+	s = ZzVisible;
+	RETURN s;
+END

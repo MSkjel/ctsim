@@ -1,0 +1,3 @@
+FUNCTION ProbeC()
+	zzNoSuchFunc(1);
+END

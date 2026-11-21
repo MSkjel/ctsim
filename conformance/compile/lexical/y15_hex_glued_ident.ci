@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; INT j;
+	i = 0x1FZz;
+	RETURN 0;
+END

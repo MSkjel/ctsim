@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; STRING s;
+	IF NOT ("a" = "b") THEN i = 1; END
+	RETURN 0;
+END

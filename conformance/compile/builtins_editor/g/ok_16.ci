@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	PageTrend();
+	PageTrend("a", "a", "a", "a", "a", "a", "a", "a", "a");
+	PageTrendEx();
+	PageTrendEx("a", "a", "a", "a", "a", "a", "a", "a", "a", "a");
+	PlotInfo(1, 1);
+	PlotInfo(1, 1, "a");
+	Print(1);
+	Print(1, 1);
+	ProcessAnalystPopup("a");
+	ProcessAnalystPopup("a", "a", 1, 1, "a", 1);
+	ProcessAnalystSelect(1, "a");
+	ProcessAnalystSelect(1, "a", "a", "a", 1, "a", 1);
+	ProcessAnalystSetPen(1, "a");
+	ProcessAnalystSetPen(1, "a", "a", 1, 1);
+	ProcessAnalystWin("a", 1, 1, 1);
+	ProcessAnalystWin("a", 1, 1, 1, "a", 1, 1, "a");
+	ProcessIsServer("a");
+	ProcessIsServer("a", "a", "a");
+	QualityCreate(1);
+	QualityCreate(1, 1, 1, 1, 1, 1, 1);
+END

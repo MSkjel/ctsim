@@ -1,0 +1,4 @@
+FUNCTION ZzF()
+	RETURN KEY_F1;
+END
+

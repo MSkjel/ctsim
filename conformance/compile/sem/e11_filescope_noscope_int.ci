@@ -1,0 +1,4 @@
+INT zzFileVar;
+FUNCTION ProbeT()
+	zzFileVar = 1;
+END

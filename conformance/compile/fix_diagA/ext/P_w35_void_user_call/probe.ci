@@ -1,0 +1,6 @@
+FUNCTION ZzF()
+	RETURN ZzV();
+END
+FUNCTION ZzV()
+END
+

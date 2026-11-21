@@ -1,0 +1,4 @@
+MODULE INT a = 1;
+MODULE STRING s = a;
+FUNCTION Z()
+END

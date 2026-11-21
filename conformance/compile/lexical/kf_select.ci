@@ -1,0 +1,3 @@
+INT FUNCTION select()
+	RETURN 0;
+END

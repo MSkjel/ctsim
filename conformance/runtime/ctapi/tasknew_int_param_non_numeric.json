@@ -1,0 +1,14 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "call": "TaskNew(\"AddZeroFront\", \"^\"abc^\"\", 0)",
+ "note": "Include AFilter.ci: STRING FUNCTION AddZeroFront(INT Number). TaskNew checks the arguments before creating the task: no task, no hardware error, no debugger event.",
+ "ok": true,
+ "result": "-1",
+ "kernelOutput": "Function AddZeroFront, parameter 1, number type (4) parameter expected, value=abc",
+ "control": {
+  "call": "TaskNew(\"AddZeroFront\", \"5\", 0)",
+  "result": "3 (a task handle)"
+ }
+}

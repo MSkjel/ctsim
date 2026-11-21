@@ -1,0 +1,8 @@
+//// FILE: a.ci
+INT FUNCTION ZzUse()
+	RETURN ZzLm(1, 2);
+END
+//// FILE: b.ci
+INT FUNCTION ZzLm(INT a, INT b)
+	RETURN a + b;
+END

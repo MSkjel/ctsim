@@ -1,0 +1,4 @@
+STRING FUNCTION ProbeK()
+	RETURN PROBE_FN("abc", 1);
+END
+

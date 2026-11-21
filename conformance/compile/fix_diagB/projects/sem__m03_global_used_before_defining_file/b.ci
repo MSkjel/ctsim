@@ -1,0 +1,4 @@
+GLOBAL INT gProbeY;
+FUNCTION ProbeB()
+	gProbeY = 2;
+END

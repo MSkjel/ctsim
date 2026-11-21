@@ -1,0 +1,4 @@
+FUNCTION ZzF()
+	Print ("a");
+	DspButton (1, 0, "t");
+END

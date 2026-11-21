@@ -1,0 +1,4 @@
+INT FUNCTION ProbeK()
+	RETURN PROBE_OB(, 2) + PROBE_OB(5, 2);
+END
+

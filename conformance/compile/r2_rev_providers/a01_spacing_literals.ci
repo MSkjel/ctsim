@@ -1,0 +1,10 @@
+INT FUNCTION ZzA(INT a,INT b=1,STRING c="x=y,z")
+INT x=1,y=2
+STRING s="a=b,c"+"d^",e=f",t
+	IF a>=b THEN x=a<=b END
+	x=StrToInt("1")+StrLength("a,b")
+	s=x:###!="3"
+	s = y :#.## EU;s=s+","//a=b,c
+	t=s!x=1,2
+	RETURN x+y+StrLength(s+t+c)
+END

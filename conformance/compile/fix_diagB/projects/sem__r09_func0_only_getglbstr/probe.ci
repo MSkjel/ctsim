@@ -1,0 +1,4 @@
+FUNCTION ProbeR()
+	STRING s = GetGlbStr(0);
+	SetGlbStr(0, "x");
+END

@@ -1,0 +1,6 @@
+FUNCTION ProbeS()
+	Sleep(0);
+END
+PRIVATE FUNCTION _FormDataGetHnd()
+END
+

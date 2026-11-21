@@ -1,0 +1,8 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "call": "StrToInt(\"2147483648\")",
+ "ok": true,
+ "result": "2147483647"
+}

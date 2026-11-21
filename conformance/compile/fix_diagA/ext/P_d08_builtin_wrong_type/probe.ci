@@ -1,0 +1,4 @@
+FUNCTION ProbeD()
+	STRING s = StrLeft(123, "x");
+END
+

@@ -1,0 +1,12 @@
+//// PROJECT: Root1
+//// INCLUDE: LibA
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN NoSuchFnV0();
+END
+
+//// PROJECT: LibA
+//// FILE: la.ci
+INT FUNCTION LibAFn()
+	RETURN 1;
+END

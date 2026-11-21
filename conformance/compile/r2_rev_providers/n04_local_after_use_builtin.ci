@@ -1,0 +1,6 @@
+INT FUNCTION ZzU()
+	INT i = StrToInt("1");
+	INT StrToInt = 0;
+	i = i + StrToInt("2");
+	RETURN i;
+END

@@ -1,0 +1,35 @@
+//// PROJECT: Root1
+//// INCLUDE: Alib
+//// FILE: r.ci
+INT FUNCTION RootSame()
+	RETURN SameFn() + SAMEL + gSame;
+END
+
+
+//// PROJECT: Root2
+//// INCLUDE: Zlib
+//// FILE: r.ci
+INT FUNCTION RootSame()
+	RETURN SameFn() + SAMEL + gSame;
+END
+
+
+//// PROJECT: Alib
+//// LABEL: SAMEL = 1
+//// FILE: a.ci
+GLOBAL INT gSame = 1;
+INT FUNCTION SameFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zlib
+//// LABEL: SAMEL = 2
+//// FILE: a.ci
+GLOBAL INT gSame = 2;
+INT FUNCTION SameFn()
+	RETURN 2;
+END
+
+//// COMPILE: Root1
+//// COMPILE: Root2

@@ -1,0 +1,4 @@
+FUNCTION P()
+	STRING s = "abc
+def";
+END

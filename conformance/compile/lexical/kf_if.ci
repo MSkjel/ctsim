@@ -1,0 +1,3 @@
+INT FUNCTION if()
+	RETURN 0;
+END

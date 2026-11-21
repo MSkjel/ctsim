@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT ²_a = 1;
+	INT b²c = 2;
+	RETURN ²_a + b²c;
+END

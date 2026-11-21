@@ -1,0 +1,6 @@
+//// LABEL: ZINT = INT
+FUNCTION Z(ZINT i)
+	FOR i = 1 TO 2 DO
+		Sleep(0);
+	END
+END

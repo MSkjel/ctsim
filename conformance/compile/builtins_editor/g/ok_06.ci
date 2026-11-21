@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	AlmTagsOpen("a", "a");
+	AlmTagsOpen("a", "a", "a", 1);
+	ArrayCreate("a", 1);
+	ArrayCreate("a", 1, 1, 1);
+	ArrayCreateByAn(1, 1);
+	ArrayCreateByAn(1, 1, 1, 1);
+	ArrayGetInt(1, 1);
+	ArrayGetInt(1, 1, 1, 1);
+	ArrayGetIntByAn(1, 1);
+	ArrayGetIntByAn(1, 1, 1, 1);
+	ArrayGetString(1, 1);
+	ArrayGetString(1, 1, 1, 1);
+	ArrayGetStringByAn(1, 1);
+	ArrayGetStringByAn(1, 1, 1, 1);
+	ArraySetInt(1, 1, 1);
+	ArraySetInt(1, 1, 1, 1, 1);
+	ArraySetIntByAn(1, 1, 1);
+	ArraySetIntByAn(1, 1, 1, 1, 1);
+	ArraySetString(1, "a", 1);
+	ArraySetString(1, "a", 1, 1, 1);
+END

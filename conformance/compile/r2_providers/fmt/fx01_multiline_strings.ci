@@ -1,0 +1,28 @@
+INT FUNCTION FxStr()
+	STRING s = "line one   
+   indented two	
+   
+
+
+end";
+	STRING t;
+	t = StrLeft("a   
+  b", 3) + "c
+";
+IF StrLength(s) > 0 THEN
+t = "x" +
+"multi   
+   line" + "z";
+END
+	t = FxCat("p",
+	"q  
+  r"
+	);
+		t = FxCat(t ,"w  
+   v" ) ;
+	RETURN StrLength(t);
+END
+
+STRING FUNCTION FxCat(STRING a, STRING b)
+	RETURN a + b;
+END

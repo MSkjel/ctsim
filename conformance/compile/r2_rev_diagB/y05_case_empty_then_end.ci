@@ -1,0 +1,7 @@
+FUNCTION Z(INT a)
+	SELECT CASE a
+	CASE 1
+		Sleep(0);
+	CASE 2
+	END SELECT
+END

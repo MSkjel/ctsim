@@ -1,0 +1,4 @@
+INT FUNCTION ProbeP()
+	RETURN
+		5;
+END

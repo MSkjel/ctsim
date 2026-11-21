@@ -1,0 +1,9 @@
+//// FILE: a.ci
+GLOBAL INT ZzK;
+//// FILE: b.ci
+INT FUNCTION ZzK(INT a)
+	RETURN a;
+END
+INT FUNCTION ZzU()
+	RETURN ZzK(1);
+END

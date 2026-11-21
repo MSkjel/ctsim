@@ -1,0 +1,7 @@
+STRING FUNCTION P()
+	STRING s;
+	s = "abc^";
+	s = ZzInsideString";
+	s = ZzVisible;
+	RETURN s;
+END

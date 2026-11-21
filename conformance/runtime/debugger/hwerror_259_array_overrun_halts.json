@@ -1,0 +1,34 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "setup": "debugger attached, BreakOnError=1 (exception filter hardwareError), ErrSet level 0",
+ "trigger": "TaskNew(\"_PltLineStyleGet\", \"1000\", 0)",
+ "where": "Include graph.ci:271 `INT FUNCTION _PltLineStyleGet(INT iPen) RETURN LineStyle[iPen]; END` with INT LineStyle[8]",
+ "ipc": [
+  {
+   "cmd": "0x100B",
+   "tid": -1,
+   "text": "Thread 3 Hardware error (259) 'Array has been overrun' ErrPage: '' ErrDesc: '_PltLineStyleGet'"
+  },
+  {
+   "cmd": "0x1002",
+   "tid": 3,
+   "line": 271,
+   "note": "the failing statement"
+  },
+  {
+   "cmd": "0x100E",
+   "tid": 3,
+   "code": 259,
+   "desc": "Array has been overrun",
+   "errpage": " ",
+   "errdesc": "_PltLineStyleGet"
+  }
+ ],
+ "suspended": false,
+ "afterwards": "no further 0x1002/0x1003: the task halts at once (no suspend). The CtAPI call that ran TaskNew failed with 0x10000103 (= 259). Control TaskNew(\"_PltLineStyleGet\", \"1\", 0) returned task handle 3 with no events.",
+ "evidence": [
+  "the live debugger's message log (array overrun)"
+ ]
+}

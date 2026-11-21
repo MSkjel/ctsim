@@ -1,0 +1,3 @@
+FUNCTION Z()
+	OnEvent(5, Beep);
+END

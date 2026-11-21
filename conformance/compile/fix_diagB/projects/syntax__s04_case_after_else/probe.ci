@@ -1,0 +1,9 @@
+FUNCTION Z(INT x)
+	INT y;
+	SELECT CASE x
+	CASE ELSE
+		y = 5;
+	CASE 1
+		y = 1;
+	END SELECT
+END

@@ -1,0 +1,6 @@
+FUNCTION ProbeS()
+	i = 1;
+	INT i;
+	Sleep(i);
+END
+

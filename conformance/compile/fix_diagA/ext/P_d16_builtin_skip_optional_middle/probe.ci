@@ -1,0 +1,4 @@
+FUNCTION ProbeD()
+	DspStr(1, "f", "t", , 1);
+END
+

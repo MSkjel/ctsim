@@ -1,0 +1,3 @@
+INT FUNCTION StrStartsWith(STRING a, STRING b)
+	RETURN 0;
+END

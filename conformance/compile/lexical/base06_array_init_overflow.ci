@@ -1,0 +1,4 @@
+MODULE INT mArr[2] = 1, 2, 3;
+INT FUNCTION P()
+	RETURN mArr[0];
+END

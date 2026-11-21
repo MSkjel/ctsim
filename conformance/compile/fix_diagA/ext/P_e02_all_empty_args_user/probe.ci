@@ -1,0 +1,6 @@
+FUNCTION ZzA(INT a = 1, INT b = 2)
+END
+FUNCTION ZzF()
+	ZzA(,);
+END
+

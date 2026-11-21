@@ -1,0 +1,5 @@
+STRING FUNCTION P()
+	REAL r; STRING s;
+	s = r:###.##EUnits;
+	RETURN s;
+END

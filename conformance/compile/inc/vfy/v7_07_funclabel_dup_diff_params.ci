@@ -1,0 +1,24 @@
+//// PROJECT: Root1
+//// INCLUDE: Zlib
+//// INCLUDE: Alib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zlib
+//// LABEL: LQ(a) = (a)
+//// FILE: z.ci
+INT FUNCTION ZlibFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Alib
+//// LABEL: LQ(x, y) = (x)+(y)
+//// FILE: a.ci
+INT FUNCTION AlibFn()
+	RETURN 1;
+END
+

@@ -1,0 +1,22 @@
+//// PROJECT: Root1
+//// INCLUDE: Zlib
+//// INCLUDE: Alib
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Zlib
+//// FILE: z.ci
+INT FUNCTION MiXeDdUp()
+	RETURN 1;
+END
+
+
+//// PROJECT: Alib
+//// FILE: a.ci
+INT FUNCTION mixeddup()
+	RETURN 1;
+END
+

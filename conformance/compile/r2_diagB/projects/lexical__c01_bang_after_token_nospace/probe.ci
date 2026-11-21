@@ -1,0 +1,7 @@
+INT FUNCTION P()
+	INT i;
+	i = 1;! comment ZzHidden1
+	i = 2! comment ZzHidden2
+	;
+	RETURN i;
+END

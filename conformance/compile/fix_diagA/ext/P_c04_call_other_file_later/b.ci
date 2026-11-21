@@ -1,0 +1,4 @@
+INT FUNCTION ProbeB(INT a)
+	RETURN a;
+END
+

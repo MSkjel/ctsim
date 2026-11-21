@@ -1,0 +1,10 @@
+//// PROJECT: Main
+//// FILE: a.ci
+INT FUNCTION Pv()
+	RETURN 1;
+END
+
+//// FILE: b.ci
+PRIVATE INT FUNCTION Pv()
+	RETURN 2;
+END

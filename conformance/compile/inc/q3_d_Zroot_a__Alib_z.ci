@@ -1,0 +1,12 @@
+//// PROJECT: Zroot
+//// INCLUDE: Alib
+//// FILE: a.ci
+INT FUNCTION Dup()
+	RETURN 1;
+END
+
+//// PROJECT: Alib
+//// FILE: z.ci
+INT FUNCTION Dup()
+	RETURN 2;
+END

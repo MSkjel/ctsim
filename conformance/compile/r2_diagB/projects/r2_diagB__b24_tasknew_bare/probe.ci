@@ -1,0 +1,6 @@
+INT FUNCTION ZCb()
+	RETURN 0;
+END
+FUNCTION Z()
+	TaskNew(ZCb, "", 0);
+END

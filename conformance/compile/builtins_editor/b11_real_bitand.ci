@@ -1,0 +1,3 @@
+FUNCTION P()
+	INT i = 1.5 BITAND 1;
+END

@@ -1,0 +1,4 @@
+INT FUNCTION ProbeParams(STRING s = ")",
+	INT b = 2)
+	RETURN b;
+END

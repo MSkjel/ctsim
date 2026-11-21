@@ -1,0 +1,4 @@
+FUNCTION Z()
+	INT x = 0;
+	Toggle(x);
+END

@@ -1,0 +1,4 @@
+//// FILE: a.ci
+GLOBAL INT ZzM;
+//// FILE: b.ci
+MODULE INT ZzM;

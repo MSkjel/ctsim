@@ -1,0 +1,3 @@
+INT FUNCTION function()
+	RETURN 0;
+END

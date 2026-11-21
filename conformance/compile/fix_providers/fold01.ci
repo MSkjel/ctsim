@@ -1,0 +1,25 @@
+/* header
+   comment */
+// one
+// two
+FUNCTION Z(INT a)
+	INT b;
+	IF a = 1 THEN
+		b = 1;
+	ELSE IF a = 2 THEN
+		b = 2;
+	ELSE
+		b = 3;
+	END END
+	SELECT CASE a
+	CASE 1
+		b = 4;
+		b = 5;
+	CASE ELSE
+		b = 6;
+	END SELECT
+	WHILE a > 0 DO
+		a = a - 1;
+		// note
+	END
+END

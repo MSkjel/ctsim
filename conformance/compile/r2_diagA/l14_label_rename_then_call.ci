@@ -1,0 +1,5 @@
+FUNCTION UnitStats()
+END
+FUNCTION ZzUse()
+	UnitStats();
+END

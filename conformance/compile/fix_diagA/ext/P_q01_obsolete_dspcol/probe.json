@@ -1,0 +1,17 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2101",
+   "msg": "Function is obsolete and cannot be used anymore",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "FUNCTION ProbeQ() {DspCol}(1, 2); END"
+  }
+ ],
+ "warnings": []
+}

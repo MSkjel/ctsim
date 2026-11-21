@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT aﬂb;
+	aﬂb = 1;
+	RETURN aﬂb;
+END

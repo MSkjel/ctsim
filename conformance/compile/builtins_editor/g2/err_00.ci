@@ -1,0 +1,51 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	AssGetScale("a", 1);
+	DevControl(1, 1);
+	DspButtonFn(1, 1);
+	DspChart(1, "a");
+	DspSymAnm(1);
+	DspSymAnmEx(1, 1);
+	Exec();
+	ExecuteDTSPkg();
+	FTPOpen("a", "a");
+	LibAlarmFilterForm();
+	PageGetStr();
+	PageProcessAnalyst("a");
+	PageProcessAnalystPens("a");
+	SchdSpecialItemAddRange("a", 1, "a", vt);
+	ScheduleItemDelete("a");
+	ServerGetProperty("a");
+	ServerInfo("a");
+	ServerRPC("a", "a", "a");
+	SPCProcessXRSGet("a", vr, vr);
+	SPCProcessXRSSet("a", 1.5, 1.5);
+	SPCSpecLimitSet("a", 1.5);
+	StrToTimestamp();
+	StrTruncFont("a");
+	TagGetProperty("a");
+	TimestampToStr(vt);
+	UserPassword("a");
+	AlmSummaryNext();
+	AlmSummaryNext(1, 1);
+	Debug("a", "a", "a");
+	Debug("a", "a", "a", "a", 1);
+	TestVariantNULL(1);
+	DspVerbose();
+	DspVerbose("a", 1);
+	DevWrite(1);
+	DevWrite(1, "a", 1);
+	Message("a", "a");
+	Message("a", "a", 1, 1);
+	TimeIntToTimestamp();
+	TimeIntToTimestamp(1, 1, 1, 1);
+	DspInfoField(1, "a");
+END

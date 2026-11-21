@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	AlarmFilterEditAppendEquipment(1, "a");
+	AlarmFilterEditAppendEquipment(1, "a", 1);
+	AlarmFilterEditOpen("a");
+	AlarmFilterEditOpen("a", 1);
+	AlarmFilterForm();
+	AlarmFilterForm(1, 1, 1, "a");
+	AlarmFilterOpen("a", 1);
+	AlarmFilterOpen("a", 1, 1);
+	AlarmFirstCatRec(1, 1);
+	AlarmFirstCatRec(1, 1, 1, 1);
+	AlarmFirstPriRec(1, 1);
+	AlarmFirstPriRec(1, 1, 1, 1);
+	AlarmFirstTagRec("a", "a", "a");
+	AlarmFirstTagRec("a", "a", "a", "a");
+	AlarmGetDelayRec(1, 1);
+	AlarmGetDelayRec(1, 1, "a");
+	AlarmGetFieldRec(1, "a");
+	AlarmGetFieldRec(1, "a", 1, "a");
+	AlarmGetInfo(1, 1);
+	AlarmGetInfo(1, 1, "a");
+END

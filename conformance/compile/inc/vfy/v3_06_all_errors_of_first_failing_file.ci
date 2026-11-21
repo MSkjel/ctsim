@@ -1,0 +1,25 @@
+//// PROJECT: Root1
+//// INCLUDE: LibA
+//// FILE: a.ci
+FUNCTION E1()
+	UnkA1();
+END
+FUNCTION E2()
+	UnkA2();
+END
+FUNCTION E3()
+	UnkA3();
+END
+
+//// FILE: b.ci
+FUNCTION E4()
+	UnkB1();
+END
+
+
+//// PROJECT: LibA
+//// FILE: l.ci
+INT FUNCTION LibAFn()
+	RETURN 1;
+END
+

@@ -1,0 +1,16 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_RealToIntRange()",
+ "function": "Conf_RealToIntRange",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "value=0;err=434",
+ "facts": {
+  "value": "0",
+  "err": "434"
+ },
+ "source": "// REAL to INT outside the INT range.\nSTRING FUNCTION Conf_RealToIntRange()\n\tINT a;\n\tINT err;\n\tErrSet(1);\n\ta = 3000000000.0;\n\terr = IsError();\n\tRETURN \"value=\" + Conf_I(a) + \";err=\" + Conf_I(err);\nEND\n"
+}

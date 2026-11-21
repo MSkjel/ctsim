@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	DspGetAnFromPoint(1, 1, 1);
+	DspGetMouseOver();
+	DspGetMouseOver(1, 1);
+	DspInfoField(1, "a", "a");
+	DspInfoField(1, "a", "a", "a");
+	DspSetPopupMenuFont();
+	DspSetPopupMenuFont(1);
+	DspSetTooltipFont("a");
+	DspSetTooltipFont("a", 1, "a");
+	DspStr(1, "a", "a");
+	DspStr(1, "a", "a", 1, 1, 1, 1);
+	DspSym(1, "a");
+	DspSym(1, "a", 1, 1);
+	DspSymAnm(1, "a");
+	DspSymAnm(1, "a", "a", "a", "a", "a", "a", "a", "a", 1, "a");
+	DspSymAnmEx(1, 1, 1);
+	DspSymAnmEx(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+	DspSymAtSize(1, "a", 1, 1, 1, 1, 1);
+	DspSymAtSize(1, "a", 1, 1, 1, 1, 1, 1);
+	DspText(1, 1, "a");
+END

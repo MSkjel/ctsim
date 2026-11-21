@@ -1,0 +1,16 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_ShortCircuit()",
+ "function": "Conf_ShortCircuit",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "and_rhs_ran=1;or_rhs_ran=1",
+ "facts": {
+  "and_rhs_ran": "1",
+  "or_rhs_ran": "1"
+ },
+ "source": "// AND / OR: is the right operand evaluated when the left one decides?\nSTRING FUNCTION Conf_ShortCircuit()\n\tINT a;\n\tINT andRan;\n\tmTick = 0;\n\ta = 0 AND Conf_Tick();\n\tandRan = mTick;\n\tmTick = 0;\n\ta = 1 OR Conf_Tick();\n\tRETURN \"and_rhs_ran=\" + Conf_I(andRan) + \";or_rhs_ran=\" + Conf_I(mTick);\nEND\n"
+}

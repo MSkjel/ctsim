@@ -1,0 +1,13 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// INCLUDE: =Include
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// FILE: liba.ci
+INT FUNCTION StrSplit(STRING a)
+	RETURN 1;
+END

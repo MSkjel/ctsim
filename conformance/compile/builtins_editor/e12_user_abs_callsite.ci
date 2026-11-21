@@ -1,0 +1,8 @@
+//// FILE: a.ci
+REAL FUNCTION Abs(REAL r)
+	RETURN r + 1;
+END
+//// FILE: b.ci
+FUNCTION P()
+	STRING s = Abs(1) BITAND 1;
+END

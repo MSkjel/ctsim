@@ -1,0 +1,7 @@
+PRIVATE
+INT
+FUNCTION
+ProbeNext(INT a,
+	INT b)
+	RETURN a + b;
+END

@@ -1,0 +1,4 @@
+FUNCTION ProbeT(BANANA q)
+	Sleep(q);
+END
+

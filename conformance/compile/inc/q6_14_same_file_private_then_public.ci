@@ -1,0 +1,9 @@
+//// PROJECT: Main
+//// FILE: a.ci
+PRIVATE INT FUNCTION Pv()
+	RETURN 2;
+END
+
+INT FUNCTION Pv()
+	RETURN 1;
+END

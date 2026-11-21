@@ -1,0 +1,28 @@
+//// PROJECT: Root1
+//// INCLUDE: LibA
+//// FILE: r1.ci
+INT FUNCTION R1()
+	RETURN SameFn();
+END
+
+//// PROJECT: Root2
+//// INCLUDE: LibB
+//// FILE: r2.ci
+INT FUNCTION R2()
+	RETURN SameFn();
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+INT FUNCTION SameFn()
+	RETURN 1;
+END
+
+//// PROJECT: LibB
+//// FILE: b.ci
+INT FUNCTION SameFn()
+	RETURN 2;
+END
+
+//// COMPILE: Root1
+//// COMPILE: Root2

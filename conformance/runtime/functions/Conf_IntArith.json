@@ -1,0 +1,23 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_IntArith()",
+ "function": "Conf_IntArith",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "wrap=-2147483648;-7/2=-3;7/2=3;real_q=3;-7mod3=-1;7mod-3=1;7.5mod2=1.5;div0=0;err=273",
+ "facts": {
+  "wrap": "-2147483648",
+  "-7/2": "-3",
+  "7/2": "3",
+  "real_q": "3",
+  "-7mod3": "-1",
+  "7mod-3": "1",
+  "7.5mod2": "1.5",
+  "div0": "0",
+  "err": "273"
+ },
+ "source": "// INT arithmetic: wrap, division, MOD signs, REAL MOD, divide by zero.\nSTRING FUNCTION Conf_IntArith()\n\tINT big = 2147483647;\n\tINT w;\n\tINT d1;\n\tINT d2;\n\tINT m1;\n\tINT m2;\n\tINT z;\n\tINT e;\n\tREAL q;\n\tREAL rm;\n\tErrSet(1);\n\tw = big + 1;\n\td1 = -7 / 2;\n\td2 = 7 / 2;\n\tq = 7 / 2;\n\tm1 = -7 MOD 3;\n\tm2 = 7 MOD -3;\n\trm = 7.5 MOD 2;\n\tz = 1 / 0;\n\te = IsError();\n\tRETURN \"wrap=\" + Conf_I(w) + \";-7/2=\" + Conf_I(d1) + \";7/2=\" + Conf_I(d2) + \";real_q=\" + Conf_R(q) + \";-7mod3=\" + Conf_I(m1) + \";7mod-3=\" + Conf_I(m2) + \";7.5mod2=\" + Conf_R(rm) + \";div0=\" + Conf_I(z) + \";err=\" + Conf_I(e);\nEND\n"
+}

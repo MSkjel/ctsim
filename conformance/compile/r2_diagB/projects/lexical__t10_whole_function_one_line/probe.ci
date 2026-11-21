@@ -1,0 +1,1 @@
+INT FUNCTION P() INT i = 1; IF i = 1 THEN i = 2; END RETURN i; END

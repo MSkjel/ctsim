@@ -1,0 +1,4 @@
+GLOBAL STRING gs[2] = "a", "b";
+GLOBAL REAL gr[2][2] = 1, 2.5, -3, 4;
+FUNCTION Z()
+END

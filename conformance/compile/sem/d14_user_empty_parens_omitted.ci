@@ -1,0 +1,7 @@
+INT FUNCTION ProbeZ()
+	RETURN 1;
+END
+FUNCTION ProbeD()
+	INT i = ProbeZ;
+	Sleep(i);
+END

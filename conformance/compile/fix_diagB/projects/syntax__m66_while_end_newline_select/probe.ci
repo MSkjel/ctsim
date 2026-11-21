@@ -1,0 +1,7 @@
+FUNCTION Z(INT a)
+	WHILE a > 0 DO a = a - 1; END
+	SELECT CASE a
+	CASE 1
+		a = 2;
+	END SELECT
+END

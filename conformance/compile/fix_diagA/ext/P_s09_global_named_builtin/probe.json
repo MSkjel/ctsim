@@ -1,0 +1,39 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "AFilter.ci",
+   "line": 278,
+   "context": "StrLength(sLike) - 1{;} sLike"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "AFilter.ci",
+   "line": 299,
+   "context": "StrLength(sLike) - 1{;} sLike"
+  }
+ ],
+ "warnings": [
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "AFilter.ci",
+   "line": 278,
+   "context": "StrLength(sLike) {-} 1; sLike"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "AFilter.ci",
+   "line": 299,
+   "context": "StrLength(sLike) {-} 1; sLike"
+  }
+ ]
+}

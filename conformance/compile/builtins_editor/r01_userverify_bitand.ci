@@ -1,0 +1,3 @@
+FUNCTION P()
+	INT i = UserVerify("a", "b") BITAND 1;
+END

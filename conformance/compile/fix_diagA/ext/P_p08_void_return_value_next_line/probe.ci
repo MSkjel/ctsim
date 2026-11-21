@@ -1,0 +1,6 @@
+FUNCTION ProbeP()
+	INT i;
+	RETURN
+	i = 5;
+END
+

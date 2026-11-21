@@ -1,0 +1,5 @@
+FUNCTION ZzR5(INT x)
+END
+FUNCTION ZzU()
+	ZzT5();
+END

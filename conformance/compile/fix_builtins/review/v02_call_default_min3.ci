@@ -1,0 +1,4 @@
+FUNCTION P()
+	LONG h;
+	h = SchdSpecialItemModify("c", 1);
+END

@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	NOP;
+	RETURN 0;
+END

@@ -1,0 +1,3 @@
+FUNCTION ProbeU()
+	zzUnknownThing = 1;
+END

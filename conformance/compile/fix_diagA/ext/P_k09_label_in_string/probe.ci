@@ -1,0 +1,4 @@
+STRING FUNCTION ProbeK()
+	RETURN "TRUE";
+END
+

@@ -1,0 +1,5 @@
+FUNCTION ProbeR()
+	TIMESTAMP t1;
+	TIMESTAMP t2;
+	INT d = TimestampDifference(t1, t2, 5, 1);
+END

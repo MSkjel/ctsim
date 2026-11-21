@@ -1,0 +1,19 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [],
+ "aliases": [
+  "fix_diagA/ext/P_f08_dup_global_diff_type/a.ci",
+  "fix_diagA/ext/P_m02_global_var_other_file/a.ci",
+  "fix_diagB/projects/sem__f07_dup_global_across_files/a.ci",
+  "fix_diagB/projects/sem__f08_dup_global_diff_type/a.ci",
+  "fix_diagB/projects/sem__m02_global_var_other_file/a.ci",
+  "r2_diagB/projects/sem__f07_dup_global_across_files/a.ci",
+  "r2_diagB/projects/sem__f08_dup_global_diff_type/a.ci",
+  "r2_diagB/projects/sem__m02_global_var_other_file/a.ci"
+ ]
+}

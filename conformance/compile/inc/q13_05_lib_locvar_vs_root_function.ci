@@ -1,0 +1,13 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION LvF()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// LOCVAR: LvF INT
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN 1;
+END

@@ -1,0 +1,38 @@
+//// PROJECT: Root1
+//// INCLUDE: Alib
+//// INCLUDE: Zlib
+//// FILE: a.ci
+FUNCTION F_Root1()
+	Unknown_Root1();
+END
+
+
+//// PROJECT: Alib
+//// INCLUDE: Mbot
+//// FILE: z.ci
+FUNCTION F_Alib()
+	Unknown_Alib();
+END
+
+
+//// PROJECT: Zlib
+//// INCLUDE: Leaf
+//// FILE: a.ci
+INT FUNCTION Ok_Zlib()
+	RETURN 1;
+END
+
+
+//// PROJECT: Mbot
+//// FILE: m.ci
+INT FUNCTION Ok_Mbot()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// FILE: b.ci
+FUNCTION F_Leaf()
+	Unknown_Leaf();
+END
+

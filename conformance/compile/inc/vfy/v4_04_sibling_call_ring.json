@@ -1,0 +1,92 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Mbot",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "m.ci",
+     "line": 2,
+     "context": "MbotFn() RETURN {AlibFn}(); END",
+     "project": "Mbot"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "m.ci",
+     "line": 2,
+     "context": "RETURN AlibFn(){;} END",
+     "project": "Mbot"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "m.ci",
+     "line": 2,
+     "context": "RETURN AlibFn(){;} END",
+     "project": "Mbot"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "m.ci",
+     "line": 5,
+     "context": "AlibFn(); END {}",
+     "project": "Mbot"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "compile": "Root1",
+   "ok": true,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "compile": "Zlib",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "z.ci",
+     "line": 2,
+     "context": "ZlibFn() RETURN {MbotFn}(); END",
+     "project": "Zlib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "z.ci",
+     "line": 2,
+     "context": "RETURN MbotFn(){;} END",
+     "project": "Zlib"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "z.ci",
+     "line": 2,
+     "context": "RETURN MbotFn(){;} END",
+     "project": "Zlib"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "z.ci",
+     "line": 6,
+     "context": "MbotFn(); END {}",
+     "project": "Zlib"
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

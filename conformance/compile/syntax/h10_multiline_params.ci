@@ -1,0 +1,5 @@
+INT FUNCTION F(INT a,
+               STRING b = "x",
+               REAL c = 1.5)
+	RETURN a;
+END

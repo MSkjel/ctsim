@@ -1,0 +1,3 @@
+STRING FUNCTION ProbeK()
+	RETURN StrLeft("abc");
+END

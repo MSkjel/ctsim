@@ -1,0 +1,7 @@
+FUNCTION ProbeN()
+	INT i;
+	FOR i = 0 TO 3
+		Sleep(i);
+	END
+END
+

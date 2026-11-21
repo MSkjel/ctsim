@@ -1,0 +1,206 @@
+// Runtime conformance cases. Each Conf_ function takes no arguments and returns its
+// observations as one STRING of key=value pairs, so CtAPI only passes the call name.
+
+MODULE INT mTick = 0;
+
+// Counts how often it ran; always returns 1.
+INT FUNCTION Conf_Tick()
+	mTick = mTick + 1;
+	RETURN 1;
+END
+
+STRING FUNCTION Conf_R(REAL r)
+	RETURN r;
+END
+
+STRING FUNCTION Conf_I(INT i)
+	RETURN IntToStr(i);
+END
+
+// AND / OR: is the right operand evaluated when the left one decides?
+STRING FUNCTION Conf_ShortCircuit()
+	INT a;
+	INT andRan;
+	mTick = 0;
+	a = 0 AND Conf_Tick();
+	andRan = mTick;
+	mTick = 0;
+	a = 1 OR Conf_Tick();
+	RETURN "and_rhs_ran=" + Conf_I(andRan) + ";or_rhs_ran=" + Conf_I(mTick);
+END
+
+// The same inside an IF condition.
+STRING FUNCTION Conf_IfShortCircuit()
+	INT andRan;
+	mTick = 0;
+	IF 0 AND Conf_Tick() THEN
+		mTick = mTick + 100;
+	END
+	andRan = mTick;
+	mTick = 0;
+	IF 1 OR Conf_Tick() THEN
+		mTick = mTick + 100;
+	END
+	RETURN "if_and_rhs_ran=" + Conf_I(andRan) + ";if_or_count=" + Conf_I(mTick);
+END
+
+// String comparison and case.
+STRING FUNCTION Conf_StrCompare()
+	STRING r = "";
+	IF "abc" = "ABC" THEN r = r + "eq=1;"; ELSE r = r + "eq=0;"; END
+	IF "abc" <> "ABC" THEN r = r + "ne=1;"; ELSE r = r + "ne=0;"; END
+	IF "a" < "B" THEN r = r + "a<B=1;"; ELSE r = r + "a<B=0;"; END
+	IF "B" < "a" THEN r = r + "B<a=1"; ELSE r = r + "B<a=0"; END
+	RETURN r;
+END
+
+// REAL to INT on assignment.
+STRING FUNCTION Conf_RealToInt()
+	INT a = 2.5;
+	INT b = -2.5;
+	INT c = 2.4;
+	INT d = 2.6;
+	INT e = -0.5;
+	INT f = 0.5;
+	RETURN "2.5=" + Conf_I(a) + ";-2.5=" + Conf_I(b) + ";2.4=" + Conf_I(c) + ";2.6=" + Conf_I(d) + ";-0.5=" + Conf_I(e) + ";0.5=" + Conf_I(f);
+END
+
+// REAL to INT outside the INT range.
+STRING FUNCTION Conf_RealToIntRange()
+	INT a;
+	INT err;
+	ErrSet(1);
+	a = 3000000000.0;
+	err = IsError();
+	RETURN "value=" + Conf_I(a) + ";err=" + Conf_I(err);
+END
+
+// NOT / AND on a REAL, and a REAL as an IF condition.
+STRING FUNCTION Conf_LogicReal()
+	INT n = NOT 0.4;
+	INT m = 0.4 AND 1;
+	INT k = 0.6 AND 1;
+	STRING r;
+	r = "not0.4=" + Conf_I(n) + ";0.4and1=" + Conf_I(m) + ";0.6and1=" + Conf_I(k);
+	IF 0.4 THEN r = r + ";if0.4=1"; ELSE r = r + ";if0.4=0"; END
+	RETURN r;
+END
+
+// REAL to STRING on assignment.
+STRING FUNCTION Conf_RealToStr()
+	STRING a = 1.5;
+	STRING b = 1.0 / 3.0;
+	STRING c = 1e21;
+	STRING d = 100000.0;
+	STRING e = 0.1 + 0.2;
+	STRING f = -0.0001;
+	STRING g = 2.0;
+	RETURN a + "|" + b + "|" + c + "|" + d + "|" + e + "|" + f + "|" + g;
+END
+
+// STRING to INT on assignment, with the error code after each.
+STRING FUNCTION Conf_StrToIntImplicit()
+	INT a;
+	INT b;
+	INT c;
+	INT d;
+	INT e1;
+	INT e2;
+	INT e3;
+	INT e4;
+	ErrSet(1);
+	a = "12abc";
+	e1 = IsError();
+	b = "abc";
+	e2 = IsError();
+	c = " 12";
+	e3 = IsError();
+	d = "-5x";
+	e4 = IsError();
+	RETURN "12abc=" + Conf_I(a) + "/" + Conf_I(e1) + ";abc=" + Conf_I(b) + "/" + Conf_I(e2) + "; 12=" + Conf_I(c) + "/" + Conf_I(e3) + ";-5x=" + Conf_I(d) + "/" + Conf_I(e4);
+END
+
+// STRING to REAL on assignment.
+STRING FUNCTION Conf_StrToRealImplicit()
+	REAL a;
+	REAL b;
+	REAL c;
+	INT e1;
+	INT e2;
+	INT e3;
+	ErrSet(1);
+	a = "1,5";
+	e1 = IsError();
+	b = "1.5x";
+	e2 = IsError();
+	c = "abc";
+	e3 = IsError();
+	RETURN "1,5=" + Conf_R(a) + "/" + Conf_I(e1) + ";1.5x=" + Conf_R(b) + "/" + Conf_I(e2) + ";abc=" + Conf_R(c) + "/" + Conf_I(e3);
+END
+
+// INT arithmetic: wrap, division, MOD signs, REAL MOD, divide by zero.
+STRING FUNCTION Conf_IntArith()
+	INT big = 2147483647;
+	INT w;
+	INT d1;
+	INT d2;
+	INT m1;
+	INT m2;
+	INT z;
+	INT e;
+	REAL q;
+	REAL rm;
+	ErrSet(1);
+	w = big + 1;
+	d1 = -7 / 2;
+	d2 = 7 / 2;
+	q = 7 / 2;
+	m1 = -7 MOD 3;
+	m2 = 7 MOD -3;
+	rm = 7.5 MOD 2;
+	z = 1 / 0;
+	e = IsError();
+	RETURN "wrap=" + Conf_I(w) + ";-7/2=" + Conf_I(d1) + ";7/2=" + Conf_I(d2) + ";real_q=" + Conf_R(q) + ";-7mod3=" + Conf_I(m1) + ";7mod-3=" + Conf_I(m2) + ";7.5mod2=" + Conf_R(rm) + ";div0=" + Conf_I(z) + ";err=" + Conf_I(e);
+END
+
+// Does IsError() clear after it is read?
+STRING FUNCTION Conf_IsErrorReset()
+	INT z;
+	INT a;
+	INT b;
+	ErrSet(1);
+	z = 1 / 0;
+	a = IsError();
+	b = IsError();
+	RETURN "first=" + Conf_I(a) + ";second=" + Conf_I(b);
+END
+
+// String length limit on concatenation.
+STRING FUNCTION Conf_StrLimit()
+	STRING a = StrFill("a", 200);
+	STRING s;
+	s = a + a;
+	RETURN "len=" + Conf_I(StrLength(s));
+END
+
+// FOR: is TO re-evaluated on every pass?
+STRING FUNCTION Conf_ForTo()
+	INT i;
+	INT n = 5;
+	INT count = 0;
+	FOR i = 1 TO n DO
+		n = n - 1;
+		count = count + 1;
+	END
+	RETURN "count=" + Conf_I(count) + ";i_after=" + Conf_I(i);
+END
+
+// A failing built-in: what it returns and the error code.
+STRING FUNCTION Conf_FailingBuiltin()
+	INT h;
+	INT e;
+	ErrSet(1);
+	h = FileOpen("C:\NoSuchFolderXyz\none.txt", "r");
+	e = IsError();
+	RETURN "fileopen=" + Conf_I(h) + ";err=" + Conf_I(e);
+END

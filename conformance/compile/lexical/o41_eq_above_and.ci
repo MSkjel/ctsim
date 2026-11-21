@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; STRING s;
+	IF "a" = "b" AND "c" = "d" THEN i = 1; END
+	RETURN 0;
+END

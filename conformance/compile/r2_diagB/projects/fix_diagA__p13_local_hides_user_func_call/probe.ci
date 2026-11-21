@@ -1,0 +1,7 @@
+FUNCTION ZzA(INT a)
+END
+FUNCTION ZzB()
+	INT ZzA;
+	ZzA = 0;
+	ZzA();
+END

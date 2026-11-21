@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	INT a = 1, INT b = 2;
+	RETURN a + b;
+END

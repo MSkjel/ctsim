@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	AlarmSetDelayRec(1, 1, "a");
+	AlarmSetDelayRec(1, 1, "a", "a");
+	AlarmSetThresholdRec(1, 1, "a");
+	AlarmSetThresholdRec(1, 1, "a", "a");
+	AlarmSumAppend("a");
+	AlarmSumAppend("a", "a", 1, 1, 1);
+	AlarmSumCommit(1);
+	AlarmSumCommit(1, "a");
+	AlarmSumDelete(1);
+	AlarmSumDelete(1, "a");
+	AlarmSumFind(1, 1);
+	AlarmSumFind(1, 1, "a");
+	AlarmSumGet(1, "a");
+	AlarmSumGet(1, "a", "a");
+	AlarmSumNext(1);
+	AlarmSumNext(1, "a");
+	AlarmSumPrev(1);
+	AlarmSumPrev(1, "a");
+	AlarmSumSet(1, "a", "a");
+	AlarmSumSet(1, "a", "a", "a", 1);
+END

@@ -1,0 +1,4 @@
+//// LABEL: ZALIAS = zzReal
+FUNCTION Z(INT ZALIAS)
+	zzReal = 2;
+END

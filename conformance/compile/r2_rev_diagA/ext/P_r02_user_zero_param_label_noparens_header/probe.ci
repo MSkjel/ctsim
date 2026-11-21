@@ -1,0 +1,5 @@
+FUNCTION ZzNp
+END
+FUNCTION ZzU()
+	ZzTgtNp();
+END

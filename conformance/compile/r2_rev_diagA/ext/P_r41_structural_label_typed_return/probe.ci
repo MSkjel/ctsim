@@ -1,0 +1,6 @@
+INT FUNCTION ZzF()
+	FOREVER
+		Sleep(1);
+	END
+	RETURN 1;
+END

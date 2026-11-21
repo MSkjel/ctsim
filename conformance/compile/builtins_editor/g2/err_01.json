@@ -1,0 +1,73 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 11,
+   "context": "\"a\", \"a\", {1}); MapKeyDelete(\"a\");"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 12,
+   "context": "MapKeyDelete(\"a\"){;} MapKeyDelete(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 13,
+   "context": "MapKeyDelete(\"a\", \"a\", {1}); HexToStr(1);"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 14,
+   "context": "HexToStr(1){;} HexToStr(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 15,
+   "context": "HexToStr(1, 1, {1}); TraceMsg();"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 16,
+   "context": "TraceMsg(){;} TraceMsg(\"a\","
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 17,
+   "context": "TraceMsg(\"a\", {1}); TrnGetFormat(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 18,
+   "context": "TrnGetFormat(1, 1, vi){;} TrnGetFormat(1,"
+  },
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 19,
+   "context": "1, vi, vi, {1}); END"
+  }
+ ],
+ "warnings": []
+}

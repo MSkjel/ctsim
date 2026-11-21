@@ -1,0 +1,4 @@
+MODULE INT mA[0O7] = 0, 1, 2, 3, 4, 5, 6, 7;
+INT FUNCTION P()
+	RETURN mA[0];
+END

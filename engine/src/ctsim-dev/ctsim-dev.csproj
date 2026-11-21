@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- ctsim-dev.exe: the engine's development and corpus commands (pcode, check, run, sweep, bench,
+       world-*, builtins-behaviour, page-run / page-sweep, compile / exec, the front end probes).
+       Not shipped: ctsim.exe keeps only what a viewer or debugger starts. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net48;net10.0</TargetFrameworks>
+    <RootNamespace>CicodeSim.Host</RootNamespace>
+    <AssemblyName>ctsim-dev</AssemblyName>
+  </PropertyGroup>
+  <!-- the same 32-bit CRT digits as ctsim.exe (see ctsim.csproj) -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="CicodeSim.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CicodeSim.Engine\CicodeSim.Engine.csproj" />
+    <ProjectReference Include="..\ctsim\ctsim.csproj" />
+  </ItemGroup>
+  <Import Project="..\LargeAddressAware.targets" />
+</Project>

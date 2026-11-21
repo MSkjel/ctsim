@@ -1,0 +1,6 @@
+INT FUNCTION ZA(INT a)
+	RETURN a;
+END
+FUNCTION Z()
+	OnEvent(5, ZA);
+END

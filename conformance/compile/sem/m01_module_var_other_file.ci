@@ -1,0 +1,9 @@
+//// FILE: a.ci
+MODULE INT mProbeX;
+FUNCTION ProbeA()
+	mProbeX = 1;
+END
+//// FILE: b.ci
+FUNCTION ProbeB()
+	mProbeX = 2;
+END

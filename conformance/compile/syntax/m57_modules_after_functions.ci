@@ -1,0 +1,6 @@
+FUNCTION A()
+END
+MODULE INT m;
+FUNCTION B()
+	m = 1;
+END

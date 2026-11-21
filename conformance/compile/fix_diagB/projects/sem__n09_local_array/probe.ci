@@ -1,0 +1,4 @@
+FUNCTION ProbeN()
+	INT aLocal[5];
+	aLocal[0] = 1;
+END

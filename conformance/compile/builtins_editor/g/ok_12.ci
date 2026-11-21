@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	ExecuteDTSPkg("a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a");
+	FormComboBox(1, 1, 1, 1, vs);
+	FormComboBox(1, 1, 1, 1, vs, 1);
+	FormField(1, 1, 1, 1, 1, vs, "a", QCb);
+	FormField(1, 1, 1, 1, 1, vs, "a", QCb, 1);
+	FormGroupBox(1, 1, 1, 1);
+	FormGroupBox(1, 1, 1, 1, "a");
+	FormInput(1, 1, "a", vs, 1);
+	FormInput(1, 1, "a", vs, 1, 1);
+	FormListBox(1, 1, 1, 1, vs);
+	FormListBox(1, 1, 1, 1, vs, 1);
+	FormNumPad("a", "a");
+	FormNumPad("a", "a", 1);
+	FormPrompt(1, 1, "a");
+	FormPrompt(1, 1, "a", 1, 1);
+	FormSaveAsFile("a", "a", "a");
+	FormSaveAsFile("a", "a", "a", "a");
+	FTPOpen("a", "a", "a");
+	GetLanguage();
+	GetLanguage(1);
+END

@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	DspText(1, 1, "a", 1, 1, 1, 1);
+	DspTrend(1, "a");
+	DspTrend(1, "a", 1, 1, 1, 1, 1, 1, 1, 1);
+	DspTrendInfo("a", 1);
+	DspTrendInfo("a", 1, 1);
+	EquipBrowseOpen();
+	EquipBrowseOpen("a", "a", "a");
+	EquipCheckUpdate(1);
+	EquipCheckUpdate(1, "a");
+	EquipRefBrowseOpen();
+	EquipRefBrowseOpen("a", "a", "a");
+	EquipSetProperty("a", "a", "a");
+	EquipSetProperty("a", "a", "a", "a");
+	EquipStateBrowseOpen("a", "a");
+	EquipStateBrowseOpen("a", "a", "a");
+	ErrGetHw(1);
+	ErrGetHw(1, 1);
+	Exec("a");
+	Exec("a", 1);
+	ExecuteDTSPkg("a");
+END

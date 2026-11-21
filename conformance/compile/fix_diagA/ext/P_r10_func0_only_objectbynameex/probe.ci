@@ -1,0 +1,4 @@
+FUNCTION ProbeR()
+	OBJECT o = ObjectByNameEx(WinNumber(), "x");
+END
+

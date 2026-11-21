@@ -1,0 +1,20 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// FILE: z.ci
+GLOBAL INT Cl5 = 1;
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// FILE: zm.ci
+INT FUNCTION ZmidFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// FILE: a.ci
+INT FUNCTION Cl5()
+	RETURN 1;
+END
+

@@ -1,0 +1,4 @@
+INT FUNCTION ProbeT()
+	RETURN TRUE;
+END
+

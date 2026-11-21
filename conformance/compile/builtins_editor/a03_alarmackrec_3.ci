@@ -1,0 +1,3 @@
+INT FUNCTION P()
+	RETURN AlarmAckRec(1, "", 3);
+END

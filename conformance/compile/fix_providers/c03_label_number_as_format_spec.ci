@@ -1,0 +1,4 @@
+//// LABEL: ZzW = 5
+STRING FUNCTION Z(INT i)
+	RETURN i:ZzW;
+END

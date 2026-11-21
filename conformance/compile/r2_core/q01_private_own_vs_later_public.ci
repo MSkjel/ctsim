@@ -1,0 +1,14 @@
+//// FILE: a.ci
+PRIVATE STRING FUNCTION ZzDup()
+	RETURN "x";
+END
+STRING FUNCTION ZzUseA()
+	RETURN ZzDup() + "a";
+END
+//// FILE: b.ci
+INT FUNCTION ZzDup()
+	RETURN 1;
+END
+INT FUNCTION ZzUseB()
+	RETURN ZzDup() - 1;
+END

@@ -1,0 +1,4 @@
+INT FUNCTION ProbeR()
+	RETURN "abc";
+END
+

@@ -1,0 +1,6 @@
+//// LABEL: FOREVER = WHILE 1 DO
+FUNCTION Z()
+	FOREVER
+		Sleep(1);
+	END
+END

@@ -1,0 +1,5 @@
+//// LABEL: ZzRen4(a) = ZzOther4(a)
+FUNCTION ZzRen4(INT x)
+END
+FUNCTION ZzOther4(INT y)
+END

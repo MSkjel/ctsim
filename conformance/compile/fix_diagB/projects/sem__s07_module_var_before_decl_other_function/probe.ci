@@ -1,0 +1,7 @@
+FUNCTION ProbeA()
+	Sleep(mLater);
+END
+MODULE INT mLater = 1;
+FUNCTION ProbeB()
+	Sleep(mLater);
+END

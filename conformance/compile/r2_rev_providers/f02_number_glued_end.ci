@@ -1,0 +1,5 @@
+INT FUNCTION ZzF(INT i)
+	IF i = 1 THEN i = 2; END
+	IF i = 5END
+	RETURN i;
+END

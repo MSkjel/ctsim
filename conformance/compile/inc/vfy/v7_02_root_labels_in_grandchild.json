@@ -1,0 +1,62 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Root1",
+   "ok": true,
+   "errors": [],
+   "warnings": []
+  },
+  {
+   "compile": "Zmid",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "l.ci",
+     "line": 2,
+     "context": "RETURN RK + {RDbl}(4); END",
+     "project": "Leaf"
+    },
+    {
+     "code": "E2024",
+     "msg": "Incompatible types",
+     "file": "l.ci",
+     "line": 2,
+     "context": "+ RDbl(4){;} END",
+     "project": "Leaf"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "l.ci",
+     "line": 2,
+     "context": "+ RDbl(4){;} END",
+     "project": "Leaf"
+    },
+    {
+     "code": "E2037",
+     "msg": "Must return value from function",
+     "file": "l.ci",
+     "line": 5,
+     "context": "RDbl(4); END {}",
+     "project": "Leaf"
+    }
+   ],
+   "warnings": [
+    {
+     "code": "W1007",
+     "msg": "Tag not defined",
+     "file": "l.ci",
+     "line": 2,
+     "context": "LeafFn() RETURN {RK} + RDbl(4);",
+     "project": "Leaf"
+    }
+   ]
+  }
+ ]
+}

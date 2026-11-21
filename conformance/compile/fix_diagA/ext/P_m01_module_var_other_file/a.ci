@@ -1,0 +1,4 @@
+MODULE INT mProbeX;
+FUNCTION ProbeA()
+	mProbeX = 1;
+END

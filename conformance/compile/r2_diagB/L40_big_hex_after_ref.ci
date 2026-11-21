@@ -1,0 +1,5 @@
+//// LABEL: ZBIG = 0x100000000
+FUNCTION Z()
+	INT i;
+	i = 1;
+END

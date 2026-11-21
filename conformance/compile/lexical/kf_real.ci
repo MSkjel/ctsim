@@ -1,0 +1,3 @@
+INT FUNCTION real()
+	RETURN 0;
+END

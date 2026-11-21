@@ -1,0 +1,6 @@
+INT FUNCTION ZF()
+	RETURN 1;
+END
+FUNCTION Z()
+	Sleep(ZF);
+END

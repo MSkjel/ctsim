@@ -1,0 +1,6 @@
+FUNCTION ZzF()
+	INT x;
+	x = 1;
+	RETURN StrLength("a") BITAND 1;
+END
+

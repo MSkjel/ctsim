@@ -1,0 +1,18 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN UnrelFn();
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN 1;
+END
+
+//// PROJECT: Unrel
+//// FILE: u.ci
+INT FUNCTION UnrelFn()
+	RETURN 1;
+END

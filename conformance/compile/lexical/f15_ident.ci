@@ -1,0 +1,6 @@
+STRING FUNCTION P()
+	INT i; REAL r; STRING s;
+	s = i:abc;
+	s = ZzVisible;
+	RETURN s;
+END

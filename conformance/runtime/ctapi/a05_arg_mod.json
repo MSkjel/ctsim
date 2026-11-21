@@ -1,0 +1,8 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "call": "IntToStr(-7 MOD 3)",
+ "ok": true,
+ "result": "-7"
+}

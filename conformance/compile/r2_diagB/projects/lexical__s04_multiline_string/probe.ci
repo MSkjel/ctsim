@@ -1,0 +1,7 @@
+STRING FUNCTION P()
+	STRING s;
+	s = "line one
+line two";
+	s = ZzVisible;
+	RETURN s;
+END

@@ -1,0 +1,6 @@
+INT FUNCTION ProbeP(INT a)
+	IF a THEN
+		RETURN;
+	END
+	RETURN 1;
+END

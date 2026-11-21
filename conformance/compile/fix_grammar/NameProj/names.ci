@@ -1,0 +1,15 @@
+INT FUNCTION NavnTest(INT nVerdiø)
+	INT nTempø = 1;
+	INT æøå = 2;
+	INT a\b = 3;
+	nTempø = nTempø + æøå + a\b + nVerdiø;
+	IF nTempø > 1 THEN
+		RETURN nTempø
+			= 2;
+	END
+	RETURN TRUE;
+END
+
+FUNCTION Brukø()
+	NavnTest(1);
+END

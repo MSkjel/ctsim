@@ -1,0 +1,3 @@
+INT FUNCTION case()
+	RETURN 0;
+END

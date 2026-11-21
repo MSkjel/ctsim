@@ -1,0 +1,6 @@
+//// FILE: a.ci
+GLOBAL INT gzA, INT gzB;
+//// FILE: b.ci
+INT FUNCTION P()
+	RETURN gzA + gzB;
+END

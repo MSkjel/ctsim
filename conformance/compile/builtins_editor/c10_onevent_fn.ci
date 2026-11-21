@@ -1,0 +1,5 @@
+FUNCTION Q()
+END
+FUNCTION P()
+	OnEvent(1, Q);
+END

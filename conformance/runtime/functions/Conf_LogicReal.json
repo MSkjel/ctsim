@@ -1,0 +1,18 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_LogicReal()",
+ "function": "Conf_LogicReal",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "not0.4=1;0.4and1=0;0.6and1=1;if0.4=1",
+ "facts": {
+  "not0.4": "1",
+  "0.4and1": "0",
+  "0.6and1": "1",
+  "if0.4": "1"
+ },
+ "source": "// NOT / AND on a REAL, and a REAL as an IF condition.\nSTRING FUNCTION Conf_LogicReal()\n\tINT n = NOT 0.4;\n\tINT m = 0.4 AND 1;\n\tINT k = 0.6 AND 1;\n\tSTRING r;\n\tr = \"not0.4=\" + Conf_I(n) + \";0.4and1=\" + Conf_I(m) + \";0.6and1=\" + Conf_I(k);\n\tIF 0.4 THEN r = r + \";if0.4=1\"; ELSE r = r + \";if0.4=0\"; END\n\tRETURN r;\nEND\n"
+}

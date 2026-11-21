@@ -1,0 +1,4 @@
+FUNCTION ProbeR()
+	INT i = ErrSet(1);
+END
+

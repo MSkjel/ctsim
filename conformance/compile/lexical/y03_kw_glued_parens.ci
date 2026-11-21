@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; INT j;
+	IF(i=1)THEN i=2;END
+	RETURN 0;
+END

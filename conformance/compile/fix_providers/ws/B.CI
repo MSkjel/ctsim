@@ -1,0 +1,9 @@
+PRIVATE INT FUNCTION Helper(INT z)
+	RETURN z;
+END
+FUNCTION UseB()
+	INT q = Helper (2);
+	Pub();
+END
+FUNCTION Red()
+END

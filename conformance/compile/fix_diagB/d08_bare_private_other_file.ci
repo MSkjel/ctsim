@@ -1,0 +1,8 @@
+//// FILE: a.ci
+PRIVATE INT FUNCTION ZP()
+	RETURN 1;
+END
+//// FILE: b.ci
+FUNCTION Z()
+	INT i = ZP;
+END

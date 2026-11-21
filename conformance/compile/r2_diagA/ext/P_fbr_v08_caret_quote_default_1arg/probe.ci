@@ -1,0 +1,6 @@
+INT FUNCTION FEsc(STRING s = "a^"[b", INT c)
+	RETURN c;
+END
+FUNCTION P()
+	FEsc("x");
+END

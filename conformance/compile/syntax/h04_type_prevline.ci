@@ -1,0 +1,5 @@
+INT
+FUNCTION
+F()
+	RETURN 1;
+END

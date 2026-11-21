@@ -1,0 +1,3 @@
+MODULE INT a[2][3];
+FUNCTION Z()
+END

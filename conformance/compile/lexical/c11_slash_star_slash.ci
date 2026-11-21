@@ -1,0 +1,8 @@
+INT FUNCTION P()
+	INT i;
+	/*/ still inside ZzHidden1 */
+	/**/ i = ZzVisible1;
+	/* ends with double star **/ i = ZzVisible2;
+	/*** triple ***/ i = ZzVisible3;
+	RETURN i;
+END

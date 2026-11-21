@@ -1,0 +1,4 @@
+FUNCTION ZzA()
+	INT i;
+	i = StrLength("abc");
+END

@@ -1,0 +1,4 @@
+FUNCTION ProbeU()
+	RETURN;
+	IF 1 THEN Sleep(1); END
+END

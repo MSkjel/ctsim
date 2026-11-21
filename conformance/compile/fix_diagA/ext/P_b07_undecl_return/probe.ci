@@ -1,0 +1,4 @@
+INT FUNCTION ProbeU()
+	RETURN zzUnknownThing;
+END
+

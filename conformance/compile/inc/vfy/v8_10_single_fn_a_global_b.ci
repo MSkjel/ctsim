@@ -1,0 +1,9 @@
+//// PROJECT: Root1
+//// FILE: a.ci
+INT FUNCTION Cx()
+	RETURN 1;
+END
+
+//// FILE: b.ci
+GLOBAL INT Cx = 1;
+

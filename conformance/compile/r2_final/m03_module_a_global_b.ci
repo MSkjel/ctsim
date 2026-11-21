@@ -1,0 +1,7 @@
+//// FILE: a.ci
+MODULE INT zzX;
+INT FUNCTION ZzF()
+	RETURN zzX;
+END
+//// FILE: b.ci
+GLOBAL INT zzX;

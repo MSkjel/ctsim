@@ -1,0 +1,5 @@
+INT FUNCTION Z(INT a)
+	RETURN a;
+	a = 2;
+	RETURN a;
+END

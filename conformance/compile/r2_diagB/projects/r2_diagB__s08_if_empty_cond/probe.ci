@@ -1,0 +1,6 @@
+FUNCTION Z()
+	INT x;
+	IF THEN
+		x = 1;
+	END
+END

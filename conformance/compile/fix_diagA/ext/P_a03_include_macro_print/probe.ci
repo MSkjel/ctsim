@@ -1,0 +1,4 @@
+FUNCTION ProbeP()
+	PrintLn("x");
+END
+

@@ -1,0 +1,3 @@
+INT FUNCTION Normal()
+	RETURN 1;
+END

@@ -1,0 +1,6 @@
+//// FILE: a.ci
+PRIVATE FUNCTION P()
+END
+//// FILE: b.ci
+PRIVATE FUNCTION P()
+END

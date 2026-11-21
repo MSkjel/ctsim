@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT ÿ_a = 1;
+	INT bÿc = 2;
+	RETURN ÿ_a + bÿc;
+END

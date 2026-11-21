@@ -1,0 +1,8 @@
+INT FUNCTION ZzH
+	INT i = 1;
+	RETURN i;
+END
+FUNCTION ProbeA()
+	INT j = ZzH();
+	Sleep(j);
+END

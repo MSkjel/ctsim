@@ -1,0 +1,81 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2101",
+   "msg": "Function is obsolete and cannot be used anymore",
+   "file": "probe.ci",
+   "line": 28,
+   "context": "\"a\", \"a\"); {FTPOpen}(\"a\", \"a\","
+  },
+  {
+   "code": "E2031",
+   "msg": "FUNCTION expected",
+   "file": "probe.ci",
+   "line": 46,
+   "context": "KeyReplay(1); {LibAlarmFilterForm}(1); LibAlarmFilterForm(1,"
+  },
+  {
+   "code": "E2031",
+   "msg": "FUNCTION expected",
+   "file": "probe.ci",
+   "line": 47,
+   "context": "LibAlarmFilterForm(1); {LibAlarmFilterForm}(1, \"a\", \"a\","
+  }
+ ],
+ "warnings": [
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 31,
+   "context": "IFDEF(1, 1, 1){;} IFDEFAdvAlm(1,"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 32,
+   "context": "IFDEFAdvAlm(1, 1, 1){;} IFDEFAnaAlm(1,"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 33,
+   "context": "IFDEFAnaAlm(1, 1, 1){;} IFDEFDigAlm(1,"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 34,
+   "context": "IFDEFDigAlm(1, 1, 1){;} IFDEFHresAlm(1,"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 35,
+   "context": "IFDEFHresAlm(1, 1, 1){;} InfoForm();"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 46,
+   "context": "LibAlarmFilterForm(1){;} LibAlarmFilterForm(1,"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 47,
+   "context": "\"a\", 1, \"a\"){;} Login(\"a\","
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+//// PROJECT: A
+//// INCLUDE: B
+//// FILE: a.ci
+INT FUNCTION AFn()
+	RETURN BFn();
+END
+
+//// PROJECT: B
+//// INCLUDE: A
+//// FILE: b.ci
+INT FUNCTION BFn()
+	RETURN AFn();
+END
+
+//// COMPILE: A
+//// COMPILE: B

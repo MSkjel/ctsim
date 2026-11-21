@@ -1,0 +1,6 @@
+MODULE INT mI;
+FUNCTION Z()
+	FOR mI = 1 TO 10 DO
+		Sleep(0);
+	END
+END

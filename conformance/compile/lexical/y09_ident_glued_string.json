@@ -1,0 +1,27 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [
+  {
+   "code": "W1007",
+   "msg": "Tag not defined",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "INT j; i = {ZzAbc}\"x\"; RETURN"
+  },
+  {
+   "code": "W1021",
+   "msg": "Possible missing operand between tags",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "= ZzAbc\"x\"{;} RETURN 0;"
+  }
+ ],
+ "aliases": [
+  "r2_diagB/projects/lexical__y09_ident_glued_string/probe.ci"
+ ]
+}

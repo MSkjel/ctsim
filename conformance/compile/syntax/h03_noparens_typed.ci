@@ -1,0 +1,7 @@
+INT FUNCTION F
+	RETURN 1;
+END
+FUNCTION G()
+	INT i = F();
+	i = F;
+END

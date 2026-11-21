@@ -1,0 +1,4 @@
+FUNCTION F()
+	RETURN
+	Sleep(1);
+END

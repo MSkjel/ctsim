@@ -1,0 +1,4 @@
+FUNCTION Z()
+	INT n = 1;
+	FormButton(1, 1, "x", n, 0);
+END

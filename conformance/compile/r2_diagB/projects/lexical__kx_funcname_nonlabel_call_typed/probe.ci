@@ -1,0 +1,6 @@
+STRING FUNCTION ZzRed()
+	RETURN "x";
+END
+STRING FUNCTION P()
+	RETURN ZzRed() + "a";
+END

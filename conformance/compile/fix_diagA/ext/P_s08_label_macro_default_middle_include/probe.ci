@@ -1,0 +1,4 @@
+FUNCTION ProbeS()
+	INT r = DspButton(1, 0, "t");
+END
+

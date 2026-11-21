@@ -1,0 +1,24 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [
+  {
+   "code": "W1003",
+   "msg": "Argument with default found before argument with no default",
+   "file": "probe.ci",
+   "line": 1,
+   "context": "\"a^\"[b\", INT c{)} RETURN c;"
+  },
+  {
+   "code": "W1004",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 5,
+   "context": "FEsc(\"x\"){;} END"
+  }
+ ]
+}

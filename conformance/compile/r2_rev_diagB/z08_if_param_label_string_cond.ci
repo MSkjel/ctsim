@@ -1,0 +1,6 @@
+//// LABEL: ZSTR = STRING
+FUNCTION Z(ZSTR s)
+	IF s THEN
+		Sleep(0);
+	END
+END

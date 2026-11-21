@@ -1,0 +1,13 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: common.ci
+INT FUNCTION MainFn()
+	RETURN mLib;
+END
+
+//// PROJECT: LibA
+//// FILE: common.ci
+MODULE INT mLib = 1;
+INT FUNCTION LibFn()
+	RETURN 1;
+END

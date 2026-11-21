@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	TrnAddHistory("a");
+	TrnAddHistory("a", "a");
+	TrnBrowseOpen("a", "a");
+	TrnBrowseOpen("a", "a", "a");
+	TrnComparePlot("a", "a", 1, "a", 1, 1, 1, 1.5, 1, 1.5);
+	TrnComparePlot("a", "a", 1, "a", 1, 1, 1, 1.5, 1, 1.5, "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a");
+	TrnDelHistory("a");
+	TrnDelHistory("a", "a");
+	TrnEventGetTable("a", 1, 1, 1, vr, vi, 1);
+	TrnEventGetTable("a", 1, 1, 1, vr, vi, 1, "a");
+	TrnEventGetTableMS("a", 1, 1, 1, vr, vi, 1, vi);
+	TrnEventGetTableMS("a", 1, 1, 1, vr, vi, 1, vi, "a");
+	TrnEventSetTable("a", 1, 1, 1, vr, vi);
+	TrnEventSetTable("a", 1, 1, 1, vr, vi, "a");
+	TrnEventSetTableMS("a", 1, 1, 1, vr, vi, vi);
+	TrnEventSetTableMS("a", 1, 1, 1, vr, vi, vi, "a");
+	TrnExportClip(1, 1.5, 1, 1, 1);
+	TrnExportClip(1, 1.5, 1, 1, 1, "a", "a", "a", "a", "a", "a", "a", "a", 1, 1, 1, 1, 1, 1, 1, 1);
+	TrnExportCSV("a", 1, 1.5, 1, 1);
+	TrnExportCSV("a", 1, 1.5, 1, 1, "a", "a", "a", "a", "a", "a", "a", "a", 1, 1, 1, 1, 1, 1, 1, 1);
+END

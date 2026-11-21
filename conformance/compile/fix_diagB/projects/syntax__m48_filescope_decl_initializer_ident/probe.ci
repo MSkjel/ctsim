@@ -1,0 +1,4 @@
+MODULE INT a = 1;
+MODULE INT b = a;
+FUNCTION Z()
+END

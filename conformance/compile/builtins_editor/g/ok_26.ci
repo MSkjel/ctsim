@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	TrnExportDBF("a", 1, 1.5, 1, 1);
+	TrnExportDBF("a", 1, 1.5, 1, 1, "a", "a", "a", "a", "a", "a", "a", "a", 1, 1, 1, 1, 1, 1, 1, 1);
+	TrnExportDDE("a", "a", "a", 1, 1.5, 1, 1, 1);
+	TrnExportDDE("a", "a", "a", 1, 1.5, 1, 1, 1, "a", "a", "a", "a", "a", "a", "a", "a", 1, 1, 1, 1, 1, 1, 1, 1);
+	TrnFlush("a");
+	TrnFlush("a", "a");
+	TrnGetDefScale("a", vr, vr);
+	TrnGetDefScale("a", vr, vr, "a");
+	TrnGetPen(1, 1);
+	TrnGetPen(1, 1, 1);
+	TrnGetTable("a", 1, 1.5, 1, vr, 1);
+	TrnGetTable("a", 1, 1.5, 1, vr, 1, 1, "a");
+	TrnInfo("a", 1);
+	TrnInfo("a", 1, "a");
+	TrnPlot("a", 1, 1, 1.5, "a", 1);
+	TrnPlot("a", 1, 1, 1.5, "a", 1, "a", "a", "a", "a", "a", "a", "a", "a", 1, "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a");
+	TrnPrint("a", "a", 1);
+	TrnPrint("a", "a", 1, 1, 1);
+	TrnScroll(1, 1, 1);
+	TrnScroll(1, 1, 1, 1);
+END

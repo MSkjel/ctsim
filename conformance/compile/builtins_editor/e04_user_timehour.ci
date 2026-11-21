@@ -1,0 +1,3 @@
+INT FUNCTION TimeHour(INT t)
+	RETURN t;
+END

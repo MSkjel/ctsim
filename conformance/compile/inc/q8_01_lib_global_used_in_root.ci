@@ -1,0 +1,13 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN gLib;
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+GLOBAL INT gLib = 1;
+INT FUNCTION LibFn()
+	RETURN 1;
+END

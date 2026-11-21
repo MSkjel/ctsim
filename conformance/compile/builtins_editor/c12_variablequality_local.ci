@@ -1,0 +1,4 @@
+FUNCTION P()
+	INT n = 1;
+	VariableQuality(n);
+END

@@ -1,0 +1,4 @@
+INT FUNCTION ProbeQ()
+	RETURN TimeHour(TimeCurrent()) + DateDay(TimeCurrent());
+END
+

@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT Ð_a = 1;
+	INT bÐc = 2;
+	RETURN Ð_a + bÐc;
+END

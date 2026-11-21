@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT v;
+	v = 0o8;
+	RETURN v;
+END

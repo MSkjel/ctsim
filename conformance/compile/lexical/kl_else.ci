@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	INT else;
+	RETURN 0;
+END

@@ -1,0 +1,9 @@
+FUNCTION ProbeN(INT a)
+	SELECT CASE a
+	CASE IS > 5
+		Sleep(1);
+	CASE ELSE
+		Sleep(2);
+	END SELECT
+END
+

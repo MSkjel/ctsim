@@ -1,0 +1,25 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// FILE: r.ci
+MODULE INT mX = 1;
+INT FUNCTION R1Fn()
+	RETURN mX;
+END
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// FILE: zm.ci
+MODULE INT mX = 2;
+INT FUNCTION ZmidFn()
+	RETURN mX;
+END
+
+
+//// PROJECT: Leaf
+//// FILE: l.ci
+MODULE STRING mX = "x";
+INT FUNCTION LeafFn()
+	RETURN 1;
+END
+

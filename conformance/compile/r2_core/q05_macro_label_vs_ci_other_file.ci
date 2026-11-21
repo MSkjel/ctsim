@@ -1,0 +1,9 @@
+//// LABEL: ZzLm(a) = (a + 1)
+//// FILE: a.ci
+INT FUNCTION ZzUse()
+	RETURN ZzLm(1, 2);
+END
+//// FILE: b.ci
+INT FUNCTION ZzOther()
+	RETURN 1;
+END

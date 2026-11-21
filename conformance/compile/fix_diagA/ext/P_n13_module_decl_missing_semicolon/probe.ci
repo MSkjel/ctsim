@@ -1,0 +1,6 @@
+MODULE INT mA
+MODULE INT mB = 1
+FUNCTION ProbeN()
+	mA = mB;
+END
+

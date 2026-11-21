@@ -1,0 +1,4 @@
+FUNCTION Z()
+	INT ZALIAS = 1;
+	zzReal = 2;
+END

@@ -1,0 +1,4 @@
+FUNCTION Z()
+	"abc";
+	5;
+END

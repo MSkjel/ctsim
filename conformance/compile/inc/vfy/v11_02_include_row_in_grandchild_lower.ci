@@ -1,0 +1,23 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN StrToInt(AddZeroFront(1)) + TRUE;
+END
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// FILE: zm.ci
+INT FUNCTION ZmidFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// INCLUDE: =include
+//// FILE: l.ci
+INT FUNCTION LeafFn()
+	RETURN FALSE;
+END
+

@@ -1,0 +1,4 @@
+INT FUNCTION F()
+	RETURN
+	5;
+END

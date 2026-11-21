@@ -1,0 +1,16 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// LOCVAR: LvD7 INT
+//// FILE: r.ci
+FUNCTION RB()
+	UnkRoot();
+END
+
+
+//// PROJECT: Bot
+//// LOCVAR: LvD7 INT
+//// FILE: b.ci
+INT FUNCTION BotFn()
+	RETURN 1;
+END
+

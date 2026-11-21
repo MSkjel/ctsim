@@ -1,0 +1,4 @@
+FUNCTION ProbeB()
+	mProbeX = 2;
+END
+

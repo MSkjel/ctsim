@@ -1,0 +1,3 @@
+MODULE INT a[10];
+FUNCTION Z()
+END

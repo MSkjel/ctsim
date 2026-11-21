@@ -1,0 +1,4 @@
+FUNCTION ProbeA()
+	STRING s = 1 + 2;
+	Sleep(s);
+END

@@ -1,0 +1,3 @@
+INT FUNCTION object()
+	RETURN 0;
+END

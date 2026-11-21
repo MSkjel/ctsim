@@ -1,0 +1,41 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2031",
+   "msg": "FUNCTION expected",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "ProbeK() RETURN {PROBE_DBL}(); END"
+  },
+  {
+   "code": "E2037",
+   "msg": "Must return value from function",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "PROBE_DBL(){;} END"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "PROBE_DBL(){;} END"
+  },
+  {
+   "code": "E2037",
+   "msg": "Must return value from function",
+   "file": "probe.ci",
+   "line": 4,
+   "context": "PROBE_DBL(); END {}"
+  }
+ ],
+ "warnings": [],
+ "aliases": [
+  "r2_diagB/projects/sem__k19_label_macro_too_few/probe.ci"
+ ]
+}

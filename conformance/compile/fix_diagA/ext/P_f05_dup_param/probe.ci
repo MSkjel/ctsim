@@ -1,0 +1,4 @@
+FUNCTION ProbeD(INT a, INT a)
+	Sleep(a);
+END
+

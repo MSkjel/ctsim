@@ -1,0 +1,5 @@
+FUNCTION ZzTgt2(INT a, INT b)
+END
+FUNCTION ZzF()
+	ZzOp2(1, );
+END

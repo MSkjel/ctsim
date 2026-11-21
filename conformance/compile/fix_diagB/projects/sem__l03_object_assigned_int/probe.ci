@@ -1,0 +1,4 @@
+FUNCTION ProbeA()
+	OBJECT o;
+	o = 5;
+END

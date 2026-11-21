@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT i; STRING s;
+	s = "a" + 7 MOD 2;
+	RETURN 0;
+END

@@ -1,0 +1,5 @@
+INT FUNCTION P()
+	INT a, LONG b;
+	b = 1;
+	RETURN LONG + a;
+END

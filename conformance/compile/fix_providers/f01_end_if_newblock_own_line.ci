@@ -1,0 +1,14 @@
+FUNCTION Z(INT a)
+INT b;
+IF a THEN
+b = 1;
+END IF b THEN
+b = 2;
+END
+b = 3;
+WHILE a > 0 DO
+a = a - 1;
+END FOR b = 1 TO 2 DO
+a = a + b;
+END
+END

@@ -1,0 +1,5 @@
+FUNCTION Z(STRING s)
+	FOR s = 1 TO 3 DO
+		Sleep(0);
+	END
+END

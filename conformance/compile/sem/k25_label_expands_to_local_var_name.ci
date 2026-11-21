@@ -1,0 +1,5 @@
+//// LABEL: PROBE_ALIAS = iLocal
+INT FUNCTION ProbeK()
+	INT iLocal = 3;
+	RETURN PROBE_ALIAS;
+END

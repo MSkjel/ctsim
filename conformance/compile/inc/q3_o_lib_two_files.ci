@@ -1,0 +1,17 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: b.ci
+INT FUNCTION F_root_b()
+	RETURN Unknown_root_b();
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+INT FUNCTION F_lib_a()
+	RETURN Unknown_lib_a();
+END
+
+//// FILE: z.ci
+INT FUNCTION F_lib_z()
+	RETURN Unknown_lib_z();
+END

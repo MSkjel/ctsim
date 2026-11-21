@@ -1,0 +1,4 @@
+INT FUNCTION P()
+	VAR;
+	RETURN 0;
+END

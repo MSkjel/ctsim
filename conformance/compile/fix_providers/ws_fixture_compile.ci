@@ -1,0 +1,38 @@
+//// FILE: a.ci
+MODULE INT mCount;
+
+PRIVATE
+INT
+FUNCTION Helper(INT a, STRING s = "a,b)c", INT b = Max(1, 2))
+	RETURN a;
+END
+
+FUNCTION Pub()
+	INT x = Helper(1);
+	mCount = x;
+	IF x THEN
+		x = 2;
+	END
+END
+
+FUNCTION NoParens
+	INT y;
+	y = 1;
+END
+
+MODULE INT mLate;
+
+FUNCTION Shadow()
+	INT mCount;
+	mCount = 3;
+END
+//// FILE: b.ci
+PRIVATE INT FUNCTION Helper(INT z)
+	RETURN z;
+END
+FUNCTION UseB()
+	INT q = Helper (2);
+	Pub();
+END
+FUNCTION Red()
+END

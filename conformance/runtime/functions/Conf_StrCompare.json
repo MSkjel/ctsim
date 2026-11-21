@@ -1,0 +1,18 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "project": "CiSimRT (a copy of ExampleSA + conformance.ci), demo mode, Client process",
+ "call": "Conf_StrCompare()",
+ "function": "Conf_StrCompare",
+ "file": "conformance.ci",
+ "ok": true,
+ "result": "eq=1;ne=0;a<B=1;B<a=0",
+ "facts": {
+  "eq": "1",
+  "ne": "0",
+  "a<B": "1",
+  "B<a": "0"
+ },
+ "source": "// String comparison and case.\nSTRING FUNCTION Conf_StrCompare()\n\tSTRING r = \"\";\n\tIF \"abc\" = \"ABC\" THEN r = r + \"eq=1;\"; ELSE r = r + \"eq=0;\"; END\n\tIF \"abc\" <> \"ABC\" THEN r = r + \"ne=1;\"; ELSE r = r + \"ne=0;\"; END\n\tIF \"a\" < \"B\" THEN r = r + \"a<B=1;\"; ELSE r = r + \"a<B=0;\"; END\n\tIF \"B\" < \"a\" THEN r = r + \"B<a=1\"; ELSE r = r + \"B<a=0\"; END\n\tRETURN r;\nEND\n"
+}

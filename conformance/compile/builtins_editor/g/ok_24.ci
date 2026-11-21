@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	TrendDspCursorTime(1);
+	TrendDspCursorTime(1, 1);
+	TrendPopUp();
+	TrendPopUp("a", "a", "a", "a", "a", "a", "a", "a", "a");
+	TrendRun();
+	TrendRun(1);
+	TrendSetDate(1);
+	TrendSetDate(1, "a");
+	TrendSetScale(1, 1);
+	TrendSetScale(1, 1, "a");
+	TrendSetSpan(1);
+	TrendSetSpan(1, "a");
+	TrendSetTime(1);
+	TrendSetTime(1, "a");
+	TrendSetTimebase(1);
+	TrendSetTimebase(1, "a");
+	TrendWin("a", 1, 1, 1);
+	TrendWin("a", 1, 1, 1, "a", "a", "a", "a", "a", "a", "a", "a");
+	TrendZoom(1, 1.5, 1.5);
+	TrendZoom(1, 1.5, 1.5, 1);
+END

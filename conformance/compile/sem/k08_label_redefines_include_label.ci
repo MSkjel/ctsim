@@ -1,0 +1,4 @@
+//// LABEL: TRUE = 2
+INT FUNCTION ProbeK()
+	RETURN TRUE;
+END

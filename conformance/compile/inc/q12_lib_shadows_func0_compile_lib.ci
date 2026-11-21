@@ -1,0 +1,14 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END
+
+//// PROJECT: LibA
+//// FILE: liba.ci
+STRING FUNCTION StrLeft(STRING s, INT n)
+	RETURN s;
+END
+//// COMPILE: Main
+//// COMPILE: LibA

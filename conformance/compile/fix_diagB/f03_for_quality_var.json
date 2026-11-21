@@ -1,0 +1,31 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2027",
+   "msg": "Invalid BOOLEAN value",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "q; FOR q {=} 1 TO 3 DO"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "FOR q = 1 {TO} 3 DO Sleep(0);"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "q = 1 TO 3 {DO} Sleep(0);"
+  }
+ ],
+ "warnings": []
+}

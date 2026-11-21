@@ -1,0 +1,4 @@
+FUNCTION ProbeG()
+	INT StrLeft;
+	StrLeft = 2;
+END

@@ -1,0 +1,3 @@
+INT FUNCTION return()
+	RETURN 0;
+END

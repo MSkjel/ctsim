@@ -1,0 +1,4 @@
+FUNCTION ProbeT(a)
+	Sleep(a);
+END
+

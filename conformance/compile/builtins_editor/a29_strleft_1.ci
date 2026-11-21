@@ -1,0 +1,3 @@
+STRING FUNCTION P()
+	RETURN StrLeft("abc");
+END

@@ -1,0 +1,4 @@
+FUNCTION Z(INT a)
+	INT i;
+	IF a THEN i = 1; END FOR i = 1 TO 2 DO a = a + i; END
+END

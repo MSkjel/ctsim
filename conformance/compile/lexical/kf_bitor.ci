@@ -1,0 +1,3 @@
+INT FUNCTION bitor()
+	RETURN 0;
+END

@@ -1,0 +1,10 @@
+INT FUNCTION P()
+
+	INT nTempר = 1;
+
+	INT זרו = 2;
+
+	RETURN nTempר + זרו;
+
+END
+

@@ -1,0 +1,14 @@
+//// PROJECT: Root1
+//// FILE: a.ci
+PRIVATE INT FUNCTION Pa()
+	RETURN 1;
+END
+INT FUNCTION UA()
+	RETURN Pa();
+END
+
+//// FILE: b.ci
+INT FUNCTION Pa()
+	RETURN 2;
+END
+

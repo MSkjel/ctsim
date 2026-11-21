@@ -1,0 +1,4 @@
+INT FUNCTION ProbeOk(INT a)
+	INT b = a + 1;
+	RETURN b;
+END

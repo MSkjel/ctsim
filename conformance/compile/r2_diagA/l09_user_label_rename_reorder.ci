@@ -1,0 +1,6 @@
+//// LABEL: ZzRen2(a, b) = ZzOther2(b, a)
+FUNCTION ZzRen2(INT x, STRING s)
+END
+FUNCTION ZzUse()
+	ZzOther2("a", 1);
+END

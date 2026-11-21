@@ -1,0 +1,4 @@
+FUNCTION ProbeA()
+	mLate = 1;
+END
+MODULE INT mLate;

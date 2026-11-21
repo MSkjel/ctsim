@@ -1,0 +1,9 @@
+FUNCTION Z(INT a, INT b)
+	INT x;
+	IF a THEN
+		WHILE b DO
+			x = 1;
+	ELSE
+		x = 2;
+	END
+END

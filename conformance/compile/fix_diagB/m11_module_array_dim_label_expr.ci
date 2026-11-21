@@ -1,0 +1,4 @@
+//// LABEL: ZSUM = 2 + 3
+MODULE INT a[ZSUM];
+FUNCTION Z()
+END

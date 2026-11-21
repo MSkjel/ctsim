@@ -1,0 +1,3 @@
+GLOBAL INT ZzFn;
+FUNCTION ZzFn()
+END

@@ -1,0 +1,10 @@
+{
+ "format": "ctsim-runtime/0",
+ "tag": "live",
+ "recorded": "2026-10-01",
+ "call": "0 AND 1 / 0",
+ "ok": false,
+ "error": "0x10000124",
+ "code": 292,
+ "codeName": "Invalid function (doc)"
+}

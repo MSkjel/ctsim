@@ -1,0 +1,14 @@
+//// PROJECT: Main
+//// INCLUDE: LibA
+//// LABEL: SAMELBL = 5
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN SAMELBL;
+END
+
+//// PROJECT: LibA
+//// LABEL: SAMELBL = 7
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN 1;
+END

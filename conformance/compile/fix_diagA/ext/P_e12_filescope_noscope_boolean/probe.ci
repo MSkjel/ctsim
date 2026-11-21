@@ -1,0 +1,4 @@
+BOOLEAN zzFileVar;
+FUNCTION ProbeT()
+END
+

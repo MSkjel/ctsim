@@ -1,0 +1,25 @@
+//// PROJECT: Root1
+//// INCLUDE: Zmid
+//// LABEL: DL9 = 1
+//// FILE: r.ci
+FUNCTION RB()
+	UnkRoot();
+END
+
+
+//// PROJECT: Zmid
+//// INCLUDE: Leaf
+//// LABEL: DL9 = 1
+//// FILE: zm.ci
+INT FUNCTION ZmidFn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Leaf
+//// INCLUDE: =CiP_Nope9
+//// FILE: l.ci
+FUNCTION LB()
+	UnkLeaf();
+END
+

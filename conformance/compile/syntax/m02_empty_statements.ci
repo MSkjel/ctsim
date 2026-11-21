@@ -1,0 +1,4 @@
+FUNCTION Z()
+	;;;
+	IF 1 THEN ; ; END;
+END

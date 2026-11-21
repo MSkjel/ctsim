@@ -1,0 +1,3 @@
+FUNCTION Z(INT a)
+	IF a THEN ; ELSE Sleep(0); END
+END

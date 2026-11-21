@@ -1,0 +1,41 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2001",
+   "msg": "Tag not found",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "Z() FOR qq {=} 1 TO 10 DO"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "FOR qq = 1 {TO} 10 DO Sleep(0);"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 2,
+   "context": "= 1 TO 10 {DO} Sleep(0);"
+  },
+  {
+   "code": "E2031",
+   "msg": "FUNCTION expected",
+   "file": "probe.ci",
+   "line": 5,
+   "context": "Sleep(0); END {END}"
+  }
+ ],
+ "warnings": [],
+ "aliases": [
+  "r2_diagB/projects/syntax__b19_for_undeclared/probe.ci"
+ ]
+}

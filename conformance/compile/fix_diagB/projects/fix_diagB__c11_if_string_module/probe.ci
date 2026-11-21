@@ -1,0 +1,6 @@
+MODULE STRING mS;
+FUNCTION Z()
+	IF mS THEN
+		Sleep(0);
+	END
+END

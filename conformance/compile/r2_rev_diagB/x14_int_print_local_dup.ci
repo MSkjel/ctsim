@@ -1,0 +1,4 @@
+FUNCTION Z()
+	INT Print;
+	Sleep(0);
+END

@@ -1,0 +1,7 @@
+//// FILE: a.ci
+FUNCTION A()
+	B();
+END
+//// FILE: b.ci
+FUNCTION B()
+END

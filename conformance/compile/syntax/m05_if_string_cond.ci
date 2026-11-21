@@ -1,0 +1,5 @@
+FUNCTION Z(STRING s)
+	IF s THEN
+		Sleep(0);
+	END
+END

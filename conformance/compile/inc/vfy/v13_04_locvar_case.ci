@@ -1,0 +1,16 @@
+//// PROJECT: Root1
+//// INCLUDE: Bot
+//// LOCVAR: lvcase INT
+//// FILE: r.ci
+INT FUNCTION R1Fn()
+	RETURN 1;
+END
+
+
+//// PROJECT: Bot
+//// LOCVAR: LVCASE INT
+//// FILE: b.ci
+INT FUNCTION BotFn()
+	RETURN 1;
+END
+

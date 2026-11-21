@@ -1,0 +1,4 @@
+FUNCTION ZzF()
+	INT i;
+	i = KEY_F1( );
+END

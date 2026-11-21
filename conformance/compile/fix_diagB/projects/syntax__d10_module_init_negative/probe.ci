@@ -1,0 +1,5 @@
+MODULE INT a = -5;
+MODULE REAL r = -2.5;
+MODULE REAL r2 = +3;
+FUNCTION Z()
+END

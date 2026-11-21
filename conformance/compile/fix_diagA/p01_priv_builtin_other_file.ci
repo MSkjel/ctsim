@@ -1,0 +1,9 @@
+//// FILE: a.ci
+PRIVATE INT FUNCTION StrLength(STRING s, INT x)
+	RETURN 1;
+END
+//// FILE: b.ci
+FUNCTION ZzB()
+	INT i;
+	i = StrLength("abc");
+END

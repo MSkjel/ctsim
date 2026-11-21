@@ -1,0 +1,31 @@
+INT FUNCTION QCb()
+	RETURN 0;
+END
+FUNCTION P()
+	INT vi = 1;
+	REAL vr = 1;
+	STRING vs = "a";
+	OBJECT vo;
+	TIMESTAMP vt;
+	QUALITY vq;
+	AlarmGetThresholdRec(1, 1);
+	AlarmGetThresholdRec(1, 1, "a");
+	AlarmHighestPriority(1);
+	AlarmHighestPriority(1, "a", "a", 1, 1, 1);
+	AlarmListCreate(1, 1, 1, 1, 1, 1);
+	AlarmListCreate(1, 1, 1, 1, 1, 1, "a", "a", 1, 1);
+	AlarmNextCatRec(1, 1, 1);
+	AlarmNextCatRec(1, 1, 1, 1, 1);
+	AlarmNextPriRec(1, 1, 1);
+	AlarmNextPriRec(1, 1, 1, 1, 1);
+	AlarmNextTagRec(1, "a", "a", "a");
+	AlarmNextTagRec(1, "a", "a", "a", "a");
+	AlarmNotifyVarChange("a", 1.5, 1);
+	AlarmNotifyVarChange("a", 1.5, 1, 1, "a", 1);
+	AlarmQueryFirstRec(1, 1, 1, 1);
+	AlarmQueryFirstRec(1, 1, 1, 1, "a");
+	AlarmQueryNextRec(1, 1, 1, 1, 1);
+	AlarmQueryNextRec(1, 1, 1, 1, 1, "a");
+	AlarmResetQuery();
+	AlarmResetQuery("a");
+END

@@ -1,0 +1,23 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": true,
+ "errors": [],
+ "warnings": [],
+ "aliases": [
+  "fix_diagA/ext/P_s03_two_private_then_public/a.ci",
+  "fix_diagA/ext/P_s03_two_private_then_public/b.ci",
+  "fix_diagA/ext/P_s07_private_func_then_global/a.ci",
+  "r2_diagB/projects/fix_diagA__o01_underscore_vs_letter_order/b.ci",
+  "r2_diagB/projects/fix_diagA__o02_case_insensitive_order/a.ci",
+  "r2_diagB/projects/fix_diagA__o04_prefix_order/a.ci",
+  "r2_diagB/projects/fix_diagA__s01_public_then_private_other_file/b.ci",
+  "r2_diagB/projects/fix_diagA__s02_private_then_public_other_file/a.ci",
+  "r2_diagB/projects/fix_diagA__s03_two_private_then_public/a.ci",
+  "r2_diagB/projects/fix_diagA__s03_two_private_then_public/b.ci",
+  "r2_diagB/projects/fix_diagA__s06_global_then_private_func/b.ci",
+  "r2_diagB/projects/fix_diagA__s07_private_func_then_global/a.ci"
+ ]
+}

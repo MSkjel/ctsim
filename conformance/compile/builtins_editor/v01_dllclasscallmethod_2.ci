@@ -1,0 +1,4 @@
+FUNCTION P()
+	OBJECT o;
+	DllClassCallMethod(o, "m");
+END

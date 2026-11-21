@@ -1,0 +1,22 @@
+//// PROJECT: Root1
+//// INCLUDE: LibA
+//// FILE: r1.ci
+INT FUNCTION Hook()
+	RETURN 1;
+END
+
+//// PROJECT: Root2
+//// INCLUDE: LibA
+//// FILE: r2.ci
+INT FUNCTION Hook(INT a)
+	RETURN a;
+END
+
+//// PROJECT: LibA
+//// FILE: a.ci
+INT FUNCTION LibFn()
+	RETURN Hook(5);
+END
+
+//// COMPILE: Root1
+//// COMPILE: Root2

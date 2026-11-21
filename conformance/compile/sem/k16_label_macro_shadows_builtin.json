@@ -1,0 +1,248 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-10-01",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 279,
+   "context": "sLike = {StrLeft(sLike, nStrLen)}; sFieldX"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 279,
+   "context": "sLike = {StrLeft(sLike, nStrLen)}; sFieldX"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 280,
+   "context": "sFieldX = {StrLeft(sFieldX, nStrLen)};"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 280,
+   "context": "sFieldX = {StrLeft(sFieldX, nStrLen)};"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 300,
+   "context": "sLike = {StrLeft(sLike, nStrLen)}; sFieldX"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 300,
+   "context": "sLike = {StrLeft(sLike, nStrLen)}; sFieldX"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 301,
+   "context": "sFieldX = {StrLeft(sFieldX, nStrLen)};"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 301,
+   "context": "sFieldX = {StrLeft(sFieldX, nStrLen)};"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 1300,
+   "context": "sPrefix + \",\" + {StrLeft(scboDTOpt,1)};"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 1300,
+   "context": "sPrefix + \",\" + {StrLeft(scboDTOpt,1)};"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "AFilter.ci",
+   "line": 1300,
+   "context": "StrLeft(scboDTOpt,1){;}"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 1539,
+   "context": "sPrefix + \",\" + {StrLeft(scboDTOpt,1)};"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 1539,
+   "context": "sPrefix + \",\" + {StrLeft(scboDTOpt,1)};"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "AFilter.ci",
+   "line": 1539,
+   "context": "StrLeft(scboDTOpt,1){;}"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 1768,
+   "context": "sPrefix + \",\" + {StrLeft(scboDTOpt,1)};"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 1768,
+   "context": "sPrefix + \",\" + {StrLeft(scboDTOpt,1)};"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "AFilter.ci",
+   "line": 1768,
+   "context": "StrLeft(scboDTOpt,1){;}"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 1997,
+   "context": "sPrefix + \",\" + {StrLeft(scboDTOpt,1)};"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 1997,
+   "context": "sPrefix + \",\" + {StrLeft(scboDTOpt,1)};"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "AFilter.ci",
+   "line": 1997,
+   "context": "StrLeft(scboDTOpt,1){;}"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 2164,
+   "context": "sPrefix + \",\" + {StrLeft(m_sacboDTOpt[hData],1)};"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 2164,
+   "context": "sPrefix + \",\" + {StrLeft(m_sacboDTOpt[hData],1)};"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "AFilter.ci",
+   "line": 2164,
+   "context": "StrLeft(m_sacboDTOpt[hData],1){;}"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 2335,
+   "context": "sPrefix + \",\" + {StrLeft(m_sscboDTOpt[hData],1)};"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 2335,
+   "context": "sPrefix + \",\" + {StrLeft(m_sscboDTOpt[hData],1)};"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "AFilter.ci",
+   "line": 2335,
+   "context": "StrLeft(m_sscboDTOpt[hData],1){;}"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 2498,
+   "context": "sPrefix + \",\" + {StrLeft(m_sdcboDTOpt[hData],1)};"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 2498,
+   "context": "sPrefix + \",\" + {StrLeft(m_sdcboDTOpt[hData],1)};"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "AFilter.ci",
+   "line": 2498,
+   "context": "StrLeft(m_sdcboDTOpt[hData],1){;}"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 2663,
+   "context": "sPrefix + \",\" + {StrLeft(m_secboDTOpt[hData],1)};"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 2663,
+   "context": "sPrefix + \",\" + {StrLeft(m_secboDTOpt[hData],1)};"
+  },
+  {
+   "code": "E2024",
+   "msg": "Incompatible types",
+   "file": "AFilter.ci",
+   "line": 2663,
+   "context": "StrLeft(m_secboDTOpt[hData],1){;}"
+  },
+  {
+   "code": "E2057",
+   "msg": "Label argument error",
+   "file": "AFilter.ci",
+   "line": 2824,
+   "context": "SELECT CASE {StrLeft(cboDTOpt, 1)} CASE"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "AFilter.ci",
+   "line": 2824,
+   "context": "SELECT CASE {StrLeft(cboDTOpt, 1)} CASE"
+  }
+ ],
+ "warnings": []
+}

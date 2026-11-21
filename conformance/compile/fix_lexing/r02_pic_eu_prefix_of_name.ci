@@ -1,0 +1,8 @@
+STRING FUNCTION P()
+	REAL r = 1.5;
+	STRING s;
+	INT Eustace;
+	s = r:###
+	Eustace = 1;
+	RETURN s;
+END

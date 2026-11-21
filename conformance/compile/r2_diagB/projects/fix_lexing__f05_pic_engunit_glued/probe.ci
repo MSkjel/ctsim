@@ -1,0 +1,6 @@
+STRING FUNCTION P()
+	REAL r = 1.5;
+	STRING s;
+	s = r:#.## engunitZzEng;
+	RETURN s;
+END

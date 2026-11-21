@@ -1,0 +1,6 @@
+INT FUNCTION Normal()
+	RETURN 1;
+END
+INT FUNCTION P()
+	RETURN Normal();
+END

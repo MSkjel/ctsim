@@ -1,0 +1,5 @@
+//// LABEL: CNT = 5
+FUNCTION Z()
+	INT CNT;
+	CNT = 2;
+END

@@ -1,0 +1,6 @@
+//// PROJECT: Main
+//// INCLUDE: =*CiP_Missing
+//// FILE: main.ci
+INT FUNCTION MainFn()
+	RETURN 1;
+END

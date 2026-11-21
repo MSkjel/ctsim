@@ -1,0 +1,32 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-09-28",
+ "compiles": [
+  {
+   "compile": "Root1",
+   "ok": false,
+   "errors": [
+    {
+     "code": "E2031",
+     "msg": "FUNCTION expected",
+     "file": "m.ci",
+     "line": 2,
+     "context": "FUNCTION F_Mbot() {Unknown_Mbot}(); END",
+     "project": "Mbot"
+    }
+   ],
+   "warnings": [
+    {
+     "code": "W1021",
+     "msg": "Possible missing operand between tags",
+     "file": "m.ci",
+     "line": 2,
+     "context": "Unknown_Mbot(){;} END",
+     "project": "Mbot"
+    }
+   ]
+  }
+ ]
+}

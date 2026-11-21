@@ -1,0 +1,4 @@
+FUNCTION ProbeR()
+	DevClose(1);
+END
+

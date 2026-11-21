@@ -1,0 +1,3 @@
+FUNCTION Z()
+	FormButton(1, 1, "x", ZP, 0);
+END

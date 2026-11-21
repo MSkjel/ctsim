@@ -1,0 +1,6 @@
+FUNCTION ProbeK()
+	INT i;
+	PROBE_SET(i)
+	Sleep(i);
+END
+
