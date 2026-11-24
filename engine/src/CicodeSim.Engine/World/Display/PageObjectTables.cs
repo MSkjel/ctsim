@@ -46,6 +46,20 @@ namespace CicodeSim.World.Display
         public TrendPen Copy() => (TrendPen)MemberwiseClone();
     }
 
+    /// <summary>A trend marker (DspMarkerNew): a vertical line at a sample offset from the
+    /// trend's left edge (0..the samples) or a horizontal line at 0..32000 of the height from the
+    /// bottom; not shown until DspMarkerMove places it.</summary>
+    public sealed class TrendMarker
+    {
+        public bool Horizontal;
+
+        /// <summary>0xRRGGBB, -1 transparent.</summary>
+        public long Colour;
+
+        /// <summary>The offset DspMarkerMove gave, -1 before the first move.</summary>
+        public int Offset = -1;
+    }
+
     /// <summary>A trend object on a window's page.</summary>
     public sealed class PageTrend
     {
@@ -96,6 +110,12 @@ namespace CicodeSim.World.Display
 
         /// <summary>Changes on every change a viewer must see (pens, period, mode, cursor, scale).</summary>
         public long Serial;
+
+        /// <summary>The markers DspMarkerNew made, the handle = the index (up to MaxMarkers).</summary>
+        public readonly List<TrendMarker> Markers = new List<TrendMarker>();
+
+        /// <summary>The markers a trend takes (the help's 10).</summary>
+        public const int MaxMarkers = 10;
 
         /// <summary>A trend without a drawing: the samples (guess; the trend drawing gives them).</summary>
         public const int DefaultSamples = 100;

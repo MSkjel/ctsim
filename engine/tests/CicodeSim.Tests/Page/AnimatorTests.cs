@@ -382,6 +382,55 @@ namespace CicodeSim.Tests.Page
         }
 
         [Fact]
+        public void DspGetSliderAndDspSetSliderReadAndWriteTheSlidersTag()
+        {
+            var a = Make();
+            var p = new PageFixture();
+            long read = p.Load("Tank1_Level", percent: true);
+            long write = p.Code(c => c.ConstInt(0).Convert(4).Func("GetGlbStr", 1).Store("Tank1_Level"));
+            p.Percent("Tank1_Level");
+            p.Dyn(
+                5,
+                0x0F,
+                -1,
+                ("MVXSL", CompiledPage.Slider(read, write)),
+                ("MVXSLMODE", 1L),
+                ("MVXMINPT", 0L),
+                ("MVXMAXPT", 200L)
+            );
+            // a rotational slider that reads only (its tag is not one tag)
+            p.Dyn(
+                7,
+                0x0F,
+                -1,
+                ("ROTSL", CompiledPage.Slider(read, uint.MaxValue)),
+                ("ROTSLMODE", 1L),
+                ("ROTMINPC", 0L),
+                ("ROTMAXPC", 100L)
+            );
+            p.Dyn(6, 0x0F, -1, ("MVXMINPT", 0L));
+            _world.Tags.Set("Tank1_Level", 25);
+            Assert.Equal(0, a.Open("TestPage", 0, compiled: p.Build()));
+            long Get(int an) => PageObjectTests.Call(a, "DspGetSlider", an).v.I;
+            Assert.Equal(8000, Get(5));
+            Assert.Equal(8000, Get(7));
+            // the tag gets the percent: the slider shows it from the next scan
+            Assert.Equal(0, PageObjectTests.Call(a, "DspSetSlider", 5, 16000).v.I);
+            Assert.Equal(50.0, Num("Tank1_Level"), 6);
+            Assert.Equal(16000, Get(5));
+            a.RunScans(1);
+            Assert.Equal(new[] { 100.0, 0.0 }, a.Run(0)!.State.Objects[5].Move);
+            Assert.Equal(0, PageObjectTests.Call(a, "DspSetSlider", 5, 40000).v.I);
+            Assert.Equal(100.0, Num("Tank1_Level"), 6);
+            // a slider that does not write; no slider, no object
+            Assert.Equal(0, PageObjectTests.Call(a, "DspSetSlider", 7, 0).v.I);
+            Assert.Equal(100.0, Num("Tank1_Level"), 6);
+            Assert.Equal(-1, Get(6));
+            Assert.Equal(-1, Get(99));
+            Assert.Equal(274, PageObjectTests.Call(a, "DspSetSlider", 6, 100).v.I);
+        }
+
+        [Fact]
         public void MouseOverColoursAndTheExtentIncludesItsEdge()
         {
             var a = Make();

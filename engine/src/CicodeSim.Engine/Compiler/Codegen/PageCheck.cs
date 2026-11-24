@@ -103,13 +103,18 @@ namespace CicodeSim.Compiler.Codegen
             for (int i = 0; i < Lookups.Count; i++)
                 p.FuncLookups[12L * i] = new Compiled.FuncLookup(12L * i, Lookups[i]);
             for (int i = 0; i < Vars.Count; i++)
+            {
+                var dims = Vars[i].Dims;
                 p.AddCodeVar(
                     new Compiled.CodeVar(65L * i, Vars[i].Name, FunctionGen.RawType(Vars[i].Type))
                     {
                         DataAddress = 256L * i,
                         UnitType = -1,
+                        UnitCount = Math.Max(1, VarDecl.VarDeclCount(dims)),
+                        Dims = dims.ConvertAll(d => (int)d).ToArray(),
                     }
                 );
+            }
             return p;
         }
     }

@@ -315,7 +315,7 @@ namespace CicodeSim.World
         };
 
         /// <summary>A pen naming an SPC series of an SPC tag ('Weight_SPC.XUCL'): the SPC tag,
-        /// null otherwise. The SPC series are not simulated (no samples); the tag gives the period.</summary>
+        /// null otherwise (its series: Builtins.SpcSeries).</summary>
         public TrendTag? SpcTrend(string? name)
         {
             string n = CitectText.Trim(name ?? "");

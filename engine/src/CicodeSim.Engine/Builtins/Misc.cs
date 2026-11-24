@@ -154,8 +154,10 @@ namespace CicodeSim.Builtins
         }
 
         /// <summary>The [NAME] path operators of citect.ini [CtEdit] (RUN, DATA, USER,
-        /// BIN, ...) and user paths.</summary>
-        internal static string PathOf(SimHost h, string s)
+        /// BIN, ...) and user paths ([Path] of citect.ini, then of the project's parameters).</summary>
+        internal static string PathOf(SimHost h, string s) => PathOf(h, s, 0);
+
+        private static string PathOf(SimHost h, string s, int depth)
         {
             string t = s.TrimStart();
             if (!t.StartsWith("[", StringComparison.Ordinal))
@@ -175,11 +177,16 @@ namespace CicodeSim.Builtins
                 string v = Project.CitectIni.IniValue("CtEdit", key, "");
                 if (v.Length == 0)
                     v = Project.CitectIni.IniValue("Path", key, "");
+                if (v.Length == 0)
+                    v = Params.Get(h, "Path", key) ?? "";
                 if (v.Length > 0)
                     dir = v;
             }
             if (dir == null)
                 return s;
+            // a path that is itself a [NAME] ([Path]Report = [DATA])
+            if (depth < 8 && dir.TrimStart().StartsWith("[", StringComparison.Ordinal))
+                dir = PathOf(h, dir, depth + 1);
             dir = dir.TrimEnd('\\', '/');
             return dir + (rest.Length > 0 && rest[0] != '\\' && rest[0] != '/' ? "\\" : "") + rest;
         }
@@ -187,7 +194,7 @@ namespace CicodeSim.Builtins
         [Builtin(
             "PathToStr",
             Doc = "1192566",
-            Notes = "[RUN] = the compiled project's folder; other [NAME]s from citect.ini [CtEdit] then [Path]; a string without a known operator is unchanged; 254 characters at most. Only a string: no file is touched."
+            Notes = "[RUN] = the compiled project's folder; other [NAME]s from citect.ini [CtEdit], then [Path] of citect.ini, then the project's [Path] parameters (a value that is itself a [NAME] is substituted too); a string without a known operator is unchanged; 254 characters at most. Only a string: no file is touched."
         )]
         private static Value PathToStr(SimHost h, CicodeTask t, ArgList a)
         {

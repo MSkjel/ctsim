@@ -656,51 +656,6 @@ namespace CicodeSim.Builtins
             return W.I(0);
         }
 
-        // ------------------------------------------------------------------ printing (no printer)
-        [Builtin(
-            "WinPrint",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
-            Doc = "1193995",
-            Notes = "Prints the window: the simulated computer has no printer; nothing is printed, 0 returned."
-        )]
-        private static Value WinPrint(SimHost h, CicodeTask t, ArgList a) => W.I(0);
-
-        [Builtin(
-            "WinPrintFile",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
-            Doc = "1193996",
-            Notes = "Prints a file in a window: nothing is printed, 0 returned."
-        )]
-        private static Value WinPrintFile(SimHost h, CicodeTask t, ArgList a) => W.I(0);
-
-        [Builtin(
-            "WinFile",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
-            Doc = "1193975",
-            Notes = "Writes the window as a bitmap file: nothing is written (the renderer is the viewer's), 0 returned."
-        )]
-        private static Value WinFile(SimHost h, CicodeTask t, ArgList a) => W.I(0);
-
-        [Builtin(
-            "WinCopy",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
-            Doc = "1193974",
-            Errors = "274 a width or height scale that is not above 0 (raised with the halt flag, 0 returned)",
-            Notes = "Copies the window to the clipboard: nothing is copied, 0 returned. The scale check is the runtime's ('0.0 < x && 0.0 < y', else; before the raise)."
-        )]
-        private static Value WinCopy(SimHost h, CicodeTask t, ArgList a)
-        {
-            double x = A.R(a.Get(0)),
-                y = A.R(a.Get(1));
-            if (!(x > 0.0 && y > 0.0))
-                t.RaiseError(274, true);
-            return W.I(0);
-        }
-
         // ------------------------------------------------------------------ screen metrics
         /// <summary>GetSystemMetrics of the simulated computer: Windows 10 at 96 dpi with the
         /// simulated screen (one 1920 x 1080 monitor by default) (values: guess, the Windows 10

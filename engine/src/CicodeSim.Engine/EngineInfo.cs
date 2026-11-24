@@ -13,7 +13,7 @@ namespace CicodeSim
         /// The protocol revision. Raised by one whenever the server gains something a client may
         /// rely on.
         /// </summary>
-        public const int ProtocolRevision = 29;
+        public const int ProtocolRevision = 30;
 
         /// <summary>The assembly version ('0.0.1.0').</summary>
         public static string Version => typeof(EngineInfo).Assembly.GetName().Version?.ToString() ?? "0";

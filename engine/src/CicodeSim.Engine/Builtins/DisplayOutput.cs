@@ -480,12 +480,91 @@ namespace CicodeSim.Builtins
         }
 
         // ------------------------------------------------------------------ files, rich text, sound
+        /// <summary>A file display's output: its window, offsets and the lines it shows, each at
+        /// its AN (the display's AN + k) where the page has that AN, cut to the window's width
+        /// from the column offset.</summary>
+        private static DrawCommand FileOutput(
+            DisplayState d,
+            Window w,
+            int an,
+            int font,
+            string name,
+            FileView f
+        )
+        {
+            var c = new DrawCommand
+            {
+                An = an,
+                Kind = "file",
+                Font = font,
+                Text = name,
+                File = f,
+            };
+            c.Arg("height", f.Height)
+                .Arg("width", f.Width)
+                .Arg("row", f.Row)
+                .Arg("col", f.Col)
+                .Arg("count", f.Lines.Count);
+            var lines = JsonValue.NewArray();
+            for (int k = 0; k < f.Height && f.Row + k < f.Lines.Count; k++)
+            {
+                var o = w.Page?.Get(an + k);
+                if (o == null)
+                    continue;
+                string s = f.Lines[f.Row + k];
+                s = f.Col < s.Length ? s.Substring(f.Col) : "";
+                if (s.Length > Math.Max(0, f.Width))
+                    s = s.Substring(0, Math.Max(0, f.Width));
+                var (x, y) = DisplayAns.CurrentPos(d, w, o);
+                var e = JsonValue.NewObject();
+                e.Set("an", JsonValue.Of(an + k));
+                e.Set("x", JsonValue.Of(x));
+                e.Set("y", JsonValue.Of(y));
+                e.Set("text", s);
+                lines.Add(e);
+            }
+            c.Args.Add(new KeyValuePair<string, JsonValue>("lines", lines));
+            return c;
+        }
+
+        /// <summary>The AN's file display on the task's window, else null.</summary>
+        private static DrawCommand? FileAt(SimHost h, CicodeTask t, int an, out Window? w)
+        {
+            w = DisplayWindows.Current(h, t);
+            var c = w?.DrawnAt(an);
+            return c != null && c.Kind == "file" && c.File != null ? c : null;
+        }
+
+        /// <summary>A file's lines as FileReadLn reads them: ended by CR LF, CR or LF, each the
+        /// text up to a NUL.</summary>
+        private static List<string> FileLines(byte[] data)
+        {
+            var o = new List<string>();
+            int i = 0;
+            while (i < data.Length)
+            {
+                int a = i;
+                while (i < data.Length && data[i] != '\r' && data[i] != '\n')
+                    i++;
+                o.Add(Cp1252.DecodeZ(data, a, i - a));
+                if (i < data.Length && data[i] == '\r')
+                {
+                    i++;
+                    if (i < data.Length && data[i] == '\n')
+                        i++;
+                }
+                else if (i < data.Length)
+                    i++;
+            }
+            return o;
+        }
+
         [Builtin(
             "DspFile",
             Doc = "1104662",
             Effects = "records a file display window on the AN",
             Errors = "274 no window or an AN of 32000+ (raised and returned); 269 no page",
-            Notes = "The font, height and width recorded; DspFileSetName names the file."
+            Notes = "Height lines of Width characters, line k at the AN + k; no file until DspFileSetName. A file display made again starts empty."
         )]
         private static Value DspFile(SimHost h, CicodeTask t, ArgList a)
         {
@@ -493,14 +572,13 @@ namespace CicodeSim.Builtins
             int err = Check(h, t, ref an, out var w);
             if (err != 0)
                 return W.I(err);
-            var c = new DrawCommand
+            var f = new FileView
             {
-                An = an,
-                Kind = "file",
-                Font = (int)A.Short(A.I(a.Get(1))),
+                Height = (int)A.Short(A.I(a.Get(2))),
+                Width = (int)A.Short(A.I(a.Get(3))),
             };
-            c.Arg("height", A.Short(A.I(a.Get(2)))).Arg("width", A.Short(A.I(a.Get(3))));
-            Draw(D(h), w!, c);
+            var d = D(h);
+            Draw(d, w!, FileOutput(d, w!, an, (int)A.Short(A.I(a.Get(1))), "", f));
             return W.I(0);
         }
 
@@ -508,18 +586,22 @@ namespace CicodeSim.Builtins
             "DspFileSetName",
             Doc = "1104666",
             Effects = "the file a file display window shows",
-            Notes = "The name is kept on the AN's file display (the file is not read). Returns 0; an AN without a file display: 0, nothing kept (guess)."
+            Errors = "262 the file cannot be read (returned, not raised; the display shows no lines) (guess)",
+            Notes = "Reads the file (through the sandbox, as FileOpen: the unit's project folders are readable, and so is a file Cicode wrote) and shows it from its first line and column. An AN without a file display: 0, nothing kept (guess)."
         )]
         private static Value DspFileSetName(SimHost h, CicodeTask t, ArgList a)
         {
-            var w = DisplayWindows.Current(h, t);
-            var c = w?.DrawnAt((int)A.Short(A.I(a.Get(0))));
-            if (w != null && c != null && c.Kind == "file")
-            {
-                c.Text = A.S(a.Get(1));
-                w.DrawnSerial++;
-            }
-            return W.I(0);
+            var c = FileAt(h, t, (int)A.Short(A.I(a.Get(0))), out var w);
+            if (c == null)
+                return W.I(0);
+            string name = A.S(a.Get(1));
+            byte[]? data = h.Sandbox.ReadAll(Files.FullName(h, name));
+            var f = c.File!.Copy();
+            f.Row = f.Col = 0;
+            f.Lines = data != null ? FileLines(data) : new List<string>();
+            var d = D(h);
+            Draw(d, w!, FileOutput(d, w!, c.An, c.Font, name, f));
+            return W.I(data != null ? 0 : 262);
         }
 
         [Builtin(
@@ -535,27 +617,146 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "DspFileScroll",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104665",
-            Notes = "Scrolls a file display: the file is not read, 0."
+            Effects = "the row or column offset of a file display",
+            Notes = "Direction 1 left, 2 right, 3 up, 4 down, by nChars characters or lines. Up and left stop at the first row and column; down stops when the last line is on the window's last row, right when the longest line's end is at the window's right edge (guess). Another direction or an AN without a file display: nothing, 0 (guess)."
         )]
-        private static Value DspFileScroll(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value DspFileScroll(SimHost h, CicodeTask t, ArgList a)
+        {
+            var c = FileAt(h, t, (int)A.Short(A.I(a.Get(0))), out var w);
+            if (c == null)
+                return W.I(0);
+            var f = c.File!.Copy();
+            int n = (int)Math.Max(0, Math.Min(int.MaxValue, A.I(a.Get(2))));
+            int longest = 0;
+            foreach (string s in f.Lines)
+                longest = Math.Max(longest, s.Length);
+            switch (A.I(a.Get(1)))
+            {
+                case 1:
+                    f.Col = Math.Max(0, f.Col - n);
+                    break;
+                case 2:
+                    f.Col = (int)Math.Min((long)f.Col + n, Math.Max(f.Col, longest - f.Width));
+                    break;
+                case 3:
+                    f.Row = Math.Max(0, f.Row - n);
+                    break;
+                case 4:
+                    f.Row = (int)Math.Min((long)f.Row + n, Math.Max(f.Row, f.Lines.Count - f.Height));
+                    break;
+                default:
+                    return W.I(0);
+            }
+            var d = D(h);
+            Draw(d, w!, FileOutput(d, w!, c.An, c.Font, c.Text, f));
+            return W.I(0);
+        }
 
         [Builtin(
             "DspFileGetInfo",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104663",
-            Notes = "Information of a file display (lines, position): the file is not read, 0."
+            Notes = "Type 0 the window's width in characters, 1 its height in lines, 2 the row offset, 3 the column offset, 4 the file's lines; another type 0 (guess). An AN without a file display: 0, nothing raised (the Include's _PageFile makes the display when DspFileGetInfo(21, 0) <= 0)."
         )]
-        private static Value DspFileGetInfo(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value DspFileGetInfo(SimHost h, CicodeTask t, ArgList a)
+        {
+            var c = FileAt(h, t, (int)A.Short(A.I(a.Get(0))), out _);
+            if (c == null)
+                return W.I(0);
+            var f = c.File!;
+            switch (A.I(a.Get(1)))
+            {
+                case 0:
+                    return W.I(f.Width);
+                case 1:
+                    return W.I(f.Height);
+                case 2:
+                    return W.I(f.Row);
+                case 3:
+                    return W.I(f.Col);
+                case 4:
+                    return W.I(f.Lines.Count);
+            }
+            return W.I(0);
+        }
+
+        /// <summary>A rich text box's output: its size, mode, state, scroll position, lines and
+        /// RTF.</summary>
+        private static DrawCommand RichOutput(int an, string name, RichTextView r)
+        {
+            var c = new DrawCommand
+            {
+                An = an,
+                Kind = "richText",
+                Text = name,
+                RichText = r,
+            };
+            c.Arg("height", r.Height)
+                .Arg("width", r.Width)
+                .Arg("mode", r.Mode)
+                .Arg("enabled", r.Enabled ? 1 : 0)
+                .Arg("editable", r.Editable ? 1 : 0)
+                .Arg("row", r.Row)
+                .Arg("col", r.Col)
+                .Arg("count", r.Lines.Count)
+                .Arg("page", r.PageLines)
+                .Arg("rtf", r.Rtf);
+            return c;
+        }
+
+        /// <summary>The AN's rich text box on the task's window, else null.</summary>
+        private static DrawCommand? RichAt(SimHost h, CicodeTask t, int an, out Window? w)
+        {
+            w = DisplayWindows.Current(h, t);
+            var c = w?.DrawnAt(an);
+            return c != null && c.Kind == "richText" && c.RichText != null ? c : null;
+        }
+
+        /// <summary>Change the AN's rich text box: <paramref name="change"/> edits a copy (false:
+        /// nothing changes) and the box is drawn again. 0, or 274 (returned) when the AN has no
+        /// rich text box.</summary>
+        private static Value RichChange(
+            SimHost h,
+            CicodeTask t,
+            ArgList a,
+            Func<RichTextView, bool> change,
+            Func<DrawCommand, string>? name = null
+        )
+        {
+            var c = RichAt(h, t, (int)A.Short(A.I(a.Get(0))), out var w);
+            if (c == null)
+                return W.I(Codes.InvalidArg);
+            var r = c.RichText!.Copy();
+            if (!change(r))
+                return W.I(Codes.InvalidArg);
+            Draw(D(h), w!, RichOutput(c.An, name != null ? name(c) : c.Text, r));
+            return W.I(0);
+        }
+
+        /// <summary>The RTF a rich text box writes: what it shows, an empty document when nothing
+        /// was loaded (guess).</summary>
+        private static byte[] RichBytes(RichTextView r) =>
+            Cp1252.Encode(r.Rtf.Length > 0 ? r.Rtf : "{\\rtf1\\ansi }");
+
+        /// <summary>Write RTF to the port's next printout file (Printers\(port)-(n).rtf).</summary>
+        private static int PrintRich(SimHost h, CicodeTask t, string fn, string port, byte[] data)
+        {
+            string full = Plots.NextPrintout(h, port, "rtf");
+            if (h.Sandbox.WriteOutput(full, data, t.Vm.Clock.NowFiletime()))
+            {
+                h.Note(t, fn + ": the printout for " + port + " is in " + full);
+                return 0;
+            }
+            h.Note(t, fn + ": the printout for " + port + " could not be written to " + full);
+            return 262;
+        }
 
         [Builtin(
             "DspRichText",
             Doc = "1104708",
             Effects = "records a rich text box on the AN",
-            Errors = "274 no window or an AN of 32000+ (raised and returned); 269 no page"
+            Errors = "274 no window or an AN of 32000+ (raised and returned); 269 no page",
+            Notes = "iHeight by iWidth pixels down and right from the AN, empty until DspRichTextLoad; made again it starts empty (guess). nMode: + 1 enabled, + 2 read / write (editing needs it enabled too). The viewer shows the text read-only: edits are not sent back."
         )]
         private static Value DspRichText(SimHost h, CicodeTask t, ArgList a)
         {
@@ -563,9 +764,16 @@ namespace CicodeSim.Builtins
             int err = Check(h, t, ref an, out var w);
             if (err != 0)
                 return W.I(err);
-            var c = new DrawCommand { An = an, Kind = "richText" };
-            c.Arg("height", A.I(a.Get(1))).Arg("width", A.I(a.Get(2))).Arg("mode", Arg(a, 3, 0));
-            Draw(D(h), w!, c);
+            int mode = (int)Arg(a, 3, 0);
+            var r = new RichTextView
+            {
+                Height = (int)Math.Max(0, A.Short(A.I(a.Get(1)))),
+                Width = (int)Math.Max(0, A.Short(A.I(a.Get(2)))),
+                Mode = mode,
+                Enabled = (mode & 1) != 0,
+                Editable = (mode & 2) != 0,
+            };
+            Draw(D(h), w!, RichOutput(an, "", r));
             return W.I(0);
         }
 
@@ -573,82 +781,192 @@ namespace CicodeSim.Builtins
             "DspRichTextLoad",
             Doc = "1104712",
             Effects = "the file a rich text box shows",
-            Notes = "Kept on the AN's rich text box (not read). Returns 0."
+            Errors = "274 the AN has no rich text box (returned) (guess); 262 the file cannot be read or is over 512 KB (returned; the box shows nothing) (guess)",
+            Notes = "Reads the file (through the sandbox, as FileOpen: the unit's project folders are readable, and so is a file Cicode or a report wrote) and shows it from its first line and column. Its lines are its paragraphs (\\par)."
         )]
         private static Value DspRichTextLoad(SimHost h, CicodeTask t, ArgList a)
         {
-            var w = DisplayWindows.Current(h, t);
-            var c = w?.DrawnAt((int)A.Short(A.I(a.Get(0))));
-            if (w != null && c != null && c.Kind == "richText")
+            string name = A.S(a.Get(1));
+            byte[]? data = null;
+            var v = RichChange(
+                h,
+                t,
+                a,
+                r =>
+                {
+                    data = h.Sandbox.ReadAll(Files.FullName(h, name));
+                    if (data != null && data.Length > RichTextView.MaxBytes)
+                        data = null;
+                    r.Rtf = data != null ? Cp1252.DecodeZ(data, 0) : "";
+                    r.Lines = RichTextView.Paragraphs(r.Rtf);
+                    r.Row = r.Col = 0;
+                    return true;
+                },
+                _ => name
+            );
+            return A.I(v) != 0 ? v : W.I(data != null ? 0 : 262);
+        }
+
+        /// <summary>Scroll a rich text box: 1 left, 2 right, 3 up, 4 down by n lines or
+        /// characters, 8 to the top, 16 to the bottom; false for another direction.</summary>
+        private static bool Scroll(RichTextView r, long dir, long n)
+        {
+            n = Math.Max(0, Math.Min(int.MaxValue, n));
+            switch (dir)
             {
-                c.Text = A.S(a.Get(1));
-                w.DrawnSerial++;
+                case 1:
+                    r.Col = (int)Math.Max(0, r.Col - n);
+                    return true;
+                case 2:
+                    r.Col = (int)Math.Min(r.Col + n, Math.Max(r.Col, r.MaxCol));
+                    return true;
+                case 3:
+                    r.Row = (int)Math.Max(0, r.Row - n);
+                    return true;
+                case 4:
+                    r.Row = (int)Math.Min(r.Row + n, Math.Max(r.Row, r.MaxRow));
+                    return true;
+                case 8:
+                    r.Row = 0;
+                    return true;
+                case 16:
+                    r.Row = Math.Max(r.Row, r.MaxRow);
+                    return true;
             }
-            return W.I(0);
+            return false;
         }
 
         [Builtin(
             "DspRichTextScroll",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104716",
-            Notes = "Not simulated (no rich text control): 0."
+            Effects = "the line or column offset of a rich text box",
+            Errors = "274 the AN has no rich text box or another direction (returned) (guess)",
+            Notes = "iDirection 1 left, 2 right, 3 up, 4 down by iAmount characters (8 pixels, guess) or lines (paragraphs, guess), 8 to the top, 16 to the bottom. Up and left stop at the first line and column; down stops when the last line is on the box's last row (16 pixel lines, guess), right when the longest line's end is at the box's right edge (guess)."
         )]
-        private static Value DspRichTextScroll(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value DspRichTextScroll(SimHost h, CicodeTask t, ArgList a)
+        {
+            long dir = A.I(a.Get(1)),
+                n = A.I(a.Get(2));
+            return RichChange(h, t, a, r => Scroll(r, dir, n));
+        }
 
         [Builtin(
             "DspRichTextPgScroll",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104713",
-            Notes = "Not simulated: 0."
+            Effects = "the line or column offset of a rich text box",
+            Errors = "274 the AN has no rich text box or another direction (returned) (guess)",
+            Notes = "As DspRichTextScroll by a page: the box's height in lines (16 pixels each, guess) up or down, its width in characters (8 pixels each, guess) left or right; 8 to the top, 16 to the bottom."
         )]
-        private static Value DspRichTextPgScroll(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value DspRichTextPgScroll(SimHost h, CicodeTask t, ArgList a)
+        {
+            long dir = A.I(a.Get(1));
+            return RichChange(h, t, a, r => Scroll(r, dir, dir == 1 || dir == 2 ? r.PageCols : r.PageLines));
+        }
 
         [Builtin(
             "DspRichTextGetInfo",
-            Status = BuiltinStatus.Stub,
-            Returns = "\"\"",
             Doc = "1104711",
-            Notes = "Not simulated: \"\"."
+            Notes = "As a string: type 0 the box's height, 1 its width (pixels). Another type or an AN without a rich text box: \"\" (guess)."
         )]
-        private static Value DspRichTextGetInfo(SimHost h, CicodeTask t, ArgList a) => W.Empty;
+        private static Value DspRichTextGetInfo(SimHost h, CicodeTask t, ArgList a)
+        {
+            var c = RichAt(h, t, (int)A.Short(A.I(a.Get(0))), out _);
+            if (c == null)
+                return W.Empty;
+            var r = c.RichText!;
+            switch (A.I(a.Get(1)))
+            {
+                case 0:
+                    return W.S(W.Inv(r.Height));
+                case 1:
+                    return W.S(W.Inv(r.Width));
+            }
+            return W.Empty;
+        }
 
         [Builtin(
             "DspRichTextSave",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104715",
-            Notes = "Saves the rich text to a file: nothing is written, 0."
+            Effects = "writes the box's RTF to the file",
+            Errors = "274 the AN has no rich text box (returned) (guess); 262 the file cannot be written (returned) (guess)",
+            Notes = "Writes the RTF the box shows (as loaded: edits in the viewer are not sent back) through the sandbox, replacing the file; a box with nothing loaded writes an empty document (guess)."
         )]
-        private static Value DspRichTextSave(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value DspRichTextSave(SimHost h, CicodeTask t, ArgList a)
+        {
+            var c = RichAt(h, t, (int)A.Short(A.I(a.Get(0))), out _);
+            if (c == null)
+                return W.I(Codes.InvalidArg);
+            byte[] data = RichBytes(c.RichText!);
+            ulong now = t.Vm.Clock.NowFiletime();
+            var f = h.Sandbox.Open(Files.FullName(h, A.S(a.Get(1))), false, true, true, true, now);
+            if (f == null || (data.Length > 0 && h.Sandbox.Write(f, data, data.Length, now) != data.Length))
+                return W.I(262);
+            return W.I(0);
+        }
 
         [Builtin(
             "DspRichTextPrint",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104714",
-            Notes = "No printer: 0."
+            Effects = "writes the box's RTF to the sandbox as the port's printout",
+            Errors = "274 the AN has no rich text box (returned) (guess); 262 the printout cannot be written (returned) (guess)",
+            Notes = "No printer: the RTF the box shows goes to the sandbox as Printers\\(port)-(n).rtf, the port with \\ / : * ? \" < > | as '_', n counting that port's printouts (plots and rich text) from 1."
         )]
-        private static Value DspRichTextPrint(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value DspRichTextPrint(SimHost h, CicodeTask t, ArgList a)
+        {
+            var c = RichAt(h, t, (int)A.Short(A.I(a.Get(0))), out _);
+            if (c == null)
+                return W.I(Codes.InvalidArg);
+            return W.I(PrintRich(h, t, "DspRichTextPrint", A.S(a.Get(1)), RichBytes(c.RichText!)));
+        }
+
+        [Builtin(
+            "FileRichTextPrint",
+            Doc = "1105376",
+            Effects = "writes the file to the sandbox as the port's printout",
+            Errors = "262 the file cannot be read or the printout cannot be written (returned) (guess)",
+            Notes = "No printer: the file (read through the sandbox) goes to the sandbox as Printers\\(port)-(n).rtf, as DspRichTextPrint."
+        )]
+        private static Value FileRichTextPrint(SimHost h, CicodeTask t, ArgList a)
+        {
+            byte[]? data = h.Sandbox.ReadAll(Files.FullName(h, A.S(a.Get(0))));
+            if (data == null)
+                return W.I(262);
+            return W.I(PrintRich(h, t, "FileRichTextPrint", A.S(a.Get(1)), data));
+        }
 
         [Builtin(
             "DspRichTextEnable",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104710",
-            Notes = "Not simulated: 0."
+            Effects = "enables or disables a rich text box",
+            Errors = "274 the AN has no rich text box (returned) (guess)",
+            Notes = "Kept on the box and sent to the viewer (args.enabled). The viewer shows the text read-only either way."
         )]
-        private static Value DspRichTextEnable(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value DspRichTextEnable(SimHost h, CicodeTask t, ArgList a)
+        {
+            bool on = A.I(a.Get(1)) != 0;
+            return RichChange(h, t, a, r =>
+            {
+                r.Enabled = on;
+                return true;
+            });
+        }
 
         [Builtin(
             "DspRichTextEdit",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104709",
-            Notes = "Not simulated: 0."
+            Effects = "makes a rich text box read / write or read-only",
+            Errors = "274 the AN has no rich text box (returned) (guess)",
+            Notes = "Kept on the box and sent to the viewer (args.editable). Edits in the viewer are not sent back, so DspRichTextSave writes the loaded RTF."
         )]
-        private static Value DspRichTextEdit(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value DspRichTextEdit(SimHost h, CicodeTask t, ArgList a)
+        {
+            bool on = A.I(a.Get(1)) != 0;
+            return RichChange(h, t, a, r =>
+            {
+                r.Editable = on;
+                return true;
+            });
+        }
 
         [Builtin(
             "DspPlaySound",
@@ -1511,23 +1829,62 @@ namespace CicodeSim.Builtins
             return W.I(w.Page?.Get(an)?.Gray ?? 0);
         }
 
+        /// <summary>The AN's slider on the task's window (ISliders), false when it has none.</summary>
+        private static bool SliderAt(
+            SimHost h,
+            CicodeTask t,
+            int an,
+            out byte[] read,
+            out byte[]? write,
+            out CicodeSim.Compiled.Program? program
+        )
+        {
+            read = Array.Empty<byte>();
+            write = null;
+            program = null;
+            if (an == -2)
+                an = TaskContext.An(t);
+            var w = DisplayWindows.Current(h, t);
+            return w != null
+                && D(h).Controller is ISliders s
+                && s.Slider(w, an, out read, out write, out program)
+                && program != null;
+        }
+
         [Builtin(
             "DspGetSlider",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104692",
-            Notes = "The V3/V4 slider position of an AN: not simulated (the animator's sliders write their tags), 0."
+            Notes = "The position of the AN's slider animation (its horizontal, else vertical, else rotational slider: guess): the percent its tag reads as the slider shows it, 0..100 as 0..32000. -1 when the AN has no slider animation or is not on the page."
         )]
-        private static Value DspGetSlider(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value DspGetSlider(SimHost h, CicodeTask t, ArgList a)
+        {
+            if (!SliderAt(h, t, (int)A.Short(A.I(a.Get(0))), out var read, out _, out var program))
+                return W.I(-1);
+            var v = RdbTables.RunBlock(h, t, read, program!, "DspGetSlider");
+            double pct = v != null ? A.R(v.Value) : 0.0;
+            if (double.IsNaN(pct))
+                pct = 0.0;
+            return W.I((long)Math.Round(Math.Max(0.0, Math.Min(100.0, pct)) * 320.0));
+        }
 
         [Builtin(
             "DspSetSlider",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104727",
-            Notes = "Sets a V3/V4 slider position: not simulated, 0."
+            Effects = "writes the slider's tag",
+            Errors = "274 the AN has no slider animation (returned) (guess)",
+            Notes = "Moves the AN's slider animation (as DspGetSlider picks it) to nPos (0..32000, kept in that range: guess) as a drag released there does: its tag gets the percent nPos / 320 through the slider's write code, and the slider shows the tag from the next scan. A slider whose tag is not one tag does not write (0)."
         )]
-        private static Value DspSetSlider(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value DspSetSlider(SimHost h, CicodeTask t, ArgList a)
+        {
+            if (!SliderAt(h, t, (int)A.Short(A.I(a.Get(0))), out _, out var write, out var program))
+                return W.I(Codes.InvalidArg);
+            if (write == null)
+                return W.I(0);
+            double pct = Math.Max(0, Math.Min(32000, A.I(a.Get(1)))) / 320.0;
+            t.Vm.GlbStr[0] = Crt.Sprintf("%e", PrintfArg.Float(pct));
+            RdbTables.RunBlock(h, t, write, program!, "DspSetSlider");
+            return W.I(0);
+        }
 
         [Builtin(
             "DspSetTooltipFont",
@@ -1814,47 +2171,10 @@ namespace CicodeSim.Builtins
             W.I(DisplayWindows.Current(h, t) == null ? 256 : 0);
 
         [Builtin(
-            "DspMarkerNew",
-            Status = BuiltinStatus.Stub,
-            Returns = "-1",
-            Errors = "274 no window or an AN outside 1..31999 (raised, -1)",
-            Notes = "A trend marker: trends on pages are not simulated here, -1."
-        )]
-        private static Value DspMarkerNew(SimHost h, CicodeTask t, ArgList a)
-        {
-            int an = (int)A.Short(A.I(a.Get(0)));
-            if (an == -2)
-                an = TaskContext.An(t);
-            if (DisplayWindows.Current(h, t) == null || !DisplayAns.AnOk(an))
-                W.Raise(t, 274);
-            return W.I(-1);
-        }
-
-        [Builtin(
-            "DspMarkerMove",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
-            Errors = "274 no window or an AN outside 1..31999 (raised and returned)",
-            Notes = "Moves a trend marker: not simulated, 0."
-        )]
-        private static Value DspMarkerMove(SimHost h, CicodeTask t, ArgList a)
-        {
-            int an = (int)A.Short(A.I(a.Get(0)));
-            if (an == -2)
-                an = TaskContext.An(t);
-            if (DisplayWindows.Current(h, t) == null || !DisplayAns.AnOk(an))
-            {
-                W.Raise(t, 274);
-                return W.I(274);
-            }
-            return W.I(0);
-        }
-
-        [Builtin(
             "DspTrnLoad",
             Status = BuiltinStatus.Stub,
             Returns = "0",
-            Notes = "Loads a trend for the page (V3/V4): trends on pages are not simulated here, 0."
+            Notes = "Adds the named trend to the page's V3/V4 trend window and returns its 1-based pen number (an empty name, \"0\" or \"local\" looks the pen up instead); the simulator has no V3/V4 trend window: 0."
         )]
         private static Value DspTrnLoad(SimHost h, CicodeTask t, ArgList a) => W.I(0);
 

@@ -92,6 +92,14 @@ namespace CicodeSim.Tests.Page
                         ("SUBGRPSIZE", "4"),
                         ("RANGE", "12.5")
                     ),
+                    WorldFixture.Row(
+                        ("NAME", "Level_SPC"),
+                        ("EXPR", "Tank1_Level"),
+                        ("SAMPLEPER", "1"),
+                        ("LSL", "0"),
+                        ("USL", "100"),
+                        ("SUBGRPSIZE", "2")
+                    ),
                 }
             );
             _world = new WorldT(main, start: WorldFixture.DefaultStart);
@@ -201,6 +209,41 @@ namespace CicodeSim.Tests.Page
             Assert.Equal(10, j["pens"].Items[0]["values"].Count);
             Assert.Equal(120.0, j["pens"].Items[0]["values"].Items[9].ToNumber());
             Assert.Contains(tr.Pens[1].Colour, new long?[] { 0xFF0000, 0x0000FF }); // a flashing pen: the phase's half
+        }
+
+        [Fact]
+        public void TrendMarkersArePlacedOnTheTrendAndSentInItsState()
+        {
+            var (a, r) = TrendPage();
+            // a vertical white marker and a horizontal red one: not shown before a move
+            Assert.Equal(0, Call(a, "DspMarkerNew", 30, 0, 0xFFFFFF).v.I);
+            Assert.Equal(1, Call(a, "DspMarkerNew", 30, 1, 0xFF0000).v.I);
+            a.RunScans(1);
+            Assert.Empty(r.State.Objects[30].Trend!.Markers);
+            Assert.Equal(0, Call(a, "DspMarkerMove", 30, 0, 4).v.I);
+            Assert.Equal(0, Call(a, "DspMarkerMove", 30, 1, 40000).v.I); // kept in 0..32000
+            a.RunScans(1);
+            var tr = r.State.Objects[30].Trend!;
+            Assert.Equal(new[] { (0, false, 0xFFFFFFL, 4), (1, true, 0xFF0000L, 32000) }, tr.Markers);
+            var j = r.State.Objects[30].ToJson()["trend"]["markers"];
+            Assert.Equal(2, j.Count);
+            Assert.Equal(
+                ("vertical", 4.0, 0xFFFFFFL),
+                (j.Items[0]["mode"].Str, j.Items[0]["offset"].ToNumber(), j.Items[0]["colour"].Long)
+            );
+            // a vertical offset stops at the trend's samples (10)
+            Assert.Equal(0, Call(a, "DspMarkerMove", 30, 0, 99).v.I);
+            a.RunScans(1);
+            Assert.Equal(10, r.State.Objects[30].Trend!.Markers[0].Offset);
+            // a bad handle, no trend at the AN, a bad mode
+            Assert.Equal(269, Call(a, "DspMarkerMove", 30, 2, 1).v.I);
+            Assert.Equal(300, Call(a, "DspMarkerMove", 31, 0, 1).v.I);
+            Assert.Equal(-1, Call(a, "DspMarkerNew", 31, 0, 0).v.I);
+            Assert.Equal(-1, Call(a, "DspMarkerNew", 30, 2, 0).v.I);
+            // ten markers a trend
+            for (int k = 2; k < 10; k++)
+                Assert.Equal(k, Call(a, "DspMarkerNew", 30, 0, 0).v.I);
+            Assert.Equal(-1, Call(a, "DspMarkerNew", 30, 0, 0).v.I);
         }
 
         [Fact]
@@ -443,8 +486,8 @@ namespace CicodeSim.Tests.Page
             var r = a.Run(0)!;
             a.RunScans(1);
             var tr = r.State.Objects[50].Trend!;
-            Assert.Equal(2.0, tr.Period); // the SPC tag's SAMPLEPER
-            Assert.All(tr.Pens, x => Assert.All(x.Values, v => Assert.Null(v))); // the series: not simulated
+            Assert.Equal(8.0, tr.Period); // a subgroup: the SPC tag's SAMPLEPER x SUBGRPSIZE
+            Assert.All(tr.Pens, x => Assert.All(x.Values, v => Assert.Null(v))); // no samples of the expression yet
             // a manual X-bar UCL draws as that constant; automatic again: no samples
             Assert.Equal(0, Call(a, "SPCSetLimit", 50, 1, 455.0, 1).v.I);
             a.RunScans(1);
@@ -502,7 +545,7 @@ namespace CicodeSim.Tests.Page
             Assert.Equal(450.0, Call(a, "SPCClientInfo", "Weight_SPC", 7).v.D);
             Assert.Equal(420.0, Call(a, "SPCClientInfo", "Weight_SPC", 3).v.D);
             Assert.Equal(Codes.InvalidArg, Call(a, "SPCClientInfo", "Weight_SPC", 12).t.Error);
-            // the SPC series readers: the client's 'no data'
+            // the SPC series readers: no subgroup with data yet, the client's 'no data'
             Assert.Equal(
                 Codes.NameNotFound,
                 Call(a, "SPCClientTableGet", "Weight_SPC", 1, 0, 10, Value.Long(0), 1).v.I
@@ -523,6 +566,68 @@ namespace CicodeSim.Tests.Page
             // not displayed: the client has no data
             Call(a, "TrnDelete", 50);
             Assert.Equal(Codes.NameNotFound, Call(a, "SPCClientInfo", "Weight_SPC", 1).t.Error);
+        }
+
+        [Fact]
+        public void SpcSeriesGiveTheChartsLimitsCapabilityAndAlarms()
+        {
+            var a = Make();
+            var p = new PageFixture();
+            p.Row(
+                "PGTREND",
+                ("AN", 60L),
+                ("PEN1", "Level_SPC.X"),
+                ("PEN2", "Level_SPC.XUCL"),
+                ("PEN3", "Level_SPC.R")
+            );
+            var d = Draw.Obj(60, 0x1003, new Rect(0, 0, 100, 50));
+            d.Trend = new TrendInfo { Samples = 39 };
+            Assert.Equal(0, a.Open("TestPage", 0, Draw.Model(d), compiled: p.Build()));
+            var r = a.Run(0)!;
+            // 49, 51, 49, 51 ... a second apart: every subgroup of two has mean 50, range 2 and
+            // standard deviation sqrt(2)
+            for (int i = 0; i <= 80; i++)
+            {
+                if (i > 0)
+                    a.RunFor(1.0);
+                _world.Tags.Set("Tank1_Level", i % 2 == 0 ? 49.0 : 51.0);
+            }
+            a.RunScans(1);
+            var tr = r.State.Objects[60].Trend!;
+            Assert.Equal(2.0, tr.Period); // a subgroup: two samples a second apart
+            double ucl = 50 + 1.880 * 2; // X-bar + A2 R-bar (subgroup size 2)
+            Assert.Equal(50.0, tr.Pens[0].Values[38]!.Value, 6);
+            Assert.Equal(ucl, tr.Pens[1].Values[38]!.Value, 6);
+            Assert.Equal(2.0, tr.Pens[2].Values[38]!.Value, 6);
+            int known = (int)Call(a, "SPCClientInfo", "Level_SPC", 2).v.D;
+            Assert.InRange(known, 30, 39);
+            Assert.Equal(100 / (6 * Math.Sqrt(2)), Call(a, "SPCClientInfo", "Level_SPC", 8).v.D, 6); // Cp
+            Assert.Equal(0, Call(a, "SPCAlarms", "Level_SPC", 4).v.I); // XAboveUCL
+            // the histogram over -3 .. +3 sigma in 5 inner bars: 49 in the second inner bar, 51
+            // in the fourth
+            var tag = TrendTags.Of(_world).Find("Level_SPC")!;
+            var run = SpcSeries.Of(
+                _world,
+                tag,
+                SpcSeries.EndAt(_world, tag, (long)_world.Clock.NowFiletime()),
+                39
+            );
+            var hist = SpcSeries.Histogram(run, 7)!;
+            Assert.Equal(new double[] { 0, 0, known, 0, known, 0, 0 }, hist);
+            // eight samples at 59 / 61, so at least three whole subgroups at 60 wherever the
+            // subgroup grid falls: above the UCL three times running, and a freak point; not yet
+            // the eight points above the centre line of XGradualUp
+            for (int i = 0; i < 8; i++)
+            {
+                a.RunFor(1.0);
+                _world.Tags.Set("Tank1_Level", i % 2 == 0 ? 59.0 : 61.0);
+            }
+            Assert.Equal(1, Call(a, "SPCAlarms", "Level_SPC", 4).v.I);
+            Assert.Equal(1, Call(a, "SPCAlarms", "Level_SPC", 1).v.I); // XFreak
+            Assert.Equal(1, Call(a, "SPCAlarms", "Level_SPC", 4 | 128).v.I); // any of the bits
+            Assert.Equal(0, Call(a, "SPCAlarms", "Level_SPC", 128).v.I); // XGradualUp
+            Assert.Equal(0, Call(a, "SPCAlarms", "Weight_SPC", 4).v.I); // no samples: nothing on
+            Assert.Equal(0, Call(a, "SPCAlarms", "NoSuch_SPC", 4).v.I);
         }
 
         // ================================================================== alarm lists

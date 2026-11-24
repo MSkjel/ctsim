@@ -62,7 +62,8 @@ namespace CicodeSim.Sim
         /// <summary>The debugger's options. Breakpoints in page code stop the scan.</summary>
         public DebugOptions Debug = new DebugOptions { ForegroundCanBreak = true };
 
-        /// <summary>Start the alarm server's scan.</summary>
+        /// <summary>Start the servers' work on the clock: the alarm server's scan and the report
+        /// server's schedules.</summary>
         public bool StartAlarms = true;
 
         /// <summary>The File* built-ins' sandbox: null = this simulation's own folder
@@ -560,6 +561,7 @@ namespace CicodeSim.Sim
             Stepper.RecorderClock = () => World.Clock.NowMs; // (the history's simulated times)
             Debugger = new DebugTarget(this);
             Pages = new SimPages(this);
+            Host.ReportSource = () => Pages.CodeUnit();
             Boot = new RuntimeStartup(this);
             // a waiting 'startup auto' runs once window 0 shows a page, however it was shown
             World.Display.PageShown += w => Boot.PageShown(w.Number);
@@ -583,7 +585,10 @@ namespace CicodeSim.Sim
             if (options.TracePath != null)
                 World.OpenTrace(options.TracePath);
             if (options.StartAlarms)
+            {
                 World.Start();
+                Reports.Start(Host, Vm);
+            }
             UserDir = FindUserDir(dir);
             InstallDir = UserDir.Length > 0 ? (Path.GetDirectoryName(UserDir) ?? "") : "";
             World.Clock.SetSpeed(options.Speed);

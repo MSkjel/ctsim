@@ -1001,6 +1001,29 @@ namespace CicodeSim.Builtins
             return n;
         }
 
+        /// <summary>A whole file the simulator itself writes (a printer's output): replaced when it
+        /// exists, made in its folder when that folder does not exist yet. False when there is no
+        /// room or the name is a folder.</summary>
+        public bool WriteOutput(string full, byte[] data, ulong time)
+        {
+            var f = Open(full, false, true, true, true, time);
+            if (f == null)
+            {
+                if (_files.ContainsKey(KeyOf(full)) || RealFile(full) != null || RealFolder(full) != null)
+                    return false;
+                var e = Create(full, time);
+                if (e == null)
+                    return false;
+                f = new SandboxFile
+                {
+                    Entry = e,
+                    Path = full,
+                    CanWrite = true,
+                };
+            }
+            return data.Length == 0 || Write(f, data, data.Length, time) == data.Length;
+        }
+
         /// <summary>Delete a sandbox file; false for a real one (read-only) or none.</summary>
         public bool Delete(string full)
         {

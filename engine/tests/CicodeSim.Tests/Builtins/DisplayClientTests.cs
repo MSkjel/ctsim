@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using CicodeSim.Builtins;
 using CicodeSim.Compiled;
 using CicodeSim.Values;
@@ -1276,6 +1277,522 @@ namespace CicodeSim.Tests.Builtins
                 C(s, "DLLCall", data, req2.ToString(System.Globalization.CultureInfo.InvariantCulture)).S
             );
             Assert.Equal(0, C(s, "DLLClose", menu).I);
+        }
+
+        // ------------------------------------------------------------------ file displays
+        /// <summary>The lines a file display shows: "AN@x,y:text".</summary>
+        private static List<string> FileShown(Window w, int an)
+        {
+            var o = new List<string>();
+            var c = w.DrawnAt(an);
+            if (c == null)
+                return o;
+            foreach (var kv in c.Args)
+                if (kv.Key == "lines")
+                    foreach (var e in kv.Value.Items)
+                        o.Add(e["an"].Long + "@" + e["x"].Long + "," + e["y"].Long + ":" + e["text"].Str);
+            return o;
+        }
+
+        [Fact]
+        public void AFileDisplayShowsTheFileLineByLineScrollsAndTellsItsWindow()
+        {
+            var s = MakeDisplay(out var host);
+            var files = new PageDrawing
+            {
+                Page = "Files",
+                Width = 640,
+                Height = 480,
+            };
+            // lines 20 and 21 of the window: AN 21 is missing, so its line is not shown
+            files.Add(Obj(20, 0x05, "Line0", new Rect(10, 40, 200, 56)));
+            files.Add(Obj(22, 0x05, "Line2", new Rect(10, 80, 200, 96)));
+            host.Add("Files", "Files", d: files);
+            string log = Path.Combine(MainDir, "log.txt");
+            File.WriteAllBytes(
+                log,
+                System.Text.Encoding.ASCII.GetBytes("alpha one\r\nbeta two\nthree\rfour five six\r\n")
+            );
+            Assert.Equal(0, C(s, "_PageDisplay", "Files").I);
+            var w = s.W.Display.Windows[0];
+            Assert.Equal(0, C(s, "DspFile", 20, -1, 3, 5).I); // 3 lines of 5 characters
+            Assert.Empty(FileShown(w, 20));
+            Assert.Equal(0, C(s, "DspFileGetInfo", 20, 4).I);
+            Assert.Equal(0, C(s, "DspFileSetName", 20, log).I);
+            Assert.Equal(log, C(s, "DspFileGetName", 20).S);
+            Assert.Equal(new[] { "20@10,40:alpha", "22@10,80:three" }, FileShown(w, 20));
+            Assert.Equal(
+                new long[] { 5, 3, 0, 0, 4 },
+                new[] { 0, 1, 2, 3, 4 }.Select(k => C(s, "DspFileGetInfo", 20, k).I).ToArray()
+            );
+            // down stops with the last line on the last row, right with the longest line's end
+            // at the right edge
+            Assert.Equal(0, C(s, "DspFileScroll", 20, 4, 10).I);
+            Assert.Equal(1, C(s, "DspFileGetInfo", 20, 2).I);
+            Assert.Equal(new[] { "20@10,40:beta ", "22@10,80:four " }, FileShown(w, 20));
+            Assert.Equal(0, C(s, "DspFileScroll", 20, 2, 100).I);
+            Assert.Equal(8, C(s, "DspFileGetInfo", 20, 3).I);
+            Assert.Equal(new[] { "20@10,40:", "22@10,80:e six" }, FileShown(w, 20));
+            Assert.Equal(0, C(s, "DspFileScroll", 20, 1, 3).I);
+            Assert.Equal(0, C(s, "DspFileScroll", 20, 3, 5).I);
+            Assert.Equal((0L, 5L), (C(s, "DspFileGetInfo", 20, 2).I, C(s, "DspFileGetInfo", 20, 3).I));
+            Assert.Equal(new[] { "20@10,40: one", "22@10,80:" }, FileShown(w, 20));
+            // another direction scrolls nothing; an AN without a file display
+            Assert.Equal(0, C(s, "DspFileScroll", 20, 9, 1).I);
+            Assert.Equal(0, C(s, "DspFileGetInfo", 22, 0).I);
+            // a file that cannot be read: 262, no lines
+            Assert.Equal(262, C(s, "DspFileSetName", 20, Path.Combine(MainDir, "none.txt")).I);
+            Assert.Equal(0, C(s, "DspFileGetInfo", 20, 4).I);
+            Assert.Empty(FileShown(w, 20));
+        }
+
+        // ------------------------------------------------------------------ rich text
+        private static JsonValue? DrawnArg(Window w, int an, string name)
+        {
+            var c = w.DrawnAt(an);
+            if (c == null)
+                return null;
+            foreach (var kv in c.Args)
+                if (kv.Key == name)
+                    return kv.Value;
+            return null;
+        }
+
+        [Fact]
+        public void ARichTextBoxLoadsScrollsSavesAndPrintsItsRtf()
+        {
+            var s = MakeDisplay(out var host);
+            var d = new PageDrawing
+            {
+                Page = "Rich",
+                Width = 640,
+                Height = 480,
+            };
+            d.Add(Obj(40, 0x1000, "Box", new Rect(10, 20, 10, 20)));
+            host.Add("Rich", "Rich", d: d);
+            Assert.Equal(0, C(s, "_PageDisplay", "Rich").I);
+            var w = s.W.Display.Windows[0];
+            // six paragraphs: 'Title', 'one<tab>two' (9 characters: a tab stop every 6), 'ete {x}',
+            // 'three', 'four' and 'five' (no \par after it); the tables and {\*...} are not text
+            const string rtf =
+                "{\\rtf1\\ansi{\\fonttbl{\\f0 Arial;}}{\\colortbl ;\\red255\\green0\\blue0;}"
+                + "{\\*\\generator x;}\\pard\\b Title\\b0\\par one\\tab two\\par \\'e9t\\'e9 \\{x\\}\\par\r\n"
+                + "three\\par four\\par five}";
+            string file = Path.Combine(MainDir, "rich.rtf");
+            File.WriteAllBytes(file, System.Text.Encoding.ASCII.GetBytes(rtf));
+            Assert.Equal(0, C(s, "DspRichText", 40, 48, 40, 1).I); // 3 lines of 5 characters
+            var c = w.DrawnAt(40);
+            Assert.NotNull(c);
+            Assert.Equal(("richText", 10, 20), (c!.Kind, c.X, c.Y));
+            Assert.Equal(
+                ("48", "40"),
+                (C(s, "DspRichTextGetInfo", 40, 0).S, C(s, "DspRichTextGetInfo", 40, 1).S)
+            );
+            Assert.Equal((1L, 0L), (DrawnArg(w, 40, "enabled")!.Long, DrawnArg(w, 40, "editable")!.Long));
+            Assert.Equal(0, DrawnArg(w, 40, "count")!.Long);
+            Assert.Equal(0, C(s, "DspRichTextLoad", 40, file).I);
+            Assert.Equal(file, w.DrawnAt(40)!.Text);
+            Assert.Equal(rtf, DrawnArg(w, 40, "rtf")!.Str);
+            Assert.Equal(
+                new long[] { 6, 3, 1, 0 },
+                new[] { "count", "page", "enabled", "editable" }
+                    .Select(k => DrawnArg(w, 40, k)!.Long)
+                    .ToArray()
+            );
+            Assert.Equal(new List<int> { 5, 9, 7, 5, 4, 4 }, w.DrawnAt(40)!.RichText!.Lines);
+            // down stops with the last line on the last row; top and bottom; a page is 3 lines
+            Assert.Equal(0, C(s, "DspRichTextScroll", 40, 4, 10).I);
+            Assert.Equal(3, DrawnArg(w, 40, "row")!.Long);
+            Assert.Equal(0, C(s, "DspRichTextScroll", 40, 3, 1).I);
+            Assert.Equal(2, DrawnArg(w, 40, "row")!.Long);
+            Assert.Equal(0, C(s, "DspRichTextPgScroll", 40, 8).I);
+            Assert.Equal(0, DrawnArg(w, 40, "row")!.Long);
+            Assert.Equal(0, C(s, "DspRichTextPgScroll", 40, 4).I);
+            Assert.Equal(3, DrawnArg(w, 40, "row")!.Long);
+            Assert.Equal(0, C(s, "DspRichTextScroll", 40, 8, 0).I);
+            Assert.Equal(0, C(s, "DspRichTextPgScroll", 40, 16).I);
+            Assert.Equal(3, DrawnArg(w, 40, "row")!.Long);
+            // right stops with the longest line's end at the right edge (9 - 5 characters)
+            Assert.Equal(0, C(s, "DspRichTextScroll", 40, 2, 10).I);
+            Assert.Equal(4, DrawnArg(w, 40, "col")!.Long);
+            Assert.Equal(0, C(s, "DspRichTextPgScroll", 40, 1).I);
+            Assert.Equal(0, DrawnArg(w, 40, "col")!.Long);
+            Assert.Equal(274, C(s, "DspRichTextScroll", 40, 9, 1).I);
+            // enabled and read / write are kept and sent
+            Assert.Equal(0, C(s, "DspRichTextEnable", 40, 0).I);
+            Assert.Equal(0, C(s, "DspRichTextEdit", 40, 1).I);
+            Assert.Equal((0L, 1L), (DrawnArg(w, 40, "enabled")!.Long, DrawnArg(w, 40, "editable")!.Long));
+            Assert.Equal(3, DrawnArg(w, 40, "row")!.Long);
+            // saved and printed into the sandbox
+            string saved = Path.Combine(MainDir, "saved.rtf");
+            Assert.Equal(0, C(s, "DspRichTextSave", 40, saved).I);
+            Assert.Equal(rtf, SandboxText(s, saved));
+            Assert.Equal(0, C(s, "DspRichTextPrint", 40, "LPT1:").I);
+            Assert.Equal(rtf, SandboxText(s, "Printers\\LPT1-1.rtf"));
+            Assert.Equal(0, C(s, "FileRichTextPrint", saved, "LPT1:").I);
+            Assert.Equal(rtf, SandboxText(s, "Printers\\LPT1-2.rtf"));
+            Assert.Equal(262, C(s, "FileRichTextPrint", Path.Combine(MainDir, "none.rtf"), "LPT1:").I);
+            // an AN without a rich text box
+            Assert.Equal("", C(s, "DspRichTextGetInfo", 41, 0).S);
+            Assert.Equal(274, C(s, "DspRichTextScroll", 41, 4, 1).I);
+            Assert.Equal(274, C(s, "DspRichTextLoad", 41, file).I);
+            // a file that cannot be read: 262, nothing shown; made again it starts empty
+            Assert.Equal(262, C(s, "DspRichTextLoad", 40, Path.Combine(MainDir, "none.rtf")).I);
+            Assert.Equal(("", 0L), (DrawnArg(w, 40, "rtf")!.Str, DrawnArg(w, 40, "count")!.Long));
+            Assert.Equal(
+                ("", ""),
+                (C(s, "DspRichTextGetInfo", 40, 2).S, C(s, "DspRichTextGetInfo", 40, 5).S)
+            );
+            Assert.Equal(0, C(s, "DspRichTextLoad", 40, file).I);
+            Assert.Equal(0, C(s, "DspRichText", 40, 48, 40, 3).I);
+            Assert.Equal(("", 0L), (w.DrawnAt(40)!.Text, DrawnArg(w, 40, "count")!.Long));
+            Assert.Equal((1L, 1L), (DrawnArg(w, 40, "enabled")!.Long, DrawnArg(w, 40, "editable")!.Long));
+        }
+
+        // ------------------------------------------------------------------ plots
+        private const long Transparent = unchecked((int)0xFF000000);
+
+        /// <summary>A REAL array of the given values, passed as a module array is.</summary>
+        private static Value Reals(params double[] v)
+        {
+            var cv = new CodeVar(0, "Buf", Types.Real) { BitWidth = 64, UnitCount = v.Length };
+            var slot = new CodeVarSlot(cv, Array.Empty<byte>());
+            for (int i = 0; i < v.Length; i++)
+                slot.Set(i, Value.Real(v[i]));
+            return Value.Variant(new CodeVarRef(slot, 0, Types.Real));
+        }
+
+        /// <summary>Page Plots: a basic animation point (AN 30) at (50, 60) and a text object (AN 31).</summary>
+        private Sim MakePlots(out Window w)
+        {
+            var s = MakeDisplay(out var host);
+            var d = new PageDrawing
+            {
+                Page = "Plots",
+                Width = 800,
+                Height = 600,
+            };
+            d.Add(Obj(30, 0x1000, "Point", new Rect(50, 60, 50, 60)));
+            d.Add(Obj(31, 0x05, "Label", new Rect(200, 200, 260, 216)));
+            host.Add("Plots", "Plots", d: d);
+            Assert.Equal(0, C(s, "_PageDisplay", "Plots").I);
+            w = s.W.Display.Windows[0];
+            return s;
+        }
+
+        private static List<JsonValue> Prims(DrawCommand c) =>
+            c.Args.First(kv => kv.Key == "prims").Value.Items.ToList();
+
+        private static string Pts(JsonValue prim) =>
+            string.Join(
+                ",",
+                prim["points"]
+                    .Items.Select(v => v.Long.ToString(System.Globalization.CultureInfo.InvariantCulture))
+            );
+
+        [Fact]
+        public void ADisplayPlotIsDrawnOnItsAnWhenItCloses()
+        {
+            var s = MakePlots(out var w);
+            long font = C(s, "DspFont", "Arial", 12, 0x000080, Transparent).I;
+            long hp = C(s, "PlotOpen", 30, "display", 17).I;
+            Assert.Equal(0, hp);
+            Assert.Equal("800", C(s, "PlotInfo", hp, 0, "").S);
+            Assert.Equal("96", C(s, "PlotInfo", hp, 2, "").S);
+            // a white frame of 2 rows and 4 columns with a 1-pixel black border
+            Assert.Equal(
+                0,
+                C(s, "PlotGrid", hp, 5, 0, 0, 100, 50, 2, 0x0000FF, 4, 0x0000FF, 1, 0, 0xFFFFFF, 0).I
+            );
+            // 5 samples across the frame, a filled square on every second one
+            var table = Reals(0, 50, 100, 20, 80);
+            Assert.Equal(0, C(s, "PlotLine", hp, 1, 0x008000, 1, 6, 0xFF0000, 2, 5, table, 0.0, 100.0, 1).I);
+            Assert.Equal(0, C(s, "PlotDraw", hp, 2, 0, 0, 1, 0xFFFF00, 10, 60, 30, 80).I);
+            Assert.Equal(0, C(s, "PlotText", hp, font, 0, 0, 100, "@(Flow)").I);
+            Assert.Equal(0, C(s, "PlotMarker", hp, 7, 0x800000, 1, 1, 50, 25).I);
+            Assert.Null(w.DrawnAt(30)); // shown only when closed
+            Assert.Equal(0, C(s, "PlotClose", hp).I);
+            var c = w.DrawnAt(30)!;
+            Assert.Equal(("plot", 50, 60), (c.Kind, c.X, c.Y));
+            var prims = Prims(c);
+            Assert.Equal(
+                new[]
+                {
+                    "rect",
+                    "line",
+                    "line",
+                    "line",
+                    "line",
+                    "rect",
+                    "polyline",
+                    "marker",
+                    "marker",
+                    "marker",
+                    "ellipse",
+                    "text",
+                    "marker",
+                },
+                prims.Select(p => p["op"].Str).ToArray()
+            );
+            // the fill (no pen), the row line, the frame
+            Assert.Equal((5L, 0xFFFFFFL), (prims[0]["pen"]["style"].Long, prims[0]["fill"].Long));
+            Assert.Equal(
+                (0L, 25L, 100L, 25L),
+                (prims[1]["x1"].Long, prims[1]["y1"].Long, prims[1]["x2"].Long, prims[1]["y2"].Long)
+            );
+            Assert.Equal((0L, -1L), (prims[5]["pen"]["colour"].Long, prims[5]["fill"].Long));
+            // the line from the bottom left, y up
+            Assert.Equal("0,50,25,25,50,0,75,40,100,10", Pts(prims[6]));
+            Assert.Equal((1L, 0x008000L), (prims[6]["pen"]["style"].Long, prims[6]["pen"]["colour"].Long));
+            Assert.Equal(
+                new[] { "0,50", "50,0", "100,10" },
+                prims.Skip(7).Take(3).Select(p => p["x"].Long + "," + p["y"].Long).ToArray()
+            );
+            Assert.Equal(
+                (6L, 0xFF0000L, 8L),
+                (prims[7]["marker"].Long, prims[7]["colour"].Long, prims[7]["size"].Long)
+            );
+            Assert.Equal(0xFFFF00, prims[10]["fill"].Long);
+            Assert.Equal(
+                ("@(Flow)", font, 0L),
+                (prims[11]["text"].Str, prims[11]["font"].Long, prims[11]["orient"].Long)
+            );
+            // a viewer gets the text localised with its font
+            var j = c.ToJson(new DisplayJson(s.W.Display));
+            var text = j["args"]["prims"].Items[11];
+            Assert.Equal("Flow", text["text"].Str);
+            Assert.Equal(0x000080, text["fontInfo"]["fg"].Items[0].Long);
+            // the AN's extent is what the plot covers (the frame, and the line's markers by half
+            // their size past it)
+            var o = w.Page!.Get(30)!;
+            Assert.Equal((46, 56, 154), (o.Extent.L, o.Extent.T, o.Extent.R));
+            // the handle is gone; a plot again replaces the one shown
+            Assert.Equal(269, C(s, "PlotClose", hp).I);
+            long h2 = C(s, "PlotOpen", 30, "Display", 1).I;
+            Assert.Equal(0, h2);
+            Assert.Equal(0, C(s, "PlotDraw", h2, 3, 0, 0xFF0000, 2, 0, 0, 0, 40, 40).I);
+            Assert.Equal(0, C(s, "PlotClose", h2).I);
+            Assert.Equal(new[] { "line" }, Prims(w.DrawnAt(30)!).Select(p => p["op"].Str).ToArray());
+            // DspDel removes it
+            Assert.Equal(0, C(s, "DspDel", 30).I);
+            Assert.Null(w.DrawnAt(30));
+        }
+
+        [Fact]
+        public void PlotErrorsBadHandlesBusyAnsAndModes()
+        {
+            var s = MakePlots(out var w);
+            // an AN with a graphic object, an AN the page does not have, bad modes
+            var r = C(s, "PlotOpen", 31, "Display", 1);
+            Assert.Equal((-1L, 274), (r.I, r.Error));
+            Assert.Equal(-1, C(s, "PlotOpen", 99, "Display", 1).I);
+            Assert.Equal(-1, C(s, "PlotOpen", 30, "Display", 2).I);
+            Assert.Equal(-1, C(s, "PlotOpen", 30, "Display", 16).I);
+            Assert.Equal(-1, C(s, "PlotOpen", 30, "Display", 49).I);
+            Assert.Equal(-1, C(s, "PlotOpen", 0, "", 1).I);
+            // a bad handle
+            foreach (
+                var call in new[] { C(s, "PlotClose", 7), C(s, "PlotDraw", 7, 1, 0, 0, 1, 0, 0, 0, 1, 1) }
+            )
+                Assert.Equal((269L, 269), (call.I, call.Error));
+            var info = C(s, "PlotInfo", 7, 0, "");
+            Assert.Equal(("", 269), (info.S, info.Error));
+            long hp = C(s, "PlotOpen", 0, "LPT1:", 2).I;
+            Assert.Equal(0, hp);
+            Assert.Equal(1, C(s, "PlotOpen", -1, "LPT2:", 1).I); // the next free handle
+            // no grid for a line or a scale; a bad drawing type, samples or marker
+            Assert.Equal(274, C(s, "PlotLine", hp, 0, 0, 1, 0, 0, 0, 1, Reals(1), 0.0, 1.0, 1).I);
+            Assert.Equal(274, C(s, "PlotScaleMarker", hp, 0, 0, 2, 1, 0, 0).I);
+            Assert.Equal(274, C(s, "PlotDraw", hp, 9, 0, 0, 1, 0, 0, 0, 1, 1).I);
+            Assert.Equal(274, C(s, "PlotGrid", hp, 1, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, Transparent, 0).I);
+            Assert.Equal(274, C(s, "PlotMarker", hp, 21, 0, 1, 1, 5, 5).I);
+            Assert.Equal(274, C(s, "PlotSetMarker", 19, "Global.Hourglass").I);
+            Assert.Equal(274, C(s, "PlotInfo", hp, 13, "").Error);
+            var gm = C(s, "PlotGetMarker", "Global.None");
+            Assert.Equal((-1L, 289), (gm.I, gm.Error));
+            Assert.Null(w.DrawnAt(30));
+        }
+
+        [Fact]
+        public void APrinterPlotIsWrittenToTheSandboxAsAnSvgPage()
+        {
+            var s = MakePlots(out var w);
+            long font = C(s, "DspFont", "Arial", 28, 0, Transparent).I;
+            long hp = C(s, "PlotOpen", 0, "LPT1:", 1).I;
+            Assert.Equal(
+                new[] { "2480", "3508", "300", "300", "300", "300", "210", "297" },
+                new[] { 0, 1, 2, 3, 4, 5, 11, 12 }.Select(k => C(s, "PlotInfo", hp, k, "").S).ToArray()
+            );
+            string fh = font.ToString(System.Globalization.CultureInfo.InvariantCulture);
+            Assert.Equal("28", C(s, "PlotInfo", hp, 6, fh).S);
+            Assert.Equal("0", C(s, "PlotInfo", hp, 7, fh).S);
+            long cw = long.Parse(
+                C(s, "PlotInfo", hp, 8, fh).S,
+                System.Globalization.CultureInfo.InvariantCulture
+            );
+            Assert.InRange(cw, 6, 27);
+            Assert.Equal(
+                ("1", "1", "0"),
+                (
+                    C(s, "PlotInfo", hp, 9, "").S,
+                    C(s, "PlotInfo", hp, 10, fh).S,
+                    C(s, "PlotInfo", hp, 10, "999").S
+                )
+            );
+            // a frame with nothing drawn, a scale left of it and an XY line from the top left
+            Assert.Equal(0, C(s, "PlotGrid", hp, 10, 100, 100, 300, 200, 0, 0, 0, 0, 0, 0, Transparent, 0).I);
+            Assert.Equal(0, C(s, "PlotScaleMarker", hp, 90, 200, 3, 1, 0, 1).I);
+            Assert.Equal(
+                0,
+                C(
+                    s,
+                    "PlotXYLine",
+                    hp,
+                    0,
+                    0x0000FF,
+                    2,
+                    0,
+                    0,
+                    0,
+                    2,
+                    Reals(0, 10),
+                    0.0,
+                    10.0,
+                    Reals(0, 10),
+                    0.0,
+                    10.0,
+                    4
+                ).I
+            );
+            // a trend line broken at an invalid sample: only the run of two draws
+            double bad = C(s, "TrnGetInvalidValue").D;
+            Assert.Equal(
+                0,
+                C(s, "PlotLine", hp, 1, 0, 1, 0, 0, 0, 4, Reals(0, bad, 50, 100), 0.0, 100.0, 33).I
+            );
+            Assert.Equal(0, C(s, "PlotDraw", hp, 1, 0, 0, 1, Transparent, 10, 20, 100, 60).I);
+            Assert.Equal(0, C(s, "PlotSetMarker", 20, "Global.Hourglass").I);
+            Assert.Equal(20, C(s, "PlotGetMarker", "global.hourglass").I);
+            Assert.Equal(0, C(s, "PlotMarker", hp, 20, 0xFF0000, 1, 1, 100, 200).I);
+            Assert.Equal(0, C(s, "PlotText", hp, font, 1, 300, 300, "A<B").I);
+            Assert.Equal(0, C(s, "PlotClose", hp).I);
+            Assert.Null(w.DrawnAt(30));
+            string svg = SandboxText(s, "Printers\\LPT1-1.svg");
+            Assert.Contains("width=\"2480\" height=\"3508\"", svg);
+            Assert.Contains("<line x1=\"90\" y1=\"200\" x2=\"90\" y2=\"100\"", svg);
+            Assert.Contains("<line x1=\"65\" y1=\"150\" x2=\"90\" y2=\"150\"", svg);
+            Assert.Contains("<polyline points=\"100,100 300,200\"", svg);
+            Assert.Equal(2, svg.Split(new[] { "<polyline" }, StringSplitOptions.None).Length - 1);
+            Assert.Contains("stroke-dasharray=\"18,6\"", svg);
+            Assert.Contains(
+                "<rect x=\"10\" y=\"20\" width=\"90\" height=\"40\" fill=\"none\" stroke=\"#000000\"",
+                svg
+            );
+            Assert.Contains("<title>Global.Hourglass</title>", svg);
+            Assert.Contains("rotate(-90 300 300)", svg);
+            Assert.Contains("font-size=\"28\"", svg);
+            Assert.Contains(">A&lt;B</text>", svg);
+            // the next plot of the port, and a UNC port
+            hp = C(s, "PlotOpen", 0, "LPT1:", 1).I;
+            Assert.Equal(0, C(s, "PlotClose", hp).I);
+            Assert.Contains("<svg", SandboxText(s, "Printers\\LPT1-2.svg"));
+            hp = C(s, "PlotOpen", 0, "\\\\ABC\\Printers\\Color1", 1).I;
+            Assert.Equal(0, C(s, "PlotClose", hp).I);
+            Assert.Contains("<svg", SandboxText(s, "Printers\\ABC_Printers_Color1-1.svg"));
+        }
+
+        [Fact]
+        public void AV3GraphIsPrintedToItsPortAsAnSvgPage()
+        {
+            var s = MakePlots(out var w);
+            Assert.Equal(0, C(s, "GraphOpen", "LPT1:", 20, 0).I);
+            Assert.Equal("2480", C(s, "GraphGetInfo", 0, "").S);
+            Assert.Equal(0, C(s, "GraphGrid", 100, 100, 300, 200, 2, 4).I);
+            Assert.Equal(0, C(s, "GraphLine", 1, 6, 5, 3, Reals(0, 50, 100), 0.0, 100.0, 1).I);
+            Assert.Equal(0, C(s, "GraphBox", 0, 3, Transparent, 10, 20, 100, 60).I);
+            Assert.Equal(0, C(s, "GraphText", -1, 0, 300, 50, "Graph").I);
+            Assert.Equal(0, C(s, "GraphMarker", 2, 1, 1, 50, 50).I);
+            Assert.Equal(0, C(s, "GraphScaleMarker", 90, 200, 3, 0).I);
+            Assert.Equal(0, C(s, "GraphClose").I);
+            Assert.Null(w.DrawnAt(30));
+            string svg = SandboxText(s, "Printers\\LPT1-1.svg");
+            // the black grid and its 2-pixel frame, no fill
+            Assert.Contains(
+                "<line x1=\"100\" y1=\"150\" x2=\"300\" y2=\"150\" stroke=\"#000000\" stroke-width=\"1\"/>",
+                svg
+            );
+            Assert.Contains("<line x1=\"200\" y1=\"100\" x2=\"200\" y2=\"200\"", svg);
+            Assert.Contains(
+                "<rect x=\"100\" y=\"100\" width=\"200\" height=\"100\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2\"/>",
+                svg
+            );
+            // the dashed black line from the bottom left, 20 samples across the frame
+            Assert.Contains(
+                "<polyline points=\"100,200 111,150 121,100\" fill=\"none\" stroke-linejoin=\"round\" stroke=\"#000000\" stroke-width=\"1\" stroke-dasharray=\"18,6\"/>",
+                svg
+            );
+            Assert.Contains(
+                "<rect x=\"10\" y=\"20\" width=\"90\" height=\"40\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\"/>",
+                svg
+            );
+            Assert.Contains(">Graph</text>", svg);
+            Assert.Contains(
+                "<line x1=\"90\" y1=\"200\" x2=\"90\" y2=\"100\" stroke=\"#000000\" stroke-width=\"2\"/>",
+                svg
+            );
+            // 'Display' is a port too; a second GraphOpen drops the first graph unclosed
+            Assert.Equal(0, C(s, "GraphOpen", "LPT1:", 5, 0).I);
+            Assert.Equal(0, C(s, "GraphOpen", "Display", 5, 0).I);
+            Assert.Equal(0, C(s, "GraphClose").I);
+            Assert.Contains("<svg", SandboxText(s, "Printers\\Display-1.svg"));
+            Assert.Null(s.Host.Sandbox.ReadAll(s.Host.Sandbox.Full("Printers\\LPT1-2.svg")));
+            Assert.Null(w.DrawnAt(30));
+        }
+
+        [Fact]
+        public void GraphErrorsAre274()
+        {
+            var s = MakePlots(out _);
+            // a bad sample count
+            var r = C(s, "GraphOpen", "LPT1:", 1, 0);
+            Assert.Equal((274L, 274), (r.I, r.Error));
+            // no graph open
+            foreach (
+                var call in new[]
+                {
+                    C(s, "GraphClose"),
+                    C(s, "GraphGrid", 0, 0, 100, 100, 2, 2),
+                    C(s, "GraphLine", 0, 0, 0, 1, Reals(1), 0.0, 1.0, 1),
+                    C(s, "GraphBox", 0, 1, Transparent, 0, 0, 10, 10),
+                    C(s, "GraphText", -1, 0, 0, 0, "x"),
+                    C(s, "GraphMarker", 1, 1, 1, 0, 0),
+                    C(s, "GraphScaleMarker", 0, 0, 2, 0),
+                }
+            )
+                Assert.Equal((274L, 274), (call.I, call.Error));
+            var info = C(s, "GraphGetInfo", 0, "");
+            Assert.Equal(("", 274), (info.S, info.Error));
+            // the argument checks on an open graph, a bad info type, then a second close
+            Assert.Equal(0, C(s, "GraphOpen", "LPT1:", 10, 0).I);
+            Assert.Equal(274, C(s, "GraphGrid", 0, 0, 100, 100, 100, 2).I);
+            Assert.Equal(274, C(s, "GraphScaleMarker", 0, 0, 2, 0).I); // no frame yet
+            Assert.Equal(274, C(s, "GraphLine", 6, 0, 0, 1, Reals(1), 0.0, 1.0, 1).I);
+            Assert.Equal(274, C(s, "GraphBox", 0, 33, Transparent, 0, 0, 10, 10).I);
+            Assert.Equal(274, C(s, "GraphBox", 0, 1, Transparent, 10, 0, 0, 10).I);
+            Assert.Equal(274, C(s, "GraphText", -1, 4, 0, 0, "x").I);
+            Assert.Equal(274, C(s, "GraphMarker", 1, 1, 0, 0, 0).I);
+            var bad = C(s, "GraphGetInfo", 13, "");
+            Assert.Equal(("", 274), (bad.S, bad.Error));
+            Assert.Equal(0, C(s, "GraphClose").I);
+            var again = C(s, "GraphClose");
+            Assert.Equal((274L, 274), (again.I, again.Error));
+        }
+
+        private static string SandboxText(Sim s, string name)
+        {
+            byte[]? b = s.Host.Sandbox.ReadAll(s.Host.Sandbox.Full(name));
+            Assert.NotNull(b);
+            return System.Text.Encoding.UTF8.GetString(b!);
         }
     }
 }

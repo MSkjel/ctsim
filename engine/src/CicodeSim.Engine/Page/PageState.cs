@@ -112,6 +112,10 @@ namespace CicodeSim.Page
         public int Focus = 1;
         public List<TrendPenState> Pens = new List<TrendPenState>();
 
+        /// <summary>The placed markers: (handle, horizontal, colour, offset).</summary>
+        public List<(int Handle, bool Horizontal, long Colour, int Offset)> Markers =
+            new List<(int, bool, long, int)>();
+
         public bool Equals(TrendState? o)
         {
             if (
@@ -123,10 +127,14 @@ namespace CicodeSim.Page
                 || Cursor != o.Cursor
                 || Focus != o.Focus
                 || Pens.Count != o.Pens.Count
+                || Markers.Count != o.Markers.Count
             )
                 return false;
             for (int i = 0; i < Pens.Count; i++)
                 if (!Pens[i].Equals(o.Pens[i]))
+                    return false;
+            for (int i = 0; i < Markers.Count; i++)
+                if (Markers[i] != o.Markers[i])
                     return false;
             return true;
         }
@@ -136,7 +144,7 @@ namespace CicodeSim.Page
         public override int GetHashCode() => Pens.Count;
 
         /// <summary>{period, span, samples, mode, cursor, focus, pens: [{pen, tag, scale: [lo, hi],
-        /// colour, end, values: [v | null ...]}]}.</summary>
+        /// colour, end, values: [v | null ...]}], markers?: [{handle, mode, colour, offset}]}.</summary>
         public JsonValue ToJson()
         {
             var tr = JsonValue.NewObject();
@@ -162,6 +170,20 @@ namespace CicodeSim.Page
                 pens.Add(po);
             }
             tr.Set("pens", pens);
+            if (Markers.Count > 0)
+            {
+                var ms = JsonValue.NewArray();
+                foreach (var m in Markers)
+                {
+                    var mo = JsonValue.NewObject();
+                    mo.Set("handle", JsonValue.Of(m.Handle));
+                    mo.Set("mode", JsonValue.Of(m.Horizontal ? "horizontal" : "vertical"));
+                    mo.Set("colour", JsonValue.Of(m.Colour));
+                    mo.Set("offset", JsonValue.Of(m.Offset));
+                    ms.Add(mo);
+                }
+                tr.Set("markers", ms);
+            }
             return tr;
         }
     }

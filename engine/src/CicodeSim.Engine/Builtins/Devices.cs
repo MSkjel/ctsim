@@ -278,7 +278,9 @@ namespace CicodeSim.Builtins
         }
 
         /// <summary>Write the device's file (the sandbox's; a real file is copied there first).</summary>
-        private static bool Save(SimHost h, CicodeTask t, Dev d)
+        private static bool Save(SimHost h, CicodeTask t, Dev d) => Save(h, d, t.Vm.Clock.NowFiletime());
+
+        private static bool Save(SimHost h, Dev d, ulong now)
         {
             if (d.ReadOnly)
                 return true;
@@ -297,7 +299,27 @@ namespace CicodeSim.Builtins
             }
             else
                 data = Cp1252.Encode(d.Text.ToString());
-            return WriteAll(h, d.Path, data, t.Vm.Clock.NowFiletime());
+            // a printer's output goes to the sandbox's Printers folder, made when it is missing
+            return d.Def.Type == PrinterDev
+                ? h.Sandbox.WriteOutput(d.Path, data, now)
+                : WriteAll(h, d.Path, data, now);
+        }
+
+        /// <summary>The file at <paramref name="path"/> becomes its first history file (the name
+        /// with extension .001, the older ones shifted on up to <paramref name="keep"/>).</summary>
+        private static void Rotate(SimHost h, string path, int keep, ulong now)
+        {
+            string stem = System.IO.Path.ChangeExtension(path, null);
+            keep = Math.Max(1, keep);
+            h.Sandbox.Delete(stem + "." + keep.ToString("000", CultureInfo.InvariantCulture));
+            for (int k = keep - 1; k >= 1; k--)
+                h.Sandbox.Rename(
+                    stem + "." + k.ToString("000", CultureInfo.InvariantCulture),
+                    stem + "." + (k + 1).ToString("000", CultureInfo.InvariantCulture)
+                );
+            byte[]? old = ReadAll(h, path);
+            if (old != null)
+                WriteAll(h, stem + ".001", old, now);
         }
 
         private static string Fit(string v, int width) =>
@@ -851,17 +873,7 @@ namespace CicodeSim.Builtins
             if (d == null)
                 return Bad(t, W.I(Codes.BadHandle), Codes.BadHandle);
             Save(h, t, d);
-            string stem = System.IO.Path.ChangeExtension(d.Path, null);
-            int keep = Math.Max(1, d.Def.Files);
-            h.Sandbox.Delete(stem + "." + keep.ToString("000", CultureInfo.InvariantCulture));
-            for (int k = keep - 1; k >= 1; k--)
-                h.Sandbox.Rename(
-                    stem + "." + k.ToString("000", CultureInfo.InvariantCulture),
-                    stem + "." + (k + 1).ToString("000", CultureInfo.InvariantCulture)
-                );
-            byte[]? now = ReadAll(h, d.Path);
-            if (now != null)
-                WriteAll(h, stem + ".001", now, t.Vm.Clock.NowFiletime());
+            Rotate(h, d.Path, d.Def.Files, t.Vm.Clock.NowFiletime());
             return DevZap(h, t, a);
         }
 
@@ -937,9 +949,76 @@ namespace CicodeSim.Builtins
         [Builtin(
             "DevCurr",
             Doc = "1076377",
-            Notes = "The device of the report running now: no report runs in the simulator, -1."
+            Notes = "The handle of the device the report that runs the calling task logs to (Reports: opened for the report, closed when it ends); -1 outside a report, or for a report without a device or whose device did not open. A task the report's code starts with TaskNew is outside the report: -1 (guess)."
         )]
-        private static Value DevCurr(SimHost h, CicodeTask t, ArgList a) => W.I(-1);
+        private static Value DevCurr(SimHost h, CicodeTask t, ArgList a) => W.I(Reports.DeviceOf(t));
+
+        // ------------------------------------------------------------------ report devices
+        /// <summary>Open device <paramref name="name"/> for a report run: its file as plain text
+        /// (a report ignores the device's format). <paramref name="rollover"/>: a file there
+        /// becomes the device's first history file and the report starts a new one; else the
+        /// report adds to the end of the file. -1 (and why) when the device cannot take a report.</summary>
+        internal static long OpenReport(SimHost h, string name, bool rollover, ulong now, out string why)
+        {
+            why = "";
+            var def = Find(h, name);
+            if (def == null)
+            {
+                why = "no device " + Project.CitectText.Quote(name);
+                return -1;
+            }
+            if (def.Type == SqlDev || def.Type == DbaseDev)
+            {
+                why =
+                    "device "
+                    + Project.CitectText.Quote(def.Name)
+                    + " is a database device: a report's text is not written to it in the simulator";
+                return -1;
+            }
+            var st = Of(h);
+            var d = new Dev { Def = def, Path = PathOf(h, def) };
+            foreach (var o in st.Open.Values)
+                if (Sandbox.KeyOf(o.Path) == Sandbox.KeyOf(d.Path) && o.Exclusive)
+                {
+                    why = "device " + Project.CitectText.Quote(def.Name) + " is open exclusively";
+                    return -1;
+                }
+            byte[]? old = ReadAll(h, d.Path);
+            if (rollover && old != null && old.Length > 0)
+                Rotate(h, d.Path, def.Files, now);
+            else if (old != null)
+                d.Text.Append(Cp1252.Decode(old));
+            if (d.Text.Length == 0 && def.Header.Length > 0)
+                d.Text.Append(Unescape(def.Header)).Append("\r\n");
+            if (!Save(h, d, now))
+            {
+                why = "the file of device " + Project.CitectText.Quote(def.Name) + " cannot be written";
+                return -1;
+            }
+            long hd = st.Next++;
+            st.Open[hd] = d;
+            return hd;
+        }
+
+        /// <summary>Add a report's text at the end of an open report device (written when the
+        /// device is flushed or closed); false when the handle is not open.</summary>
+        internal static bool ReportAppend(SimHost h, long handle, string text)
+        {
+            if (!Of(h).Open.TryGetValue(handle, out var d) || d.ReadOnly || d.HasFields)
+                return false;
+            d.Text.Append(text);
+            return true;
+        }
+
+        /// <summary>Write and close a report's device (nothing when the report's code closed it).</summary>
+        internal static void CloseReport(SimHost h, long handle, ulong now)
+        {
+            var st = Of(h);
+            if (!st.Open.TryGetValue(handle, out var d))
+                return;
+            Save(h, d, now);
+            st.Open.Remove(handle);
+        }
 
         [Builtin(
             "DevDisable",

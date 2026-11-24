@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using CicodeSim.Compiler.Codegen;
+using CicodeSim.Compiler.Semantics;
 using CicodeSim.Tests.Vm;
 using Xunit;
 
@@ -18,7 +19,8 @@ namespace CicodeSim.Tests.Compiler
         /// <summary>The same with the runtime's built-in table in place of FUNC0.DBF (what a machine
         /// without the install compiles with).</summary>
         [Fact]
-        public void CompiledWithTheRuntimeTableGivesTheLiveResults() => RunCases(Units.FromRuntimeTable());
+        public void CompiledWithTheRuntimeTableGivesTheLiveResults() =>
+            RunCases(Func0Rows.FromRuntimeTable());
 
         private static void RunCases(CicodeSim.Compiler.Semantics.Func0Rows? func0)
         {

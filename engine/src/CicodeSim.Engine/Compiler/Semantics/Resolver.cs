@@ -114,8 +114,15 @@ namespace CicodeSim.Compiler.Semantics
             _stop = f.Module.StopPos;
         }
 
-        /// <summary>A page field: an empty local scope.</summary>
-        public void BeginField() => _scope = new Scope();
+        /// <summary>A page field: an empty local scope; <paramref name="vars"/> = module
+        /// variables the field sees (a report's variables).</summary>
+        public void BeginField(IReadOnlyDictionary<string, VarRef>? vars = null)
+        {
+            _scope = new Scope();
+            if (vars != null)
+                foreach (var kv in vars)
+                    _modVisible[kv.Key] = kv.Value;
+        }
 
         private void Err(int code, Node? node, string ctx = "") =>
             ErrAt(code, node != null ? node.Pos : 0, ctx);

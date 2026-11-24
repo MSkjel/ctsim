@@ -83,8 +83,9 @@ namespace CicodeSim.Page
         public void Want(string pen)
         {
             var tt = TrendTags.Of(_a.World);
-            var r = tt.Find(pen);
-            if (r == null || tt.PenTag(pen) != null)
+            // (an SPC series pen samples its SPC tag)
+            var r = tt.Find(pen) ?? tt.SpcTrend(pen);
+            if (r == null || tt.PenTag(r.Name) != null)
                 return;
             string k = CitectText.Lower(r.Name);
             if (_timers.ContainsKey(k))

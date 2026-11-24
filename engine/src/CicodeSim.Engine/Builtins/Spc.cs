@@ -342,7 +342,7 @@ namespace CicodeSim.Builtins
             });
         }
 
-        // ------------------------------------------------------------------ the client's SPC data (not simulated)
+        // ------------------------------------------------------------------ the client's SPC data
         /// <summary>The page trend pen showing an SPC series of the tag, null when none.</summary>
         private static bool Displayed(SimHost h, string tag)
         {
@@ -356,11 +356,32 @@ namespace CicodeSim.Builtins
             return false;
         }
 
+        /// <summary>The SPC run a page trend shows of the tag: its subgroups up to the pen's end
+        /// (the trend's samples, at least <paramref name="atLeast"/>), null when no page trend
+        /// shows an SPC series of it.</summary>
+        private static SpcSeries.Run? Shown(SimHost h, string tag, int atLeast = 1)
+        {
+            var w = h.World;
+            if (w == null)
+                return null;
+            var tt = TrendTags.Of(w);
+            foreach (var tr in PageObjectTables.Of(DisplayBuiltins.Of(h)).Trends)
+            foreach (var p in tr.Pens)
+                if (p.Used && tt.SpcTrend(p.Tag) is TrendTag s && C.IEq(s.Name, CitectText.Trim(tag)))
+                    return SpcSeries.Of(
+                        w,
+                        s,
+                        SpcSeries.EndAt(w, s, TrendData.EndOf(w, tr, p)),
+                        Math.Max(Math.Max(1, tr.Samples), atLeast)
+                    );
+            return null;
+        }
+
         [Builtin(
             "SPCClientInfo",
             Doc = "1192536",
             Errors = "274 a type outside 1..11 (raised, 0); 289 an empty tag or an SPC tag no page trend shows (raised, 0)",
-            Notes = "From the client's cache of a displayed SPC tag: 1 the subgroup size, 3 / 4 / 5 the mean / range / std dev overrides, 6 / 7 the LSL / USL (the server's settings); 2 (subgroups), 8 .. 11 (Cp, Cpk, skewness, kurtosis) come from the samples, not simulated: 0."
+            Notes = "From the client's cache of a displayed SPC tag: 1 the subgroup size, 3 / 4 / 5 the mean / range / std dev overrides, 6 / 7 the LSL / USL (the server's settings); from the subgroups the page trend shows (SpcSeries): 2 the subgroups with data, 8 Cp, 9 Cpk, 10 skewness, 11 kurtosis (0 when unknown)."
         )]
         private static Value SPCClientInfo(SimHost h, CicodeTask t, ArgList a)
         {
@@ -398,16 +419,17 @@ namespace CicodeSim.Builtins
                 case 7:
                     return W.R(s.Usl);
             }
-            return W.R(0);
+            var run = Shown(h, tag);
+            if (run == null)
+                return W.R(0);
+            return type == 2 ? W.R(run.KnownCount) : W.R(SpcSeries.Capability(run, s.Lsl, s.Usl, (int)type));
         }
 
         [Builtin(
             "SPCClientTableGet",
-            Status = BuiltinStatus.Stub,
-            Returns = "289",
             Doc = "",
-            Errors = "274 an empty tag, a type outside 1..4, a negative offset or a count outside 1..31999 (raised, 0); 289 no SPC data (raised and returned)",
-            Notes = "The subgroup means / ranges / std devs of a displayed SPC tag (Include graph.ci: SPC_TBL_MEAN ...): the SPC series are not simulated, so the answer is the client's 'no data' (0x121)."
+            Errors = "274 an empty tag, a type outside 1..4, a negative offset or a count outside 1..31999 (raised, 0); 289 an SPC tag no page trend shows, no subgroup with data yet, or type 3 (raised and returned)",
+            Notes = "Count values of a displayed SPC tag's subgroups into the REAL array Table starts (Include graph.ci: SPC_TBL_MEAN 1, SPC_TBL_RANGE 2, SPC_TBL_STDDEV 4), from Offset subgroups back from the newest, newest first; Mode as TrnGetTable's DisplayMode: bit 2 oldest first, bit 1 clear writes unknown values as 0 (guess). Returns 0."
         )]
         private static Value SPCClientTableGet(SimHost h, CicodeTask t, ArgList a)
         {
@@ -415,22 +437,41 @@ namespace CicodeSim.Builtins
             long type = A.Short(A.I(a.Get(1))),
                 off = A.Short(A.I(a.Get(2))),
                 count = A.Short(A.I(a.Get(3)));
+            Value table = a.Get(4);
+            long mode = a.Count > 5 ? A.I(a.Get(5)) : 0;
             if (tag.Length == 0 || type < 1 || type > 4 || off < 0 || count < 1 || count >= 32000)
             {
                 W.Raise(t, Codes.InvalidArg);
                 return W.I(0);
             }
-            W.Raise(t, Codes.NameNotFound);
-            return W.I(Codes.NameNotFound);
+            var run = type != 3 ? Shown(h, tag, (int)(off + count)) : null;
+            if (run == null || run.KnownCount == 0)
+            {
+                W.Raise(t, Codes.NameNotFound);
+                return W.I(Codes.NameNotFound);
+            }
+            int code =
+                type == 1 ? 2
+                : type == 2 ? 6
+                : 10;
+            bool oldestFirst = (mode & 2) != 0,
+                keep = (mode & 1) != 0;
+            for (int i = 0; i < count; i++)
+            {
+                int g = run.Groups.Count - 1 - (int)off - i;
+                double v = (g >= 0 ? SpcSeries.Value(run, run.Groups[g], code) : null) ?? Trends.Invalid;
+                if (!keep && Trends.Validity(v) != 0)
+                    v = 0.0;
+                Trends.Put(t, table, oldestFirst ? (int)(count - 1 - i) : i, v);
+            }
+            return W.I(0);
         }
 
         [Builtin(
             "SPCGetHistogramTable",
-            Status = BuiltinStatus.Stub,
-            Returns = "289",
             Doc = "1192537",
-            Errors = "289 an empty tag or no SPC data (raised and returned); 274 a bar count outside 3..100 (raised and returned)",
-            Notes = "The histogram of a displayed SPC tag's samples: not simulated, the client's 'no data'. The doc says 7..100 bars; the runtime checks 3..100."
+            Errors = "289 an empty tag, an SPC tag no page trend shows or no sigma yet (raised and returned); 274 a bar count outside 3..100 (raised and returned)",
+            Notes = "The frequencies of every sample of the subgroups the page trend shows, around the process mean, into the REAL array: the first below -3 sigma, the last above +3 sigma, the bars between them 6 sigma / (bars - 2) wide (sigma: SpcSeries). Returns 0. The doc says 7..100 bars; the runtime checks 3..100."
         )]
         private static Value SPCGetHistogramTable(SimHost h, CicodeTask t, ArgList a)
         {
@@ -439,18 +480,28 @@ namespace CicodeSim.Builtins
             int rc =
                 tag.Length == 0 ? Codes.NameNotFound
                 : bars < 3 || bars > 100 ? Codes.InvalidArg
-                : Codes.NameNotFound;
-            W.Raise(t, rc);
-            return W.I(rc);
+                : 0;
+            double[]? hist =
+                rc == 0
+                    ? (Shown(h, tag) is SpcSeries.Run run ? SpcSeries.Histogram(run, (int)bars) : null)
+                    : null;
+            if (rc == 0 && hist == null)
+                rc = Codes.NameNotFound;
+            if (rc != 0)
+            {
+                W.Raise(t, rc);
+                return W.I(rc);
+            }
+            for (int k = 0; k < hist!.Length; k++)
+                Trends.Put(t, a.Get(2), k, hist[k]);
+            return W.I(0);
         }
 
         [Builtin(
             "SPCGetSubgroupTable",
-            Status = BuiltinStatus.Stub,
-            Returns = "289",
             Doc = "1192538",
-            Errors = "289 an empty tag or no SPC data (raised and returned); 274 a negative subgroup (raised and returned)",
-            Notes = "A subgroup's samples, mean, range and std dev of a displayed SPC tag: not simulated, the client's 'no data'."
+            Errors = "289 an empty tag, an SPC tag no page trend shows or a subgroup without data (raised and returned); 274 a negative subgroup (raised and returned)",
+            Notes = "Subgroup iSubgroup back from the newest the page trend shows (0 the newest): its samples, then its mean, range and standard deviation, into the REAL array. Returns 0."
         )]
         private static Value SPCGetSubgroupTable(SimHost h, CicodeTask t, ArgList a)
         {
@@ -459,18 +510,41 @@ namespace CicodeSim.Builtins
             int rc =
                 tag.Length == 0 ? Codes.NameNotFound
                 : sub < 0 ? Codes.InvalidArg
-                : Codes.NameNotFound;
-            W.Raise(t, rc);
-            return W.I(rc);
+                : 0;
+            SpcSeries.Subgroup? g = null;
+            if (rc == 0 && Shown(h, tag, (int)sub + 1) is SpcSeries.Run run)
+                g = run.Groups[run.Groups.Count - 1 - (int)sub];
+            if (rc == 0 && g == null)
+                rc = Codes.NameNotFound;
+            if (rc != 0)
+            {
+                W.Raise(t, rc);
+                return W.I(rc);
+            }
+            var table = a.Get(2);
+            int k = 0;
+            foreach (double v in g!.Samples)
+                Trends.Put(t, table, k++, v);
+            Trends.Put(t, table, k++, g.Mean);
+            Trends.Put(t, table, k++, g.Range);
+            Trends.Put(t, table, k, g.StdDev);
+            return W.I(0);
         }
 
         [Builtin(
             "SPCAlarms",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1192535",
-            Notes = "The state of an SPC alarm (XFreak, XAboveUCL ...) the alarm server computes from the SPC series: not simulated, OFF (0). No corpus project calls it."
+            Notes = "ON (1) when one of the AlarmType bits (the Include labels XFreak = 1 ... RBelowLCL = 16384) is on for the SPC tag: SpcSeries.Alarms, over the [SPC]AlarmBufferSize subgroups up to the newest complete one. An unknown tag: 0."
         )]
-        private static Value SPCAlarms(SimHost h, CicodeTask t, ArgList a) => W.I(0);
+        private static Value SPCAlarms(SimHost h, CicodeTask t, ArgList a)
+        {
+            var w = h.World;
+            var tt = w != null ? TrendTags.Of(w) : null;
+            var spc = tt?.Find(A.S(a.Get(0)));
+            if (w == null || spc == null || !spc.Spc)
+                return W.I(0);
+            int bits = SpcSeries.Alarms(w, spc, (long)w.Clock.NowFiletime());
+            return W.I((bits & A.I(a.Get(1))) != 0 ? 1 : 0);
+        }
     }
 }

@@ -287,6 +287,15 @@ namespace CicodeSim.Sim
             return WinPath.Key(EffectiveUser(root, live.UserDir)) == WinPath.Key(mine) ? src : null;
         }
 
+        /// <summary>The unit and tag table Cicode text the project runs compiles against (report
+        /// format files): the running program's source compiler, else a unit of its own.
+        /// Simulation thread.</summary>
+        internal (CompileUnit Unit, TagTable Tags) CodeUnit()
+        {
+            var src = SharedSource();
+            return src != null ? (src.Unit, src.Tags) : Unit();
+        }
+
         /// <summary>Test hook: compile page rows against a unit of their own.</summary>
         internal bool NoSharedSource;
 

@@ -15,7 +15,8 @@ namespace CicodeSim.Tests.Builtins
                     new[] { "Scratch", "", "", "[RUN]:scratch.dbf", "dBASE_DEV", "1" },
                     new[] { "AuditLog", "", "Audit log", "[RUN]:audit.txt", "ASCII_DEV", "1" },
                     new[] { "OperLog", "{Date,10}^t{Msg,20}", "", "[RUN]:oper.txt", "ASCII_DEV", "1" },
-                    new[] { "Db", "", "", "x", "SQL_DEV", "1" }
+                    new[] { "Db", "", "", "x", "SQL_DEV", "1" },
+                    new[] { "Shift", "", "", "LPT1:", "PRINTER_DEV", "1" }
                 )
             );
 
@@ -64,6 +65,20 @@ namespace CicodeSim.Tests.Builtins
             Assert.Equal(274, Call(s, "DevAppend", h).Error);
             Assert.Equal("PUMP", Call(s, "DevInfo", h, -3).S);
             Call(s, "DevClose", h);
+        }
+
+        [Fact]
+        public void APrinterDeviceWritesItsOutputIntoThePrintersFolder()
+        {
+            var s = MakeDevices();
+            long h = Call(s, "DevOpen", "Shift", 0).I;
+            Assert.True(h > 0);
+            Assert.Equal(0, Call(s, "DevWriteLn", h, "shift total 42").I);
+            Assert.Equal(0, Call(s, "DevClose", h).I);
+            var sb = s.Host.Sandbox;
+            var data = sb.ReadAll(sb.Full("Printers\\Shift.txt"));
+            Assert.NotNull(data);
+            Assert.Contains("shift total 42", System.Text.Encoding.ASCII.GetString(data!));
         }
 
         [Fact]

@@ -478,6 +478,18 @@ namespace CicodeSim.Vm
             Qts = cv.QualityTimestamp;
         }
 
+        /// <summary>The initial values again (from <paramref name="runImage"/>), quality and
+        /// timestamps the variable's: a report's variables at each run.</summary>
+        public void Reset(byte[] runImage)
+        {
+            for (int k = 0; k < Count; k++)
+                Init(runImage, k);
+            Q = Cv.Quality;
+            Ts = Cv.Timestamp;
+            Vts = Cv.ValueTimestamp;
+            Qts = Cv.QualityTimestamp;
+        }
+
         private static bool In(byte[] img, long o, int size) => o >= 0 && o + size <= img.Length;
 
         private void Init(byte[] img, int k)

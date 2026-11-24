@@ -4,6 +4,7 @@ using CicodeSim.Compiled;
 using CicodeSim.Project;
 using CicodeSim.Values;
 using CicodeSim.Vm;
+using CicodeSim.World.Display;
 
 namespace CicodeSim.Builtins
 {
@@ -257,15 +258,44 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "DspTrendInfo",
-            Status = BuiltinStatus.Stub,
-            Returns = "0",
             Doc = "1104739",
-            Errors = "274 no such trend definition (raised, 0; guess on the code)",
-            Notes = "The trend definitions of the graphics libraries (V3 trend objects) are not read: every name is unknown, as failing: raised, 0."
+            Errors = "274 no trend object at the AN and no AN (raised, 0; guess on the code)",
+            Notes = "With an AN, the trend object shown there answers: type 0 line (0; bar trends are not told apart, guess), 1 its samples, 2 its height in pixels (its drawing's), 3 the pixels of a sample, 4 its pens, 11..18 a pen's colour and 19..26 its flashing colour (the drawing's pen colours as Citect colours; a pen without one -1, guess), another type 0 (guess). The trend definitions of the graphics libraries (hTrend without an AN) are not read: raised, 0."
         )]
         private static Value DspTrendInfo(SimHost h, CicodeTask t, ArgList a)
         {
-            W.Raise(t, Codes.InvalidArg);
+            long type = A.I(a.Get(1));
+            PageTrend? tr = null;
+            if (a.Count > 2 && !a[2].IsNothing)
+                tr = TrendObjects.Find(h, t, A.I(a[2]), out _);
+            if (tr == null)
+            {
+                W.Raise(t, Codes.InvalidArg);
+                return W.I(0);
+            }
+            if (type >= 11 && type <= 26)
+            {
+                int pen = (int)((type - 11) % 8);
+                if (pen >= tr.PenColours.Count)
+                    return W.I(-1);
+                var c = tr.PenColours[pen];
+                return W.I(type <= 18 ? c.On : c.Off);
+            }
+            switch (type)
+            {
+                case 0:
+                    return W.I(0);
+                case 1:
+                    return W.I(tr.Samples);
+                case 2:
+                    var w = DisplayBuiltins.Of(h).OpenWindow(DisplayBuiltins.Of(h).WindowOf(t));
+                    var o = w?.Page?.Get(tr.An);
+                    return W.I(o != null ? o.Extent.B - o.Extent.T : 0);
+                case 3:
+                    return W.I(tr.PixelsPerSample);
+                case 4:
+                    return W.I(Math.Max(tr.PenCount, tr.PenColours.Count));
+            }
             return W.I(0);
         }
 

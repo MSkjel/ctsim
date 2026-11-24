@@ -72,10 +72,13 @@ namespace CicodeSim.Tests.Page
             );
             Assert.Equal("Weight_SPC.R", s[51].Trend!.Pens[3].Tag);
             Assert.Equal("Weight_SPC.S", s[52].Trend!.Pens[3].Tag);
-            // the period is the SPC trend's SAMPLEPER; the SPC series themselves are not simulated
+            // a sample of an SPC chart is a subgroup: the SPC tag's SAMPLEPER x its subgroup size
             var w = TrendTags.Of(a.World).Find("Weight_SPC")!;
-            Assert.Equal(w.SamplePeriod, x.Period, 9);
-            Assert.All(x.Pens, p => Assert.All(p.Values, v => Assert.Null(v)));
+            Assert.Equal(w.SamplePeriod * SpcSeries.Size(a.World, w), x.Period, 9);
+            // the series over the seeded history: the newest X, the UCL at or above the centre
+            // line, the LCL at or below it (a constant history has no range: the three meet)
+            double? Newest(int pen) => x.Pens[pen].Values[x.Pens[pen].Values.Length - 1];
+            Assert.True(Newest(3) != null && Newest(0) >= Newest(2) && Newest(1) <= Newest(2));
         }
 
         [CorpusFact]

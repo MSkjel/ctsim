@@ -118,6 +118,10 @@ namespace CicodeSim.Host
             /// <summary>hello {models: true}: the viewer sends the drawing of a page Cicode
             /// displays when asked (ctsim/modelWanted).</summary>
             public bool Models;
+
+            /// <summary>hello {images: true}: the viewer draws a window's picture when asked
+            /// (ctsim/imageWanted, answered with ctsim/windowImage).</summary>
+            public bool Images;
         }
 
         private readonly object _lock = new object();
@@ -163,6 +167,11 @@ namespace CicodeSim.Host
                 text => sim.World.Display.Language.Localise(text)
             );
             sim.Host.Interaction = Dialogs;
+            Images = new ViewerImages(
+                () => HasClient(c => c.Images),
+                (name, body) => sim.Events.Post(() => SendTo(c => c.Images, name, body))
+            );
+            sim.Host.WindowImages = Images;
             // an 'always' answer of a permission question put a library or a database on its whitelist
             sim.Host.Outside.Changed = () =>
                 sim.Events.Post(() => Broadcast("options", "ctsim/optionsChanged", OptionsBody()));
@@ -170,6 +179,9 @@ namespace CicodeSim.Host
 
         /// <summary>The dialogs the viewers show (ctsim/dialog, ctsim/answer).</summary>
         public ViewerDialogs Dialogs { get; }
+
+        /// <summary>The window pictures the viewers draw (ctsim/imageWanted, ctsim/windowImage).</summary>
+        public ViewerImages Images { get; }
 
         private bool HasClient(Func<Client, bool> which)
         {
@@ -303,6 +315,8 @@ namespace CicodeSim.Host
             // the last viewer that showed dialogs went: none waits for it any more
             if (c.Dialogs && !HasClient(x => x.Dialogs))
                 Dialogs.CancelAll();
+            if (c.Images && !HasClient(x => x.Images))
+                Images.CancelAll();
             if (!making)
             {
                 try
@@ -833,6 +847,9 @@ namespace CicodeSim.Host
                     case "ctsim/answer":
                         Answer(c, req, a);
                         return;
+                    case "ctsim/windowImage":
+                        Ok(c.Sink, req, Images.Answer(a));
+                        return;
                     case "ctsim/shutdown":
                         Ok(c.Sink, req, null);
                         ShutdownRequested?.Invoke(
@@ -961,6 +978,7 @@ namespace CicodeSim.Host
             caps.Set("alarms", JsonValue.True); // ctsim/alarms, ctsim/equipment, ctsim/alarmsChanged
             caps.Set("dialogs", JsonValue.True); // hello {dialogs}, ctsim/dialog, ctsim/answer
             caps.Set("models", JsonValue.True); // hello {models}, ctsim/modelWanted
+            caps.Set("windowImages", JsonValue.True); // hello {images}, ctsim/imageWanted, ctsim/windowImage
             caps.Set("displayText", JsonValue.True); // localised display strings, fontInfo, array cells
             caps.Set("navigate", JsonValue.True); // load {startPage}, ctsim/navigate
             caps.Set("controls", JsonValue.True); // PAGE controls, ctsim/setObjectProperty
@@ -1180,6 +1198,7 @@ namespace CicodeSim.Host
             // published under the lock Broadcast reads them in (the event thread)
             var dv = a.Get("dialogs");
             var mv = a.Get("models");
+            var iv = a.Get("images");
             lock (_lock)
             {
                 c.ClientName = Str(a, "client", c.Name);
@@ -1187,6 +1206,7 @@ namespace CicodeSim.Host
                 c.Viewer = true;
                 c.Dialogs = dv != null && dv.Kind == JsonKind.Bool && dv.Bool;
                 c.Models = mv != null && mv.Kind == JsonKind.Bool && mv.Bool;
+                c.Images = iv != null && iv.Kind == JsonKind.Bool && iv.Bool;
             }
             Ok(c.Sink, req, ServerInfo());
             // a viewer asks for its page's tags right after it opens the page: the tag listing

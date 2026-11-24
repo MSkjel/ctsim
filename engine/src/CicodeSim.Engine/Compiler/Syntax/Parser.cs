@@ -1673,6 +1673,60 @@ namespace CicodeSim.Compiler.Syntax
             return e;
         }
 
+        /// <summary>Module variables declared outside the text (a report's variables, declared
+        /// in its first {CICODE} block): its statements read them as declared above.</summary>
+        public void AddModuleVars(IEnumerable<VarRef> vars)
+        {
+            foreach (var v in vars)
+            {
+                string k = Lexer.NameKey(v.Name);
+                _moduleVars.Add(k);
+                if (v.Dims.Count > 0)
+                    _moduleArrays.Add(k);
+            }
+        }
+
+        /// <summary>A report's first {CICODE} block (help 1094538): variable declarations at its
+        /// start (the file variables' syntax; a scope keyword is read and left), added to
+        /// <paramref name="decls"/>, then statements as a command field.</summary>
+        public List<Stmt> ParseReportBlock(List<VarDecl> decls)
+        {
+            while (K.IsScopeKeyword(Cur.Kind) || K.IsTypeKeyword(Cur.Kind))
+            {
+                int start = _i;
+                try
+                {
+                    foreach (var n in ParseItem())
+                    {
+                        if (n is VarDecl v)
+                        {
+                            decls.Add(v);
+                            _moduleVars.Add(Lexer.NameKey(v.Name));
+                            if (v.Dims.Count > 0)
+                                _moduleArrays.Add(Lexer.NameKey(v.Name));
+                        }
+                        else
+                            Error(2031, _toks[start]); // a FUNCTION
+                    }
+                }
+                catch (ParseError e)
+                {
+                    Recover(e, start);
+                    while (Cur.Kind != ';' && Cur.Kind != K.Eof && !IsItemStart(Cur.Kind))
+                        _i++;
+                    if (Cur.Kind == ';')
+                        _i++;
+                }
+                catch (TooDeep)
+                {
+                    return new List<Stmt>();
+                }
+                if (_i == start)
+                    _i++;
+            }
+            return ParseCommandField();
+        }
+
         /// <summary>A command field: statements, no declarations.</summary>
         public List<Stmt> ParseCommandField()
         {

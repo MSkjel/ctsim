@@ -410,5 +410,62 @@ namespace CicodeSim.Tests.Host
                 }
             }
         }
+
+        [ProjectFact]
+        public void TrnPlotPrintsATrendThroughThePlotFunctions()
+        {
+            // the Include project's TrnPlot (graph.ci) drives PlotOpen .. PlotClose to a printer:
+            // an SVG page in the sandbox
+            using (
+                var sim = new Simulation(
+                    new SimulationOptions
+                    {
+                        ProjectDir = SimCorpus.ExampleSA,
+                        Compile = CodeSource.Changed,
+                        ClockMode = "paused",
+                        Start = "2026-10-01T08:00:00Z",
+                        StartAlarms = false,
+                        ScanMs = 50,
+                        TimeZone = TimeZoneInfo.Utc,
+                        Sandbox = new CicodeSim.Builtins.SandboxOptions { InMemory = true },
+                    }
+                )
+            )
+            {
+                sim.Start();
+                // 30 seconds of the trend's tag: TrnGetTable has samples to give
+                for (int i = 0; i < 30; i++)
+                {
+                    int v = i;
+                    sim.Invoke(() =>
+                        sim.World.Tags.Set("SA_WindCompass_WindSpeed", JsonValue.Of(v), null, by: "user")
+                    );
+                    sim.Invoke(() => sim.StepClock(1000));
+                }
+                CallOutcome? o = null;
+                var done = new ManualResetEventSlim(false);
+                sim.Invoke(() =>
+                    sim.StartCall(
+                        "TrnPlot(\"LPT1:\", 20, 0, 1, \"Wind\", 0, \"SA_WindCompass_WindSpeed\")",
+                        r =>
+                        {
+                            o = r;
+                            done.Set();
+                        }
+                    )
+                );
+                Assert.True(done.Wait(30000), "TrnPlot");
+                Assert.Equal(("stop", "0"), (o!.State, o.Result));
+                byte[]? b = sim.Invoke(() =>
+                    sim.Host.Sandbox.ReadAll(sim.Host.Sandbox.Full("Printers\\LPT1-1.svg"))
+                );
+                Assert.NotNull(b);
+                string svg = System.Text.Encoding.UTF8.GetString(b!);
+                Assert.Contains("width=\"2480\" height=\"3508\"", svg);
+                Assert.Contains("<polyline", svg); // the pen's line
+                Assert.Contains(">Wind</text>", svg); // the title
+                Assert.Contains(">SA_WindCompass_WindSpeed</text>", svg); // the legend
+            }
+        }
     }
 }

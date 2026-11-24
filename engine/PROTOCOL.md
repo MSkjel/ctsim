@@ -82,7 +82,7 @@ it), written atomically and removed when the server ends. `<id>` = `<pid>-<8 hex
  "mode": "serve", "project": "C:\\...\\User\\ExampleSA",
  "projectName": "ExampleSA", "root": "ExampleSA", "rootReason": "self", "roots": ["ExampleSA"],
  "user": "C:\\...\\User", "install": "C:\\...", "version": "0.0.1.0",
- "protocolRevision": 29, "commit": "...", "buildTime": "...", "started": "..."}
+ "protocolRevision": 30, "commit": "...", "buildTime": "...", "started": "..."}
 ```
 
 - `processStart`: the process start time as a UTC FILETIME.
@@ -124,13 +124,14 @@ connection with subscriptions. A request whose handler fails gets `success: fals
 
 ## Requests
 
-### ctsim/hello `{client?, events?, root?, dialogs?, models?}`
+### ctsim/hello `{client?, events?, root?, dialogs?, models?, images?}`
 
 - `root`: the root the client expects (fails on a server of another root).
 - `events`: the kinds wanted, any of `log`, `task`, `notSimulated`, `clock`, `scenario`, `page`
   (pageChanged and windowsChanged), `options`, `alarms`, `debug` (default all).
 - `dialogs: true`: this viewer shows the simulation's dialogs (`ctsim/dialog`).
 - `models: true`: this viewer sends a page's drawing when asked (`ctsim/modelWanted`).
+- `images: true`: this viewer draws a window's picture when asked (`ctsim/imageWanted`).
 
 Body:
 
@@ -140,7 +141,7 @@ Body:
  "unit": [{"name": "ExampleSA", "dir": "..."}],
  "user": "C:\\...\\User", "install": "C:\\...", "functions": 1869,
  "compile": "changed", "notes": ["..."], "loadMs": 207,
- "server": "ctsim", "version": "0.0.1.0", "protocolRevision": 29, "commit": "...",
+ "server": "ctsim", "version": "0.0.1.0", "protocolRevision": 30, "commit": "...",
  "buildTime": "...", "protocol": "ctsim/0", "id": "14892-ac9427cc",
  "pid": 14892, "mode": "serve", "pipe": "...", "transport": "pipe", "address": "...",
  "clock": {CLOCK}, "debugger": false, "clients": 2, "user": {USER},
@@ -149,7 +150,7 @@ Body:
 
 `unit` lists every project the simulation reads, in search order. `capabilities` names what the
 server supports: `pages`, `compile`, `scenarios`, `debug`, `simulateUndefined`, `windowTags`,
-`root`, `alarms`, `dialogs`, `models`, `displayText`, `navigate`, `controls`, `drawnButtons`,
+`root`, `alarms`, `dialogs`, `models`, `windowImages`, `displayText`, `navigate`, `controls`, `drawnButtons`,
 `alarmListLayout`, `trendHistory`, `windowSerials`, `pageVars`, `tagProperties`, `profile`,
 `profileTree`, `foregroundBreak`, `history`, `regexFilter`, `outside`, `checkExpression`. Clients
 should check `protocolRevision`; the capabilities are informative.
@@ -518,6 +519,15 @@ A viewer's answer to a `ctsim/dialog`; the first answer counts.
 Body `{"id", "answered": true}`. A dialog no longer shown fails. `ctsim/dialogClosed` follows once
 the waiting code takes the answer.
 
+### ctsim/windowImage `{id, bmp?, none?}`
+
+A viewer's picture for a `ctsim/imageWanted` (see Window pictures): `bmp` is a Windows bitmap
+file, base64 (24 or 32 bits a pixel, uncompressed or 32-bit BI_BITFIELDS, rows either way up);
+`none: true` says the viewer has no picture of the window. The first answer counts. Body `{"id",
+"accepted", "width"?, "height"?, "bmp"?}`: the picture's size, and for a `clipboard` request the
+recoloured picture (a 24-bit bitmap file, base64) for the viewer to put on the clipboard. A
+missing id, a request no longer waiting, or a `bmp` that isn't such a bitmap fails.
+
 ### ctsim/shutdown `{}`
 
 Answers, then the server ends and removes its discovery file. Queued messages are delivered first
@@ -605,6 +615,21 @@ WinNew / WinNewAt, AssPopUp, PageBack ...), the engine sends `ctsim/modelWanted 
 wait until a `ctsim/pageModel` arrives or 20 s pass. A held page closed before then starts first,
 so its entry code runs before its exit. Pages a viewer already sent a drawing for aren't held.
 
+### Window pictures
+
+WinFile, WinPrint and WinCopy take the picture of the task's window. When a viewer said `images:
+true`, the engine sends `ctsim/imageWanted {"id", "window", "page", "function", "xScale",
+"yScale", "clipboard"}` to those viewers and the calling task waits for a `ctsim/windowImage`
+with that id, at most 30 s of simulated time (a paused clock doesn't time it out). The viewer
+draws the window's page as the runtime shows it (the windows shown inside it and its popups, no
+selection or overlays), `xScale` by `yScale` times its size. `function` is the built-in that asks;
+`clipboard` is true for WinCopy.
+
+The engine recolours the picture (bSwapBlackWhite, the sMap colour map file), then WinFile writes
+it as a .bmp into the sandbox, WinPrint as the port's printout (`Printers\<port>-<n>.bmp`), and
+WinCopy hands it back in the windowImage body for the clipboard. With no such viewer, no answer
+in time, `none`, or when the last such viewer leaves, the call writes nothing and returns 0.
+
 ### ctsim/input
 
 `{window, an?, ans?, kind, x?, y?, dx?, dy?, button?, key?, text?, modifiers?, value?, release?}`
@@ -681,7 +706,10 @@ transparent), resolved for the flash phase `flashOn`. `disable_style` 1..5;
 - `alarm`: `{"priority", "state": "unack_on" | "ack_on" | "unack_off" | "none", "colour",
   "flash"}`.
 - `trend`: `{period, span, samples, mode, cursor, focus, pens: [{pen, tag, scale: [lo, hi],
-  colour, end, values}]}`.
+  colour, end, values}], markers?}`. `markers` (once DspMarkerMove placed one) =
+  `[{"handle", "mode": "vertical" | "horizontal", "colour", "offset"}]`: a vertical marker is a
+  line across the trend at `offset` samples from its left edge (0 to `samples`), a horizontal one
+  at `offset` / 32000 of its height from the bottom; `colour` 0xRRGGBB, -1 transparent.
 - `alarm_list` and `alarm_row`: alarm lists and their rows. Rows have `fontInfo`; lists have
   their own and their rows' `fontInfo`. AlarmListCreate lists also have `headerFontInfo`,
   `drawHeader`, `rowHeight`, `width`, `height` and localised column `titles`; their data rows
@@ -691,8 +719,8 @@ Trend objects and alarm rows on otherwise unanimated ANs still get a state with 
 `serial` grows with every change of the window, across the pages shown in it; `scan` counts scans.
 
 **Display strings** are localised as the runtime's display client draws them: object `text` and
-`tooltip`, drawn text and button captions, alarm row text and fields, alarm list columns, array
-cells and window titles. Each `@(native)` becomes the current language's text (from the unit's
+`tooltip`, drawn text and button captions, plot texts, alarm row text and fields, alarm list
+columns, array cells and window titles. Each `@(native)` becomes the current language's text (from the unit's
 lang.dbf), else the native text; width and justification suffixes are dropped. What Cicode reads
 keeps the markup. Symbol, bitmap, file and URL names aren't localised.
 
@@ -703,21 +731,53 @@ transparent.
 
 **`drawn`** appears once Cicode has drawn on the page (DspText, DspStr, DspSym, DspSymAtSize,
 DspSymAnm, DspBar, DspTrend, DspChart, DspBmp, DspFile, DspRichText, DspButton(Fn),
-DspWebContentSetURL, DspArrayByAn): the last output of each AN, in first-drawn order:
+DspWebContentSetURL, DspArrayByAn, PlotClose): the last output of each AN, in first-drawn order:
 
 ```json
 [{"an": 21, "kind": "text", "x": 40, "y": 50, "text": "hello", "font": 0,
   "args": {"length": 0, "align": 0, "trunc": 0}, "serial": 3}]
 ```
 
-`kind`: text, sym, symAnm, bar, trend, chart, bmp, file, richText, button, web, array. `x`, `y`
-are the AN's position; `args` the call's other arguments by name. The same output again keeps
-its serial; DspDel removes an entry; a page change empties the list. The engine never draws them.
+`kind`: text, sym, symAnm, bar, trend, chart, bmp, file, richText, button, web, array, plot.
+`x`, `y` are the AN's position; `args` the call's other arguments by name. The same output again
+keeps its serial; DspDel removes an entry; a page change empties the list. The engine never draws
+them.
 
 - Entries with a `font` also have `fontInfo`.
 - `text`: `args.length` and `args.trunc` are iLength and its mode. Character mode is cut by the
   engine; pixel modes carry the full text for the viewer to cut. `args.align` 0 left, 1 right,
   2 centre.
+- `file`: `text` is the file's name (empty until DspFileSetName). `args.height` and `args.width`
+  are the window's lines and characters, `args.row` and `args.col` the scroll offsets,
+  `args.count` the file's lines. `args.lines` = `[{"an", "x", "y", "text"}]`: the lines the
+  window shows, line k at the AN + k (where the page has that AN), cut to the window's width
+  from the column offset.
+- `richText`: a rich text box (DspRichText), `args.width` by `args.height` pixels down and
+  right from the AN. `text` is the loaded file's name (empty until DspRichTextLoad), `args.rtf`
+  its RTF ("" when none). `args.mode` is DspRichText's mode, `args.enabled` and
+  `args.editable` (1 / 0) the state DspRichTextEnable and DspRichTextEdit set; edits in a viewer
+  are not sent back. The engine counts the RTF's paragraphs (`\par`) as its lines: `args.count`
+  lines, `args.page` lines a page shows (16 pixels each, a guess); `args.row` is the first
+  paragraph shown (its top at the box's top), `args.col` the horizontal offset in characters of
+  8 pixels (a guess). The viewer renders the RTF clipped to the box.
+- `plot`: a display plot PlotClose showed (PlotOpen(AN, "Display", mode)). `args.mode` is the
+  PlotOpen mode, `args.output` its output, `args.prims` the primitives in drawing order, each at
+  coordinates relative to the AN's position (pixels, y down):
+  - `{"op": "rect" | "ellipse", "x1", "y1", "x2", "y2", "pen", "fill"}`: the box's corners (in
+    any order); an ellipse fills its box. `fill` is a colour (-1 none).
+  - `{"op": "line", "x1", "y1", "x2", "y2", "pen"}`, `{"op": "point", "x", "y", "pen"}` (a
+    point is the pen's width square in its colour).
+  - `{"op": "polyline", "points": [x0, y0, x1, y1, ...], "pen"}`: a plotted line.
+  - `{"op": "text", "x", "y", "text", "font", "orient", "fontInfo"?}`: the text's baseline
+    starts at (x, y) in the font's foreground (and background unless transparent); `orient` 0
+    left to right, 1 upwards, 2 right to left (upside down), 3 downwards.
+  - `{"op": "marker", "x", "y", "marker", "colour", "size", "symbol"?}`: centred on (x, y),
+    `size` pixels across. `marker` 1 triangle, 2 square, 3 circle, 4 diamond, 5..8 the same
+    filled; 20..32000 a symbol PlotSetMarker registered: `symbol` is its 'library.symbol',
+    drawn with its hot spot at (x, y).
+
+  `pen` = `{"style", "colour", "width"}`: style 0 solid, 1 dash, 2 dot, 3 dash dot, 4 dash dot
+  dot, 5 none; a pen wider than 1 draws solid. Colours are 0xRRGGBB, -1 transparent.
 - `sym` of a genie placed by DspSym has `args.members`: `[{"an", "handle", "name", "type"}]`, the
   element's records as page objects (the first is the AN itself), so a viewer draws each record
   with its member's state.
@@ -770,6 +830,8 @@ they changed. A ciText.ComboBox entry also includes `items`, its ordered list of
 - **ctsim/alarmsChanged** `{"serial"}`: alarm states changed; at most one per 250 ms. Viewers ask
   `ctsim/alarms` again.
 - **ctsim/modelWanted** `{window, page, path}`: see Drawings Cicode needs.
+- **ctsim/imageWanted** `{id, window, page, function, xScale, yScale, clipboard}` (to viewers with
+  `images`): see Window pictures.
 - **ctsim/debugPaused** `{"paused", "task", "function", "file", "line", "reason", "window"?,
   "an"?, "page"?, "source"?}` (kind `debug`): page code the debugger stopped holds the
   simulation, or goes on. While paused, only the debugger's requests are served, the clock

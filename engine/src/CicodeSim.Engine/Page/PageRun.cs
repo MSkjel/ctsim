@@ -1194,8 +1194,9 @@ namespace CicodeSim.Page
         }
 
         /// <summary>A trend object's state: period and span in seconds, the samples, mode,
-        /// cursor, focus and per configured pen its trend tag, scale, colour (the flash phase's
-        /// half of the drawing's pen colour) and samples oldest first.</summary>
+        /// cursor, focus, per configured pen its trend tag, scale, colour (the flash phase's
+        /// half of the drawing's pen colour) and samples oldest first, and the placed
+        /// markers.</summary>
         internal TrendState TrendStateOf(PageTrend d)
         {
             var w = Animator.World;
@@ -1227,6 +1228,12 @@ namespace CicodeSim.Page
                         Values = TrendData.Samples(w, d, p),
                     }
                 );
+            }
+            for (int k = 0; k < d.Markers.Count; k++)
+            {
+                var m = d.Markers[k];
+                if (m.Offset >= 0)
+                    ts.Markers.Add((k, m.Horizontal, m.Colour, m.Offset));
             }
             return ts;
         }

@@ -124,6 +124,30 @@ namespace CicodeSim.Tests.Compiler
 
         // -------------------------------------------------------------------------- projects
         [Fact]
+        public void TheRuntimeTableCompilesCallsOfTheBuiltinsWithoutFunc0()
+        {
+            var table = Func0Rows.FromRuntimeTable();
+            Assert.True(table.Count > 1000);
+            var (order, diags) = Reg(
+                    (
+                        "Main",
+                        Proj(
+                            Files(
+                                (
+                                    "a.ci",
+                                    "STRING FUNCTION F(INT n)\n    Sleep(1);\n    RETURN IntToStr(n) + RealToStr(Sin(n), 4, 2, \".\");\nEND\n"
+                                )
+                            )
+                        )
+                    )
+                )
+                .CompileOrder("Main");
+            Assert.Empty(Errors(new CompileUnit(order, table, diags).Compile()));
+            // no OPTARGS defaults: a call gives every argument
+            Assert.Equal(4, table.Get("tasknew")!.MinArgs);
+        }
+
+        [Fact]
         public void CompileOrderIsDepthFirstPostOrderRootLast()
         {
             var reg = Reg(

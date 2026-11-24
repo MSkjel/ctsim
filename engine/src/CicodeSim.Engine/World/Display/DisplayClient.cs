@@ -10,6 +10,28 @@ using CicodeSim.Values;
 // the screen, and the page controller a process without a page animator uses (HeadlessPages).
 namespace CicodeSim.World.Display
 {
+    /// <summary>A file display (DspFile): the window's lines and characters, the row and column
+    /// offsets, and the lines of the file DspFileSetName read.</summary>
+    public sealed class FileView
+    {
+        public int Height,
+            Width,
+            Row,
+            Col;
+
+        public List<string> Lines = new List<string>();
+
+        public FileView Copy() =>
+            new FileView
+            {
+                Height = Height,
+                Width = Width,
+                Row = Row,
+                Col = Col,
+                Lines = Lines,
+            };
+    }
+
     /// <summary>One display output Cicode made on an AN: the LAST output of
     /// each AN, kept per window in <see cref="Window.Drawn"/> until DspDel or the page changes.
     /// The renderer (ctgedit) draws it; the engine only records it.</summary>
@@ -19,7 +41,8 @@ namespace CicodeSim.World.Display
 
         /// <summary>text (DspText / DspStr), sym (DspSym, DspSymAtSize), symAnm (DspSymAnm), bar
         /// (DspBar), trend (DspTrend), col (DspCol), bmp (DspBmp), chart (DspChart), file
-        /// (DspFile), richText (DspRichText), move (DspAnMove / DspAnMoveRel), show (DspShow).</summary>
+        /// (DspFile), richText (DspRichText), move (DspAnMove / DspAnMoveRel), show (DspShow), plot
+        /// (PlotClose).</summary>
         public string Kind = "";
         public string Text = "";
 
@@ -42,6 +65,14 @@ namespace CicodeSim.World.Display
 
         /// <summary>The array's change count the cells were taken at (-1 none).</summary>
         public long CellsSerial = -1;
+
+        /// <summary>A file display's window, offsets and lines (kind 'file'); null for the other
+        /// kinds.</summary>
+        public FileView? File;
+
+        /// <summary>A rich text box's size, state, scroll position and RTF (kind 'richText');
+        /// null for the other kinds.</summary>
+        public RichTextView? RichText;
 
         public DrawCommand Arg(string name, long v)
         {
@@ -108,11 +139,39 @@ namespace CicodeSim.World.Display
             }
             var a = JsonValue.NewObject();
             foreach (var kv in Args)
-                a.Set(kv.Key, kv.Value);
+                a.Set(
+                    kv.Key,
+                    j != null && Kind == "plot" && kv.Key == "prims" && kv.Value.Kind == JsonKind.Array
+                        ? j.Cells(kv.Value, LocalisePlot)
+                        : kv.Value
+                );
             o.Set("args", a);
             if (Cells != null)
                 o.Set("cells", j != null ? j.Cells(Cells, LocaliseCells) : Cells);
             o.Set("serial", JsonValue.Of(Serial));
+            return o;
+        }
+
+        /// <summary>A plot's primitives with each text localised and its font's fontInfo.</summary>
+        private static JsonValue LocalisePlot(JsonValue prims, DisplayJson j)
+        {
+            var o = JsonValue.NewArray();
+            foreach (var p in prims.Items)
+            {
+                if (p.Get("op")?.Str != "text")
+                {
+                    o.Add(p);
+                    continue;
+                }
+                var t = JsonValue.NewObject();
+                foreach (var kv in p.Pairs)
+                    t.Set(kv.Key, kv.Key == "text" ? JsonValue.Of(j.Text(kv.Value.Str)) : kv.Value);
+                var f = p.Get("font");
+                var fi = f != null && f.IsNumber ? j.Font(f.Long) : null;
+                if (fi != null)
+                    t.Set("fontInfo", fi);
+                o.Add(t);
+            }
             return o;
         }
 
@@ -270,6 +329,22 @@ namespace CicodeSim.World.Display
 
         /// <summary>The AN's output went (DspDel, another output, DspAnFree): its genie's members go.</summary>
         void SymbolGone(Window w, int an);
+    }
+
+    /// <summary>The page controller's slider animations (DspGetSlider / DspSetSlider).</summary>
+    public interface ISliders
+    {
+        /// <summary>The AN's slider on the window's page (the first of its horizontal, vertical
+        /// and rotational sliders): the code that reads its percent, the code that writes the
+        /// percent in GetGlbStr(0) to its tag (null when it does not write) and their program;
+        /// false when the AN has no slider.</summary>
+        bool Slider(
+            Window w,
+            int an,
+            out byte[] read,
+            out byte[]? write,
+            out CicodeSim.Compiled.Program? program
+        );
     }
 
     /// <summary>One compiled expression of an AN (DspInfo).</summary>

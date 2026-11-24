@@ -18,7 +18,8 @@ namespace CicodeSim.Builtins
         public const long MinPeriod = 5000;
 
         /// <summary>The sample period in ticks: the one set, else the smallest SAMPLEPER of the
-        /// trend's pens (with a period under 0.5 ms), else 1 s (no pen: guess).</summary>
+        /// trend's pens (an SPC series pen's: its subgroup's time; with a period under 0.5 ms),
+        /// else 1 s (no pen: guess).</summary>
         public static long PeriodTicks(World.World w, PageTrend t)
         {
             if (t.PeriodTicks >= MinPeriod)
@@ -29,8 +30,12 @@ namespace CicodeSim.Builtins
             {
                 if (!p.Used)
                     continue;
-                var r = tt.Find(p.Tag) ?? tt.SpcTrend(p.Tag);
-                long per = (long)Math.Round((r?.SamplePeriod ?? 1.0) * Tick);
+                var r = tt.Find(p.Tag);
+                var spc = r == null ? tt.SpcTrend(p.Tag) : null;
+                long per =
+                    spc != null
+                        ? SpcSeries.SubgroupTicks(w, spc)
+                        : (long)Math.Round((r?.SamplePeriod ?? 1.0) * Tick);
                 if (per >= MinPeriod && (best == 0 || per < best))
                     best = per;
             }
@@ -58,15 +63,24 @@ namespace CicodeSim.Builtins
             EndOf(w, t, p) - PeriodTicks(w, t) * index;
 
         /// <summary>The value a pen held at FILETIME <paramref name="ft"/>, null when it is not
-        /// known (no history then, bad quality, an expression trend no one sampled).</summary>
+        /// known (no history then, bad quality, an expression trend no one sampled). An SPC
+        /// series pen: a manual control limit is a constant line, else the series
+        /// (SpcSeries).</summary>
         public static double? ValueAt(World.World w, TrendPen p, long ft)
         {
             if (!p.Used)
                 return null;
             var tt = TrendTags.Of(w);
-            // an SPC series: not simulated, but a manual control limit is a constant line
-            if (tt.SpcTrend(p.Tag) != null && tt.Find(p.Tag) == null)
-                return p.SpcManual ? p.SpcLimit : (double?)null;
+            if (tt.Find(p.Tag) == null && tt.SpcTrend(p.Tag) is TrendTag spc)
+                return p.SpcManual ? p.SpcLimit : SpcSeries.ValueAt(w, spc, Spc.SeriesCode(p.Tag), ft);
+            return TrendValueAt(w, p.Tag, ft);
+        }
+
+        /// <summary>The value trend <paramref name="trend"/> held at FILETIME
+        /// <paramref name="ft"/>, null when it is not known.</summary>
+        public static double? TrendValueAt(World.World w, string trend, long ft)
+        {
+            var tt = TrendTags.Of(w);
             double t = w.Clock.TOfFiletime((ulong)ft);
             // simulator only (ctsim/options seedTrendHistory): the time before the simulation
             // started (and before the first known value) holds the first known value, so a
@@ -78,7 +92,7 @@ namespace CicodeSim.Builtins
                     return null;
                 t = 0;
             }
-            string? tag = tt.PenTag(p.Tag);
+            string? tag = tt.PenTag(trend);
             double v;
             ulong q;
             if (tag != null)
@@ -89,7 +103,7 @@ namespace CicodeSim.Builtins
             }
             else
             {
-                var r = tt.Find(p.Tag);
+                var r = tt.Find(trend);
                 if (r == null)
                     return null;
                 if (
@@ -113,6 +127,14 @@ namespace CicodeSim.Builtins
                 return o;
             long end = EndOf(w, t, p),
                 per = PeriodTicks(w, t);
+            var tt = TrendTags.Of(w);
+            if (!p.SpcManual && tt.Find(p.Tag) == null && tt.SpcTrend(p.Tag) is TrendTag spc)
+            {
+                // an SPC series: each sample a subgroup, the limits over the subgroups shown
+                var s = SpcSeries.Samples(w, spc, Spc.SeriesCode(p.Tag), end, n);
+                Array.Copy(s, 0, o, n - s.Length, s.Length);
+                return o;
+            }
             for (int i = 0; i < n; i++)
                 o[n - 1 - i] = ValueAt(w, p, end - per * i);
             return o;
@@ -1838,6 +1860,77 @@ namespace CicodeSim.Builtins
             {
                 W.Raise(t, Codes.InvalidArg);
                 return W.I(Codes.InvalidArg);
+            }
+            return W.I(0);
+        }
+
+        // ================================================================== markers
+        [Builtin(
+            "DspMarkerNew",
+            Doc = "1104703",
+            Effects = "adds a marker to the trend",
+            Errors = "274 no window, an AN outside 1..31999 or a mode other than 0 / 1 (raised, -1) (guess for the mode); 300 no trend at the AN (raised, -1) (guess)",
+            Notes = "Mode 0 a vertical marker, 1 a horizontal one, in Color (no flashing). The handle is the trend's marker number, 0..9 in the order they were made (guess); a trend with 10 markers: -1. Not shown until DspMarkerMove places it. Markers stay drawn over the trend's updates (the runtime erases them unless the trend paint event, OnEvent 22, draws them again: the simulator raises no paint event) (guess)."
+        )]
+        private static Value DspMarkerNew(SimHost h, CicodeTask t, ArgList a)
+        {
+            long an = An(a);
+            if (an == -2)
+                an = TaskContext.An(t);
+            long mode = A.I(a.Get(1));
+            if (!HasWindow(h, t) || !GetterAn(an) || (mode != 0 && mode != 1))
+            {
+                W.Raise(t, Codes.InvalidArg);
+                return W.I(-1);
+            }
+            var tr = Find(h, t, an, out int err);
+            if (tr == null)
+            {
+                W.Raise(t, err);
+                return W.I(-1);
+            }
+            if (tr.Markers.Count >= PageTrend.MaxMarkers)
+                return W.I(-1);
+            tr.Markers.Add(new TrendMarker { Horizontal = mode == 1, Colour = Plots.Colour(A.I(a.Get(2))) });
+            return W.I(tr.Markers.Count - 1);
+        }
+
+        [Builtin(
+            "DspMarkerMove",
+            Doc = "1104702",
+            Effects = "places the trend's marker",
+            Errors = "274 no window or an AN outside 1..31999 (raised and returned); 300 no trend at the AN (raised and returned) (guess); 269 no such marker (raised and returned) (guess)",
+            Notes = "A vertical marker at Offset samples from the trend's left edge (0..the trend's samples), a horizontal one at Offset / 32000 of the trend's height from its bottom (0..32000); an offset outside is kept in the range (guess). The viewer gets the placed markers in the trend's state."
+        )]
+        private static Value DspMarkerMove(SimHost h, CicodeTask t, ArgList a)
+        {
+            long an = An(a);
+            if (an == -2)
+                an = TaskContext.An(t);
+            if (!HasWindow(h, t) || !GetterAn(an))
+            {
+                W.Raise(t, Codes.InvalidArg);
+                return W.I(Codes.InvalidArg);
+            }
+            var tr = Find(h, t, an, out int err);
+            if (tr == null)
+            {
+                W.Raise(t, err);
+                return W.I(err);
+            }
+            long hm = A.I(a.Get(1));
+            if (hm < 0 || hm >= tr.Markers.Count)
+            {
+                W.Raise(t, Codes.BadHandle);
+                return W.I(Codes.BadHandle);
+            }
+            var m = tr.Markers[(int)hm];
+            long max = m.Horizontal ? 32000 : Math.Max(1, tr.Samples);
+            int off = (int)Math.Max(0, Math.Min(max, A.I(a.Get(2))));
+            if (m.Offset != off)
+            {
+                m.Offset = off;
+                tr.Touch();
             }
             return W.I(0);
         }

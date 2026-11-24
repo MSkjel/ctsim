@@ -459,7 +459,7 @@ namespace CicodeSim.Builtins
 
         /// <summary>Write element <paramref name="k"/> of the REAL table a reference starts (a
         /// module / global array element: the following elements; a local: element 0 only).</summary>
-        private static bool Put(CicodeTask t, in Value table, int k, double v)
+        internal static bool Put(CicodeTask t, in Value table, int k, double v)
         {
             if (table.O is CodeVarRef cr)
                 return cr.Slot.Set(cr.Element + k, Value.Real(v)) == 0;

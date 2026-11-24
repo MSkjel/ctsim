@@ -693,7 +693,7 @@ namespace CicodeSim.Compiler.Semantics
         {
             Projects = new List<SourceProject>(projects);
             TagStartDigit = TagStartDigitOf(Projects);
-            Func0 = func0 ?? Func0Rows.Load();
+            Func0 = func0 ?? Func0Rows.LoadOrRuntime();
             OrderDiags = orderDiags != null ? new List<Diagnostic>(orderDiags) : new List<Diagnostic>();
             UseTags = useTags;
             ParseCache = parseCache;
@@ -1183,12 +1183,35 @@ namespace CicodeSim.Compiler.Semantics
         }
 
         // ---------------------------------------------------------------------- page fields
-        /// <summary>Check one page expression or command field against the compiled unit.</summary>
+        /// <summary>Check one page expression or command field against the compiled unit.
+        /// <paramref name="vars"/> = module variables the field sees (a report's, declared by
+        /// <see cref="CompileReportBlock"/>), by NameKey.</summary>
         public FieldResult CompileField(
             string text,
             string kind = "expression",
             string project = "",
+            string where = "",
+            IReadOnlyDictionary<string, VarRef>? vars = null
+        ) => Field(text, kind, project, where, vars, null);
+
+        /// <summary>A report's first {CICODE} block (help 1094538): the variables declared at its
+        /// start become the report's (module variables, by NameKey into <paramref name="vars"/>:
+        /// the report's later blocks and fields see them through <see cref="CompileField"/>),
+        /// its statements a command field. Initial values are the declarations' (VarDecl.Init).</summary>
+        public FieldResult CompileReportBlock(
+            string text,
+            Dictionary<string, VarRef> vars,
+            string project = "",
             string where = ""
+        ) => Field(text, "command", project, where, vars, vars);
+
+        private FieldResult Field(
+            string text,
+            string kind,
+            string project,
+            string where,
+            IReadOnlyDictionary<string, VarRef>? vars,
+            Dictionary<string, VarRef>? declare
         )
         {
             SourceProject? proj = null;
@@ -1210,8 +1233,34 @@ namespace CicodeSim.Compiler.Semantics
                 Callbacks = CallbackArgs(),
             };
             var mod = new Module(where, proj.Name);
+            if (vars != null)
+                parser.AddModuleVars(vars.Values);
             object? node;
-            if (kind == "command")
+            if (declare != null)
+            {
+                var decls = new List<VarDecl>();
+                node = parser.ParseReportBlock(decls);
+                foreach (var d in decls)
+                {
+                    string k = Lexer.NameKey(d.Name);
+                    if (declare.ContainsKey(k))
+                    {
+                        var (line, col) = lex.Lines.LineCol(d.Pos);
+                        parser.Diags.Add(new Diagnostic(2021, where, line, col, d.Name, proj.Name, d.Pos));
+                        continue;
+                    }
+                    d.Var = declare[k] = new VarRef(
+                        "module",
+                        d.Name,
+                        Ast.TypeCode(d.Type),
+                        decl: d,
+                        dims: d.Dims,
+                        file: where,
+                        project: proj.Name
+                    );
+                }
+            }
+            else if (kind == "command")
                 node = parser.ParseCommandField();
             else
                 node = parser.ParseExpressionField();
@@ -1221,7 +1270,7 @@ namespace CicodeSim.Compiler.Semantics
             mod.CallNames = parser.CallNames;
             var f = new SourceFile(proj, where, where, mod);
             var r = new Resolver(this, f, -1);
-            r.BeginField();
+            r.BeginField(vars);
             if (kind == "command")
                 r.Block((List<Stmt>)node!);
             else if (node is Expr e)
