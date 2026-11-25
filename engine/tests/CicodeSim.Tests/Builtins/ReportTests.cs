@@ -63,8 +63,9 @@ namespace CicodeSim.Tests.Builtins
                 );
                 Text(
                     "inside.rpt",
-                    "dev={CICODE}Print(DevInfo(DevCurr(), 0)){END};state={CICODE}Print(RepGetControl(\"Inside\", 0)){END}"
-                        + ";cluster={CICODE}Print(RepGetCluster()){END};font={CICODE}Print(PrintFont(\"Big\")){END}"
+                    "{CICODE}\r\nSTRING sFont = \"Big\";\r\n{END}\r\n"
+                        + "dev={CICODE}Print(DevInfo(DevCurr(), 0)){END};state={CICODE}Print(RepGetControl(\"Inside\", 0, \"\")){END}"
+                        + ";cluster={CICODE}Print(RepGetCluster()){END};font={CICODE}Print(PrintFont(sFont)){END}"
                 );
                 Text(
                     "rep.rtf",
