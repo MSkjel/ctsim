@@ -29,18 +29,27 @@ jobs:
               --json databaseId,event,status,conclusion \
               --jq '.[] | select(.event == "push" or .event == "workflow_dispatch") | "\(.databaseId) \(.status) \(.conclusion)"'
           }
-          if runs | grep -q " completed success$"; then
-            echo "CI passed on $GITHUB_SHA."
-            exit 0
-          fi
-          id=$(runs | awk '$2 != "completed" { print $1; exit }')
-          if [ -n "$id" ]; then
-            echo "Waiting for CI run $id."
-            if gh run watch "$id" --exit-status --interval 60 > /dev/null; then
+          # (a run started seconds before is not listed at once: none listed, look again for up
+          # to 10 minutes)
+          for i in $(seq 20); do
+            found=$(runs)
+            if echo "$found" | grep -q " completed success$"; then
               echo "CI passed on $GITHUB_SHA."
               exit 0
             fi
-          fi
+            id=$(echo "$found" | awk '$2 != "completed" { print $1; exit }')
+            if [ -n "$id" ]; then
+              echo "Waiting for CI run $id."
+              if gh run watch "$id" --exit-status --interval 60 > /dev/null; then
+                echo "CI passed on $GITHUB_SHA."
+                exit 0
+              fi
+              break
+            fi
+            [ -n "$found" ] && break
+            echo "No CI run listed for $GITHUB_SHA yet."
+            sleep 30
+          done
           echo "::error::CI has not passed on $GITHUB_SHA. Push it to main or run CI on the tag, then re-run this workflow."
           exit 1
 
