@@ -1704,6 +1704,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TrnSelect",
+            PageArg = 1,
             Doc = "1193865",
             Effects = "selects (making it when needed) the trend at the AN of a page in a window: later calls with AN -2 act on it; the page takes it when it is shown",
             Errors = "274 an AN not -3 and outside 1..31999, or a window below -3 / -1 (raised and returned)",

@@ -107,6 +107,7 @@ namespace CicodeSim.Builtins
         // ------------------------------------------------------------------ primitives
         [Builtin(
             "_PageDisplay",
+            PageArg = 0,
             Effects = "shows the page in the task's window, a new history entry",
             Errors = "256 the window is not open (raised and returned); 277 not in the user's area (returned, prompt 'Page is out of your Area'); 274 an empty name; 261 no compiled page; 265 no Control record; 318 too many nested page changes and 517 a change from the window's own scan (raised and returned); any error: prompt 'Cannot Display Page'",
             Notes = "Include's PageDisplay calls it. The forward entries of the history are dropped, the page appended; the page list holds the page once. The cluster argument is not used (one simulated cluster)."
@@ -130,6 +131,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "_PageGoto",
+            PageArg = 0,
             Effects = "shows the page in the task's window in place of the current history entry",
             Errors = "256 the window is not open (raised and returned); 274 / 261 / 265 / 277 (returned, prompt 'Invalid Page <name>'); 318 / 517 (raised and returned)",
             Notes = "Include's PageGoto calls it. No new history entry: the current one becomes the new page (the runtime replaces the entry at the position; an empty history gets the page)."
@@ -373,6 +375,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "PagePushLast",
+            PageArg = 0,
             Doc = "1188771",
             Effects = "inserts a page before the current page in the history (PageLast shows it)",
             Errors = "269 the window is not open; 257 an empty history (returned)",

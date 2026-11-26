@@ -420,6 +420,7 @@ namespace CicodeSim.Builtins
         // ------------------------------------------------------------------ associations
         [Builtin(
             "Ass",
+            TagArg = 2,
             Doc = "1192655",
             Effects = "stores a super genie association for the target window's next page",
             Errors = "557 a tag of 255+ characters (raised and returned); the store's tag check (returned, the association stored all the same): 424 an unknown name without a '.', 289 a dotted name that is no variable tag or Equip.Item (an equipment name: the live runtime's 289 on the SA faceplates), 403 an unknown cluster or a name starting with '.', 404 a 'Cluster.' prefix that is not the given cluster, 417 no cluster in a project of several",

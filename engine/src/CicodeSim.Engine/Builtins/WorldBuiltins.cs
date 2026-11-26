@@ -49,6 +49,14 @@ namespace CicodeSim.Builtins
         /// <summary>Anything else; '(verify)' marks a guess.</summary>
         public string Notes { get; set; } = "";
 
+        /// <summary>The 0-based argument the function looks up as a graphics page, -1 none
+        /// (ctsim/checkExpression warns about a fixed name the project has no page of).</summary>
+        public int PageArg { get; set; } = -1;
+
+        /// <summary>The 0-based argument the function looks up as a variable tag, -1 none
+        /// (ctsim/checkExpression warns about a fixed name the project does not define).</summary>
+        public int TagArg { get; set; } = -1;
+
         public BuiltinAttribute(string name)
         {
             Name = name;
@@ -104,14 +112,34 @@ namespace CicodeSim.Builtins
             }
         }
 
+        /// <summary>The role of a built-in's argument: a page or tag name it looks up
+        /// (<see cref="BuiltinAttribute.PageArg"/>, <see cref="BuiltinAttribute.TagArg"/>).</summary>
+        public static Compiler.Semantics.NameRole ArgRole(string name, int arg)
+        {
+            var a = Info(name);
+            if (a == null || arg < 0)
+                return Compiler.Semantics.NameRole.None;
+            if (a.PageArg == arg)
+                return Compiler.Semantics.NameRole.Page;
+            return a.TagArg == arg ? Compiler.Semantics.NameRole.Tag : Compiler.Semantics.NameRole.None;
+        }
+
         /// <summary>The attribute of a world built-in, null when none.</summary>
         public static BuiltinAttribute? Info(string name)
         {
-            foreach (var d in Declared())
-                if (string.Equals(d.Info.Name, name, StringComparison.OrdinalIgnoreCase))
-                    return d.Info;
-            return null;
+            var by = _byName;
+            if (by == null)
+            {
+                var m = new Dictionary<string, BuiltinAttribute>(StringComparer.OrdinalIgnoreCase);
+                foreach (var d in Declared())
+                    if (!m.ContainsKey(d.Info.Name))
+                        m[d.Info.Name] = d.Info;
+                _byName = by = m;
+            }
+            return by.TryGetValue(name ?? "", out var a) ? a : null;
         }
+
+        private static volatile Dictionary<string, BuiltinAttribute>? _byName;
 
         /// <summary>A registry with every built-in over <paramref name="host"/>.</summary>
         public static Registry Create(
@@ -228,6 +256,10 @@ namespace CicodeSim.Builtins
                     sb.Append(", \"notes\": ");
                     Json.WriteString(sb, a.Notes);
                 }
+                if (a.PageArg >= 0)
+                    sb.Append(", \"pageArg\": ").Append(a.PageArg.ToString(CultureInfo.InvariantCulture));
+                if (a.TagArg >= 0)
+                    sb.Append(", \"tagArg\": ").Append(a.TagArg.ToString(CultureInfo.InvariantCulture));
                 sb.Append(", \"registry\": \"world\"}");
                 entries[Canon(table, a.Name)] = sb.ToString();
             }

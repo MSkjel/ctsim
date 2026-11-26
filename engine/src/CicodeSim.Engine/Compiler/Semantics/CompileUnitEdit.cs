@@ -25,6 +25,10 @@ namespace CicodeSim.Compiler.Semantics
 
     public sealed partial class CompileUnit
     {
+        /// <summary>Counts the incremental edits (<see cref="ReplaceFile"/>): what was derived
+        /// from the unit's code before is stale once it moves.</summary>
+        public int Generation { get; private set; }
+
         /// <summary>Recompile one edited file of the unit; the rest stays.</summary>
         public FileEdit ReplaceFile(string path, string? text = null)
         {
@@ -88,6 +92,7 @@ namespace CicodeSim.Compiler.Semantics
                 if (infoOf.TryGetValue(oldFns[k], out var info))
                     info.Node = newFns[k];
             Files[fi] = nf;
+            Generation++;
             // the declaration pass's own messages of the file (E2021 ...) are not computed again:
             // the shape is unchanged, so the same ones hold (they are kept, positions as before)
             for (int i = old.Module.DeclDiagnostics.Count; i < old.Pass1.Count; i++)

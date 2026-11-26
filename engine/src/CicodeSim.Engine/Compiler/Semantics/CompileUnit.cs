@@ -547,11 +547,18 @@ namespace CicodeSim.Compiler.Semantics
         public readonly object? Node;
         public readonly List<Diagnostic> Diagnostics;
 
-        public FieldResult(object? node, List<Diagnostic> diagnostics)
+        /// <summary>The field text's lines (what the message columns count in).</summary>
+        public readonly LineIndex? Lines;
+
+        public FieldResult(object? node, List<Diagnostic> diagnostics, LineIndex? lines = null)
         {
             Node = node;
             Diagnostics = diagnostics;
+            Lines = lines;
         }
+
+        /// <summary>The 1-based column of a node of the field (as a message's), 0 when unknown.</summary>
+        public int Column(Node n) => Lines != null && n.Pos >= 0 ? Lines.LineCol(n.Pos).col : 0;
 
         public List<Diagnostic> Errors
         {
@@ -1283,7 +1290,7 @@ namespace CicodeSim.Compiler.Semantics
                     r.ErrEnd(2024, e);
                 }
             }
-            return new FieldResult(node, f.SortedPass(2));
+            return new FieldResult(node, f.SortedPass(2), lex.Lines);
         }
     }
 }

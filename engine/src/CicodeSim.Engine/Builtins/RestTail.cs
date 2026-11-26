@@ -507,6 +507,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagSetOverrideQuality",
+            TagArg = 0,
             Doc = "1192751",
             Blocking = true,
             Effects = "sets the quality of the tag's Override element (its value stays; setting OverrideMode later overwrites it)",
@@ -526,6 +527,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagSetOverrideGood",
+            TagArg = 0,
             Doc = "1192750",
             Blocking = true,
             Effects = "sets the Override element's quality to Good Non Specific (0xC0)",
@@ -544,6 +546,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagSetOverrideUncertain",
+            TagArg = 0,
             Doc = "1192752",
             Blocking = true,
             Effects = "sets the Override element's quality to Uncertain Non Specific (0x40)",
@@ -562,6 +565,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagSetOverrideBad",
+            TagArg = 0,
             Doc = "1192749",
             Blocking = true,
             Effects = "sets the Override element's quality to Bad Non Specific (0)",

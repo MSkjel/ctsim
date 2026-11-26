@@ -242,6 +242,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "WinNew",
+            PageArg = 0,
             Doc = "1193988",
             Effects = "opens a window showing the page; it becomes the task's window",
             Notes = "The lowest free window, mode 0, no parent. -1 when [Page]Windows are open (prompt 'Too many windows') or the page cannot be shown (prompt 'Cannot Open Window <page>'; the task's window unchanged). The cluster argument is not used (one simulated cluster)."
@@ -251,6 +252,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "WinNewAt",
+            PageArg = 0,
             Doc = "1193989",
             Effects = "opens a window at (x, y) showing the page; it becomes the task's window",
             Notes = "Mode (bit 0x80000 cleared): negative -> -1; 1 page child / 2 window child of the task's window (closed when its page changes / when it is freed); 128 and 512: a window already showing the page (512: with the same pending -2 associations) refuses it (-1, prompt 'Cannot open this window twice'); PageInfo(11) gives the mode. Other bits are kept, not acted on (no real window). -1 when [Page]Windows are open or the page cannot be shown."
@@ -263,6 +265,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "WinNewPinAt",
+            PageArg = 0,
             Doc = "1193990",
             Effects = "opens a pinned child window",
             Notes = "WinNewAt with mode (mode & 0x3f400) | 0x80003 (a page and window child, pinned). The runtime raises the last window error on a failure: not raised here (guess)."

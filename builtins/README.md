@@ -26,5 +26,8 @@ FUNC0 names (case as in FUNC0; lookup is case-insensitive).
 - `effects`: optional list of world changes in words (`"writes the tag named by arg 1"`).
 - `blocking`: true when the function can block (not allowed in foreground Cicode).
 - `traced`: true when calls go to the trace even in normal mode.
+- `pageArg` / `tagArg`: the 0-based argument the function looks up as a graphics page / a
+  variable tag. `ctsim/checkExpression` warns about fixed text reaching it (directly or through
+  the Cicode functions that pass it on) that names no page / tag of the project.
 - A function missing here is `stub` with the FUNC0 return type's zero value, reported as not
   simulated.

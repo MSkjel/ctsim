@@ -1878,6 +1878,7 @@ namespace CicodeSim.Sim
                 // number of arguments); a name it takes for a tag that the project does not
                 // define compiles (the runtime looks it up when the page runs: error 424 then)
                 // and is a warning here
+                var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
                 try
                 {
                     Compiler.Codegen.FunctionCode fc;
@@ -1890,7 +1891,12 @@ namespace CicodeSim.Sim
                                 ? Compiler.Codegen.PageFieldKind.Command
                                 : Compiler.Codegen.PageFieldKind.Expression
                         );
-                    var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                    var names = new List<Compiler.Syntax.Name>();
+                    Compiler.Semantics.NameArgs.Visit(res.Node, e =>
+                    {
+                        if (e is Compiler.Syntax.Name n && n.Ref is Compiler.Syntax.TagRefName)
+                            names.Add(n);
+                    });
                     foreach (var ins in fc.Code.Ins)
                     {
                         if (
@@ -1901,16 +1907,14 @@ namespace CicodeSim.Sim
                             continue;
                         if (tags.Lookup(tk.Tag) != null || World.Tags.SimulateUndefined)
                             continue;
-                        var one = JsonValue.NewObject();
-                        one.Set(
-                            "message",
-                            JsonValue.Of(
-                                "the project does not define the tag "
-                                    + tk.Tag
-                                    + " (the runtime raises error 424 for it)"
+                        var at = names.Find(n =>
+                            string.Equals(
+                                ((Compiler.Syntax.TagRefName)n.Ref!).Name,
+                                tk.Tag,
+                                StringComparison.OrdinalIgnoreCase
                             )
                         );
-                        warnings.Add(one);
+                        warnings.Add(UndefinedTag(tk.Tag, at != null ? res.Column(at) : 0));
                     }
                 }
                 catch (Compiler.Codegen.CodegenException e)
@@ -1922,11 +1926,87 @@ namespace CicodeSim.Sim
                     one.Set("column", JsonValue.Of(0L));
                     errors.Add(one);
                 }
+                if (errors.Count == 0)
+                    FixedNameWarnings(unit, res.Node, res.Column, seen, warnings);
             }
+            // in source order (a stable sort: the code generation's tags come first)
+            var ordered = JsonValue.NewArray();
+            foreach (var w in System.Linq.Enumerable.OrderBy(warnings.Items, w => w["column"].Long))
+                ordered.Add(w);
             body.Set("ok", JsonValue.Of(errors.Count == 0));
             body.Set("errors", errors);
-            body.Set("warnings", warnings);
+            body.Set("warnings", ordered);
             return body;
+        }
+
+        /// <summary>ctsim/checkExpression's warning for a name the project defines no tag of.</summary>
+        private static JsonValue UndefinedTag(string name, int column)
+        {
+            var one = JsonValue.NewObject();
+            one.Set("kind", JsonValue.Of("tag"));
+            one.Set(
+                "message",
+                JsonValue.Of(
+                    "the project does not define the tag " + name + " (the runtime raises error 424 for it)"
+                )
+            );
+            one.Set("column", JsonValue.Of((long)column));
+            return one;
+        }
+
+        /// <summary>The fixed text of a field that a built-in looks up (NameArgs: a string literal
+        /// reaching _PageDisplay's page, TagRead's tag ..., directly or through the functions
+        /// passing it on) and the project has no page / tag of: warnings. Compile time only, the
+        /// tag found as the runtime's lookup finds it (Ass: its store check's 424).</summary>
+        internal void FixedNameWarnings(
+            Compiler.Semantics.CompileUnit unit,
+            object? code,
+            Func<Compiler.Syntax.Node, int> columnOf,
+            HashSet<string> seenTags,
+            JsonValue warnings
+        )
+        {
+            List<Compiler.Semantics.NameUse> uses;
+            lock (unit)
+                uses = Compiler.Semantics.NameArgs.For(unit, WorldBuiltins.ArgRole).Literals(code);
+            var seenPages = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var db = World.Tags;
+            foreach (var u in uses)
+            {
+                string name = Project.CitectText.Trim(u.Literal.Value);
+                int column = columnOf(u.Literal);
+                if (u.Role == Compiler.Semantics.NameRole.Page)
+                {
+                    if (!seenPages.Add(name) || Pages.PageExists(name))
+                        continue;
+                    var one = JsonValue.NewObject();
+                    one.Set("kind", JsonValue.Of("page"));
+                    one.Set(
+                        "message",
+                        JsonValue.Of("the project has no page " + name + " (the runtime cannot display it)")
+                    );
+                    one.Set("column", JsonValue.Of((long)column));
+                    warnings.Add(one);
+                    continue;
+                }
+                if (db.SimulateUndefined || seenTags.Contains(name))
+                    continue;
+                bool missing;
+                if (string.Equals(u.Primitive, "Ass", StringComparison.OrdinalIgnoreCase))
+                    // a ' literal is no tag; a dotted name no tag finds is 289 (an equipment
+                    // name: the SA faceplates pass them), no warning; nor a trend tag's name
+                    // (Include's AssPopTrend passes its pens to Ass and to the trend)
+                    missing =
+                        name[0] != '\''
+                        && CicodeSim.World.Display.AssRules.StoreCheck(World, name, "", out _, out _) == 424
+                        && CicodeSim.World.TrendTags.Of(World).Find(name) == null;
+                else
+                    missing = !db.NotUsed(() => db.Resolve(name, "", "", "")).Found;
+                if (!missing)
+                    continue;
+                seenTags.Add(name);
+                warnings.Add(UndefinedTag(name, column));
+            }
         }
 
         public CicodeTask StartCall(

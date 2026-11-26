@@ -111,6 +111,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagRead",
+            TagArg = 0,
             Doc = "1192745",
             Blocking = true,
             Errors = "557 name of 255+ characters; 282 in foreground code; 424 tag not found; the quality's error when not Good (all raised, '' returned)",
@@ -136,6 +137,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagReadEx",
+            TagArg = 0,
             Doc = "1192746",
             Blocking = true,
             Errors = "557 name of 255+ characters; 282 in foreground code; 424 tag not found (raised)",
@@ -179,6 +181,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagWrite",
+            TagArg = 0,
             Doc = "1192756",
             Blocking = true,
             Effects = "writes the tag (asynchronous unless bSynch)",
@@ -215,6 +218,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagWriteIntArray",
+            TagArg = 0,
             Doc = "1192757",
             Blocking = true,
             Effects = "writes nLength elements of the tag from the array",
@@ -226,6 +230,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagWriteRealArray",
+            TagArg = 0,
             Doc = "1192758",
             Blocking = true,
             Effects = "writes nLength elements of the tag from the array",
@@ -377,6 +382,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagGetProperty",
+            TagArg = 0,
             Doc = "1192738",
             Errors = "557 name of 255+ characters; 274 empty name or bad mode; 424 tag not found; 348 unknown property; 282 mode 0 in foreground code (raised, '' returned)",
             Notes = "Properties of the tag definition (variable.dbf / locvar.dbf, TagDef.Property, case-sensitive names); CachedMode 0 blocks one turn, 1..3 answer at once; -1 = [Client]TagReadCachedMode (default 3)."
@@ -416,6 +422,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagInfo",
+            TagArg = 0,
             Doc = "1192741",
             Errors = "424 tag not found; 348 unknown type (raised suppressed: never halts)",
             Notes = "sType is the type number as text (0 name .. 33 Custom8; 9, 12, 13, 19, 21, 24 need the I/O configuration and give 348) or a property name; errors are raised as under ErrSet(1)."
@@ -445,6 +452,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagInfoEx",
+            TagArg = 0,
             Doc = "1192742",
             Errors = "424 tag not found; 274 unknown type (raised suppressed)",
             Notes = "As TagInfo with the type as a number (0..33 without 9 and 19)."
@@ -496,6 +504,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagGetScale",
+            TagArg = 0,
             Doc = "1192739",
             Errors = "557 name of 255+ characters; 424 tag not found; 274 bad mode; 282 mode 0 in foreground code (raised, '' returned)",
             Notes = "EngZero + (EngFull - EngZero) * Percent / 100 printed with the tag's format (and ' ' + units with EngUnits 1) (verify the REAL format)."
@@ -524,6 +533,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagScaleStr",
+            TagArg = 0,
             Doc = "1192754",
             Errors = "as TagGetScale",
             Notes = "TagGetScale with the arguments (sTag, Percent, EngUnits, ClusterName, CachedMode)."
@@ -569,6 +579,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagResolve",
+            TagArg = 0,
             Doc = "1192747",
             Errors = "557 name of 255+ characters; 424 tag not found (returns -1)",
             Notes = "A handle of the resolved tag (the World resolves every tag at once; the handle only counts)."
@@ -688,6 +699,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagSubscribe",
+            TagArg = 0,
             Doc = "1192753",
             Effects = "subscribes the tag; callbacks run as new tasks on each change",
             Errors = "557 name of 255+ characters; 274 bad scale mode, poll time or callback; 424 tag not found (raised, -1)",
@@ -976,6 +988,7 @@ namespace CicodeSim.Builtins
 
         [Builtin(
             "TagGetValue",
+            TagArg = 0,
             Doc = "1192740",
             Errors = "557 name of 255+ characters; 274 brackets in the name, bad scale mode, poll time or item; 424 tag not found (raised, 0 returned)",
             Notes = "Non-blocking: the World's value at once (a managed subscription has it). Item 0 the value with its quality and timestamps, 1 the value (quality good, no timestamps), 2 value timestamp, 3 quality, 4 quality timestamp, 5 timestamp."

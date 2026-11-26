@@ -416,9 +416,32 @@ Compile a page field's text as the page compiler would, running nothing. `kind`:
 `command`. `project`: the page's project (default the simulation's).
 
 `{"ok": true, "errors": [], "warnings": []}`, or `{"ok": false, "errors": [{"code": 2064, "name":
-"E2064", "message": "Function 'TagRea' not found", "column": 1}], "warnings": []}`. `warnings`
-lists names taken for undefined tags (none while `simulateUndefined` is on). A simulation in
+"E2064", "message": "Function 'TagRea' not found", "column": 1}], "warnings": []}`. A simulation in
 compile mode `none` starts its compiler on the first check.
+
+`warnings` (only when there are no errors) are `{"kind", "message", "column"}`, `column` 1-based
+as the errors' (0 when unknown), in source order:
+
+- `"kind": "tag"`: `the project does not define the tag X (the runtime raises error 424 for it)`,
+  for a name the field takes for a tag, and for fixed text (a string literal) reaching a tag
+  argument: TagRead, TagWrite, TagInfo, TagSubscribe ... (`tagArg` in `builtins/behaviour.json`)
+  and Ass's tag, also through the Cicode functions that pass a parameter on unchanged (Include's
+  AssWin, AssPage, AssPopUp ... through AssVarTags). The name is found as the runtime's lookup
+  finds it (`Cluster.Tag`, `Equip.Item`, `Tag.Field`, an array element). For Ass, a `'` literal,
+  a dotted name no tag has (an equipment: Ass returns 289) and a trend tag's name are no warning.
+  None while `simulateUndefined` is on.
+- `"kind": "page"`: `the project has no page X (the runtime cannot display it)`, for fixed text
+  reaching a page argument: _PageDisplay, _PageGoto, WinNew, WinNewAt, WinNewPinAt,
+  PagePushLast, TrnSelect (`pageArg`), also through Include's PageDisplay, PageGoto, PagePopUp,
+  AssWin, TrendWin ... and project functions passing it on. A page counts when the project or a
+  project it includes has its compiled .RDB or its rows (as the simulation displays it).
+  PageExists and MenuGetPageNode (a menu.dbf page) take no page lookup.
+
+Each name is warned about once.
+
+A parameter counts when the function passes it on as itself before assigning it (Include's
+PageDisplay assigns sPageName only on the path that does not call _PageDisplay); a value computed
+at runtime (`"Mix_" + x`) is not followed. Compile time only: nothing runs.
 
 ### ctsim/call `{expr, wait? = true, timeoutMs? = 0, window?}`
 
