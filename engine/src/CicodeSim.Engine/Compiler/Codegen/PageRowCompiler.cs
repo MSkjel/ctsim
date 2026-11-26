@@ -127,6 +127,63 @@ namespace CicodeSim.Compiler.Codegen
             return (tables, control);
         }
 
+        /// <summary>The project has rows of the page (ProjectRows is not empty), from an index of
+        /// each section table's page names, read again when the table's time or size changes.</summary>
+        public static bool HasRows(string projectDir, string page)
+        {
+            string low = CitectText.Lower(CitectText.Trim(page));
+            // one listing gives each table's time and size
+            var files = new Dictionary<string, FileInfo>(StringComparer.Ordinal);
+            try
+            {
+                foreach (var fi in new DirectoryInfo(projectDir).EnumerateFiles())
+                    files[CitectText.Lower(fi.Name)] = fi;
+            }
+            catch (Exception e) when (e is IOException || e is UnauthorizedAccessException)
+            {
+                return false;
+            }
+            foreach (var kv in Sections)
+                if (
+                    files.TryGetValue(PageFields.TableFile(kv.Key), out var fi)
+                    && PageNames(fi, PageFields.PageColumn(kv.Key)).Contains(low)
+                )
+                    return true;
+            return false;
+        }
+
+        private static readonly Dictionary<
+            string,
+            (DateTime Time, long Length, HashSet<string> Pages)
+        > PageIndex = new Dictionary<string, (DateTime, long, HashSet<string>)>(
+            StringComparer.OrdinalIgnoreCase
+        );
+
+        /// <summary>A section table's page names (lower case, trimmed).</summary>
+        private static HashSet<string> PageNames(FileInfo table, string col)
+        {
+            string path = table.FullName;
+            DateTime time = table.LastWriteTimeUtc;
+            long length = table.Length;
+            lock (PageIndex)
+                if (
+                    PageIndex.TryGetValue(path, out var known)
+                    && known.Time == time
+                    && known.Length == length
+                )
+                    return known.Pages;
+            var pages = new HashSet<string>(StringComparer.Ordinal);
+            Project.Dbf.ForEach(path, rec =>
+            {
+                int k = rec.Header.IndexOf(col);
+                if (k >= 0)
+                    pages.Add(CitectText.Lower(CitectText.Trim(rec.Field(k))));
+            });
+            lock (PageIndex)
+                PageIndex[path] = (time, length, pages);
+            return pages;
+        }
+
         /// <summary>Compile a page from its rows.</summary>
         public static CompiledPage Compile(
             CompileUnit unit,

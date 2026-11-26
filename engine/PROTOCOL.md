@@ -419,8 +419,9 @@ Compile a page field's text as the page compiler would, running nothing. `kind`:
 "E2064", "message": "Function 'TagRea' not found", "column": 1}], "warnings": []}`. A simulation in
 compile mode `none` starts its compiler on the first check.
 
-`warnings` (only when there are no errors) are `{"kind", "message", "column"}`, `column` 1-based
-as the errors' (0 when unknown), in source order:
+`warnings` (only when there are no errors) are `{"kind", "name", "message", "column"}`, `name` the
+tag or page named (the literal trimmed), `column` 1-based as the errors' (0 when unknown), in
+source order:
 
 - `"kind": "tag"`: `the project does not define the tag X (the runtime raises error 424 for it)`,
   for a name the field takes for a tag, and for fixed text (a string literal) reaching a tag

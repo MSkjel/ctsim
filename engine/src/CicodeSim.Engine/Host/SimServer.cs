@@ -1959,7 +1959,7 @@ namespace CicodeSim.Host
 
         /// <summary>ctsim/checkExpression {text, kind? = "expression" | "command", project?}: the
         /// page field compiled as the page compiler would, nothing run: {ok,
-        /// errors: [{code, name, message, column}], warnings: [{kind, message, column}]} (kind
+        /// errors: [{code, name, message, column}], warnings: [{kind, name, message, column}]} (kind
         /// "tag": an undefined tag; "page": fixed text naming no page). An editor checks what is
         /// typed in a sheet.</summary>
         private void CheckExpression(Client c, JsonValue req, JsonValue a)

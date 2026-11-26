@@ -19,14 +19,24 @@ namespace CicodeSim.Tests.Host
 
         private static string[] Warnings(Simulation sim, string text, string kind = "expression") =>
             Check(sim, text, kind)["warnings"]
-                .Items.Select(w => w["kind"].Str + "@" + w["column"].Long + ": " + w["message"].Str)
+                .Items.Select(w =>
+                    w["kind"].Str + " " + w["name"].Str + "@" + w["column"].Long + ": " + w["message"].Str
+                )
                 .ToArray();
 
         private static string Page(int col, string name) =>
-            "page@" + col + ": the project has no page " + name + " (the runtime cannot display it)";
+            "page "
+            + name
+            + "@"
+            + col
+            + ": the project has no page "
+            + name
+            + " (the runtime cannot display it)";
 
         private static string Tag(int col, string name) =>
-            "tag@"
+            "tag "
+            + name
+            + "@"
             + col
             + ": the project does not define the tag "
             + name
@@ -83,6 +93,11 @@ namespace CicodeSim.Tests.Host
                 Assert.Empty(Warnings(sim, "MenuGetPageNode(\"NoSuchPage_m\")"));
                 Assert.Empty(Warnings(sim, "PageDisplay(\"NoSuch\" + \"Page\")"));
                 Assert.Empty(Warnings(sim, "PageDisplay(\"\")"));
+                // the name trimmed
+                Assert.Equal(
+                    new[] { Page(13, "NoSuchPage_t") },
+                    Warnings(sim, "PageDisplay(\" NoSuchPage_t \")")
+                );
             }
         }
 

@@ -1944,6 +1944,7 @@ namespace CicodeSim.Sim
         {
             var one = JsonValue.NewObject();
             one.Set("kind", JsonValue.Of("tag"));
+            one.Set("name", JsonValue.Of(name));
             one.Set(
                 "message",
                 JsonValue.Of(
@@ -1981,6 +1982,7 @@ namespace CicodeSim.Sim
                         continue;
                     var one = JsonValue.NewObject();
                     one.Set("kind", JsonValue.Of("page"));
+                    one.Set("name", JsonValue.Of(name));
                     one.Set(
                         "message",
                         JsonValue.Of("the project has no page " + name + " (the runtime cannot display it)")

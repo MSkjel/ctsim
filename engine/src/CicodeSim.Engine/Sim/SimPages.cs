@@ -568,11 +568,8 @@ namespace CicodeSim.Sim
             if (_compiled.ContainsKey(Key(name)) || RdbOf(name) != null)
                 return true;
             foreach (var p in _sim.World.Unit.Search)
-            {
-                var (t, c) = PageRowCompiler.ProjectRows(p.Dir, name);
-                if (c != null || t.Count > 0)
+                if (PageRowCompiler.HasRows(p.Dir, name))
                     return true;
-            }
             return false;
         }
 
