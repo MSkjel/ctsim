@@ -1,0 +1,4 @@
+FUNCTION P()
+	INT i;
+	i = StrLength("x" 1 "abc
+END

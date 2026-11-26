@@ -1,0 +1,4 @@
+INT a[3];
+FUNCTION F()
+	a[^(]=1)] ) ;
+END

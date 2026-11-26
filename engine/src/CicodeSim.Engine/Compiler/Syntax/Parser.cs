@@ -84,12 +84,13 @@ namespace CicodeSim.Compiler.Syntax
         /// compiler parses such an argument as one name token (r2_diagB b09 .. b11); set by the unit.</summary>
         public IReadOnlyDictionary<string, HashSet<int>> Callbacks = Empty;
 
-        // after an error placeholder or a rejected operator, a missing operand right after the next
-        // operator is not reported again (lexical c09 '*/', o08 '&&')
-        private int _quietAt = -1;
         private int _rparen = -1;
         public readonly HashSet<string> CallNames = new HashSet<string>(StringComparer.Ordinal);
         private int _depth;
+
+        // token index -> its lexer messages; a recovery skip that reads a token drops them
+        private readonly Dictionary<int, List<Diagnostic>> _lexDiags =
+            new Dictionary<int, List<Diagnostic>>();
 
         private static readonly Dictionary<string, HashSet<int>> Empty =
             new Dictionary<string, HashSet<int>>();
@@ -109,6 +110,15 @@ namespace CicodeSim.Compiler.Syntax
             Mode = mode;
             _page = mode == "page";
             Diags = new List<Diagnostic>(lex.Diagnostics);
+            for (int q = 0; q < lex.Diagnostics.Count; q++)
+            {
+                int ti = lex.DiagnosticTokens[q];
+                if (ti < 0)
+                    continue;
+                if (!_lexDiags.TryGetValue(ti, out var l))
+                    _lexDiags[ti] = l = new List<Diagnostic>();
+                l.Add(lex.Diagnostics[q]);
+            }
             _lines = lex.Lines;
             _globals =
                 knownVars != null
@@ -153,6 +163,56 @@ namespace CicodeSim.Compiler.Syntax
             var d = new Diagnostic(code, File, line, col, tok.Text, Project, tok.Pos, IndexOf(tok));
             (_phase1 ? DeclDiags : Diags).Add(d);
         }
+
+        /// <summary>CtCmp32's recovery after a message (its skip routine, CtCmp32.exe 0x477940):
+        /// the current token is taken, then every token up to a stop token: ')' ',' ';' ']', the
+        /// end, or a token the compiler numbers above 0x100 (a name, a number, a keyword, '&lt;' '&gt;'
+        /// '=' and the two-character comparisons). A '(' is passed over together with everything up
+        /// to the next ')' (not nested) and that ')'. Strings, error tokens and the other one-
+        /// character tokens are passed over. The skip reads with the bare lexer, so the lexer
+        /// messages of every token it reads (the stop token too) are never reported.</summary>
+        private void Skip()
+        {
+            Advance();
+            while (true)
+            {
+                int k = Cur.Kind;
+                if (k == K.Eof || k == ')' || k == ',' || k == ';' || k == ']')
+                    return;
+                if (k == '(')
+                {
+                    Advance();
+                    while (Cur.Kind != ')' && Cur.Kind != K.Eof)
+                        Advance();
+                    if (Cur.Kind == K.Eof)
+                        return;
+                    Advance();
+                    continue;
+                }
+                if (StopsSkip(k))
+                    return;
+                Advance();
+            }
+        }
+
+        /// <summary>One token on, read the way the skip reads: its lexer messages are lost.</summary>
+        private void Advance()
+        {
+            if (Cur.Kind == K.Eof)
+                return;
+            _i++;
+            if (_lexDiags.TryGetValue(_i, out var l))
+                foreach (var d in l)
+                {
+                    Diags.Remove(d);
+                    DeclDiags.Remove(d);
+                }
+        }
+
+        /// <summary>A token CtCmp32 numbers above 0x100 (its skip stops there): everything but
+        /// strings, error tokens and the one-character tokens other than '&lt;' '&gt;' '='.</summary>
+        private static bool StopsSkip(int k) =>
+            k == '<' || k == '>' || k == '=' || (k >= 0x10000 && k != K.Str && k != K.Bad);
 
         /// <summary>The index of <paramref name="tok"/> in the token list (it is at or near the
         /// current one).</summary>
@@ -948,10 +1008,15 @@ namespace CicodeSim.Compiler.Syntax
                 _i += 2;
                 return new Assign(target, ParseExpr(), t.Pos, line);
             }
-            if (t.Kind == K.Name && AssignAhead())
+            if (t.Kind == K.Name && !t.Overflow && AssignAhead())
             {
                 Expr? target = ParseLvalue();
                 if (target == null)
+                    return null;
+                // a skip inside the index can pass the '=' AssignAhead saw ('a[^(]=1)]'): the
+                // statement ends at the target without a message, the next one starts at the
+                // token there (CtCmp32: conformance/compile/recovery a01..a12)
+                if (Cur.Kind != '=')
                     return null;
                 _i++; // '='
                 Expr value = ParseExpr();
@@ -980,6 +1045,14 @@ namespace CicodeSim.Compiler.Syntax
                 return new Index(b, ParseIndices(), t.Pos, line);
             }
             return b;
+        }
+
+        /// <summary>The offset of the first '.' of a dotted name whose first part is a variable in
+        /// scope, else null.</summary>
+        private int? VarDot(Token t)
+        {
+            int dot = t.Text.IndexOf('.');
+            return dot > 0 && IsVar(t.Text.Substring(0, dot)) ? dot : (int?)null;
         }
 
         /// <summary>A local or parameter (never an array) or a scalar module variable declared above.</summary>
@@ -1200,35 +1273,17 @@ namespace CicodeSim.Compiler.Syntax
                     }
                     if (k == '^')
                     {
-                        // no power operator: E2020 at it, it is taken and the expression ends
-                        // (lexical o10; r2_diagB L38 '2 ^ 3' then E2011 at the 3)
+                        // no power operator: E2020 at it, then the compiler's skip, and the
+                        // expression ends (lexical o10; r2_diagB L38 '2 ^ 3' then E2011 at the 3;
+                        // '1 ^ "abc' = E2020 only, recovery r19)
                         Error(2020, t);
-                        _i++;
+                        Skip();
                         return left;
-                    }
-                    if ((k == '&' || k == '%') && minBp <= 1)
-                    {
-                        // a rejected operator: E2041 at it, the operand after it is taken without
-                        // a second message (lexical o06, o07, o08)
-                        Error(2041, t);
-                        _i++;
-                        _quietAt = _i;
-                        ParseUnary();
-                        left = Placeholder(t);
-                        left.End = Cur.Pos;
-                        left.EndTok = _i;
-                        continue;
                     }
                     return left;
                 }
                 if (bp < minBp)
                     return left;
-                if (left is ErrorOperand && left.EndTok == _i)
-                {
-                    // an operator right after an error placeholder: its missing operand is not
-                    // reported again (lexical c09 '*/' then RETURN)
-                    _quietAt = _i + 1;
-                }
                 _i++;
                 if (k == ':')
                 {
@@ -1319,7 +1374,24 @@ namespace CicodeSim.Compiler.Syntax
         {
             Token t = Cur;
             int k = t.Kind;
-            if (k == K.Name)
+            // a number past 32 bits with a name's kind (after a name: 'abc 99999999999') is no
+            // operand: E2041 at it (recovery n04 / r29)
+            if (k == K.Name && !t.Overflow && t.Label == null && VarDot(t) is int dot)
+            {
+                // a variable does not take '.Part's: the compiler reads the variable, then the
+                // '.' is no operand (E2041 at it) and its skip stops at the name after it
+                // (lexical i08 'i.Value': E2041 at the '.'; 'a.b.c' with variables a and b: E2041
+                // at both dots, fix_grammar edge.utf8)
+                string head = t.Text.Substring(0, dot),
+                    rest = t.Text.Substring(dot + 1);
+                Error(2041, new Token('.', ".", t.Pos + dot, t.Pos + dot + 1, true, null) { SValue = "." });
+                if (rest.Length > 0)
+                    _toks[_i] = new Token(K.Name, rest, t.Pos + dot + 1, t.End, true, null) { SValue = rest };
+                else
+                    _i++;
+                return new Name(head, t.Pos, LineOf(t));
+            }
+            if (k == K.Name && !t.Overflow)
             {
                 _i++;
                 int line = LineOf(t);
@@ -1367,8 +1439,15 @@ namespace CicodeSim.Compiler.Syntax
                 _i++;
                 Expr e = ParseExpr();
                 if (Cur.Kind != ')')
-                    throw Fail(2011);
-                _i++;
+                {
+                    // E2011, then the compiler's skip, and the operand stands ('(4294967296);':
+                    // the number has the kind '(', so E2041 at the ')', E2011 at the ';' and at
+                    // the END, recovery n15)
+                    Error(2011);
+                    Skip();
+                }
+                else
+                    _i++;
                 e.Paren = true;
                 return e;
             }
@@ -1405,32 +1484,10 @@ namespace CicodeSim.Compiler.Syntax
             // 'IF THEN' E2041 + E2032, s08; a failed label call E2057 + E2041, sem k16; 'RETURN' +
             // 'END' E2041 at END and E2034 at the end of the file, fix_diagA t01). Right after an
             // error placeholder and an operator the message is not repeated (lexical c09).
-            bool isKw = K.IsKeyword(k);
-            if (_i == _quietAt)
-            {
-                _quietAt = -1; // the next operand only, once
-                if (isKw)
-                {
-                    // a keyword there is left for the statement parser (builtins_editor f03: '*/'
-                    // then END closes the function)
-                    return Placeholder(t);
-                }
-            }
-            else
-                Error(k == K.CIVBA ? 2074 : 2041, t);
-            _i++;
-            if (isKw && Cur.Kind == '(')
-            {
-                // a keyword called like a function ('nop()', lexical kx_funcname_nop_call): the
-                // bracketed arguments go with it, one E2041
-                ParseArgs(null);
-            }
-            else if (Cur.Kind == '[')
-            {
-                // a '[' right after it is passed over (fix_diagB n04 'INT a[2][3];': E2052, then
-                // E2041 at the two ']' only)
-                _i++;
-            }
+            Error(k == K.CIVBA ? 2074 : 2041, t);
+            // then the compiler's skip (a keyword called like a function, 'nop()', takes its
+            // bracketed arguments along: one E2041, lexical kx_funcname_nop_call)
+            Skip();
             return Placeholder(t);
         }
 
@@ -1508,10 +1565,10 @@ namespace CicodeSim.Compiler.Syntax
                     _i++;
                     return args;
                 }
-                if (IsBlockEnd(t.Kind))
-                    throw Fail(2011, t, false);
+                // E2011, then the compiler's skip ('StrLength("x" 1 "abc' = E2011 only: the open
+                // string is read by the skip, recovery r17)
                 Error(2011, t);
-                _i++;
+                Skip();
                 _rparen = -1;
                 return args;
             }

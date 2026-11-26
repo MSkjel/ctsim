@@ -1,0 +1,24 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-11-26",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "i; i = 1 {)} \"abc END"
+  },
+  {
+   "code": "E2034",
+   "msg": "END expected",
+   "file": "probe.ci",
+   "line": 5,
+   "context": "\"abc END {}"
+  }
+ ],
+ "warnings": []
+}

@@ -221,8 +221,25 @@ namespace CicodeSim.Tests.Compiler
             (ts, diags) = Toks("0x100000000"); // n21
             Assert.Equal((K.Bad, "0x10000000"), (ts[0].Kind, ts[0].Text));
             Assert.Equal(0L, ts[1].IValue);
-            (ts, diags) = Toks("0o40000000000"); // g_num_oct_33bits
-            Assert.Equal("0o4000000000", ts[0].Text);
+            // binary and octal take the digit that passes 32 bits (CtCmp32 adds it before the
+            // check), hex stops before it
+            (ts, diags) = Toks("0o40000000000"); // g_num_oct_33bits, edge.utf8
+            Assert.Equal(("0o40000000000", 1), (ts[0].Text, ts.Count));
+            (ts, diags) = Toks("0b" + new string('1', 33) + "1"); // n56
+            Assert.Equal(("0b" + new string('1', 33), "1"), (ts[0].Text, ts[1].Text));
+        }
+
+        [Fact]
+        public void ANumberPast32BitsKeepsTheKindBeforeIt()
+        {
+            // CtCmp32 leaves the token kind as it was (recovery n01 .. n22)
+            var (ts, diags) = Toks("1 + 4294967296");
+            Assert.Equal(new[] { "E2058" }, diags);
+            Assert.Equal(('+', true), (ts[2].Kind, ts[2].Overflow));
+            Assert.Equal(K.Name, Toks("abc 4294967296").toks[1].Kind);
+            Assert.Equal(K.Str, Toks("\"x\" 4294967296").toks[1].Kind);
+            Assert.Equal(K.Int, Toks("2 4294967296").toks[1].Kind);
+            Assert.False(Toks("4294967295").toks[0].Overflow);
         }
 
         // ------------------------------------------------------------------ names, keywords

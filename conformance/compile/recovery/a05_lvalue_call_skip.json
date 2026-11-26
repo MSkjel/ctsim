@@ -1,0 +1,45 @@
+{
+ "format": "ctsim-compile/0",
+ "tag": "live",
+ "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
+ "recorded": "2026-11-26",
+ "ok": false,
+ "errors": [
+  {
+   "code": "E2022",
+   "msg": "Incorrect number of arguments for function",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "F() a[f({]}=1)] = 2;"
+  },
+  {
+   "code": "E2011",
+   "msg": "Close bracket expected",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "F() a[f(]{=}1)] = 2; END"
+  },
+  {
+   "code": "E2011",
+   "msg": "Close bracket expected",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "F() a[f(]={1})] = 2; END"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "a[f(]=1{)}] = 2; END"
+  },
+  {
+   "code": "E2041",
+   "msg": "Operand expected",
+   "file": "probe.ci",
+   "line": 3,
+   "context": "a[f(]=1){]} = 2; END"
+  }
+ ],
+ "warnings": []
+}

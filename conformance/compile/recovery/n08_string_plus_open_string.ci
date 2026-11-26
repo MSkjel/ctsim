@@ -1,0 +1,4 @@
+FUNCTION P()
+	INT i;
+	i = "abc" + "def
+END

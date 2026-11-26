@@ -239,6 +239,10 @@ namespace CicodeSim.Compiler.Syntax
         public bool Glued;
         public string? Label;
 
+        /// <summary>A number past 32 bits (E2058): its kind is the token's before it (CtCmp32
+        /// leaves the kind as it was). As a name kind it is no operand (E2041 at it).</summary>
+        public bool Overflow;
+
         public Token(int kind, string text, int pos, int end, bool glued, string? label)
         {
             Kind = kind;

@@ -559,5 +559,20 @@ namespace CicodeSim.Tests.Compiler
             Assert.Empty(m.Diagnostics);
             Assert.True(AstDump.Lines(m, "t").Count() > 400_000);
         }
+
+        [Fact]
+        public void AnAssignmentWhoseIndexSkipPassedItsEqualsEndsAtTheTarget()
+        {
+            // AssignAhead sees 'a[...] =', but the skip after the E2041 at '^' takes the '(' with
+            // everything to the next ')', the '=' too: the statement ends at the target without a
+            // message, the next one starts there (CtCmp32: conformance/compile/recovery a01..a12)
+            const string head = "INT a[3];\nFUNCTION F()\n\t";
+            Assert.Equal(new[] { "E2041" }, Codes(head + "a[^(]=1)]\nEND\n"));
+            Assert.Equal(new[] { "E2041" }, Codes(head + "a[^(]=1)] 7;\nEND\n"));
+            Assert.Equal(new[] { "E2041", "E2041" }, Codes(head + "a[^(]=1)] 7 + ;\nEND\n"));
+            Assert.Equal(new[] { "E2041", "E2041" }, Codes(head + "a[^(]=1)] = ;\nEND\n"));
+            // at the end of the input: no step past the end (it threw before)
+            Assert.Equal(new[] { "E2041", "E2034" }, Codes(head + "a[^(]=1)]"));
+        }
     }
 }

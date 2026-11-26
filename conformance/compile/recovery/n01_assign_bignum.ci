@@ -1,0 +1,4 @@
+FUNCTION P()
+	INT i;
+	i = 99999999999;
+END

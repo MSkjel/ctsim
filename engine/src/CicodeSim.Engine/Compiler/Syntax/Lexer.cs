@@ -294,9 +294,11 @@ namespace CicodeSim.Compiler.Syntax
                 int q = first + 1;
                 if (p == first)
                 {
-                    // '0x1F': the radix letter right after the zeros. A radix number stops before
-                    // the digit that would pass 32 bits: E2058 there ('0x100000000' =
-                    // '{0x10000000}0', lexical n21)
+                    // '0x1F': the radix letter right after the zeros. At the digit that would pass
+                    // 32 bits: E2058, a hex number stops before it ('0x100000000' =
+                    // '{0x10000000}0', lexical n21), a binary or octal one after it (CtCmp32 takes
+                    // the digit before its check: '{0o40000000000}', fix_grammar edge.utf8;
+                    // '{0b1..1}' 33 digits, lexical n56)
                     long v = 0;
                     while (q < n && RadixDigit(text[q], radix) >= 0)
                     {
@@ -304,7 +306,7 @@ namespace CicodeSim.Compiler.Syntax
                         if (nv > 0xFFFFFFFFL)
                         {
                             kind = K.Int;
-                            end = q;
+                            end = radix == 16 ? q : q + 1;
                             tooBig = true;
                             return;
                         }
@@ -572,19 +574,26 @@ namespace CicodeSim.Compiler.Syntax
             Lines = new LineIndex(Text);
         }
 
+        // the token list being built: a message belongs to the token added next
+        private List<Token>? _out;
+        private readonly List<int> _diagTokens = new List<int>();
+
         private void Err(int code, int pos, string context = "")
         {
             var (line, col) = Lines.LineCol(pos);
             _diags.Add(new Diagnostic(code, File, line, col, context, Project, pos));
+            _diagTokens.Add(_out?.Count ?? -1);
         }
 
         public LexResult Run()
         {
             var output = new List<Token>(Math.Max(16, Text.Length / 4));
+            _out = output;
             Scan(Text, 0, Text.Length, output, false, 0, 0, null, Array.Empty<string>());
             int end = Text.Length;
             output.Add(new Token(K.Eof, "", end, end, false, null));
-            return new LexResult(output, _diags, Lines, Text, File);
+            _out = null;
+            return new LexResult(output, _diags, _diagTokens, Lines, Text, File);
         }
 
         private static Token Tok(
@@ -821,16 +830,29 @@ namespace CicodeSim.Compiler.Syntax
                         out bool tooBig
                     );
                     string t = text.Substring(i, j - i);
+                    string? sv = null;
+                    IntrinsicCall? intr = null;
                     if (tooBig)
                     {
-                        // E2058; the number becomes an error token the parser reports (E2041)
+                        // E2058. CtCmp32 does not set the token kind then, so the number keeps the
+                        // kind of the token before it: after '+' it is a sign the operand parser
+                        // passes over ('1 + 4294967296 + 1' = E2041 at the second '+'), after '('
+                        // or '-' too; after '=' or '*' no operand (E2041 at it); after a number,
+                        // name or string an operand of its kind (fix_grammar edge.utf8 line 23;
+                        // recovery n01 .. n22; CtCmp32.exe 0x471f6e returns without setting it)
                         Err(2058, pos, t);
-                        kind = K.Bad;
+                        Token? prev = output.Count > 0 ? output[output.Count - 1] : null;
+                        kind = prev?.Kind ?? K.Bad;
+                        sv = t;
+                        intr = prev?.Intr;
                     }
                     var tok = new Token(kind, t, pos, expanding ? useEnd : j, glued, label)
                     {
                         IValue = iv,
                         RValue = rv,
+                        SValue = sv,
+                        Intr = intr,
+                        Overflow = tooBig,
                     };
                     output.Add(tok);
                     i = prevEnd = j;
@@ -1185,6 +1207,11 @@ namespace CicodeSim.Compiler.Syntax
     {
         public readonly List<Token> Tokens;
         public readonly List<Diagnostic> Diagnostics;
+
+        /// <summary>Per message of <see cref="Diagnostics"/>: the index of the token it belongs to
+        /// (CtCmp32 reports a lexer message when the parser reads that token, not when a recovery
+        /// skips over it).</summary>
+        public readonly List<int> DiagnosticTokens;
         public readonly LineIndex Lines;
         public readonly string Text;
         public readonly string File;
@@ -1192,6 +1219,7 @@ namespace CicodeSim.Compiler.Syntax
         public LexResult(
             List<Token> tokens,
             List<Diagnostic> diagnostics,
+            List<int> diagnosticTokens,
             LineIndex lines,
             string text,
             string file
@@ -1199,6 +1227,7 @@ namespace CicodeSim.Compiler.Syntax
         {
             Tokens = tokens;
             Diagnostics = diagnostics;
+            DiagnosticTokens = diagnosticTokens;
             Lines = lines;
             Text = text;
             File = file;

@@ -1,0 +1,4 @@
+FUNCTION P()
+	INT i;
+	i = 0x100000000 + 1;
+END

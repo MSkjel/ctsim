@@ -1,0 +1,4 @@
+FUNCTION P()
+	INT i;
+	i = 4294967296 + 1;
+END

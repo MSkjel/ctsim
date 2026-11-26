@@ -1,52 +1,52 @@
 {
  "format": "ctsim-compile-index/0",
  "compiler": "CtCmp32 8.50.0.368 (AVEVA Plant SCADA 2023 R2)",
- "cases": 3386,
+ "cases": 3449,
  "codes": {
-  "E2041": 902,
-  "E2022": 367,
+  "E2041": 978,
+  "E2022": 369,
   "E2031": 338,
   "W1007": 312,
   "W1021": 246,
-  "E2024": 224,
+  "E2024": 225,
   "E2021": 190,
   "E2037": 131,
   "W1023": 114,
+  "E2011": 102,
+  "E2034": 94,
   "E2057": 92,
   "E2015": 90,
-  "E2011": 89,
   "E2006": 68,
-  "E2034": 67,
   "W1006": 60,
   "E2008": 54,
+  "E2058": 51,
   "W1004": 45,
   "E2027": 43,
   "E2019": 40,
-  "E2058": 29,
+  "E2054": 27,
   "E2038": 22,
   "E2033": 20,
   "E2076": 20,
   "E2001": 19,
   "E2032": 18,
   "E2101": 16,
-  "E2054": 16,
   "W1003": 15,
   "E2017": 13,
   "W1008": 12,
-  "E2074": 11,
   "E2035": 11,
+  "E2074": 11,
   "F4017": 11,
   "E2052": 9,
+  "E2020": 7,
+  "E2061": 7,
   "E2069": 7,
   "E2070": 7,
-  "E2061": 7,
   "F4016": 7,
-  "E2020": 6,
+  "E2055": 6,
   "E2056": 5,
+  "E2065": 5,
   "E2071": 5,
   "E2072": 5,
-  "E2065": 5,
-  "E2055": 3,
   "E2016": 2,
   "E2083": 1,
   "E2109": 1
@@ -13571,6 +13571,321 @@
    "case": "r2_rev_providers/ws_fixture.ci",
    "multi": false,
    "ok": true
+  },
+  {
+   "case": "recovery/a01_lvalue_skip_end.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a02_lvalue_skip_semicolon.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a03_lvalue_skip_then_assign.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a04_lvalue_skip_eof.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a05_lvalue_call_skip.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a06_lvalue_skip_number.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a07_lvalue_skip_bad_expr.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a08_lvalue_skip_next_line.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a09_lvalue_skip_rparen.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a10_lvalue_skip_eq_empty.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a11_lvalue_skip_next_stmt.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/a12_lvalue_skip_plus.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n01_assign_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n02_number_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n03_string_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n04_name_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n05_bignum_number.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n06_number_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n07_name_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n08_string_plus_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n09_plus_bignum_remainder.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n10_assign_hex_bignum_plus.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n11_assign_bignum_plus.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n12_assign_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n13_plus_bignum_plus.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n14_plus_bignum_end.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n15_paren_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n16_minus_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n17_call_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n18_times_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n19_plus_bignum_number.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n20_if_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n21_call_second_arg_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/n22_and_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r01_strcut_caret_paren_255.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r02_strcut_plain_then_number.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r03_strcut_plain_then_paren.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r04_decl_args_e2011_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r05_assign_args_e2011_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r06_call_number_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r07_rparen_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r08_rparen_twice.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r09_rparen_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r10_assign_rparen_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r11_args_e2011_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r12_rparen_rparen_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r13_rparen_semicolon_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r14_rparen_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r15_rparen_number_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r16_rparen_long_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r17_args_e2011_number_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r18_plus_rparen_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r19_caret_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r20_rparen_string_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r21_rparen_bignum_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r22_rparen_string_number_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r23_rparen_name_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r24_rparen_string_plus_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r25_string_open_string.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r26_rparen_bignum_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r27_rparen_number_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r28_rparen_string_bignum.ci",
+   "multi": false,
+   "ok": false
+  },
+  {
+   "case": "recovery/r29_rparen_name_bignum.ci",
+   "multi": false,
+   "ok": false
   },
   {
    "case": "sem/a01_true_nolabel.ci",
