@@ -557,8 +557,10 @@ namespace CicodeSim.Compiler.Semantics
             Lines = lines;
         }
 
-        /// <summary>The 1-based column of a node of the field (as a message's), 0 when unknown.</summary>
-        public int Column(Node n) => Lines != null && n.Pos >= 0 ? Lines.LineCol(n.Pos).col : 0;
+        /// <summary>The 1-based line and column of a node of the field (as a message's), (0, 0)
+        /// when unknown.</summary>
+        public (int line, int col) Position(Node n) =>
+            Lines != null && n.Pos >= 0 ? Lines.LineCol(n.Pos) : (0, 0);
 
         public List<Diagnostic> Errors
         {

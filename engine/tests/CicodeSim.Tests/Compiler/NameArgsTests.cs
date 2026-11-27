@@ -89,7 +89,7 @@ namespace CicodeSim.Tests.Compiler
                 .For(u, Roles)
                 .Literals(res.Node)
                 .Select(x =>
-                    x.Role + ":" + x.Literal.Value + "@" + res.Column(x.Literal) + " via " + x.Primitive
+                    x.Role + ":" + x.Literal.Value + "@" + res.Position(x.Literal).col + " via " + x.Primitive
                 )
                 .ToList();
         }

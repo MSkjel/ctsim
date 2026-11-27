@@ -20,23 +20,35 @@ namespace CicodeSim.Tests.Host
         private static string[] Warnings(Simulation sim, string text, string kind = "expression") =>
             Check(sim, text, kind)["warnings"]
                 .Items.Select(w =>
-                    w["kind"].Str + " " + w["name"].Str + "@" + w["column"].Long + ": " + w["message"].Str
+                    w["kind"].Str
+                    + " "
+                    + w["name"].Str
+                    + "@"
+                    + w["line"].Long
+                    + ":"
+                    + w["column"].Long
+                    + ": "
+                    + w["message"].Str
                 )
                 .ToArray();
 
-        private static string Page(int col, string name) =>
+        private static string Page(int col, string name, int line = 1) =>
             "page "
             + name
             + "@"
+            + line
+            + ":"
             + col
             + ": the project has no page "
             + name
             + " (the runtime cannot display it)";
 
-        private static string Tag(int col, string name) =>
+        private static string Tag(int col, string name, int line = 1) =>
             "tag "
             + name
             + "@"
+            + line
+            + ":"
             + col
             + ": the project does not define the tag "
             + name
@@ -98,6 +110,84 @@ namespace CicodeSim.Tests.Host
                     new[] { Page(13, "NoSuchPage_t") },
                     Warnings(sim, "PageDisplay(\" NoSuchPage_t \")")
                 );
+            }
+        }
+
+        [ProjectFact]
+        public void TheLineOfTextOfManyLinesIsGiven()
+        {
+            using (var sim = SimTestUtil.Start(SimCorpus.Example, clock: "paused"))
+            {
+                Assert.Equal(
+                    new[]
+                    {
+                        Page(14, "NoSuchPage_1", 2),
+                        Tag(9, "NoSuchTag_2", 3),
+                        Page(38, "NoSuchPage_3", 3),
+                    },
+                    Warnings(
+                        sim,
+                        "Sleep(0);\r\n_PageDisplay(\"NoSuchPage_1\");\nTagRead(\"NoSuchTag_2\"); _PageDisplay(\"NoSuchPage_3\");",
+                        "command"
+                    )
+                );
+                var bad = sim.Invoke(() => sim.CheckField("Sleep(0);\r\nIntToStr(1 + );", "command", ""));
+                Assert.False(bad["ok"].Bool);
+                var e = bad["errors"].Items.First();
+                Assert.Equal("E2041", e["name"].Str);
+                Assert.Equal(2, e["line"].Long);
+                Assert.Equal(14, e["column"].Long);
+            }
+        }
+
+        /// <summary>ctsim/checkFunctions: the fixed text in the functions of the .ci files, every
+        /// occurrence, with its file, function and project.</summary>
+        [ProjectFact]
+        public void FixedNamesInFunctionsAreFoundInTheirFiles()
+        {
+            using (var sim = SimTestUtil.Start(SimCorpus.ExampleSA, clock: "paused"))
+            {
+                string[] Found(string project) =>
+                    sim.Invoke(() => sim.CheckFunctions(project))["warnings"]
+                        .Items.Select(w =>
+                            w["project"].Str
+                            + " "
+                            + System.IO.Path.GetFileName(w["file"].Str)
+                            + ":"
+                            + w["line"].Long
+                            + ":"
+                            + w["column"].Long
+                            + " "
+                            + w["function"].Str
+                            + " "
+                            + w["kind"].Str
+                            + " "
+                            + w["name"].Str
+                        )
+                        .ToArray();
+                var all = Found("");
+                // Include's _PageFile displays a page File the project lacks (directly, and through
+                // PageDisplay); the project's own TagWrite / TagRead of tags it does not define
+                Assert.Contains("Include citect.ci:368:17 _PageFile page File", all);
+                Assert.Contains("Include citect.ci:369:15 _PageFile page !File", all);
+                Assert.Equal(
+                    new[]
+                    {
+                        "ExampleSA Bottling.ci:103:11 StartBottling tag Lol",
+                        "ExampleSA Bottling.ci:104:10 StartBottling tag Lols",
+                    },
+                    Found("examplesa")
+                );
+                var r = sim.Invoke(() => sim.CheckFunctions("ExampleSA"));
+                Assert.Empty(r["errors"].Items);
+                var w0 = r["warnings"].Items.First();
+                Assert.True(System.IO.Path.IsPathRooted(w0["file"].Str), w0["file"].Str);
+                Assert.Equal(
+                    "the project does not define the tag Lol (the runtime raises error 424 for it)",
+                    w0["message"].Str
+                );
+                sim.Invoke(() => sim.World.Tags.SimulateUndefined = true);
+                Assert.Empty(Found("ExampleSA"));
             }
         }
 

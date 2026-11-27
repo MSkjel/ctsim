@@ -1852,25 +1852,14 @@ namespace CicodeSim.Sim
             catch (Exception e) when (!(e is OutOfMemoryException))
             {
                 body.Set("ok", JsonValue.False);
-                var one = JsonValue.NewObject();
-                one.Set("code", JsonValue.Of(0L));
-                one.Set("name", JsonValue.Of(""));
-                one.Set("message", JsonValue.Of("the project's code could not be read: " + e.Message));
-                one.Set("column", JsonValue.Of(0L));
-                errors.Add(one);
+                errors.Add(CheckError(0, "", "the project's code could not be read: " + e.Message, 0, 0));
                 body.Set("errors", errors);
+                body.Set("warnings", JsonValue.NewArray());
                 return body;
             }
             var res = unit.CompileField(text ?? "", kind, project.Length > 0 ? project : ProjectName);
             foreach (var d in res.Errors)
-            {
-                var one = JsonValue.NewObject();
-                one.Set("code", JsonValue.Of((long)d.Code));
-                one.Set("name", JsonValue.Of(d.Name));
-                one.Set("message", JsonValue.Of(d.Message));
-                one.Set("column", JsonValue.Of((long)Math.Max(0, d.Col)));
-                errors.Add(one);
-            }
+                errors.Add(CheckError(d.Code, d.Name, d.Message, d.Line, d.Col));
             var warnings = JsonValue.NewArray();
             if (errors.Count == 0 && res.Node != null)
             {
@@ -1914,24 +1903,41 @@ namespace CicodeSim.Sim
                                 StringComparison.OrdinalIgnoreCase
                             )
                         );
-                        warnings.Add(UndefinedTag(tk.Tag, at != null ? res.Column(at) : 0));
+                        warnings.Add(NameWarning("tag", tk.Tag, at != null ? res.Position(at) : (0, 0)));
                     }
                 }
                 catch (Compiler.Codegen.CodegenException e)
                 {
-                    var one = JsonValue.NewObject();
-                    one.Set("code", JsonValue.Of(0L));
-                    one.Set("name", JsonValue.Of(""));
-                    one.Set("message", JsonValue.Of(e.Message));
-                    one.Set("column", JsonValue.Of(0L));
-                    errors.Add(one);
+                    errors.Add(CheckError(0, "", e.Message, 0, 0));
                 }
                 if (errors.Count == 0)
-                    FixedNameWarnings(unit, res.Node, res.Column, seen, warnings);
+                {
+                    // each name once
+                    List<Compiler.Semantics.NameUse> uses;
+                    lock (unit)
+                        uses = Compiler
+                            .Semantics.NameArgs.For(unit, WorldBuiltins.ArgRole)
+                            .Literals(res.Node);
+                    var seenPages = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                    foreach (var u in uses)
+                    {
+                        string name = Project.CitectText.Trim(u.Literal.Value);
+                        var names = u.Role == Compiler.Semantics.NameRole.Page ? seenPages : seen;
+                        if (names.Contains(name) || !FixedNameMissing(u, name, null))
+                            continue;
+                        names.Add(name);
+                        warnings.Add(NameWarning(Kind(u), name, res.Position(u.Literal)));
+                    }
+                }
             }
             // in source order (a stable sort: the code generation's tags come first)
             var ordered = JsonValue.NewArray();
-            foreach (var w in System.Linq.Enumerable.OrderBy(warnings.Items, w => w["column"].Long))
+            foreach (
+                var w in System.Linq.Enumerable.ThenBy(
+                    System.Linq.Enumerable.OrderBy(warnings.Items, w => w["line"].Long),
+                    w => w["column"].Long
+                )
+            )
                 ordered.Add(w);
             body.Set("ok", JsonValue.Of(errors.Count == 0));
             body.Set("errors", errors);
@@ -1939,76 +1945,147 @@ namespace CicodeSim.Sim
             return body;
         }
 
-        /// <summary>ctsim/checkExpression's warning for a name the project defines no tag of.</summary>
-        private static JsonValue UndefinedTag(string name, int column)
+        /// <summary>The fixed text in the functions of the unit's .ci files (of one project, when
+        /// given) that reaches a page or tag argument and names no page / tag of the project, as
+        /// ctsim/checkExpression warns about it in a field, every occurrence; and the unit's
+        /// compile errors (of that project).</summary>
+        public JsonValue CheckFunctions(string project)
+        {
+            var unit = Live.EnsureSource().Unit;
+            bool Wanted(string p) =>
+                project.Length == 0 || Project.CitectText.Lower(p) == Project.CitectText.Lower(project);
+            var found =
+                new List<(
+                    Compiler.Semantics.SourceFile File,
+                    string Function,
+                    Compiler.Semantics.NameUse Use
+                )>();
+            List<Compiler.Semantics.Diagnostic> diags;
+            lock (unit)
+            {
+                var args = Compiler.Semantics.NameArgs.For(unit, WorldBuiltins.ArgRole);
+                foreach (var f in unit.Files)
+                {
+                    if (!Wanted(f.Project.Name))
+                        continue;
+                    foreach (var item in f.Module.Items)
+                        if (item is Compiler.Syntax.FunctionDef fd)
+                            foreach (var u in args.Literals(fd.Body))
+                                found.Add((f, fd.Name, u));
+                }
+                diags = unit.Errors();
+            }
+            var memo = new Dictionary<string, bool>(StringComparer.Ordinal);
+            var warnings = JsonValue.NewArray();
+            foreach (var (f, function, u) in found)
+            {
+                string name = Project.CitectText.Trim(u.Literal.Value);
+                if (!FixedNameMissing(u, name, memo))
+                    continue;
+                var lines = f.Module.Lines;
+                var w = NameWarning(
+                    Kind(u),
+                    name,
+                    lines != null && u.Literal.Pos >= 0 ? lines.LineCol(u.Literal.Pos) : (0, 0)
+                );
+                w.Set("file", JsonValue.Of(f.Path));
+                w.Set("function", JsonValue.Of(function));
+                w.Set("project", JsonValue.Of(f.Project.Name));
+                warnings.Add(w);
+            }
+            var errors = JsonValue.NewArray();
+            foreach (var d in diags)
+            {
+                if (!Wanted(d.Project))
+                    continue;
+                var e = CheckError(d.Code, d.Name, d.Message, d.Line, d.Col);
+                e.Set("file", JsonValue.Of(d.File));
+                e.Set("project", JsonValue.Of(d.Project));
+                errors.Add(e);
+            }
+            var body = JsonValue.NewObject();
+            body.Set("warnings", warnings);
+            body.Set("errors", errors);
+            return body;
+        }
+
+        private static string Kind(Compiler.Semantics.NameUse u) =>
+            u.Role == Compiler.Semantics.NameRole.Page ? "page" : "tag";
+
+        /// <summary>A check's error: {code, name, message, line, column} (0: no position).</summary>
+        private static JsonValue CheckError(int code, string name, string message, int line, int column)
         {
             var one = JsonValue.NewObject();
-            one.Set("kind", JsonValue.Of("tag"));
+            one.Set("code", JsonValue.Of((long)code));
+            one.Set("name", JsonValue.Of(name));
+            one.Set("message", JsonValue.Of(message));
+            one.Set("line", JsonValue.Of((long)Math.Max(0, line)));
+            one.Set("column", JsonValue.Of((long)Math.Max(0, column)));
+            return one;
+        }
+
+        /// <summary>A check's warning about a tag or page the project lacks: {kind, name,
+        /// message, line, column}.</summary>
+        private static JsonValue NameWarning(string kind, string name, (int line, int col) at)
+        {
+            var one = JsonValue.NewObject();
+            one.Set("kind", JsonValue.Of(kind));
             one.Set("name", JsonValue.Of(name));
             one.Set(
                 "message",
                 JsonValue.Of(
-                    "the project does not define the tag " + name + " (the runtime raises error 424 for it)"
+                    kind == "page"
+                        ? "the project has no page " + name + " (the runtime cannot display it)"
+                        : "the project does not define the tag "
+                            + name
+                            + " (the runtime raises error 424 for it)"
                 )
             );
-            one.Set("column", JsonValue.Of((long)column));
+            one.Set("line", JsonValue.Of((long)at.line));
+            one.Set("column", JsonValue.Of((long)at.col));
             return one;
         }
 
-        /// <summary>The fixed text of a field that a built-in looks up (NameArgs: a string literal
-        /// reaching _PageDisplay's page, TagRead's tag ..., directly or through the functions
-        /// passing it on) and the project has no page / tag of: warnings. Compile time only, the
-        /// tag found as the runtime's lookup finds it (Ass: its store check's 424).</summary>
-        internal void FixedNameWarnings(
-            Compiler.Semantics.CompileUnit unit,
-            object? code,
-            Func<Compiler.Syntax.Node, int> columnOf,
-            HashSet<string> seenTags,
-            JsonValue warnings
+        /// <summary>Fixed text that a built-in looks up (NameArgs: a string literal reaching
+        /// _PageDisplay's page, TagRead's tag ..., directly or through the functions passing it
+        /// on) naming no page / tag of the project. Compile time only, the tag found as the
+        /// runtime's lookup finds it (Ass: its store check's 424). <paramref name="memo"/> keeps
+        /// the answers of one check.</summary>
+        private bool FixedNameMissing(
+            Compiler.Semantics.NameUse u,
+            string name,
+            Dictionary<string, bool>? memo
         )
         {
-            List<Compiler.Semantics.NameUse> uses;
-            lock (unit)
-                uses = Compiler.Semantics.NameArgs.For(unit, WorldBuiltins.ArgRole).Literals(code);
-            var seenPages = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            bool page = u.Role == Compiler.Semantics.NameRole.Page;
+            bool ass = !page && string.Equals(u.Primitive, "Ass", StringComparison.OrdinalIgnoreCase);
             var db = World.Tags;
-            foreach (var u in uses)
-            {
-                string name = Project.CitectText.Trim(u.Literal.Value);
-                int column = columnOf(u.Literal);
-                if (u.Role == Compiler.Semantics.NameRole.Page)
-                {
-                    if (!seenPages.Add(name) || Pages.PageExists(name))
-                        continue;
-                    var one = JsonValue.NewObject();
-                    one.Set("kind", JsonValue.Of("page"));
-                    one.Set("name", JsonValue.Of(name));
-                    one.Set(
-                        "message",
-                        JsonValue.Of("the project has no page " + name + " (the runtime cannot display it)")
-                    );
-                    one.Set("column", JsonValue.Of((long)column));
-                    warnings.Add(one);
-                    continue;
-                }
-                if (db.SimulateUndefined || seenTags.Contains(name))
-                    continue;
-                bool missing;
-                if (string.Equals(u.Primitive, "Ass", StringComparison.OrdinalIgnoreCase))
-                    // a ' literal is no tag; a dotted name no tag finds is 289 (an equipment
-                    // name: the SA faceplates pass them), no warning; nor a trend tag's name
-                    // (Include's AssPopTrend passes its pens to Ass and to the trend)
-                    missing =
-                        name[0] != '\''
-                        && CicodeSim.World.Display.AssRules.StoreCheck(World, name, "", out _, out _) == 424
-                        && CicodeSim.World.TrendTags.Of(World).Find(name) == null;
-                else
-                    missing = !db.NotUsed(() => db.Resolve(name, "", "", "")).Found;
-                if (!missing)
-                    continue;
-                seenTags.Add(name);
-                warnings.Add(UndefinedTag(name, column));
-            }
+            if (!page && db.SimulateUndefined)
+                return false;
+            string key =
+                (
+                    page ? "p:"
+                    : ass ? "a:"
+                    : "t:"
+                ) + Project.CitectText.Lower(name);
+            if (memo != null && memo.TryGetValue(key, out bool known))
+                return known;
+            bool missing;
+            if (page)
+                missing = !Pages.PageExists(name);
+            else if (ass)
+                // a ' literal is no tag; a dotted name no tag finds is 289 (an equipment name:
+                // the SA faceplates pass them), no warning; nor a trend tag's name (Include's
+                // AssPopTrend passes its pens to Ass and to the trend)
+                missing =
+                    name[0] != '\''
+                    && CicodeSim.World.Display.AssRules.StoreCheck(World, name, "", out _, out _) == 424
+                    && CicodeSim.World.TrendTags.Of(World).Find(name) == null;
+            else
+                missing = !db.NotUsed(() => db.Resolve(name, "", "", "")).Found;
+            if (memo != null)
+                memo[key] = missing;
+            return missing;
         }
 
         public CicodeTask StartCall(

@@ -416,12 +416,13 @@ Compile a page field's text as the page compiler would, running nothing. `kind`:
 `command`. `project`: the page's project (default the simulation's).
 
 `{"ok": true, "errors": [], "warnings": []}`, or `{"ok": false, "errors": [{"code": 2064, "name":
-"E2064", "message": "Function 'TagRea' not found", "column": 1}], "warnings": []}`. A simulation in
-compile mode `none` starts its compiler on the first check.
+"E2064", "message": "Function 'TagRea' not found", "line": 1, "column": 1}], "warnings": []}`. A
+simulation in compile mode `none` starts its compiler on the first check. `line` and `column` are
+1-based in the text (lines end at `\n`; text of one line is line 1), 0 when not known.
 
-`warnings` (only when there are no errors) are `{"kind", "name", "message", "column"}`, `name` the
-tag or page named (the literal trimmed), `column` 1-based as the errors' (0 when unknown), in
-source order:
+`warnings` (only when there are no errors) are `{"kind", "name", "message", "line", "column"}`,
+`name` the tag or page named (the literal trimmed), `line` / `column` at the name (a literal's
+opening quote), in source order:
 
 - `"kind": "tag"`: `the project does not define the tag X (the runtime raises error 424 for it)`,
   for a name the field takes for a tag, and for fixed text (a string literal) reaching a tag
@@ -443,6 +444,25 @@ Each name is warned about once.
 A parameter counts when the function passes it on as itself before assigning it (Include's
 PageDisplay assigns sPageName only on the path that does not call _PageDisplay); a value computed
 at runtime (`"Mix_" + x`) is not followed. Compile time only: nothing runs.
+
+### ctsim/checkFunctions `{project?}`
+
+The same page and tag warnings for the Cicode of the functions in the simulation's .ci files: the
+root project and the projects it includes (`project`: that project's files only). Every
+occurrence is reported (a field's check reports each name once); nothing runs.
+
+```json
+{"warnings": [{"kind": "page", "name": "Mixing", "message": "the project has no page Mixing (the runtime cannot display it)",
+               "line": 12, "column": 17, "file": "C:\\...\\Example\\mix.ci", "function": "GoMix", "project": "Example"}],
+ "errors": [{"code": 2064, "name": "E2064", "message": "Function 'TagRea' not found",
+             "line": 3, "column": 5, "file": "C:\\...\\mix.ci", "project": "Example"}]}
+```
+
+`file` is the full path, `line` / `column` 1-based at the literal's opening quote, `project` the
+file's project (Include and the other libraries are among them: filter by it). `errors` are the
+unit's compile errors as the compiler reports them (of `project`, when given). The check reads the
+simulation's compiled unit: after an editor changes a .ci file, `ctsim/reload {file}` makes the next
+check see the change.
 
 ### ctsim/call `{expr, wait? = true, timeoutMs? = 0, window?}`
 

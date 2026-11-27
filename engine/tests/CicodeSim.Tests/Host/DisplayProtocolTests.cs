@@ -131,6 +131,10 @@ namespace CicodeSim.Tests.Host
                     {
                         var hello = c.Ok("ctsim/hello", Args(("client", "check")));
                         Assert.True(hello["capabilities"]["checkExpression"].Bool);
+                        Assert.True(hello["capabilities"]["checkFunctions"].Bool);
+                        var fns = c.Ok("ctsim/checkFunctions");
+                        Assert.Equal(0, fns["errors"].Count);
+                        Assert.Equal(0, fns["warnings"].Count);
                         var ok = c.Ok("ctsim/checkExpression", Args(("text", "IntToStr(1 + 2)")));
                         Assert.True(ok["ok"].Bool);
                         Assert.Equal(0, ok["errors"].Count);
@@ -140,6 +144,7 @@ namespace CicodeSim.Tests.Host
                         Assert.True(e["code"].Long >= 2000);
                         Assert.StartsWith("E", e["name"].Str);
                         Assert.True(e["message"].Str.Length > 0);
+                        Assert.Equal(1, e["line"].Long);
                         // a name the project does not define compiles as a tag (the runtime's
                         // error 424 comes when the page runs): a warning
                         var unknown = c.Ok("ctsim/checkExpression", Args(("text", "NoSuchTag_x + 1")));

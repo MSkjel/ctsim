@@ -790,6 +790,9 @@ namespace CicodeSim.Host
                     case "ctsim/checkExpression":
                         CheckExpression(c, req, a);
                         return;
+                    case "ctsim/checkFunctions":
+                        CheckFunctions(c, req, a);
+                        return;
                     case "ctsim/clock":
                         Clock(c, req, a);
                         return;
@@ -983,6 +986,7 @@ namespace CicodeSim.Host
             caps.Set("navigate", JsonValue.True); // load {startPage}, ctsim/navigate
             caps.Set("controls", JsonValue.True); // PAGE controls, ctsim/setObjectProperty
             caps.Set("checkExpression", JsonValue.True); // ctsim/checkExpression
+            caps.Set("checkFunctions", JsonValue.True); // ctsim/checkFunctions
             caps.Set("drawnButtons", JsonValue.True); // ctsim/input presses buttons Cicode drew
             caps.Set("alarmListLayout", JsonValue.True); // alarm_list drawHeader, rowHeight, width, height, titles
             caps.Set("trendHistory", JsonValue.True); // ctsim/options seedTrendHistory
@@ -1959,7 +1963,7 @@ namespace CicodeSim.Host
 
         /// <summary>ctsim/checkExpression {text, kind? = "expression" | "command", project?}: the
         /// page field compiled as the page compiler would, nothing run: {ok,
-        /// errors: [{code, name, message, column}], warnings: [{kind, name, message, column}]} (kind
+        /// errors: [{code, name, message, line, column}], warnings: [{kind, name, message, line, column}]} (kind
         /// "tag": an undefined tag; "page": fixed text naming no page). An editor checks what is
         /// typed in a sheet.</summary>
         private void CheckExpression(Client c, JsonValue req, JsonValue a)
@@ -1973,6 +1977,16 @@ namespace CicodeSim.Host
                 throw new ArgumentException("kind must be expression or command");
             var body = Simulation.Invoke(() => Simulation.CheckField(text, kind, project));
             Ok(c.Sink, req, body);
+        }
+
+        /// <summary>ctsim/checkFunctions {project?}: the fixed page and tag names in the functions of
+        /// the unit's .ci files that the project lacks, {warnings: [{kind, name, message, line,
+        /// column, file, function, project}], errors: [{code, name, message, line, column, file,
+        /// project}]}. An editor finds the names a page rename leaves behind.</summary>
+        private void CheckFunctions(Client c, JsonValue req, JsonValue a)
+        {
+            string project = Str(a, "project");
+            Ok(c.Sink, req, Simulation.Invoke(() => Simulation.CheckFunctions(project)));
         }
 
         private void Call(Client c, JsonValue req, JsonValue a)
